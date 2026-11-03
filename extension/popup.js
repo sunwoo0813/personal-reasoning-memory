@@ -1,0 +1,6 @@
+async function command(action,payload){return chrome.runtime.sendMessage({channel:'prm-control',action,payload})}
+async function refresh(){try{const s=await command('status');if(s?.error&&!s.session){document.querySelector('#status').textContent='상태 확인 오류: '+s.error;return}document.querySelector('#status').textContent=s?.session ? (s.closing?'종료 처리 중':s.paused?'일시 중지 중':'수집 중')+' · 기록 '+(s.recorded||0)+'건 · 전송 대기 '+s.pending+'건':'세션 없음';document.querySelector('#blocked').textContent='제외: '+((s?.blocked||[]).join(', ')||'없음');document.querySelector('#diagnostics').textContent=[s.activePage, s.session?'복사 감지 '+(s.diagnostics?.copy||0)+'회 · ChatGPT 화면 '+(s.diagnostics?.chat||0)+'회 · 질문 전송 '+(s.diagnostics?.['chat-submit']||0)+'회 · 표시 메시지 '+(s.diagnostics?.chat_message_count||0)+'개':'',s.error?'전송 오류: '+s.error:''].filter(Boolean).join('\n')}catch(error){document.querySelector('#status').textContent='확장 프로그램 연결 오류: '+error.message}}
+document.querySelector('#pause').onclick=async()=>{await command('pause');refresh()};
+document.querySelector('#resume').onclick=async()=>{await command('resume');refresh()};
+document.querySelector('#add').onclick=async()=>{const host=document.querySelector('#host').value.trim().toLowerCase();if(host){await command('block',{host});document.querySelector('#host').value='';refresh()}};
+refresh();
