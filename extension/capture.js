@@ -48,7 +48,7 @@ document.addEventListener('copy', () => {
  const asElement = node => node instanceof Element ? node : node?.parentElement;
  if (isPrivateTarget(asElement(selected.anchorNode)) || isPrivateTarget(asElement(selected.focusNode))) return;
  const text = String(selected).trim();
- if (text) send({type:'copy',text:text.slice(0,10000),...info()});
+ if (text) send({...info(),type:'copy',text:text.slice(0,10000)});
 },true);
 document.addEventListener('submit',e=>{ const u=new URL(location.href); if(u.hostname==='www.google.com' && e.target instanceof HTMLFormElement){const q=new FormData(e.target).get('q');if(typeof q==='string'&&q.trim())send({type:'search',query:q.slice(0,2000),url:safeUrl(location.href)});}},true);
 // Only a deliberate prompt submission can arm capture of a new user message.
@@ -69,7 +69,16 @@ if (location.hostname === 'chatgpt.com') {
 chrome.runtime.onMessage.addListener((m,s,reply)=>{
  if(m.channel!=='capture-command') return;
  if(m.type==='snapshot') {reply(excluded()?{excluded:true}:info());return;}
- if(m.type==='selection') {const text=String(getSelection()||'').trim(); if(text&&!excluded()){send({type:'highlight',text:text.slice(0,10000),...info()});reply({ok:true});}else reply({ok:false});return;}
+ if(m.type==='selection') {
+  const selected=getSelection(), asElement=node=>node instanceof Element?node:node?.parentElement;
+  if(excluded() || isPrivateTarget(asElement(selected?.anchorNode)) || isPrivateTarget(asElement(selected?.focusNode))){reply({ok:false,reason:'excluded'});return;}
+  let text=String(selected||'').trim();
+  // The browser can clear the DOM selection when its context menu is opened.
+  // A focused child frame can hide the actual editable element from us.
+  const focusedFrame = document.activeElement?.tagName === 'IFRAME' || document.activeElement?.tagName === 'FRAME';
+  if(!text && !focusedFrame && !isPrivateTarget(document.activeElement) && typeof m.selectionText==='string')text=m.selectionText.trim();
+  if(text){send({...info(),type:'highlight',text:text.slice(0,10000)});reply({ok:true});}else reply({ok:false,reason:'no_selection'});return;
+ }
  if(m.type==='chat-snapshot') {
   if(excluded() || location.hostname!=='chatgpt.com'){reply({excluded:true});return;}
   const messages=readChatMessages();

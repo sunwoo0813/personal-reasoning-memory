@@ -5,6 +5,56 @@ import fs from 'node:fs';
 import { webcrypto } from 'node:crypto';
 import { IDBFactory } from 'fake-indexeddb';
 
+test('context menu never forwards editable or child-frame selections', () => {
+ const listeners={},listen=name=>({addListener(fn){listeners[name]=fn}}),sent=[];
+ const chrome={runtime:{onMessage:listen('message'),onInstalled:listen('installed')},tabs:{onActivated:listen('activated'),onRemoved:listen('removed'),sendMessage:(...args)=>{sent.push(args);return Promise.resolve()}},windows:{onFocusChanged:listen('focus')},webNavigation:{onCommitted:listen('committed'),onHistoryStateUpdated:listen('history')},alarms:{onAlarm:listen('alarm')},contextMenus:{onClicked:listen('context')}};
+ const ctx=vm.createContext({chrome,crypto:webcrypto,URL,Date,Promise,Set,Error,console});
+ vm.runInContext(fs.readFileSync('extension/worker.js','utf8'),ctx);
+ const click=info=>listeners.context({menuItemId:'prm-highlight',selectionText:'sample',...info},{id:5});
+ click({editable:true});
+ click({editable:true,frameId:3,frameUrl:'https://example.com/'});
+ click({editable:false,frameId:3});
+ click({editable:false,frameUrl:'https://example.com/'});
+ click({});
+ assert.equal(sent.length,0);
+ click({editable:false});
+ click({editable:false,frameId:0});
+ assert.equal(sent.length,2);
+ assert.equal(sent[0][1].selectionText,'sample');
+ assert.equal(sent[0][2].frameId,0);
+});
+
+test('rapid tab activations preserve each tab instead of re-reading the final active tab', async () => {
+ const listeners={},listen=name=>({addListener(fn){listeners[name]=fn}}),saved=[];
+ const tabs={2:{id:2,url:'https://github.com/',title:'GitHub'},3:{id:3,url:'https://supabase.com/',title:'Supabase'},4:{id:4,url:'https://www.sooplive.co.kr/',title:'SOOP'}};
+ const chrome={
+  runtime:{id:'prm-test',onMessage:listen('message'),onInstalled:listen('installed')},
+  tabs:{onActivated:listen('activated'),onRemoved:listen('removed'),get:async id=>tabs[id],query:async q=>q.url?[{id:1}]:[tabs[4]],
+   sendMessage:async(id,m)=>{if(m.channel==='prm-api'){if(m.path.endsWith('/events')){saved.push(...m.body.events);return {ok:true,body:{items:m.body.events.map(e=>({client_event_id:e.client_event_id,status:'saved'}))}}}if(m.path.endsWith('/close'))return {ok:true,body:{ok:true}};return {ok:true,body:{}}}return {url:tabs[id].url,title:tabs[id].title,text:'page'};}},
+  windows:{onFocusChanged:listen('focus'),get:async()=>({focused:true}),getLastFocused:async()=>({focused:false})},
+  webNavigation:{onCommitted:listen('committed'),onHistoryStateUpdated:listen('history')},alarms:{onAlarm:listen('alarm')},contextMenus:{onClicked:listen('context')}
+ };
+ const ctx=vm.createContext({chrome,indexedDB:new IDBFactory(),crypto:webcrypto,URL,Date,Promise,Set,Error,console});
+ vm.runInContext(fs.readFileSync('extension/worker.js','utf8'),ctx);
+ const control=(action,payload={})=>new Promise(resolve=>listeners.message({channel:'prm-control',action,payload},{id:'prm-test',url:'http://localhost:3000/'},resolve));
+ await control('start',{session:{id:'test'}});
+ for(const tabId of [2,3,4])listeners.activated({tabId,windowId:9});
+ await control('status');
+ const result=await control('stop');
+ assert.equal(result.ok,true);
+ assert.deepEqual(saved.filter(e=>e.event_type==='page_view').map(e=>e.source_ref.url),['https://github.com/','https://supabase.com/','https://www.sooplive.co.kr/']);
+ assert.ok(saved.every(e=>Date.parse(e.ended_at)>=Date.parse(e.started_at)));
+});
+
+test('connects an already open tab when its content script is unavailable', async () => {
+ const listener={addListener(){}};let connected=false,injections=0;
+ const chrome={runtime:{onMessage:listener,onInstalled:listener},tabs:{onActivated:listener,onRemoved:listener,sendMessage:async()=>{if(!connected)throw Error('no receiver');return {url:'https://example.com/',text:'page'}}},windows:{onFocusChanged:listener},webNavigation:{onCommitted:listener,onHistoryStateUpdated:listener},alarms:{onAlarm:listener},contextMenus:{onClicked:listener},scripting:{executeScript:async()=>{injections++;connected=true}}};
+ const ctx=vm.createContext({chrome,crypto:webcrypto,URL,Date,Promise,Set,Error,console});
+ vm.runInContext(fs.readFileSync('extension/worker.js','utf8'),ctx);
+ const result=await vm.runInContext('pageSnapshot(2)',ctx);
+ assert.equal(injections,1);assert.equal(result.url,'https://example.com/');
+});
+
 test('reload baselines old messages and records only submitted questions with their answers', () => {
  const listener={addListener(){}};
  const chrome={runtime:{onMessage:listener,onInstalled:listener},tabs:{onActivated:listener,onRemoved:listener},windows:{onFocusChanged:listener},webNavigation:{onCommitted:listener,onHistoryStateUpdated:listener},alarms:{onAlarm:listener},contextMenus:{onClicked:listener}};
@@ -16,6 +66,7 @@ test('reload baselines old messages and records only submitted questions with th
   const snap=(doc,messages,streaming=false)=>processChat(state,3,{url:'https://chatgpt.com/c/test',documentId:doc,messages,streaming},'2026-01-01T00:00:00Z');
   snap('doc1',old);
   state.chats['3'].armed=true;state.chats['3'].expectedPrompt='new 1';
+  snap('doc1',[...old,{role:'user',id:'u1',text:''}]);
   const first=[...old,{role:'user',id:'u1',text:'new 1'},{role:'assistant',id:'a1',text:'answer 1'}];
   snap('doc1',first,true);snap('doc1',first,false);
   snap('doc2',[]);snap('doc2',first);
@@ -74,23 +125,30 @@ test('records locally, recovers after a failed upload and closes only after sync
   listeners.message({channel:'capture',type:'chat',url:'https://chatgpt.com/c/local-chatgpt:123',messages:[{role:'user',id:'u1',text:'안녕'}],streaming:true},chatSender,()=>{});
   listeners.message({channel:'capture',type:'chat',url:'https://chatgpt.com/c/abc',messages:[{role:'user',id:'u1',text:'안녕'},{role:'assistant',id:'a1',text:'안녕하세요'}],streaming:true},chatSender,()=>{});
   listeners.message({channel:'capture',type:'chat',url:'https://chatgpt.com/c/abc',messages:[{role:'user',id:'u1',text:'안녕'},{role:'assistant',id:'a1',text:'안녕하세요'}],streaming:false},chatSender,()=>{});
+  // Navigating to an existing conversation and submitting before its first
+  // observer snapshot must retain the submission and baseline.
+  listeners.message({channel:'capture',type:'chat-submit',url:'https://chatgpt.com/c/existing',seen:['old'],prompt:'다음 질문'},chatSender,()=>{});
+  listeners.message({channel:'capture',type:'chat',url:'https://chatgpt.com/c/existing',messages:[{role:'user',id:'old',text:'이전 질문'},{role:'user',id:'u2',text:'다음 질문'},{role:'assistant',id:'a2',text:'다음 답변'}],streaming:true},chatSender,()=>{});
+  listeners.message({channel:'capture',type:'chat',url:'https://chatgpt.com/c/existing',messages:[{role:'user',id:'old',text:'이전 질문'},{role:'user',id:'u2',text:'다음 질문'},{role:'assistant',id:'a2',text:'다음 답변'}],streaming:false},chatSender,()=>{});
   listeners.message({channel:'capture',type:'copy',text:'test selection',url:'https://example.com/'},{tab:{id:4,url:'https://example.com/'}},()=>{});
   let pending = await control('status');
-  assert.equal(pending.pending, 3);
+  assert.equal(pending.pending, 4);
   const failed = await control('stop');
   assert.ok(failed.error);
   pending = await control('status');
   assert.equal(pending.closing, true);
-  assert.equal(pending.pending, 3);
+  assert.equal(pending.pending, 4);
   online = true;
   const closed = await control('stop');
   assert.equal(closed.ok, true);
   const final = await control('status');
   assert.equal(final.session, null);
   assert.equal(final.pending, 0);
-  assert.equal(received.size, 3);
+  assert.equal(received.size, 4);
   const chat = [...received.values()].find(event => event.event_type === 'llm_exchange');
   assert.equal(chat.content.question, '안녕');
   assert.equal(chat.content.response, '안녕하세요');
   assert.equal(chat.capture_status, 'complete');
+  const secondChat=[...received.values()].find(event=>event.content.question==='다음 질문');
+  assert.equal(secondChat.content.response,'다음 답변');
 });

@@ -52,7 +52,31 @@ test('copies selected page text even if focus remains in an input, without copyi
  vm.runInContext(fs.readFileSync('extension/capture.js','utf8'),context);
  handlers.copy({target:input});
  assert.equal(sent.filter(x=>x.type==='copy').length,1);
+ assert.equal(sent.find(x=>x.type==='copy').text,'page selection');
  selection={isCollapsed:false,anchorNode:input,focusNode:input,toString:()=> 'private input'};
  handlers.copy({target:input});
  assert.equal(sent.filter(x=>x.type==='copy').length,1);
+});
+
+test('records context menu text after selection clears but excludes editable fields', () => {
+ const sent=[];let listener;
+ class Element {constructor(editable=false){this.editable=editable} closest(){return this.editable?this:null}}
+ const page=new Element(),input=new Element(true);
+ const document={querySelector:()=>null,addEventListener(){},documentElement:{scrollHeight:1000},title:'Example',activeElement:page};
+ const context=vm.createContext({document,location:{hostname:'example.com',href:'https://example.com/'},Element,getSelection:()=>null,
+  chrome:{runtime:{id:'test',sendMessage:message=>{sent.push(message);return Promise.resolve()},onMessage:{addListener(fn){listener=fn}}}},
+  addEventListener(){},window:{scrollY:0},innerHeight:500,URL,console});
+ vm.runInContext(fs.readFileSync('extension/capture.js','utf8'),context);
+ let response;
+ listener({channel:'capture-command',type:'selection',selectionText:'saved selection'},null,r=>{response=r});
+ assert.equal(response.ok,true);
+ assert.equal(sent.find(m=>m.type==='highlight').text,'saved selection');
+ document.activeElement=input;
+ listener({channel:'capture-command',type:'selection',selectionText:'private input'},null,r=>{response=r});
+ assert.equal(response.ok,false);
+ assert.equal(sent.filter(m=>m.type==='highlight').length,1);
+ document.activeElement=Object.assign(new Element(),{tagName:'IFRAME'});
+ listener({channel:'capture-command',type:'selection',selectionText:'iframe input'},null,r=>{response=r});
+ assert.equal(response.ok,false);
+ assert.equal(sent.filter(m=>m.type==='highlight').length,1);
 });

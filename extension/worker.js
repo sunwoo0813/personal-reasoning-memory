@@ -15,8 +15,16 @@ function append(s,type,started,ended,source,ref,content,metadata={},capture_stat
 }
 async function flush(s){if(!s.session||!s.queue.length)return;const batch=s.queue.slice(0,50),r=await api('sessions/'+s.session.id+'/events','POST',{events:batch});const done=new Set(r.items.filter(x=>x.status==='saved'||x.status==='duplicate').map(x=>x.client_event_id));s.queue=s.queue.filter(x=>!done.has(x.client_event_id));s.lastError=r.items.find(x=>x.status==='error')?.message||null}
 async function inspectActivePage(s){try{const win=await chrome.windows.getLastFocused();const [tab]=await chrome.tabs.query({active:true,windowId:win.id});if(!tab?.url)return '활성 탭을 확인할 수 없습니다.';if(blocked(s,tab.url))return '현재 페이지는 수집 제외 또는 지원하지 않는 주소입니다.';try{const result=await chrome.tabs.sendMessage(tab.id,{channel:'capture-command',type:'snapshot'});return result?.excluded?'현재 페이지는 민감 정보 보호 설정으로 제외됐습니다.':'현재 페이지에 수집 스크립트가 연결돼 있습니다.'}catch{return '현재 페이지에 수집 스크립트가 없습니다. 페이지를 새로고침하세요.'}}catch{return '활성 탭 상태를 확인할 수 없습니다.'}}
-async function endPage(s){const p=s.openPage;if(!p)return;s.openPage=null;let snapshot={};try{snapshot=await chrome.tabs.sendMessage(p.tabId,{channel:'capture-command',type:'snapshot'})}catch{};if(snapshot.excluded)return;if(snapshot.url!==safeUrl(p.url))snapshot=p.snapshot||{};append(s,'page_view',p.start,now(),'web',{url:safeUrl(p.url),tab_id:p.tabId},{text:snapshot.text||null},{title:snapshot.title||p.title,active_seconds:Math.max(0,Math.round((Date.now()-Date.parse(p.start))/1000)),scroll_max_ratio:snapshot.scroll||0,truncated:!!snapshot.truncated,parser_version:'1.0'},snapshot.text?'complete':'metadata_only')}
-async function switchPage(s){await endPage(s);if(!s.session||s.paused||s.closing)return;const win=await chrome.windows.getLastFocused();if(!win.focused)return;const [tab]=await chrome.tabs.query({active:true,windowId:win.id});if(!tab||blocked(s,tab.url))return;let snapshot;try{snapshot=await chrome.tabs.sendMessage(tab.id,{channel:'capture-command',type:'snapshot'})}catch{return}if(snapshot?.excluded)return;s.openPage={tabId:tab.id,url:tab.url,title:tab.title,start:now(),snapshot};
+async function pageSnapshot(tabId){
+ try{return await chrome.tabs.sendMessage(tabId,{channel:'capture-command',type:'snapshot'})}
+ catch(firstError){
+  if(!chrome.scripting)throw firstError;
+  await chrome.scripting.executeScript({target:{tabId},files:['capture.js']});
+  return chrome.tabs.sendMessage(tabId,{channel:'capture-command',type:'snapshot'});
+ }
+}
+async function endPage(s,at=now()){const p=s.openPage;if(!p)return;s.openPage=null;let snapshot={};try{snapshot=await chrome.tabs.sendMessage(p.tabId,{channel:'capture-command',type:'snapshot'})}catch{};if(snapshot.excluded)return;if(snapshot.url!==safeUrl(p.url))snapshot=p.snapshot||{};const end=new Date(Math.max(Date.parse(p.start),Date.parse(at))).toISOString();append(s,'page_view',p.start,end,'web',{url:safeUrl(p.url),tab_id:p.tabId},{text:snapshot.text||null},{title:snapshot.title||p.title,active_seconds:Math.max(0,Math.round((Date.parse(end)-Date.parse(p.start))/1000)),scroll_max_ratio:snapshot.scroll||0,truncated:!!snapshot.truncated,parser_version:'1.0'},snapshot.text?'complete':'metadata_only')}
+async function switchPage(s,selectedTab,at=now()){if(selectedTab&&s.openPage?.tabId===selectedTab.id&&safeUrl(s.openPage.url)===safeUrl(selectedTab.url))return;await endPage(s,at);if(!s.session||s.paused||s.closing)return;let tab=selectedTab;if(tab===undefined){const win=await chrome.windows.getLastFocused();if(!win.focused)return;[tab]=await chrome.tabs.query({active:true,windowId:win.id});}if(!tab||blocked(s,tab.url))return;let snapshot;try{snapshot=await pageSnapshot(tab.id)}catch{s.diagnostics ||= {};s.diagnostics.page_unavailable=(s.diagnostics.page_unavailable||0)+1;return}if(snapshot?.excluded){s.diagnostics ||= {};s.diagnostics.page_excluded=(s.diagnostics.page_excluded||0)+1;return}if(!snapshot||snapshot.url!==safeUrl(tab.url)){s.diagnostics ||= {};s.diagnostics.page_changed=(s.diagnostics.page_changed||0)+1;return}s.openPage={tabId:tab.id,url:tab.url,title:tab.title,start:at,snapshot};
  try { if(new URL(tab.url).hostname==='chatgpt.com' && !s.chats[String(tab.id)]) { const chat=await chrome.tabs.sendMessage(tab.id,{channel:'capture-command',type:'chat-snapshot'}); if(!chat.excluded)processChat(s,tab.id,chat,now()); } }catch{}
 }
 function finalizeChat(s, chat) { if(!chat?.draft)return; const d=chat.draft; append(s,'llm_exchange',d.started,now(),'chatgpt',{url:d.url,tab_id:d.tabId,user_message_id:d.userId,assistant_message_id:d.assistantId||null},{question:d.question,response:d.response||null},{parser_version:'1.0',completion_observed:!!d.complete},d.complete && !d.userId?.startsWith('local-dom-') && !d.assistantId?.startsWith('local-dom-')?'complete':'partial'); chat.draft=null; }
@@ -32,7 +40,9 @@ function processChat(s,tabId,m,at){
   const candidate=messages.filter(x=>x.role==='user'&&x.id&&!chat.seen.includes(x.id)&&(!chat.expectedPrompt||normalize(x.text)===normalize(chat.expectedPrompt))).at(-1);
   if(candidate){if(chat.draft)finalizeChat(s,chat);chat.draft={url:m.url,tabId,userId:candidate.id,question:candidate.text,started:at,response:null,assistantId:null,sawStreaming:false,complete:false};chat.armed=false;chat.expectedPrompt=null;}
  }
- for(const x of messages)if(x.id&&!chat.seen.includes(x.id))chat.seen.push(x.id);
+ // While waiting for the submitted prompt, a newly mounted user node may
+ // still be empty or incomplete. Keep it eligible on the next snapshot.
+ for(const x of messages)if(x.id&&!chat.seen.includes(x.id)&&!(chat.armed&&x.role==='user'))chat.seen.push(x.id);
  if(chat.draft){
   const i=messages.findIndex(x=>x.id===chat.draft.userId);
   const nextUser=i<0?-1:messages.findIndex((x,j)=>j>i&&x.role==='user');
@@ -48,19 +58,30 @@ chrome.runtime.onMessage.addListener((m,sender,respond)=>{
   if(!trusted){respond({error:'허용되지 않은 출처입니다.'});return}
   command(m.action,m.payload||{}).then(respond).catch(e=>respond({error:e.message}));return true;
  }
- if(m.channel==='capture'&&sender.tab?.id){serial(async()=>{const s=await read();if(!s.session||s.paused||s.closing||blocked(s,sender.tab.url))return;const at=now();s.diagnostics ||= {};s.diagnostics[m.type]=(s.diagnostics[m.type]||0)+1;if(m.type==='chat')s.diagnostics.chat_message_count=Array.isArray(m.messages)?m.messages.length:0;if(m.type==='ready'&&!s.openPage){await switchPage(s)}if(m.type==='search'){s.searchRecent={tabId:sender.tab.id,query:m.query,at:Date.now()};append(s,'search',at,at,'google',{url:m.url,tab_id:sender.tab.id},{query:m.query},{engine:'google'});}if((m.type==='pagehide'||(m.type==='visibility'&&m.visible===false))&&s.openPage?.tabId===sender.tab.id){if(m.snapshot?.url===safeUrl(s.openPage.url))s.openPage.snapshot=m.snapshot;await endPage(s);}if(m.type==='visibility'&&m.visible===true&&!s.openPage)await switchPage(s);if(m.type==='chat'){
+ if(m.channel==='capture'&&sender.tab?.id){const at=now();serial(async()=>{const s=await read();if(!s.session||s.paused||s.closing||blocked(s,sender.tab.url))return;s.diagnostics ||= {};s.diagnostics[m.type]=(s.diagnostics[m.type]||0)+1;if(m.type==='chat')s.diagnostics.chat_message_count=Array.isArray(m.messages)?m.messages.length:0;if(m.type==='ready'&&!s.openPage){await switchPage(s,undefined,at)}if(m.type==='search'){s.searchRecent={tabId:sender.tab.id,query:m.query,at:Date.now()};append(s,'search',at,at,'google',{url:m.url,tab_id:sender.tab.id},{query:m.query},{engine:'google'});}if((m.type==='pagehide'||(m.type==='visibility'&&m.visible===false))&&s.openPage?.tabId===sender.tab.id){if(m.snapshot?.url===safeUrl(s.openPage.url))s.openPage.snapshot=m.snapshot;await endPage(s,at);}if(m.type==='visibility'&&m.visible===true&&!s.openPage)await switchPage(s,undefined,at);if(m.type==='chat'){
  processChat(s,sender.tab.id,m,at);
 }if(m.type==='chat-submit'){
  const key=String(sender.tab.id);let chat=s.chats[key];
- if(!chat || (m.documentId && chat.documentId!==m.documentId)){if(chat)finalizeChat(s,chat);chat=s.chats[key]={url:m.url,documentId:m.documentId,seen:Array.isArray(m.seen)?m.seen:[],draft:null,armed:false};}
+ if(!chat || chat.url!==m.url || (m.documentId && chat.documentId!==m.documentId)){if(chat)finalizeChat(s,chat);chat=s.chats[key]={url:m.url,documentId:m.documentId,seen:Array.isArray(m.seen)?m.seen:[],draft:null,armed:false};}
  chat.armed=true;chat.expectedPrompt=typeof m.prompt==='string'?m.prompt:null;
 }if(m.type==='copy'||m.type==='highlight')append(s,'copy_highlight',at,at,'web',{url:m.url,tab_id:sender.tab.id},{text:m.text},{action:m.type,source_page_url:m.url,location:'unavailable'},'partial');await write(s);try{await flush(s)}catch(e){s.lastError=e.message}await write(s)}).catch(()=>{});}
 });
-chrome.tabs.onActivated.addListener(()=>serial(async()=>{const s=await read();await switchPage(s);await write(s)}).catch(()=>{}));
-chrome.windows.onFocusChanged.addListener(()=>serial(async()=>{const s=await read();await switchPage(s);await write(s)}).catch(()=>{}));
-chrome.webNavigation.onCommitted.addListener(d=>{if(d.frameId===0)serial(async()=>{const s=await read();try{const u=new URL(d.url),q=u.searchParams.get('q');if(s.session&&!s.paused&&!s.closing&&u.hostname==='www.google.com'&&u.pathname==='/search'&&q&&!(s.searchRecent?.tabId===d.tabId&&s.searchRecent.query===q&&Date.now()-s.searchRecent.at<5000)){const at=now();append(s,'search',at,at,'google',{url:safeUrl(d.url),tab_id:d.tabId},{query:q.slice(0,2000)},{engine:'google',detection:'navigation'},'partial');s.searchRecent={tabId:d.tabId,query:q,at:Date.now()}}}catch{};if(s.openPage?.tabId===d.tabId){await endPage(s);await switchPage(s)}await write(s)}).catch(()=>{})});
-chrome.webNavigation.onHistoryStateUpdated.addListener(d=>{if(d.frameId===0)serial(async()=>{const s=await read();if(s.openPage?.tabId===d.tabId){await endPage(s);await switchPage(s);await write(s)}}).catch(()=>{})});
+chrome.tabs.onActivated.addListener(info=>{
+ const at=now(),tabPromise=chrome.tabs.get(info.tabId).catch(()=>null),windowPromise=chrome.windows.get(info.windowId).catch(()=>null);
+ serial(async()=>{const [tab,win]=await Promise.all([tabPromise,windowPromise]);if(!win?.focused)return;const s=await read();await switchPage(s,tab,at);await write(s)}).catch(()=>{});
+});
+chrome.windows.onFocusChanged.addListener(windowId=>{
+ const at=now(),tabsPromise=windowId===chrome.windows.WINDOW_ID_NONE?Promise.resolve([]):chrome.tabs.query({active:true,windowId}).catch(()=>[]);
+ serial(async()=>{const [tab]=await tabsPromise;const s=await read();await switchPage(s,tab||null,at);await write(s)}).catch(()=>{});
+});
+chrome.webNavigation.onCommitted.addListener(d=>{if(d.frameId!==0)return;const at=now(),tabPromise=chrome.tabs.get(d.tabId).catch(()=>null);serial(async()=>{const s=await read();try{const u=new URL(d.url),q=u.searchParams.get('q');if(s.session&&!s.paused&&!s.closing&&u.hostname==='www.google.com'&&u.pathname==='/search'&&q&&!(s.searchRecent?.tabId===d.tabId&&s.searchRecent.query===q&&Date.now()-s.searchRecent.at<5000)){append(s,'search',at,at,'google',{url:safeUrl(d.url),tab_id:d.tabId},{query:q.slice(0,2000)},{engine:'google',detection:'navigation'},'partial');s.searchRecent={tabId:d.tabId,query:q,at:Date.now()}}}catch{};if(s.openPage?.tabId===d.tabId){const tab=await tabPromise;await endPage(s,at);await switchPage(s,tab&&safeUrl(tab.url)===safeUrl(d.url)?tab:null,at)}await write(s)}).catch(()=>{})});
+chrome.webNavigation.onHistoryStateUpdated.addListener(d=>{if(d.frameId!==0)return;const at=now(),tabPromise=chrome.tabs.get(d.tabId).catch(()=>null);serial(async()=>{const s=await read();if(s.openPage?.tabId===d.tabId){const tab=await tabPromise;await endPage(s,at);await switchPage(s,tab&&safeUrl(tab.url)===safeUrl(d.url)?tab:null,at);await write(s)}}).catch(()=>{})});
 chrome.tabs.onRemoved.addListener(id=>serial(async()=>{const s=await read();if(s.openPage?.tabId===id)await endPage(s);const chat=s.chats[String(id)];if(chat){finalizeChat(s,chat);delete s.chats[String(id)]}await write(s)}).catch(()=>{}));
 chrome.alarms.onAlarm.addListener(a=>{if(a.name==='sync')serial(async()=>{const s=await read();try{await flush(s)}catch(e){s.lastError=e.message}await write(s)}).catch(()=>{})});
 chrome.runtime.onInstalled.addListener(()=>{chrome.alarms.create('sync',{periodInMinutes:0.5});chrome.contextMenus.create({id:'prm-highlight',title:'PRM에 선택 영역 기록',contexts:['selection'],documentUrlPatterns:['https://*/*']})});
-chrome.contextMenus.onClicked.addListener((info,tab)=>{if(info.menuItemId==='prm-highlight'&&tab?.id)chrome.tabs.sendMessage(tab.id,{channel:'capture-command',type:'selection'}).catch(()=>{})});
+chrome.contextMenus.onClicked.addListener((info,tab)=>{
+ // The current content script runs only in the top frame. Never pass a
+ // selection from an editable element or a child frame to that script.
+ if(info.menuItemId!=='prm-highlight'||!tab?.id||info.editable!==false||info.frameUrl||(info.frameId!=null&&info.frameId!==0))return;
+ chrome.tabs.sendMessage(tab.id,{channel:'capture-command',type:'selection',selectionText:info.selectionText||''},{frameId:0}).catch(()=>{});
+});
