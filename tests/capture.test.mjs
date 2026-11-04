@@ -3,6 +3,39 @@ import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import fs from 'node:fs';
 
+test('page snapshots never read or return page body text', () => {
+ let listener;
+ const document={querySelector:selector=>{if(selector==='article,main')throw Error('body was read');return null},addEventListener(){},documentElement:{scrollHeight:1000},title:'Example'};
+ const context=vm.createContext({document,location:{hostname:'example.com',href:'https://example.com/'},
+  chrome:{runtime:{id:'test',sendMessage:()=>Promise.resolve(),onMessage:{addListener(fn){listener=fn}}}},
+  addEventListener(){},window:{scrollY:0},innerHeight:500,URL,console});
+ vm.runInContext(fs.readFileSync('extension/capture.js','utf8'),context);
+ let snapshot;listener({channel:'capture-command',type:'snapshot'},null,r=>{snapshot=r});
+ assert.equal(snapshot.title,'Example');assert.equal(snapshot.scroll,0.5);assert.equal('text' in snapshot,false);
+});
+
+test('captures Google search box Enter and avoids duplicating its form submission', () => {
+ const handlers={},sent=[];
+ class Element { constructor(value='', search=false){this.value=value;this.search=search} matches(){return this.search} }
+ class HTMLFormElement {}
+ const form=new HTMLFormElement();
+ const document={querySelector:()=>null,addEventListener:(name,fn)=>{handlers[name]=fn},documentElement:{scrollHeight:1000},title:'Google'};
+ const context=vm.createContext({document,location:{hostname:'www.google.com',href:'https://www.google.com/'},Element,HTMLFormElement,
+  FormData:class {get(){return '검색어'}},chrome:{runtime:{id:'test',sendMessage:m=>{sent.push(m);return Promise.resolve()},onMessage:{addListener(){}}}},
+  addEventListener(){},window:{scrollY:0},innerHeight:500,URL,console});
+ vm.runInContext(fs.readFileSync('extension/capture.js','utf8'),context);
+ const input=new Element('검색어',true);
+ handlers.keydown({key:'Enter',target:input,isComposing:true});
+ handlers.keydown({key:'Enter',target:new Element('private',false)});
+ assert.equal(sent.filter(m=>m.type==='search').length,0);
+ handlers.keydown({key:'Enter',target:input});
+ handlers.submit({target:form});
+ const searches=sent.filter(m=>m.type==='search');
+ assert.equal(searches.length,1);
+ assert.equal(searches[0].query,'검색어');
+ assert.equal(searches[0].detection,'enter');
+});
+
 test('reads the observed ChatGPT user and assistant message structures', () => {
  const sent=[];
  function node(role,id,text) {
@@ -24,7 +57,7 @@ test('reads the observed ChatGPT user and assistant message structures', () => {
  vm.runInContext(fs.readFileSync('extension/capture.js','utf8'),context);
  const chat=sent.find(m=>m.type==='chat');
  assert.deepEqual(JSON.parse(JSON.stringify(chat.messages)),[
-  {role:'user',id:'user-id',text:'질문'}, {role:'assistant',id:'assistant-id',text:'답변'}
+  {role:'user',id:'user-id',text:'질문',truncated:false}, {role:'assistant',id:'assistant-id',text:'답변',truncated:false}
  ]);
 });
 

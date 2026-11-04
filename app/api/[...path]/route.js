@@ -1,5 +1,6 @@
 import { database, requireLocal } from '../../../lib/db';
 import { NextResponse } from 'next/server';
+import { normalizeEvent } from '../../../lib/events';
 export const dynamic = 'force-dynamic';
 const result = data => NextResponse.json(data, { headers: { 'Cache-Control': 'no-store' } });
 function check(error) { if (error) throw new Error(error.message); }
@@ -35,8 +36,9 @@ async function handler(request, { params }) {
    for (const event of body.events) {
     try {
      if (event.device_id !== session.device_id || !['search','page_view','llm_exchange','copy_highlight'].includes(event.event_type)) throw new Error('장치 또는 이벤트 유형이 올바르지 않습니다.');
-     if (JSON.stringify(event.content ?? null).length > 250000) throw new Error('본문 크기 한도를 초과했습니다.');
-     const { data, error } = await db.rpc('prm_store_event', { p_session:path[1], p_event:event }); check(error);
+     const normalized = normalizeEvent(event);
+     if (JSON.stringify(normalized.content ?? null).length > 250000) throw new Error('본문 크기 한도를 초과했습니다.');
+     const { data, error } = await db.rpc('prm_store_event', { p_session:path[1], p_event:normalized }); check(error);
      items.push({client_event_id:event.client_event_id,status:data});
     } catch(e) { items.push({client_event_id:event.client_event_id,status:'error',message:e.message}); }
    }

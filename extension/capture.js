@@ -19,9 +19,7 @@ function trackScroll(){maxScroll=Math.max(maxScroll,Math.min(1,(window.scrollY+i
 addEventListener('scroll',trackScroll,{passive:true});trackScroll();
 function safeUrl(value){try{const u=new URL(value);for(const key of [...u.searchParams.keys()])if(/token|secret|password|auth|session|key|code/i.test(key))u.searchParams.delete(key);u.hash='';return u.toString()}catch{return ''}}
 function info() {
- const body=location.hostname==='chatgpt.com'?null:document.querySelector('article,main');
- const raw=body?.innerText || '';
- return {url:safeUrl(location.href),title:document.title,text:raw.slice(0,60000),truncated:raw.length>60000,scroll:maxScroll};
+ return {url:safeUrl(location.href),title:document.title,scroll:maxScroll};
 }
 function isPrivateTarget(target) { return target instanceof Element && !!target.closest('input,textarea,[contenteditable=true],[role=textbox]'); }
 const chatNodeIds = new WeakMap();
@@ -36,7 +34,8 @@ function readChatMessages() {
    if (!chatNodeIds.has(el)) chatNodeIds.set(el, 'local-dom-' + (++nextChatNodeId));
    id = chatNodeIds.get(el);
   }
-  return {role,id,text:(el.innerText||'').slice(0,60000)};
+  const text=el.innerText||'';
+  return {role,id,text:text.slice(0,60000),truncated:text.length>60000};
  }).filter(x => x.role === 'user' || x.role === 'assistant');
 }
 
@@ -50,14 +49,34 @@ document.addEventListener('copy', () => {
  const text = String(selected).trim();
  if (text) send({...info(),type:'copy',text:text.slice(0,10000)});
 },true);
-document.addEventListener('submit',e=>{ const u=new URL(location.href); if(u.hostname==='www.google.com' && e.target instanceof HTMLFormElement){const q=new FormData(e.target).get('q');if(typeof q==='string'&&q.trim())send({type:'search',query:q.slice(0,2000),url:safeUrl(location.href)});}},true);
+// Google may handle Enter without dispatching a form submit. Only observe its
+// named search box; other text inputs can contain private information.
+if (location.hostname === 'www.google.com') {
+ let lastSearch = null;
+ const recordSearch = (query, method) => {
+  if (typeof query !== 'string' || !query.trim()) return;
+  query = query.trim().slice(0,2000);
+  const at = Date.now();
+  if (lastSearch && lastSearch.query === query && lastSearch.method !== method && at - lastSearch.at < 1000) return;
+  lastSearch = {query, method, at};
+  send({type:'search',query,url:safeUrl(location.href),detection:method});
+ };
+ document.addEventListener('keydown', e => {
+  if (e.key !== 'Enter' || e.isComposing || e.repeat || e.shiftKey || e.ctrlKey || e.altKey || e.metaKey) return;
+  if (!(e.target instanceof Element) || !e.target.matches('input[name="q"], textarea[name="q"]')) return;
+  recordSearch(e.target.value, 'enter');
+ }, true);
+ document.addEventListener('submit', e => {
+  if (e.target instanceof HTMLFormElement) recordSearch(new FormData(e.target).get('q'), 'submit');
+ }, true);
+}
 // Only a deliberate prompt submission can arm capture of a new user message.
 if (location.hostname === 'chatgpt.com') {
  const promptTarget = target => target instanceof Element && !!target.closest('textarea, [contenteditable="true"], [role="textbox"]');
  const submitIntent = target => {
   const editor = target?.closest?.('textarea, [contenteditable="true"], [role="textbox"]') || document.querySelector('#prompt-textarea, textarea[name="prompt-textarea"], [contenteditable="true"][role="textbox"]');
-  const prompt = (editor?.value ?? editor?.innerText ?? '').trim().slice(0,60000);
-  if (prompt) send({type:'chat-submit',url:safeUrl(location.href),documentId:chatDocumentId,seen:readChatMessages().map(m=>m.id),prompt});
+  const prompt = (editor?.value ?? editor?.innerText ?? '').trim();
+  if (prompt) send({type:'chat-submit',url:safeUrl(location.href),documentId:chatDocumentId,seen:readChatMessages().map(m=>m.id),prompt:prompt.slice(0,60000),truncated:prompt.length>60000});
  };
  document.addEventListener('keydown', e => {
   if (e.key === 'Enter' && !e.shiftKey && !e.isComposing && !e.repeat && promptTarget(e.target)) submitIntent(e.target);
@@ -82,17 +101,21 @@ chrome.runtime.onMessage.addListener((m,s,reply)=>{
  if(m.type==='chat-snapshot') {
   if(excluded() || location.hostname!=='chatgpt.com'){reply({excluded:true});return;}
   const messages=readChatMessages();
-  reply({url:safeUrl(location.href),documentId:chatDocumentId,messages,streaming:!!document.querySelector('[data-testid="stop-button"]')});return;
+  reply({url:safeUrl(location.href),documentId:chatDocumentId,messages,streaming:!!document.querySelector('[data-testid="stop-button"]'),ready:!!document.querySelector('[data-testid="send-button"]')});return;
  }
 });
 if(location.hostname==='chatgpt.com'){
- let timer;
+ let timer,settleTimer;
  const snapshot=()=>{
   if(excluded())return;
   const messages=readChatMessages();
-  send({type:'chat',url:safeUrl(location.href),documentId:chatDocumentId,messages,streaming:!!document.querySelector('[data-testid="stop-button"]')});
+  const streaming=!!document.querySelector('[data-testid="stop-button"]');
+  const ready=!!document.querySelector('[data-testid="send-button"]');
+  send({type:'chat',url:safeUrl(location.href),documentId:chatDocumentId,messages,streaming,ready});
  };
- new MutationObserver(()=>{if(!timer)timer=setTimeout(()=>{timer=null;snapshot()},750)}).observe(document.documentElement,{childList:true,subtree:true,characterData:true});
+ const schedule=()=>{if(!timer)timer=setTimeout(()=>{timer=null;snapshot();clearTimeout(settleTimer);settleTimer=setTimeout(snapshot,5000)},750)};
+ new MutationObserver(schedule).observe(document.documentElement,{childList:true,subtree:true,characterData:true,attributes:true});
+ document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'){snapshot();clearTimeout(settleTimer);settleTimer=setTimeout(snapshot,5000)}});
  snapshot();
 }
 send({type:'ready'});

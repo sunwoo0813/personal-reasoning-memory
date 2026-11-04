@@ -43,6 +43,7 @@ test('rapid tab activations preserve each tab instead of re-reading the final ac
  const result=await control('stop');
  assert.equal(result.ok,true);
  assert.deepEqual(saved.filter(e=>e.event_type==='page_view').map(e=>e.source_ref.url),['https://github.com/','https://supabase.com/','https://www.sooplive.co.kr/']);
+ assert.ok(saved.filter(e=>e.event_type==='page_view').every(e=>e.content===null && e.capture_status==='metadata_only' && typeof e.metadata.active_seconds==='number'));
  assert.ok(saved.every(e=>Date.parse(e.ended_at)>=Date.parse(e.started_at)));
 });
 
@@ -53,6 +54,47 @@ test('connects an already open tab when its content script is unavailable', asyn
  vm.runInContext(fs.readFileSync('extension/worker.js','utf8'),ctx);
  const result=await vm.runInContext('pageSnapshot(2)',ctx);
  assert.equal(injections,1);assert.equal(result.url,'https://example.com/');
+});
+
+test('same-address navigation does not split a page while a different address does', async () => {
+ const listeners={},listen=name=>({addListener(fn){listeners[name]=fn}});
+ let tab={id:2,url:'https://example.com/a',title:'A'};
+ const chrome={runtime:{id:'test',onMessage:listen('message'),onInstalled:listen('installed')},
+  tabs:{onActivated:listen('activated'),onRemoved:listen('removed'),get:async()=>tab,query:async()=>[tab],sendMessage:async()=>({url:tab.url,title:tab.title})},
+  windows:{onFocusChanged:listen('focus'),getLastFocused:async()=>({id:1,focused:true})},
+  webNavigation:{onCommitted:listen('committed'),onHistoryStateUpdated:listen('history')},alarms:{onAlarm:listen('alarm')},contextMenus:{onClicked:listen('context')}};
+ const ctx=vm.createContext({chrome,indexedDB:new IDBFactory(),crypto:webcrypto,URL,Date,Promise,Set,Error,console});
+ vm.runInContext(fs.readFileSync('extension/worker.js','utf8'),ctx);
+ const control=(action,payload={})=>new Promise(resolve=>listeners.message({channel:'prm-control',action,payload},{id:'test',url:'http://localhost:3000/'},resolve));
+ await control('start',{session:{id:'s'}});
+ listeners.committed({frameId:0,tabId:2,url:tab.url});
+ listeners.history({frameId:0,tabId:2,url:tab.url});
+ let status=await control('status');assert.equal(status.recorded,0);
+ tab={...tab,url:'https://example.com/b',title:'B'};
+ listeners.history({frameId:0,tabId:2,url:tab.url});
+ status=await control('status');assert.equal(status.recorded,1);
+ listeners.message({channel:'capture',type:'pagehide',snapshot:{url:'https://example.com/a'}},{tab},()=>{});
+ status=await control('status');assert.equal(status.recorded,1);
+});
+
+test('Google results do not create a page visit and search remains recorded', async () => {
+ const listeners={},listen=name=>({addListener(fn){listeners[name]=fn}});
+ const tab={id:2,url:'https://www.google.com/search?q=instagram',title:'Google'};
+ const chrome={runtime:{id:'test',onMessage:listen('message'),onInstalled:listen('installed')},
+  tabs:{onActivated:listen('activated'),onRemoved:listen('removed'),get:async()=>tab,query:async()=>[tab],sendMessage:async()=>({url:tab.url,title:tab.title})},
+  windows:{onFocusChanged:listen('focus'),getLastFocused:async()=>({id:1,focused:true})},
+  webNavigation:{onCommitted:listen('committed'),onHistoryStateUpdated:listen('history')},alarms:{onAlarm:listen('alarm')},contextMenus:{onClicked:listen('context')}};
+ const ctx=vm.createContext({chrome,indexedDB:new IDBFactory(),crypto:webcrypto,URL,Date,Promise,Set,Error,console});
+ vm.runInContext(fs.readFileSync('extension/worker.js','utf8'),ctx);
+ const control=(action,payload={})=>new Promise(resolve=>listeners.message({channel:'prm-control',action,payload},{id:'test',url:'http://localhost:3000/'},resolve));
+ await control('start',{session:{id:'s'}});
+ assert.equal((await control('status')).recorded,0);
+ listeners.committed({frameId:0,tabId:2,url:tab.url});
+ assert.equal((await control('status')).recorded,1);
+ const state=await vm.runInContext('read()',ctx);
+ assert.equal(state.queue[0].event_type,'search');
+ assert.equal(state.queue[0].content.query,'instagram');
+ assert.equal(state.openPage,null);
 });
 
 test('reload baselines old messages and records only submitted questions with their answers', () => {
@@ -78,6 +120,48 @@ test('reload baselines old messages and records only submitted questions with th
  `,ctx);
  assert.deepEqual(JSON.parse(JSON.stringify(ctx.result.map(e=>e.content))),[{question:'new 1',response:'answer 1'},{question:'new 2',response:'answer 2'}]);
  assert.ok(ctx.result.every(e=>e.capture_status==='complete'));
+});
+
+test('captures an answer completed in the background after stable ready observations', () => {
+ const listener={addListener(){}};
+ const chrome={runtime:{onMessage:listener,onInstalled:listener},tabs:{onActivated:listener,onRemoved:listener},windows:{onFocusChanged:listener},webNavigation:{onCommitted:listener,onHistoryStateUpdated:listener},alarms:{onAlarm:listener},contextMenus:{onClicked:listener}};
+ const ctx=vm.createContext({chrome,crypto:webcrypto,URL,Date,Promise,Set,Error,console});
+ vm.runInContext(fs.readFileSync('extension/worker.js','utf8'),ctx);
+ vm.runInContext(`
+  const state={session:{id:'s'},seq:0,ids:[],queue:[],deviceId:'d',chats:{}};
+  const snap=(messages,streaming,ready,at)=>processChat(state,4,{url:'https://chatgpt.com/c/a',documentId:'doc',messages,streaming,ready},at);
+  snap([],false,true,'2026-01-01T00:00:00Z');
+  state.chats['4'].armed=true;state.chats['4'].expectedPrompt='question';state.chats['4'].submittedAt='2026-01-01T00:00:01Z';
+  const messages=[{role:'user',id:'u',text:'question'},{role:'assistant',id:'a',text:'answer'}];
+  snap(messages,false,true,'2026-01-01T00:00:02Z');
+  snap(messages,false,true,'2026-01-01T00:00:06Z');
+  globalThis.before=state.queue.length;
+  snap(messages,false,true,'2026-01-01T00:00:07Z');
+  snap(messages,false,true,'2026-01-01T00:00:15Z');
+  globalThis.result=state.queue;
+ `,ctx);
+ assert.equal(ctx.before,0);assert.equal(ctx.result.length,1);
+ assert.equal(ctx.result[0].capture_status,'complete');
+ assert.equal(ctx.result[0].metadata.completion_method,'stable_ready');
+ assert.equal(ctx.result[0].started_at,'2026-01-01T00:00:01Z');
+});
+
+test('captured answers are complete independently of completion observation, while truncated responses remain partial', () => {
+ const listener={addListener(){}};
+ const chrome={runtime:{onMessage:listener,onInstalled:listener},tabs:{onActivated:listener,onRemoved:listener},windows:{onFocusChanged:listener},webNavigation:{onCommitted:listener,onHistoryStateUpdated:listener},alarms:{onAlarm:listener},contextMenus:{onClicked:listener}};
+ const ctx=vm.createContext({chrome,crypto:webcrypto,URL,Date,Promise,Set,Error,console});
+ vm.runInContext(fs.readFileSync('extension/worker.js','utf8'),ctx);
+ vm.runInContext(`
+ const s={session:{id:'s'},seq:0,ids:[],queue:[],deviceId:'d',chats:{}};
+ const chat={draft:{started:'2026-01-01T00:00:00Z',url:'https://chatgpt.com/',tabId:1,userId:'u',assistantId:'a',question:'q',response:'unfinished',complete:false}};
+ finalizeChat(s,chat);
+ chat.draft={started:'2026-01-01T00:00:00Z',url:'https://chatgpt.com/',tabId:1,userId:'u',assistantId:'a',question:'q',response:'truncated',responseTruncated:true,complete:true};
+ finalizeChat(s,chat);globalThis.result=s.queue;
+ `,ctx);
+ assert.equal(ctx.result[0].capture_status,'complete');
+ assert.equal(ctx.result[0].metadata.completion_observed,false);
+ assert.equal(ctx.result[1].capture_status,'partial');
+ assert.equal(ctx.result[1].metadata.truncated,true);
 });
 
 test('records locally, recovers after a failed upload and closes only after syncing', async () => {
