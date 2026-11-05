@@ -1,4 +1,4 @@
-const LOCAL='http://localhost:3000/';
+const LOCAL_URLS=['http://localhost:3000/','http://127.0.0.1:3000/','http://localhost:3001/','http://127.0.0.1:3001/'];
 let operation=Promise.resolve();
 const serial=fn=>{const next=operation.then(fn,fn);operation=next.catch(()=>{});return next};
 function openDb(){return new Promise((resolve,reject)=>{const r=indexedDB.open('prm-capture',1);r.onupgradeneeded=()=>r.result.createObjectStore('state');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
@@ -6,7 +6,7 @@ async function read(){const db=await openDb();return new Promise((resolve,reject
 async function write(data){const db=await openDb();return new Promise((resolve,reject)=>{const t=db.transaction('state','readwrite');t.objectStore('state').put(data,'capture');t.oncomplete=resolve;t.onerror=()=>reject(t.error)})}
 const now=()=>new Date().toISOString();
 function safeUrl(value){try{const u=new URL(value);for(const key of [...u.searchParams.keys()])if(/token|secret|password|auth|session|key|code/i.test(key))u.searchParams.delete(key);u.hash='';return u.toString()}catch{return ''}}
-async function api(path,method='GET',body={}){const tabs=await chrome.tabs.query({url:LOCAL+'*'});for(const tab of tabs){try{const r=await chrome.tabs.sendMessage(tab.id,{channel:'prm-api',path,method,body});if(r?.ok)return r.body;if(r?.body?.error)throw Error(r.body.error)}catch(e){if(e.message&&!e.message.includes('Receiving end'))throw e}}throw Error('PRM 웹사이트를 localhost:3000에서 열어주세요.')}
+async function api(path,method='GET',body={}){const tabs=await chrome.tabs.query({url:LOCAL_URLS.map(url=>url+'*')});for(const tab of tabs){try{const r=await chrome.tabs.sendMessage(tab.id,{channel:'prm-api',path,method,body});if(r?.ok)return r.body;if(r?.body?.error)throw Error(r.body.error)}catch(e){if(e.message&&!e.message.includes('Receiving end'))throw e}}throw Error('PRM 웹사이트를 localhost:3000 또는 localhost:3001에서 열어주세요.')}
 function blocked(state,url){try{const u=new URL(url);return u.protocol!=='https:'||state.blocked.some(h=>u.hostname===h||u.hostname.endsWith('.'+h))}catch{return true}}
 function searchResultsPage(url){try{const u=new URL(url);return u.hostname==='www.google.com'&&u.pathname==='/search'}catch{return false}}
 function append(s,type,started,ended,source,ref,content,metadata={},capture_status='complete'){
@@ -55,7 +55,7 @@ async function close(s){if(!s.closing){await endPage(s);s.paused=false;for(const
 async function command(action,payload){return serial(async()=>{let s=await read();if(action==='status'){await write(s);return {deviceId:s.deviceId,session:s.session,paused:s.paused,closing:!!s.closing,pending:s.queue.length,recorded:s.seq,blocked:s.blocked,error:s.lastError,activePage:await inspectActivePage(s),diagnostics:s.diagnostics||{}};}if(action==='start'){if(s.session)throw Error('이미 시작한 세션이 있습니다.');s.session=payload.session;s.ids=[];s.seq=0;s.queue=[];s.paused=false;s.closing=false;s.lastError=null;s.chats={};s.diagnostics={};await switchPage(s)}else if(action==='stop'){if(!s.session)throw Error('진행 중인 세션이 없습니다.');return close(s)}else if(action==='pause'){await endPage(s);for(const chat of Object.values(s.chats))finalizeChat(s,chat);s.chats={};s.paused=true}else if(action==='resume'){s.paused=false;s.chats={};await switchPage(s)}else if(action==='block'){if(!/^[a-z0-9.-]+$/.test(payload.host))throw Error('도메인을 확인하세요.');s.blocked=[...new Set([...s.blocked,payload.host])];if(s.openPage&&blocked(s,s.openPage.url))s.openPage=null}else if(action==='sync'){await flush(s)}await write(s);return {ok:true,deviceId:s.deviceId,session:s.session,pending:s.queue.length}})}
 chrome.runtime.onMessage.addListener((m,sender,respond)=>{
  if(m.channel==='prm-control'){
-  const trusted=sender.id===chrome.runtime.id && (sender.url?.startsWith('chrome-extension://'+chrome.runtime.id+'/') || sender.url?.startsWith(LOCAL));
+  const trusted=sender.id===chrome.runtime.id && (sender.url?.startsWith('chrome-extension://'+chrome.runtime.id+'/') || LOCAL_URLS.some(url=>sender.url?.startsWith(url)));
   if(!trusted){respond({error:'허용되지 않은 출처입니다.'});return}
   command(m.action,m.payload||{}).then(respond).catch(e=>respond({error:e.message}));return true;
  }

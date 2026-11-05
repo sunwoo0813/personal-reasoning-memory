@@ -164,7 +164,8 @@ test('captured answers are complete independently of completion observation, whi
  assert.equal(ctx.result[1].metadata.truncated,true);
 });
 
-test('records locally, recovers after a failed upload and closes only after syncing', async () => {
+for (const origin of ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:3001', 'http://127.0.0.1:3001']) {
+test(`records, retries and closes through ${origin}`, async () => {
   const listeners = {};
   const listener = name => ({ addListener(fn) { listeners[name] = fn; } });
   let online = false;
@@ -172,7 +173,11 @@ test('records locally, recovers after a failed upload and closes only after sync
   const chrome = {
     runtime: { id: 'prm-test', onMessage: listener('message'), onInstalled: listener('installed') },
     tabs: { onActivated: listener('activated'), onRemoved: listener('removed'),
-      query: async query => query.url ? [{ id: 1 }] : [],
+      query: async query => {
+        if (!query.url) return [];
+        assert.ok(query.url.includes(origin+'/*'));
+        return [{ id: 1 }];
+      },
       sendMessage: async (id, message) => {
         if (message.channel !== 'prm-api') return {};
         if (!online) throw new Error('offline');
@@ -198,7 +203,7 @@ test('records locally, recovers after a failed upload and closes only after sync
   };
   const ctx = vm.createContext({ chrome, indexedDB: new IDBFactory(), crypto: webcrypto, URL, Date, Promise, Set, Error, console });
   vm.runInContext(fs.readFileSync('extension/worker.js', 'utf8'), ctx);
-  const control = (action, payload = {}) => new Promise(resolve => listeners.message({ channel: 'prm-control', action, payload }, { id:'prm-test', url:'http://localhost:3000/' }, resolve));
+  const control = (action, payload = {}) => new Promise(resolve => listeners.message({ channel: 'prm-control', action, payload }, { id:'prm-test', url:origin+'/' }, resolve));
   const status = await control('status');
   assert.ok(status.deviceId);
   await control('start', { session: { id:'test-session' } });
@@ -236,3 +241,5 @@ test('records locally, recovers after a failed upload and closes only after sync
   const secondChat=[...received.values()].find(event=>event.content.question==='다음 질문');
   assert.equal(secondChat.content.response,'다음 답변');
 });
+
+}
