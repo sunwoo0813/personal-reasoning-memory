@@ -1,0 +1,1284 @@
+{
+  "job": {
+    "case_id": "topic_switch",
+    "name": "저장소→접근 권한→출시 채널",
+    "repeat": 1,
+    "session_id": "0a617791-c2f0-4ea9-b11b-6591530e28f3",
+    "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+    "status": "complete",
+    "error": null,
+    "created_at": "2026-11-05T06:07:58.794747+00:00",
+    "started_at": "2026-11-05T06:11:52.042006+00:00",
+    "completed_at": "2026-11-05T06:12:30.016754+00:00",
+    "queue_ms": 233248,
+    "processing_ms": 37974,
+    "score": {
+      "objects": 12,
+      "episodes": 3,
+      "decisions": {
+        "matched": 3,
+        "expected": 3,
+        "predicted": 3,
+        "unmatched_targets": []
+      },
+      "open_questions": {
+        "matched": 0,
+        "expected": 0,
+        "predicted": 0,
+        "unmatched_targets": []
+      },
+      "boundaries": {
+        "expected": [
+          2,
+          4
+        ],
+        "predicted": [
+          2,
+          4
+        ],
+        "true_positive": 2
+      },
+      "quotes": {
+        "matched": 12,
+        "total": 12
+      },
+      "required_evidence": [],
+      "no_objects_check": null
+    },
+    "usage": {
+      "input_tokens": 2696,
+      "output_tokens": 3485,
+      "total_tokens": 6181
+    }
+  },
+  "run": {
+    "id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+    "session_id": "0a617791-c2f0-4ea9-b11b-6591530e28f3",
+    "status": "complete",
+    "model": "gpt-5-mini",
+    "pipeline_version": "extraction-v1",
+    "input_version": 1,
+    "input_hash": "71673a84d97db68f4ab457a0f1684f7790734a1343c5d2366492e30d06057336",
+    "created_at": "2026-11-05T06:07:58.794747+00:00",
+    "started_at": "2026-11-05T06:11:52.042006+00:00",
+    "completed_at": "2026-11-05T06:12:30.016754+00:00",
+    "worker_id": "a2ce9c14-6f88-4da1-b787-e4f731c6ce2c",
+    "heartbeat_at": "2026-11-05T06:12:30.016754+00:00",
+    "error": null
+  },
+  "inputs": [
+    {
+      "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+      "event_id": "0c8fb6b4-5e7a-46e2-bf18-3754ec885a28",
+      "position": 1,
+      "snapshot": {
+        "id": "0c8fb6b4-5e7a-46e2-bf18-3754ec885a28",
+        "source": "chatgpt",
+        "ended_at": "2026-11-05T06:00:30+00:00",
+        "metadata": {
+          "title": "시험 자료",
+          "evaluation_case": "topic_switch",
+          "evaluation_name": "저장소→접근 권한→출시 채널",
+          "evaluation_repeat": 1,
+          "extraction_status": "captured",
+          "completion_observed": true
+        },
+        "device_id": "e7720203-06d9-451d-a786-c2b421ecf15c",
+        "client_seq": 1,
+        "event_type": "llm_exchange",
+        "session_id": "0a617791-c2f0-4ea9-b11b-6591530e28f3",
+        "source_ref": {
+          "url": "https://chatgpt.com/c/evaluation"
+        },
+        "started_at": "2026-11-05T06:00:00+00:00",
+        "received_at": "2026-11-05T06:07:34.468902+00:00",
+        "capture_status": "complete",
+        "event_contents": {
+          "event_id": "0c8fb6b4-5e7a-46e2-bf18-3754ec885a28",
+          "truncated": false,
+          "content_hash": "2caddb31542880f9dc4af17a41d95f8fd478dba16b4c5a85b3c15bb85ff49e6f",
+          "content_jsonb": {
+            "question": "저장소 선택만 검토하자. 관계형 DB와 파일 중 어떤 게 적합해?",
+            "response": "관계와 무결성이 중요하면 관계형 DB를 고려하세요."
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "cc6f5172-bd9f-46d2-a8d1-fc3079d9ee87"
+      }
+    },
+    {
+      "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+      "event_id": "f66264ab-7bc0-4108-97bb-0381b7cf1831",
+      "position": 2,
+      "snapshot": {
+        "id": "f66264ab-7bc0-4108-97bb-0381b7cf1831",
+        "source": "chatgpt",
+        "ended_at": "2026-11-05T06:01:30+00:00",
+        "metadata": {
+          "title": "시험 자료",
+          "evaluation_case": "topic_switch",
+          "evaluation_name": "저장소→접근 권한→출시 채널",
+          "evaluation_repeat": 1,
+          "extraction_status": "captured",
+          "completion_observed": true
+        },
+        "device_id": "e7720203-06d9-451d-a786-c2b421ecf15c",
+        "client_seq": 2,
+        "event_type": "llm_exchange",
+        "session_id": "0a617791-c2f0-4ea9-b11b-6591530e28f3",
+        "source_ref": {
+          "url": "https://chatgpt.com/c/evaluation"
+        },
+        "started_at": "2026-11-05T06:01:00+00:00",
+        "received_at": "2026-11-05T06:07:37.278191+00:00",
+        "capture_status": "complete",
+        "event_contents": {
+          "event_id": "f66264ab-7bc0-4108-97bb-0381b7cf1831",
+          "truncated": false,
+          "content_hash": "8b95b3ae615337f87772d5b7152f5f606588a421e5f83de341e765b4b34e0edb",
+          "content_jsonb": {
+            "question": "저장소는 PostgreSQL로 정할게. 저장소 검토는 여기서 마칠게.",
+            "response": "선택을 기록했습니다."
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "31cc2f42-6ff0-4f16-ac7a-11dc27cc8e49"
+      }
+    },
+    {
+      "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+      "event_id": "3d74b592-95b7-4086-93ae-11d71607ea51",
+      "position": 3,
+      "snapshot": {
+        "id": "3d74b592-95b7-4086-93ae-11d71607ea51",
+        "source": "chatgpt",
+        "ended_at": "2026-11-05T06:02:30+00:00",
+        "metadata": {
+          "title": "시험 자료",
+          "evaluation_case": "topic_switch",
+          "evaluation_name": "저장소→접근 권한→출시 채널",
+          "evaluation_repeat": 1,
+          "extraction_status": "captured",
+          "completion_observed": true
+        },
+        "device_id": "e7720203-06d9-451d-a786-c2b421ecf15c",
+        "client_seq": 3,
+        "event_type": "llm_exchange",
+        "session_id": "0a617791-c2f0-4ea9-b11b-6591530e28f3",
+        "source_ref": {
+          "url": "https://chatgpt.com/c/evaluation"
+        },
+        "started_at": "2026-11-05T06:02:00+00:00",
+        "received_at": "2026-11-05T06:07:39.720907+00:00",
+        "capture_status": "complete",
+        "event_contents": {
+          "event_id": "3d74b592-95b7-4086-93ae-11d71607ea51",
+          "truncated": false,
+          "content_hash": "2a1fdd907fc968b6d0da81fa2fd4d60f712cb3b96cc172fafeb937ce667d3444",
+          "content_jsonb": {
+            "question": "이제 다른 주제인 접근 권한을 검토하자. 사용자 소유권 검사는 어디에서 해야 해?",
+            "response": "서버와 데이터베이스에서 모두 확인할 수 있습니다."
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "8d4df5c1-dede-430f-a37d-13b235ff3dcc"
+      }
+    },
+    {
+      "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+      "event_id": "cadb75c1-5aab-41be-a96c-3f770c921d00",
+      "position": 4,
+      "snapshot": {
+        "id": "cadb75c1-5aab-41be-a96c-3f770c921d00",
+        "source": "chatgpt",
+        "ended_at": "2026-11-05T06:03:30+00:00",
+        "metadata": {
+          "title": "시험 자료",
+          "evaluation_case": "topic_switch",
+          "evaluation_name": "저장소→접근 권한→출시 채널",
+          "evaluation_repeat": 1,
+          "extraction_status": "captured",
+          "completion_observed": true
+        },
+        "device_id": "e7720203-06d9-451d-a786-c2b421ecf15c",
+        "client_seq": 4,
+        "event_type": "llm_exchange",
+        "session_id": "0a617791-c2f0-4ea9-b11b-6591530e28f3",
+        "source_ref": {
+          "url": "https://chatgpt.com/c/evaluation"
+        },
+        "started_at": "2026-11-05T06:03:00+00:00",
+        "received_at": "2026-11-05T06:07:42.034126+00:00",
+        "capture_status": "complete",
+        "event_contents": {
+          "event_id": "cadb75c1-5aab-41be-a96c-3f770c921d00",
+          "truncated": false,
+          "content_hash": "df6a29b8953c51b2e5520a00c61ba05c5532fedc25c4630ff9dec8c30eb12571",
+          "content_jsonb": {
+            "question": "소유권 검사는 서버와 DB 양쪽에 적용하기로 결정했어. 접근 권한 논의는 마칠게.",
+            "response": "계층별 검사로 구성할 수 있습니다."
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "a500f2f1-f9a8-43de-af5a-e157b51b19bd"
+      }
+    },
+    {
+      "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+      "event_id": "e11900f3-8691-47a9-b276-1c1ab943e5d0",
+      "position": 5,
+      "snapshot": {
+        "id": "e11900f3-8691-47a9-b276-1c1ab943e5d0",
+        "source": "chatgpt",
+        "ended_at": "2026-11-05T06:04:30+00:00",
+        "metadata": {
+          "title": "시험 자료",
+          "evaluation_case": "topic_switch",
+          "evaluation_name": "저장소→접근 권한→출시 채널",
+          "evaluation_repeat": 1,
+          "extraction_status": "captured",
+          "completion_observed": true
+        },
+        "device_id": "e7720203-06d9-451d-a786-c2b421ecf15c",
+        "client_seq": 5,
+        "event_type": "llm_exchange",
+        "session_id": "0a617791-c2f0-4ea9-b11b-6591530e28f3",
+        "source_ref": {
+          "url": "https://chatgpt.com/c/evaluation"
+        },
+        "started_at": "2026-11-05T06:04:00+00:00",
+        "received_at": "2026-11-05T06:07:45.498931+00:00",
+        "capture_status": "complete",
+        "event_contents": {
+          "event_id": "e11900f3-8691-47a9-b276-1c1ab943e5d0",
+          "truncated": false,
+          "content_hash": "5b5d1b9018a1b2384f83f4c23a3b77b4497327f19e7107c1362db5495046e728",
+          "content_jsonb": {
+            "question": "다음은 별도 주제인 출시 채널이야. 학교 커뮤니티와 광고 중 어디부터 시도할까?",
+            "response": "적은 예산이라면 학교 커뮤니티부터 시험할 수 있습니다."
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "4a3a5357-0980-47fb-9b10-e59c395da29a"
+      }
+    },
+    {
+      "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+      "event_id": "a5970af5-796f-42d1-b7cf-3c2c2cc1e1c8",
+      "position": 6,
+      "snapshot": {
+        "id": "a5970af5-796f-42d1-b7cf-3c2c2cc1e1c8",
+        "source": "chatgpt",
+        "ended_at": "2026-11-05T06:05:30+00:00",
+        "metadata": {
+          "title": "시험 자료",
+          "evaluation_case": "topic_switch",
+          "evaluation_name": "저장소→접근 권한→출시 채널",
+          "evaluation_repeat": 1,
+          "extraction_status": "captured",
+          "completion_observed": true
+        },
+        "device_id": "e7720203-06d9-451d-a786-c2b421ecf15c",
+        "client_seq": 6,
+        "event_type": "llm_exchange",
+        "session_id": "0a617791-c2f0-4ea9-b11b-6591530e28f3",
+        "source_ref": {
+          "url": "https://chatgpt.com/c/evaluation"
+        },
+        "started_at": "2026-11-05T06:05:00+00:00",
+        "received_at": "2026-11-05T06:07:46.704846+00:00",
+        "capture_status": "complete",
+        "event_contents": {
+          "event_id": "a5970af5-796f-42d1-b7cf-3c2c2cc1e1c8",
+          "truncated": false,
+          "content_hash": "f888e3c2ce85af84d718731df2265bb72c211b9b969b24451343a74268262597",
+          "content_jsonb": {
+            "question": "첫 출시는 학교 커뮤니티로 정할게. 광고는 이번 출시 범위에 넣지 않을 거야.",
+            "response": "초기 채널이 정리됐습니다."
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "a471fc97-7c2f-4ce4-9394-d8ce24a8c181"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+      "stage": "segmentation",
+      "sequence": 0,
+      "result": {
+        "episodes": [
+          {
+            "goal": "관계형 DB와 파일 중 적합한 저장소 유형을 결정하고, 최종적으로 PostgreSQL을 선택하여 저장소 검토를 종료함",
+            "title": "저장소 선택 검토",
+            "event_ids": [
+              "0c8fb6b4-5e7a-46e2-bf18-3754ec885a28",
+              "f66264ab-7bc0-4108-97bb-0381b7cf1831"
+            ],
+            "boundary_reason": "사용자가 저장소를 PostgreSQL로 확정하고 저장소 관련 논의를 마침"
+          },
+          {
+            "goal": "사용자 소유권 검사를 어디에서 해야 하는지 논의하고 서버와 데이터베이스 양쪽에서 검사하기로 결정함",
+            "title": "접근 권한(소유권) 검사 범위 결정",
+            "event_ids": [
+              "3d74b592-95b7-4086-93ae-11d71607ea51",
+              "cadb75c1-5aab-41be-a96c-3f770c921d00"
+            ],
+            "boundary_reason": "사용자가 서버와 DB 양쪽에서 소유권 검사를 하기로 결정하며 접근 권한 논의를 마무리함"
+          },
+          {
+            "goal": "초기 출시 채널을 학교 커뮤니티와 광고 중에서 결정하고, 예산을 고려해 학교 커뮤니티로 첫 출시를 확정함",
+            "title": "출시 채널 결정",
+            "event_ids": [
+              "e11900f3-8691-47a9-b276-1c1ab943e5d0",
+              "a5970af5-796f-42d1-b7cf-3c2c2cc1e1c8"
+            ],
+            "boundary_reason": "사용자가 광고를 이번 출시 범위에 포함하지 않고 학교 커뮤니티로 첫 출시를 결정하며 논의를 종료함"
+          }
+        ]
+      },
+      "usage": {
+        "input_tokens": 945,
+        "total_tokens": 1489,
+        "output_tokens": 544,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        }
+      },
+      "completed_at": "2026-11-05T06:11:58.278811+00:00"
+    },
+    {
+      "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+      "stage": "extraction",
+      "sequence": 0,
+      "result": {
+        "objects": [
+          {
+            "text": "저장소 선택만 검토하자. 관계형 DB와 파일 중 어떤 게 적합해?",
+            "type": "question",
+            "speaker": "user",
+            "evidence": [
+              {
+                "field": "question",
+                "quote": "저장소 선택만 검토하자. 관계형 DB와 파일 중 어떤 게 적합해?",
+                "event_id": "0c8fb6b4-5e7a-46e2-bf18-3754ec885a28"
+              }
+            ]
+          },
+          {
+            "text": "관계와 무결성이 중요하면 관계형 DB를 고려하세요.",
+            "type": "insight",
+            "speaker": "assistant",
+            "evidence": [
+              {
+                "field": "response",
+                "quote": "관계와 무결성이 중요하면 관계형 DB를 고려하세요.",
+                "event_id": "0c8fb6b4-5e7a-46e2-bf18-3754ec885a28"
+              }
+            ]
+          },
+          {
+            "text": "저장소는 PostgreSQL로 정할게. 저장소 검토는 여기서 마칠게.",
+            "type": "decision",
+            "speaker": "user",
+            "evidence": [
+              {
+                "field": "question",
+                "quote": "저장소는 PostgreSQL로 정할게. 저장소 검토는 여기서 마칠게.",
+                "event_id": "f66264ab-7bc0-4108-97bb-0381b7cf1831"
+              }
+            ]
+          },
+          {
+            "text": "선택을 기록했습니다.",
+            "type": "evidence",
+            "speaker": "assistant",
+            "evidence": [
+              {
+                "field": "response",
+                "quote": "선택을 기록했습니다.",
+                "event_id": "f66264ab-7bc0-4108-97bb-0381b7cf1831"
+              }
+            ]
+          }
+        ]
+      },
+      "usage": {
+        "input_tokens": 573,
+        "total_tokens": 1575,
+        "output_tokens": 1002,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 512
+        }
+      },
+      "completed_at": "2026-11-05T06:12:08.710011+00:00"
+    },
+    {
+      "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+      "stage": "extraction",
+      "sequence": 1,
+      "result": {
+        "objects": [
+          {
+            "text": "이제 다른 주제인 접근 권한을 검토하자. 사용자 소유권 검사는 어디에서 해야 해?",
+            "type": "question",
+            "speaker": "user",
+            "evidence": [
+              {
+                "field": "question",
+                "quote": "이제 다른 주제인 접근 권한을 검토하자. 사용자 소유권 검사는 어디에서 해야 해?",
+                "event_id": "3d74b592-95b7-4086-93ae-11d71607ea51"
+              }
+            ]
+          },
+          {
+            "text": "서버와 데이터베이스에서 모두 확인할 수 있습니다.",
+            "type": "insight",
+            "speaker": "assistant",
+            "evidence": [
+              {
+                "field": "response",
+                "quote": "서버와 데이터베이스에서 모두 확인할 수 있습니다.",
+                "event_id": "3d74b592-95b7-4086-93ae-11d71607ea51"
+              }
+            ]
+          },
+          {
+            "text": "소유권 검사는 서버와 DB 양쪽에 적용하기로 결정했어. 접근 권한 논의는 마칠게.",
+            "type": "decision",
+            "speaker": "user",
+            "evidence": [
+              {
+                "field": "question",
+                "quote": "소유권 검사는 서버와 DB 양쪽에 적용하기로 결정했어. 접근 권한 논의는 마칠게.",
+                "event_id": "cadb75c1-5aab-41be-a96c-3f770c921d00"
+              }
+            ]
+          },
+          {
+            "text": "계층별 검사로 구성할 수 있습니다.",
+            "type": "insight",
+            "speaker": "assistant",
+            "evidence": [
+              {
+                "field": "response",
+                "quote": "계층별 검사로 구성할 수 있습니다.",
+                "event_id": "cadb75c1-5aab-41be-a96c-3f770c921d00"
+              }
+            ]
+          }
+        ]
+      },
+      "usage": {
+        "input_tokens": 589,
+        "total_tokens": 1609,
+        "output_tokens": 1020,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 512
+        }
+      },
+      "completed_at": "2026-11-05T06:12:21.312319+00:00"
+    },
+    {
+      "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+      "stage": "extraction",
+      "sequence": 2,
+      "result": {
+        "objects": [
+          {
+            "text": "다음은 별도 주제인 출시 채널이야. 학교 커뮤니티와 광고 중 어디부터 시도할까?",
+            "type": "question",
+            "speaker": "user",
+            "evidence": [
+              {
+                "field": "question",
+                "quote": "다음은 별도 주제인 출시 채널이야. 학교 커뮤니티와 광고 중 어디부터 시도할까?",
+                "event_id": "e11900f3-8691-47a9-b276-1c1ab943e5d0"
+              }
+            ]
+          },
+          {
+            "text": "첫 출시는 학교 커뮤니티로 정할게. 광고는 이번 출시 범위에 넣지 않을 거야.",
+            "type": "decision",
+            "speaker": "user",
+            "evidence": [
+              {
+                "field": "question",
+                "quote": "첫 출시는 학교 커뮤니티로 정할게. 광고는 이번 출시 범위에 넣지 않을 거야.",
+                "event_id": "a5970af5-796f-42d1-b7cf-3c2c2cc1e1c8"
+              }
+            ]
+          },
+          {
+            "text": "적은 예산이라면 학교 커뮤니티부터 시험할 수 있습니다.",
+            "type": "insight",
+            "speaker": "assistant",
+            "evidence": [
+              {
+                "field": "response",
+                "quote": "적은 예산이라면 학교 커뮤니티부터 시험할 수 있습니다.",
+                "event_id": "e11900f3-8691-47a9-b276-1c1ab943e5d0"
+              }
+            ]
+          },
+          {
+            "text": "초기 채널이 정리됐습니다.",
+            "type": "insight",
+            "speaker": "assistant",
+            "evidence": [
+              {
+                "field": "response",
+                "quote": "초기 채널이 정리됐습니다.",
+                "event_id": "a5970af5-796f-42d1-b7cf-3c2c2cc1e1c8"
+              }
+            ]
+          }
+        ]
+      },
+      "usage": {
+        "input_tokens": 589,
+        "total_tokens": 1508,
+        "output_tokens": 919,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 384
+        }
+      },
+      "completed_at": "2026-11-05T06:12:29.962859+00:00"
+    }
+  ],
+  "result": {
+    "episodes": [
+      {
+        "id": "4c7df3a4-6429-4296-8918-263f587078ac",
+        "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+        "sequence": 1,
+        "title": "저장소 선택 검토",
+        "goal": "관계형 DB와 파일 중 적합한 저장소 유형을 결정하고, 최종적으로 PostgreSQL을 선택하여 저장소 검토를 종료함",
+        "boundary_reason": "사용자가 저장소를 PostgreSQL로 확정하고 저장소 관련 논의를 마침",
+        "episode_event_links": [
+          {
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "event_id": "0c8fb6b4-5e7a-46e2-bf18-3754ec885a28",
+            "position": 1,
+            "episode_id": "4c7df3a4-6429-4296-8918-263f587078ac"
+          },
+          {
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "event_id": "f66264ab-7bc0-4108-97bb-0381b7cf1831",
+            "position": 2,
+            "episode_id": "4c7df3a4-6429-4296-8918-263f587078ac"
+          }
+        ],
+        "reasoning_objects": [
+          {
+            "id": "1923a199-27ca-4f4d-baaa-622382da4a86",
+            "text": "관계와 무결성이 중요하면 관계형 DB를 고려하세요.",
+            "type": "insight",
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "speaker": "assistant",
+            "episode_id": "4c7df3a4-6429-4296-8918-263f587078ac",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "475a2427-d455-4bde-a94e-372ae714f392",
+                "field": "response",
+                "quote": "관계와 무결성이 중요하면 관계형 DB를 고려하세요.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "0c8fb6b4-5e7a-46e2-bf18-3754ec885a28",
+                "object_id": "1923a199-27ca-4f4d-baaa-622382da4a86",
+                "episode_id": "4c7df3a4-6429-4296-8918-263f587078ac"
+              }
+            ]
+          },
+          {
+            "id": "406946bc-6c93-4643-9906-8918c44e47b2",
+            "text": "저장소는 PostgreSQL로 정할게. 저장소 검토는 여기서 마칠게.",
+            "type": "decision",
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "speaker": "user",
+            "episode_id": "4c7df3a4-6429-4296-8918-263f587078ac",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "712f1cc9-9e24-4502-93f4-3e74c0126c40",
+                "field": "question",
+                "quote": "저장소는 PostgreSQL로 정할게. 저장소 검토는 여기서 마칠게.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "f66264ab-7bc0-4108-97bb-0381b7cf1831",
+                "object_id": "406946bc-6c93-4643-9906-8918c44e47b2",
+                "episode_id": "4c7df3a4-6429-4296-8918-263f587078ac"
+              }
+            ]
+          },
+          {
+            "id": "a7f80938-cf04-473e-8a8f-6eaae9220504",
+            "text": "저장소 선택만 검토하자. 관계형 DB와 파일 중 어떤 게 적합해?",
+            "type": "question",
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "speaker": "user",
+            "episode_id": "4c7df3a4-6429-4296-8918-263f587078ac",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "c1238eba-16c1-4198-9448-864be3c57049",
+                "field": "question",
+                "quote": "저장소 선택만 검토하자. 관계형 DB와 파일 중 어떤 게 적합해?",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "0c8fb6b4-5e7a-46e2-bf18-3754ec885a28",
+                "object_id": "a7f80938-cf04-473e-8a8f-6eaae9220504",
+                "episode_id": "4c7df3a4-6429-4296-8918-263f587078ac"
+              }
+            ]
+          },
+          {
+            "id": "b57ad754-f6dd-410b-8e69-a77ddc1d83c0",
+            "text": "선택을 기록했습니다.",
+            "type": "evidence",
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "speaker": "assistant",
+            "episode_id": "4c7df3a4-6429-4296-8918-263f587078ac",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "c43ff042-87c1-493b-8059-4546e0822e32",
+                "field": "response",
+                "quote": "선택을 기록했습니다.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "f66264ab-7bc0-4108-97bb-0381b7cf1831",
+                "object_id": "b57ad754-f6dd-410b-8e69-a77ddc1d83c0",
+                "episode_id": "4c7df3a4-6429-4296-8918-263f587078ac"
+              }
+            ]
+          }
+        ],
+        "event_ids": [
+          "0c8fb6b4-5e7a-46e2-bf18-3754ec885a28",
+          "f66264ab-7bc0-4108-97bb-0381b7cf1831"
+        ],
+        "objects": [
+          {
+            "id": "1923a199-27ca-4f4d-baaa-622382da4a86",
+            "text": "관계와 무결성이 중요하면 관계형 DB를 고려하세요.",
+            "type": "insight",
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "speaker": "assistant",
+            "episode_id": "4c7df3a4-6429-4296-8918-263f587078ac",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "475a2427-d455-4bde-a94e-372ae714f392",
+                "field": "response",
+                "quote": "관계와 무결성이 중요하면 관계형 DB를 고려하세요.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "0c8fb6b4-5e7a-46e2-bf18-3754ec885a28",
+                "object_id": "1923a199-27ca-4f4d-baaa-622382da4a86",
+                "episode_id": "4c7df3a4-6429-4296-8918-263f587078ac"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "475a2427-d455-4bde-a94e-372ae714f392",
+                "field": "response",
+                "quote": "관계와 무결성이 중요하면 관계형 DB를 고려하세요.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "0c8fb6b4-5e7a-46e2-bf18-3754ec885a28",
+                "object_id": "1923a199-27ca-4f4d-baaa-622382da4a86",
+                "episode_id": "4c7df3a4-6429-4296-8918-263f587078ac"
+              }
+            ]
+          },
+          {
+            "id": "406946bc-6c93-4643-9906-8918c44e47b2",
+            "text": "저장소는 PostgreSQL로 정할게. 저장소 검토는 여기서 마칠게.",
+            "type": "decision",
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "speaker": "user",
+            "episode_id": "4c7df3a4-6429-4296-8918-263f587078ac",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "712f1cc9-9e24-4502-93f4-3e74c0126c40",
+                "field": "question",
+                "quote": "저장소는 PostgreSQL로 정할게. 저장소 검토는 여기서 마칠게.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "f66264ab-7bc0-4108-97bb-0381b7cf1831",
+                "object_id": "406946bc-6c93-4643-9906-8918c44e47b2",
+                "episode_id": "4c7df3a4-6429-4296-8918-263f587078ac"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "712f1cc9-9e24-4502-93f4-3e74c0126c40",
+                "field": "question",
+                "quote": "저장소는 PostgreSQL로 정할게. 저장소 검토는 여기서 마칠게.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "f66264ab-7bc0-4108-97bb-0381b7cf1831",
+                "object_id": "406946bc-6c93-4643-9906-8918c44e47b2",
+                "episode_id": "4c7df3a4-6429-4296-8918-263f587078ac"
+              }
+            ]
+          },
+          {
+            "id": "a7f80938-cf04-473e-8a8f-6eaae9220504",
+            "text": "저장소 선택만 검토하자. 관계형 DB와 파일 중 어떤 게 적합해?",
+            "type": "question",
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "speaker": "user",
+            "episode_id": "4c7df3a4-6429-4296-8918-263f587078ac",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "c1238eba-16c1-4198-9448-864be3c57049",
+                "field": "question",
+                "quote": "저장소 선택만 검토하자. 관계형 DB와 파일 중 어떤 게 적합해?",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "0c8fb6b4-5e7a-46e2-bf18-3754ec885a28",
+                "object_id": "a7f80938-cf04-473e-8a8f-6eaae9220504",
+                "episode_id": "4c7df3a4-6429-4296-8918-263f587078ac"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "c1238eba-16c1-4198-9448-864be3c57049",
+                "field": "question",
+                "quote": "저장소 선택만 검토하자. 관계형 DB와 파일 중 어떤 게 적합해?",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "0c8fb6b4-5e7a-46e2-bf18-3754ec885a28",
+                "object_id": "a7f80938-cf04-473e-8a8f-6eaae9220504",
+                "episode_id": "4c7df3a4-6429-4296-8918-263f587078ac"
+              }
+            ]
+          },
+          {
+            "id": "b57ad754-f6dd-410b-8e69-a77ddc1d83c0",
+            "text": "선택을 기록했습니다.",
+            "type": "evidence",
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "speaker": "assistant",
+            "episode_id": "4c7df3a4-6429-4296-8918-263f587078ac",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "c43ff042-87c1-493b-8059-4546e0822e32",
+                "field": "response",
+                "quote": "선택을 기록했습니다.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "f66264ab-7bc0-4108-97bb-0381b7cf1831",
+                "object_id": "b57ad754-f6dd-410b-8e69-a77ddc1d83c0",
+                "episode_id": "4c7df3a4-6429-4296-8918-263f587078ac"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "c43ff042-87c1-493b-8059-4546e0822e32",
+                "field": "response",
+                "quote": "선택을 기록했습니다.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "f66264ab-7bc0-4108-97bb-0381b7cf1831",
+                "object_id": "b57ad754-f6dd-410b-8e69-a77ddc1d83c0",
+                "episode_id": "4c7df3a4-6429-4296-8918-263f587078ac"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "c53c5cd2-8f6e-4a7e-be05-f8953cecb194",
+        "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+        "sequence": 2,
+        "title": "접근 권한(소유권) 검사 범위 결정",
+        "goal": "사용자 소유권 검사를 어디에서 해야 하는지 논의하고 서버와 데이터베이스 양쪽에서 검사하기로 결정함",
+        "boundary_reason": "사용자가 서버와 DB 양쪽에서 소유권 검사를 하기로 결정하며 접근 권한 논의를 마무리함",
+        "episode_event_links": [
+          {
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "event_id": "3d74b592-95b7-4086-93ae-11d71607ea51",
+            "position": 1,
+            "episode_id": "c53c5cd2-8f6e-4a7e-be05-f8953cecb194"
+          },
+          {
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "event_id": "cadb75c1-5aab-41be-a96c-3f770c921d00",
+            "position": 2,
+            "episode_id": "c53c5cd2-8f6e-4a7e-be05-f8953cecb194"
+          }
+        ],
+        "reasoning_objects": [
+          {
+            "id": "3450f74a-ac9b-4d8f-bedf-10a027ea4a2b",
+            "text": "소유권 검사는 서버와 DB 양쪽에 적용하기로 결정했어. 접근 권한 논의는 마칠게.",
+            "type": "decision",
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "speaker": "user",
+            "episode_id": "c53c5cd2-8f6e-4a7e-be05-f8953cecb194",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "0a97551d-bde7-49cb-ae04-0289177e8f9b",
+                "field": "question",
+                "quote": "소유권 검사는 서버와 DB 양쪽에 적용하기로 결정했어. 접근 권한 논의는 마칠게.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "cadb75c1-5aab-41be-a96c-3f770c921d00",
+                "object_id": "3450f74a-ac9b-4d8f-bedf-10a027ea4a2b",
+                "episode_id": "c53c5cd2-8f6e-4a7e-be05-f8953cecb194"
+              }
+            ]
+          },
+          {
+            "id": "48317662-9741-423f-a2c1-5b3d95a85f61",
+            "text": "이제 다른 주제인 접근 권한을 검토하자. 사용자 소유권 검사는 어디에서 해야 해?",
+            "type": "question",
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "speaker": "user",
+            "episode_id": "c53c5cd2-8f6e-4a7e-be05-f8953cecb194",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "bbfd3a13-6a72-449b-bbbf-93798901ccd6",
+                "field": "question",
+                "quote": "이제 다른 주제인 접근 권한을 검토하자. 사용자 소유권 검사는 어디에서 해야 해?",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "3d74b592-95b7-4086-93ae-11d71607ea51",
+                "object_id": "48317662-9741-423f-a2c1-5b3d95a85f61",
+                "episode_id": "c53c5cd2-8f6e-4a7e-be05-f8953cecb194"
+              }
+            ]
+          },
+          {
+            "id": "650f26ac-422a-4f35-9c68-a596d7a651c5",
+            "text": "서버와 데이터베이스에서 모두 확인할 수 있습니다.",
+            "type": "insight",
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "speaker": "assistant",
+            "episode_id": "c53c5cd2-8f6e-4a7e-be05-f8953cecb194",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "acdcbc24-19bf-4060-b8a3-cf669e46a95b",
+                "field": "response",
+                "quote": "서버와 데이터베이스에서 모두 확인할 수 있습니다.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "3d74b592-95b7-4086-93ae-11d71607ea51",
+                "object_id": "650f26ac-422a-4f35-9c68-a596d7a651c5",
+                "episode_id": "c53c5cd2-8f6e-4a7e-be05-f8953cecb194"
+              }
+            ]
+          },
+          {
+            "id": "cc58e525-c140-4722-816d-17b21b1592fc",
+            "text": "계층별 검사로 구성할 수 있습니다.",
+            "type": "insight",
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "speaker": "assistant",
+            "episode_id": "c53c5cd2-8f6e-4a7e-be05-f8953cecb194",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "b6809028-8509-4920-9d2e-1e62e4d98951",
+                "field": "response",
+                "quote": "계층별 검사로 구성할 수 있습니다.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "cadb75c1-5aab-41be-a96c-3f770c921d00",
+                "object_id": "cc58e525-c140-4722-816d-17b21b1592fc",
+                "episode_id": "c53c5cd2-8f6e-4a7e-be05-f8953cecb194"
+              }
+            ]
+          }
+        ],
+        "event_ids": [
+          "3d74b592-95b7-4086-93ae-11d71607ea51",
+          "cadb75c1-5aab-41be-a96c-3f770c921d00"
+        ],
+        "objects": [
+          {
+            "id": "3450f74a-ac9b-4d8f-bedf-10a027ea4a2b",
+            "text": "소유권 검사는 서버와 DB 양쪽에 적용하기로 결정했어. 접근 권한 논의는 마칠게.",
+            "type": "decision",
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "speaker": "user",
+            "episode_id": "c53c5cd2-8f6e-4a7e-be05-f8953cecb194",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "0a97551d-bde7-49cb-ae04-0289177e8f9b",
+                "field": "question",
+                "quote": "소유권 검사는 서버와 DB 양쪽에 적용하기로 결정했어. 접근 권한 논의는 마칠게.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "cadb75c1-5aab-41be-a96c-3f770c921d00",
+                "object_id": "3450f74a-ac9b-4d8f-bedf-10a027ea4a2b",
+                "episode_id": "c53c5cd2-8f6e-4a7e-be05-f8953cecb194"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "0a97551d-bde7-49cb-ae04-0289177e8f9b",
+                "field": "question",
+                "quote": "소유권 검사는 서버와 DB 양쪽에 적용하기로 결정했어. 접근 권한 논의는 마칠게.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "cadb75c1-5aab-41be-a96c-3f770c921d00",
+                "object_id": "3450f74a-ac9b-4d8f-bedf-10a027ea4a2b",
+                "episode_id": "c53c5cd2-8f6e-4a7e-be05-f8953cecb194"
+              }
+            ]
+          },
+          {
+            "id": "48317662-9741-423f-a2c1-5b3d95a85f61",
+            "text": "이제 다른 주제인 접근 권한을 검토하자. 사용자 소유권 검사는 어디에서 해야 해?",
+            "type": "question",
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "speaker": "user",
+            "episode_id": "c53c5cd2-8f6e-4a7e-be05-f8953cecb194",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "bbfd3a13-6a72-449b-bbbf-93798901ccd6",
+                "field": "question",
+                "quote": "이제 다른 주제인 접근 권한을 검토하자. 사용자 소유권 검사는 어디에서 해야 해?",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "3d74b592-95b7-4086-93ae-11d71607ea51",
+                "object_id": "48317662-9741-423f-a2c1-5b3d95a85f61",
+                "episode_id": "c53c5cd2-8f6e-4a7e-be05-f8953cecb194"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "bbfd3a13-6a72-449b-bbbf-93798901ccd6",
+                "field": "question",
+                "quote": "이제 다른 주제인 접근 권한을 검토하자. 사용자 소유권 검사는 어디에서 해야 해?",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "3d74b592-95b7-4086-93ae-11d71607ea51",
+                "object_id": "48317662-9741-423f-a2c1-5b3d95a85f61",
+                "episode_id": "c53c5cd2-8f6e-4a7e-be05-f8953cecb194"
+              }
+            ]
+          },
+          {
+            "id": "650f26ac-422a-4f35-9c68-a596d7a651c5",
+            "text": "서버와 데이터베이스에서 모두 확인할 수 있습니다.",
+            "type": "insight",
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "speaker": "assistant",
+            "episode_id": "c53c5cd2-8f6e-4a7e-be05-f8953cecb194",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "acdcbc24-19bf-4060-b8a3-cf669e46a95b",
+                "field": "response",
+                "quote": "서버와 데이터베이스에서 모두 확인할 수 있습니다.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "3d74b592-95b7-4086-93ae-11d71607ea51",
+                "object_id": "650f26ac-422a-4f35-9c68-a596d7a651c5",
+                "episode_id": "c53c5cd2-8f6e-4a7e-be05-f8953cecb194"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "acdcbc24-19bf-4060-b8a3-cf669e46a95b",
+                "field": "response",
+                "quote": "서버와 데이터베이스에서 모두 확인할 수 있습니다.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "3d74b592-95b7-4086-93ae-11d71607ea51",
+                "object_id": "650f26ac-422a-4f35-9c68-a596d7a651c5",
+                "episode_id": "c53c5cd2-8f6e-4a7e-be05-f8953cecb194"
+              }
+            ]
+          },
+          {
+            "id": "cc58e525-c140-4722-816d-17b21b1592fc",
+            "text": "계층별 검사로 구성할 수 있습니다.",
+            "type": "insight",
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "speaker": "assistant",
+            "episode_id": "c53c5cd2-8f6e-4a7e-be05-f8953cecb194",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "b6809028-8509-4920-9d2e-1e62e4d98951",
+                "field": "response",
+                "quote": "계층별 검사로 구성할 수 있습니다.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "cadb75c1-5aab-41be-a96c-3f770c921d00",
+                "object_id": "cc58e525-c140-4722-816d-17b21b1592fc",
+                "episode_id": "c53c5cd2-8f6e-4a7e-be05-f8953cecb194"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "b6809028-8509-4920-9d2e-1e62e4d98951",
+                "field": "response",
+                "quote": "계층별 검사로 구성할 수 있습니다.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "cadb75c1-5aab-41be-a96c-3f770c921d00",
+                "object_id": "cc58e525-c140-4722-816d-17b21b1592fc",
+                "episode_id": "c53c5cd2-8f6e-4a7e-be05-f8953cecb194"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "96421e6b-08a0-44e7-b9a2-58a2df31f764",
+        "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+        "sequence": 3,
+        "title": "출시 채널 결정",
+        "goal": "초기 출시 채널을 학교 커뮤니티와 광고 중에서 결정하고, 예산을 고려해 학교 커뮤니티로 첫 출시를 확정함",
+        "boundary_reason": "사용자가 광고를 이번 출시 범위에 포함하지 않고 학교 커뮤니티로 첫 출시를 결정하며 논의를 종료함",
+        "episode_event_links": [
+          {
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "event_id": "e11900f3-8691-47a9-b276-1c1ab943e5d0",
+            "position": 1,
+            "episode_id": "96421e6b-08a0-44e7-b9a2-58a2df31f764"
+          },
+          {
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "event_id": "a5970af5-796f-42d1-b7cf-3c2c2cc1e1c8",
+            "position": 2,
+            "episode_id": "96421e6b-08a0-44e7-b9a2-58a2df31f764"
+          }
+        ],
+        "reasoning_objects": [
+          {
+            "id": "44fa5def-b3c8-47cf-a8a5-ae42a65c2fca",
+            "text": "초기 채널이 정리됐습니다.",
+            "type": "insight",
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "speaker": "assistant",
+            "episode_id": "96421e6b-08a0-44e7-b9a2-58a2df31f764",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "edfd956d-5d9a-43d7-bfbc-c3c59a63571b",
+                "field": "response",
+                "quote": "초기 채널이 정리됐습니다.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "a5970af5-796f-42d1-b7cf-3c2c2cc1e1c8",
+                "object_id": "44fa5def-b3c8-47cf-a8a5-ae42a65c2fca",
+                "episode_id": "96421e6b-08a0-44e7-b9a2-58a2df31f764"
+              }
+            ]
+          },
+          {
+            "id": "473e6c1c-4592-40a3-b7e0-53cb14544670",
+            "text": "첫 출시는 학교 커뮤니티로 정할게. 광고는 이번 출시 범위에 넣지 않을 거야.",
+            "type": "decision",
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "speaker": "user",
+            "episode_id": "96421e6b-08a0-44e7-b9a2-58a2df31f764",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "e96f5746-43f0-439b-a427-b210e1839528",
+                "field": "question",
+                "quote": "첫 출시는 학교 커뮤니티로 정할게. 광고는 이번 출시 범위에 넣지 않을 거야.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "a5970af5-796f-42d1-b7cf-3c2c2cc1e1c8",
+                "object_id": "473e6c1c-4592-40a3-b7e0-53cb14544670",
+                "episode_id": "96421e6b-08a0-44e7-b9a2-58a2df31f764"
+              }
+            ]
+          },
+          {
+            "id": "53c85acc-271c-4df7-9fe0-12259e15b8b1",
+            "text": "다음은 별도 주제인 출시 채널이야. 학교 커뮤니티와 광고 중 어디부터 시도할까?",
+            "type": "question",
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "speaker": "user",
+            "episode_id": "96421e6b-08a0-44e7-b9a2-58a2df31f764",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "2eb16429-eb24-4b9a-b096-8f0c40c6512c",
+                "field": "question",
+                "quote": "다음은 별도 주제인 출시 채널이야. 학교 커뮤니티와 광고 중 어디부터 시도할까?",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "e11900f3-8691-47a9-b276-1c1ab943e5d0",
+                "object_id": "53c85acc-271c-4df7-9fe0-12259e15b8b1",
+                "episode_id": "96421e6b-08a0-44e7-b9a2-58a2df31f764"
+              }
+            ]
+          },
+          {
+            "id": "65cf6f2a-505c-490b-8908-34acba532e06",
+            "text": "적은 예산이라면 학교 커뮤니티부터 시험할 수 있습니다.",
+            "type": "insight",
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "speaker": "assistant",
+            "episode_id": "96421e6b-08a0-44e7-b9a2-58a2df31f764",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "1b379f09-d2a3-448b-ad2f-426cf67655b5",
+                "field": "response",
+                "quote": "적은 예산이라면 학교 커뮤니티부터 시험할 수 있습니다.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "e11900f3-8691-47a9-b276-1c1ab943e5d0",
+                "object_id": "65cf6f2a-505c-490b-8908-34acba532e06",
+                "episode_id": "96421e6b-08a0-44e7-b9a2-58a2df31f764"
+              }
+            ]
+          }
+        ],
+        "event_ids": [
+          "e11900f3-8691-47a9-b276-1c1ab943e5d0",
+          "a5970af5-796f-42d1-b7cf-3c2c2cc1e1c8"
+        ],
+        "objects": [
+          {
+            "id": "44fa5def-b3c8-47cf-a8a5-ae42a65c2fca",
+            "text": "초기 채널이 정리됐습니다.",
+            "type": "insight",
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "speaker": "assistant",
+            "episode_id": "96421e6b-08a0-44e7-b9a2-58a2df31f764",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "edfd956d-5d9a-43d7-bfbc-c3c59a63571b",
+                "field": "response",
+                "quote": "초기 채널이 정리됐습니다.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "a5970af5-796f-42d1-b7cf-3c2c2cc1e1c8",
+                "object_id": "44fa5def-b3c8-47cf-a8a5-ae42a65c2fca",
+                "episode_id": "96421e6b-08a0-44e7-b9a2-58a2df31f764"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "edfd956d-5d9a-43d7-bfbc-c3c59a63571b",
+                "field": "response",
+                "quote": "초기 채널이 정리됐습니다.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "a5970af5-796f-42d1-b7cf-3c2c2cc1e1c8",
+                "object_id": "44fa5def-b3c8-47cf-a8a5-ae42a65c2fca",
+                "episode_id": "96421e6b-08a0-44e7-b9a2-58a2df31f764"
+              }
+            ]
+          },
+          {
+            "id": "473e6c1c-4592-40a3-b7e0-53cb14544670",
+            "text": "첫 출시는 학교 커뮤니티로 정할게. 광고는 이번 출시 범위에 넣지 않을 거야.",
+            "type": "decision",
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "speaker": "user",
+            "episode_id": "96421e6b-08a0-44e7-b9a2-58a2df31f764",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "e96f5746-43f0-439b-a427-b210e1839528",
+                "field": "question",
+                "quote": "첫 출시는 학교 커뮤니티로 정할게. 광고는 이번 출시 범위에 넣지 않을 거야.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "a5970af5-796f-42d1-b7cf-3c2c2cc1e1c8",
+                "object_id": "473e6c1c-4592-40a3-b7e0-53cb14544670",
+                "episode_id": "96421e6b-08a0-44e7-b9a2-58a2df31f764"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "e96f5746-43f0-439b-a427-b210e1839528",
+                "field": "question",
+                "quote": "첫 출시는 학교 커뮤니티로 정할게. 광고는 이번 출시 범위에 넣지 않을 거야.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "a5970af5-796f-42d1-b7cf-3c2c2cc1e1c8",
+                "object_id": "473e6c1c-4592-40a3-b7e0-53cb14544670",
+                "episode_id": "96421e6b-08a0-44e7-b9a2-58a2df31f764"
+              }
+            ]
+          },
+          {
+            "id": "53c85acc-271c-4df7-9fe0-12259e15b8b1",
+            "text": "다음은 별도 주제인 출시 채널이야. 학교 커뮤니티와 광고 중 어디부터 시도할까?",
+            "type": "question",
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "speaker": "user",
+            "episode_id": "96421e6b-08a0-44e7-b9a2-58a2df31f764",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "2eb16429-eb24-4b9a-b096-8f0c40c6512c",
+                "field": "question",
+                "quote": "다음은 별도 주제인 출시 채널이야. 학교 커뮤니티와 광고 중 어디부터 시도할까?",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "e11900f3-8691-47a9-b276-1c1ab943e5d0",
+                "object_id": "53c85acc-271c-4df7-9fe0-12259e15b8b1",
+                "episode_id": "96421e6b-08a0-44e7-b9a2-58a2df31f764"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "2eb16429-eb24-4b9a-b096-8f0c40c6512c",
+                "field": "question",
+                "quote": "다음은 별도 주제인 출시 채널이야. 학교 커뮤니티와 광고 중 어디부터 시도할까?",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "e11900f3-8691-47a9-b276-1c1ab943e5d0",
+                "object_id": "53c85acc-271c-4df7-9fe0-12259e15b8b1",
+                "episode_id": "96421e6b-08a0-44e7-b9a2-58a2df31f764"
+              }
+            ]
+          },
+          {
+            "id": "65cf6f2a-505c-490b-8908-34acba532e06",
+            "text": "적은 예산이라면 학교 커뮤니티부터 시험할 수 있습니다.",
+            "type": "insight",
+            "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+            "speaker": "assistant",
+            "episode_id": "96421e6b-08a0-44e7-b9a2-58a2df31f764",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "1b379f09-d2a3-448b-ad2f-426cf67655b5",
+                "field": "response",
+                "quote": "적은 예산이라면 학교 커뮤니티부터 시험할 수 있습니다.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "e11900f3-8691-47a9-b276-1c1ab943e5d0",
+                "object_id": "65cf6f2a-505c-490b-8908-34acba532e06",
+                "episode_id": "96421e6b-08a0-44e7-b9a2-58a2df31f764"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "1b379f09-d2a3-448b-ad2f-426cf67655b5",
+                "field": "response",
+                "quote": "적은 예산이라면 학교 커뮤니티부터 시험할 수 있습니다.",
+                "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4",
+                "event_id": "e11900f3-8691-47a9-b276-1c1ab943e5d0",
+                "object_id": "65cf6f2a-505c-490b-8908-34acba532e06",
+                "episode_id": "96421e6b-08a0-44e7-b9a2-58a2df31f764"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

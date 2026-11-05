@@ -9,6 +9,9 @@ async function handler(request, { params }) {
   requireLocal(request);
   const { path } = await params, db = database(), method = request.method;
   const body = ['POST','DELETE'].includes(method) ? await request.json() : {};
+  if(path[0]==='analysis'&&path.length===4&&path[2]==='source'&&method==='GET'){
+   const {data,error}=await db.from('analysis_inputs').select('snapshot').eq('run_id',path[1]).eq('event_id',path[3]).single();check(error);return result(data.snapshot);
+  }
   if (path[0] === 'projects' && path.length === 1 && method === 'GET') {
    const { data, error } = await db.from('projects').select('*,sessions(*)').order('created_at', { ascending: false }); check(error); return result(data);
   }
@@ -21,6 +24,16 @@ async function handler(request, { params }) {
   }
   if (path[0] === 'projects' && path[2] === 'sessions' && method === 'POST') {
    const { data, error } = await db.from('sessions').insert({ project_id:path[1], device_id:body.device_id }).select().single(); check(error); return result(data);
+  }
+  if(path[0]==='sessions'&&path.length===3&&path[2]==='analysis'&&method==='GET'){
+   const {data,error}=await db.from('analysis_runs').select('*,episodes(*,reasoning_objects(*,object_evidence_links(*)))').eq('session_id',path[1]).order('created_at',{ascending:false}).limit(10);
+   if(error&&['PGRST205','PGRST200','42P01'].includes(error.code))return result({available:false,runs:[],message:'분석 DB 설정이 필요합니다.'});
+   check(error);return result({available:true,runs:data,configured:!!process.env.OPENAI_API_KEY});
+  }
+  if(path[0]==='sessions'&&path.length===3&&path[2]==='analysis'&&method==='POST'){
+   if(!process.env.OPENAI_API_KEY)throw Error('AI 분석을 사용하려면 OPENAI_API_KEY를 설정하세요.');
+   const {data,error}=await db.rpc('prm_create_analysis_run',{p_session:path[1],p_model:process.env.PRM_ANALYSIS_MODEL||'gpt-5-mini'});
+   check(error);return result({id:data,status:'queued'});
   }
   if (path[0] === 'sessions' && path.length === 2 && method === 'DELETE') {
    const { error } = await db.from('sessions').delete().eq('id',path[1]).eq('recording_status','closed'); check(error); return result({ ok:true });

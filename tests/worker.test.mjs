@@ -43,7 +43,7 @@ test('rapid tab activations preserve each tab instead of re-reading the final ac
  const result=await control('stop');
  assert.equal(result.ok,true);
  assert.deepEqual(saved.filter(e=>e.event_type==='page_view').map(e=>e.source_ref.url),['https://github.com/','https://supabase.com/','https://www.sooplive.co.kr/']);
- assert.ok(saved.filter(e=>e.event_type==='page_view').every(e=>e.content===null && e.capture_status==='metadata_only' && typeof e.metadata.active_seconds==='number'));
+ assert.ok(saved.filter(e=>e.event_type==='page_view').every(e=>e.content?.text==='page' && e.capture_status==='complete' && typeof e.metadata.active_seconds==='number'));
  assert.ok(saved.every(e=>Date.parse(e.ended_at)>=Date.parse(e.started_at)));
 });
 

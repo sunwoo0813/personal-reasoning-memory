@@ -21,6 +21,39 @@ function safeUrl(value){try{const u=new URL(value);for(const key of [...u.search
 function info() {
  return {url:safeUrl(location.href),title:document.title,scroll:maxScroll};
 }
+// Capture only semantic main content. Never fall back to the whole document.
+function pageSnapshot() {
+ const base={...info(),extracted_at:new Date().toISOString(),extractor_version:'2.0'};
+ if(excluded())return {...base,excluded:true};
+ if(location.hostname==='chatgpt.com')return {...base,text:null,extraction_status:'llm_page',truncated:false};
+ try {
+  const root=document.querySelector('article, main, [role="main"]');
+  if(!root)return {...base,text:null,extraction_status:'main_not_found',truncated:false};
+  const skip='script,style,noscript,template,nav,header,footer,aside,form,input,textarea,select,button,[contenteditable],[role="textbox"],[hidden],[aria-hidden="true"],[inert]';
+  const visibility=new WeakMap();
+  function readable(element){
+   if(!element)return false;
+   if(visibility.has(element))return visibility.get(element);
+   if(element.matches(skip)){visibility.set(element,false);return false;}
+   const style=getComputedStyle(element);
+   const visible=style.display!=='none'&&style.visibility!=='hidden'&&style.visibility!=='collapse'&&(!element.parentElement||readable(element.parentElement));
+   visibility.set(element,visible);return visible;
+  }
+  const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);
+  const chunks=[];let length=0,visited=0,node,truncated=false;
+  while((node=walker.nextNode())){
+   if(++visited>20000){truncated=true;break;}
+   if(!readable(node.parentElement))continue;
+   const part=(node.textContent||'').replace(/\s+/g,' ').trim();if(!part)continue;
+   const remaining=60000-length-(chunks.length?1:0);
+   if(remaining<=0){truncated=true;break;}
+   chunks.push(part.slice(0,remaining));length+=Math.min(part.length,remaining)+(chunks.length>1?1:0);
+   if(part.length>remaining){truncated=true;break;}
+  }
+  const text=chunks.join('\n');
+  return {...base,text:text||null,extraction_status:text?'captured':'empty',truncated};
+ }catch{return {...base,text:null,extraction_status:'failed',truncated:false};}
+}
 function isPrivateTarget(target) { return target instanceof Element && !!target.closest('input,textarea,[contenteditable=true],[role=textbox]'); }
 const chatNodeIds = new WeakMap();
 let nextChatNodeId = 0;
@@ -39,8 +72,8 @@ function readChatMessages() {
  }).filter(x => x.role === 'user' || x.role === 'assistant');
 }
 
-document.addEventListener('visibilitychange',()=>send({type:'visibility',visible:document.visibilityState==='visible',snapshot:document.visibilityState==='hidden'?info():null}));
-addEventListener('pagehide',()=>send({type:'pagehide',snapshot:info()}));
+document.addEventListener('visibilitychange',()=>send({type:'visibility',visible:document.visibilityState==='visible',snapshot:document.visibilityState==='hidden'?pageSnapshot():null}));
+addEventListener('pagehide',()=>send({type:'pagehide',snapshot:pageSnapshot()}));
 document.addEventListener('copy', () => {
  const selected = getSelection();
  if (!selected || selected.isCollapsed) return;
@@ -87,7 +120,7 @@ if (location.hostname === 'chatgpt.com') {
 }
 chrome.runtime.onMessage.addListener((m,s,reply)=>{
  if(m.channel!=='capture-command') return;
- if(m.type==='snapshot') {reply(excluded()?{excluded:true}:info());return;}
+ if(m.type==='snapshot') {reply(pageSnapshot());return;}
  if(m.type==='selection') {
   const selected=getSelection(), asElement=node=>node instanceof Element?node:node?.parentElement;
   if(excluded() || isPrivateTarget(asElement(selected?.anchorNode)) || isPrivateTarget(asElement(selected?.focusNode))){reply({ok:false,reason:'excluded'});return;}

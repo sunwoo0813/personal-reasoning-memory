@@ -1,0 +1,286 @@
+{
+  "job": {
+    "case_id": "baseline",
+    "name": "기본 조사·두 결정·미해결 비용",
+    "repeat": 1,
+    "session_id": "787172eb-2417-467e-8ce6-111b3e1cac73",
+    "run_id": "b5405359-0dde-4caa-b0df-0618f8174c66",
+    "status": "failed",
+    "error": "사고 요소의 발화 주체와 원문이 일치하지 않습니다.",
+    "created_at": "2026-11-05T06:06:17.528381+00:00",
+    "started_at": "2026-11-05T06:06:17.876865+00:00",
+    "completed_at": "2026-11-05T06:06:56.102+00:00",
+    "queue_ms": 348,
+    "processing_ms": 38226,
+    "usage": {
+      "input_tokens": 839,
+      "output_tokens": 465,
+      "total_tokens": 1304
+    }
+  },
+  "run": {
+    "id": "b5405359-0dde-4caa-b0df-0618f8174c66",
+    "session_id": "787172eb-2417-467e-8ce6-111b3e1cac73",
+    "status": "failed",
+    "model": "gpt-5-mini",
+    "pipeline_version": "extraction-v1",
+    "input_version": 1,
+    "input_hash": "39543239067d7d55c02abef4bb395a4683fabcaf56f3066ee132c036ee5217c4",
+    "created_at": "2026-11-05T06:06:17.528381+00:00",
+    "started_at": "2026-11-05T06:06:17.876865+00:00",
+    "completed_at": "2026-11-05T06:06:56.102+00:00",
+    "worker_id": "a2ce9c14-6f88-4da1-b787-e4f731c6ce2c",
+    "heartbeat_at": "2026-11-05T06:06:40.457+00:00",
+    "error": "사고 요소의 발화 주체와 원문이 일치하지 않습니다."
+  },
+  "inputs": [
+    {
+      "run_id": "b5405359-0dde-4caa-b0df-0618f8174c66",
+      "event_id": "3c0545c9-f18d-4c70-917d-6a035a1cec91",
+      "position": 1,
+      "snapshot": {
+        "id": "3c0545c9-f18d-4c70-917d-6a035a1cec91",
+        "source": "google",
+        "ended_at": "2026-11-05T06:00:30+00:00",
+        "metadata": {
+          "evaluation_case": "baseline",
+          "evaluation_name": "기본 조사·두 결정·미해결 비용",
+          "evaluation_repeat": 1
+        },
+        "device_id": "f5d309d6-87a7-43ed-8c04-9f0f7e36d715",
+        "client_seq": 1,
+        "event_type": "search",
+        "session_id": "787172eb-2417-467e-8ce6-111b3e1cac73",
+        "source_ref": {
+          "url": "https://www.google.com/search?q=research+memory"
+        },
+        "started_at": "2026-11-05T06:00:00+00:00",
+        "received_at": "2026-11-05T06:06:01.257036+00:00",
+        "capture_status": "complete",
+        "event_contents": {
+          "event_id": "3c0545c9-f18d-4c70-917d-6a035a1cec91",
+          "truncated": false,
+          "content_hash": "0117abce3b53d87c4e02cf41bb39841fdd8fcb25b76240b832aa47143eeaa866",
+          "content_jsonb": {
+            "query": "브라우저 활동과 대화 기록을 함께 저장하는 방법"
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "dae0e721-1071-4b28-9b09-55aa0f68fe50"
+      }
+    },
+    {
+      "run_id": "b5405359-0dde-4caa-b0df-0618f8174c66",
+      "event_id": "b7dbf257-43f9-4454-8431-d75cd6625968",
+      "position": 2,
+      "snapshot": {
+        "id": "b7dbf257-43f9-4454-8431-d75cd6625968",
+        "source": "web",
+        "ended_at": "2026-11-05T06:01:30+00:00",
+        "metadata": {
+          "title": "조사 기록 보존 방식 비교",
+          "truncated": false,
+          "content_hash": "adc19bb9684eb26e4c0583247391a5c550455e58535cbbab1de3ee04b8fa7ae5",
+          "active_seconds": 120,
+          "content_length": 114,
+          "parser_version": "2.0",
+          "evaluation_case": "baseline",
+          "evaluation_name": "기본 조사·두 결정·미해결 비용",
+          "evaluation_repeat": 1,
+          "extraction_status": "captured"
+        },
+        "device_id": "f5d309d6-87a7-43ed-8c04-9f0f7e36d715",
+        "client_seq": 2,
+        "event_type": "page_view",
+        "session_id": "787172eb-2417-467e-8ce6-111b3e1cac73",
+        "source_ref": {
+          "url": "https://example.com/research-memory",
+          "tab_id": 2
+        },
+        "started_at": "2026-11-05T06:01:00+00:00",
+        "received_at": "2026-11-05T06:06:03.251975+00:00",
+        "capture_status": "complete",
+        "event_contents": {
+          "event_id": "b7dbf257-43f9-4454-8431-d75cd6625968",
+          "truncated": false,
+          "content_hash": "261d73b837ebb7dd71b022001e8153d6cee3bb339babb0a45bd198e85eb9d887",
+          "content_jsonb": {
+            "text": "방문 주소만 저장하면 나중에 페이지가 바뀌었을 때 당시 읽은 내용을 확인하기 어렵다. 주요 본문과 수집 시각을 함께 저장하면 당시 자료를 다시 확인할 수 있다. 페이지 열람은 사용자 동의의 증거가 아니다.",
+            "extracted_at": "2026-11-05T03:03:00Z",
+            "extractor_version": "2.0"
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "4d03446c-5880-49bc-9dc7-35d1dddfe0eb"
+      }
+    },
+    {
+      "run_id": "b5405359-0dde-4caa-b0df-0618f8174c66",
+      "event_id": "c28777f1-a39c-4991-918d-732e8651501f",
+      "position": 3,
+      "snapshot": {
+        "id": "c28777f1-a39c-4991-918d-732e8651501f",
+        "source": "web",
+        "ended_at": "2026-11-05T06:02:30+00:00",
+        "metadata": {
+          "action": "copy",
+          "location": "unavailable",
+          "evaluation_case": "baseline",
+          "evaluation_name": "기본 조사·두 결정·미해결 비용",
+          "evaluation_repeat": 1
+        },
+        "device_id": "f5d309d6-87a7-43ed-8c04-9f0f7e36d715",
+        "client_seq": 3,
+        "event_type": "copy_highlight",
+        "session_id": "787172eb-2417-467e-8ce6-111b3e1cac73",
+        "source_ref": {
+          "url": "https://example.com/research-memory",
+          "tab_id": 2
+        },
+        "started_at": "2026-11-05T06:02:00+00:00",
+        "received_at": "2026-11-05T06:06:08.511903+00:00",
+        "capture_status": "partial",
+        "event_contents": {
+          "event_id": "c28777f1-a39c-4991-918d-732e8651501f",
+          "truncated": false,
+          "content_hash": "d27988593765fd0c10a0b91f88ddfe9427f765949e0e4e1621d104f8c9af5371",
+          "content_jsonb": {
+            "text": "주요 본문과 수집 시각을 함께 저장하면 당시 자료를 다시 확인할 수 있다."
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "8dfeeb7e-3831-4f4e-8909-899e634c9d53"
+      }
+    },
+    {
+      "run_id": "b5405359-0dde-4caa-b0df-0618f8174c66",
+      "event_id": "94779e2f-6e6c-4edc-ac12-6470a115b237",
+      "position": 4,
+      "snapshot": {
+        "id": "94779e2f-6e6c-4edc-ac12-6470a115b237",
+        "source": "chatgpt",
+        "ended_at": "2026-11-05T06:03:30+00:00",
+        "metadata": {
+          "evaluation_case": "baseline",
+          "evaluation_name": "기본 조사·두 결정·미해결 비용",
+          "evaluation_repeat": 1,
+          "completion_observed": true
+        },
+        "device_id": "f5d309d6-87a7-43ed-8c04-9f0f7e36d715",
+        "client_seq": 4,
+        "event_type": "llm_exchange",
+        "session_id": "787172eb-2417-467e-8ce6-111b3e1cac73",
+        "source_ref": {
+          "url": "https://chatgpt.com/c/example"
+        },
+        "started_at": "2026-11-05T06:03:00+00:00",
+        "received_at": "2026-11-05T06:06:10.261542+00:00",
+        "capture_status": "complete",
+        "event_contents": {
+          "event_id": "94779e2f-6e6c-4edc-ac12-6470a115b237",
+          "truncated": false,
+          "content_hash": "e1f1756aa4847163b29e9589d50d64f4e0c83bf7b8d07cb46faac643ef9e1730",
+          "content_jsonb": {
+            "question": "URL만으로는 당시 근거를 확인하기 어렵겠네. 주요 본문과 수집 시각을 먼저 저장하는 방식으로 결정할게.",
+            "response": "본문의 출처와 수집 시각을 보존하고 길이 제한과 민감정보 제외 정책을 함께 적용할 수 있습니다."
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "1a46ca3e-6a47-4ef2-bb21-2595225c9efc"
+      }
+    },
+    {
+      "run_id": "b5405359-0dde-4caa-b0df-0618f8174c66",
+      "event_id": "1f75832b-70b1-430b-bf4e-3216eaf64d6d",
+      "position": 5,
+      "snapshot": {
+        "id": "1f75832b-70b1-430b-bf4e-3216eaf64d6d",
+        "source": "chatgpt",
+        "ended_at": "2026-11-05T06:04:30+00:00",
+        "metadata": {
+          "evaluation_case": "baseline",
+          "evaluation_name": "기본 조사·두 결정·미해결 비용",
+          "evaluation_repeat": 1,
+          "completion_observed": true
+        },
+        "device_id": "f5d309d6-87a7-43ed-8c04-9f0f7e36d715",
+        "client_seq": 5,
+        "event_type": "llm_exchange",
+        "session_id": "787172eb-2417-467e-8ce6-111b3e1cac73",
+        "source_ref": {
+          "url": "https://chatgpt.com/c/example"
+        },
+        "started_at": "2026-11-05T06:04:00+00:00",
+        "received_at": "2026-11-05T06:06:12.045496+00:00",
+        "capture_status": "complete",
+        "event_contents": {
+          "event_id": "1f75832b-70b1-430b-bf4e-3216eaf64d6d",
+          "truncated": false,
+          "content_hash": "506bf5847b0a46999e93d16da39ca5c4f6edecdcf3bf10488cd656b2ad1f80e2",
+          "content_jsonb": {
+            "question": "본문을 저장한 다음에는 분석을 어떤 순서로 연결하면 좋을까? 세션 종료 뒤 분석하자. 비용 한도는 아직 정하지 못했어.",
+            "response": "먼저 조사 목적별로 Episode를 분할하고, 질문과 근거와 결정을 원문 인용과 함께 추출하는 방식을 제안합니다."
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "131707f9-e84c-4187-bd02-fdad7e0cb4fb"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "run_id": "b5405359-0dde-4caa-b0df-0618f8174c66",
+      "stage": "segmentation",
+      "sequence": 0,
+      "result": {
+        "episodes": [
+          {
+            "goal": "브라우저 활동과 대화 기록을 함께 저장하는 방법을 조사하고, 웹페이지 본문과 수집 시각을 함께 보존하는 방식을 검토한다.",
+            "title": "조사 기록 보존 방식 조사 및 페이지 확인",
+            "event_ids": [
+              "3c0545c9-f18d-4c70-917d-6a035a1cec91",
+              "b7dbf257-43f9-4454-8431-d75cd6625968",
+              "c28777f1-a39c-4991-918d-732e8651501f"
+            ],
+            "boundary_reason": "주제(기록 보존 방식 및 특정 페이지 내용 보존) 완료 후 다음에는 분석 순서 논의로 주제가 변경됨."
+          },
+          {
+            "goal": "저장한 본문을 어떻게 분석 파이프라인으로 연결할지(세션 분할, 질문·근거·결정 추출 등)를 결정하고 비용 한도 등 운영 세부사항을 논의한다.",
+            "title": "저장 후 분석 순서 및 구조 결정 논의",
+            "event_ids": [
+              "94779e2f-6e6c-4edc-ac12-6470a115b237",
+              "1f75832b-70b1-430b-bf4e-3216eaf64d6d"
+            ],
+            "boundary_reason": "저장 방식 검토에서 분석 및 운영 결정 논의로 목적이 전환됨."
+          }
+        ]
+      },
+      "usage": {
+        "input_tokens": 839,
+        "total_tokens": 1304,
+        "output_tokens": 465,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        }
+      },
+      "completed_at": "2026-11-05T06:06:39.235653+00:00"
+    }
+  ],
+  "result": {
+    "episodes": []
+  }
+}

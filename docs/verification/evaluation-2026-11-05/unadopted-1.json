@@ -1,0 +1,699 @@
+{
+  "job": {
+    "case_id": "unadopted",
+    "name": "AI 추천 미채택",
+    "repeat": 1,
+    "session_id": "0f8e9c1d-3195-413b-96ca-b30545af3d3b",
+    "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+    "status": "complete",
+    "error": null,
+    "created_at": "2026-11-05T06:06:43.281436+00:00",
+    "started_at": "2026-11-05T06:08:13.962428+00:00",
+    "completed_at": "2026-11-05T06:08:50.640665+00:00",
+    "queue_ms": 90681,
+    "processing_ms": 36678,
+    "score": {
+      "objects": 6,
+      "episodes": 1,
+      "decisions": {
+        "matched": 0,
+        "expected": 0,
+        "predicted": 0,
+        "unmatched_targets": []
+      },
+      "open_questions": {
+        "matched": 0,
+        "expected": 0,
+        "predicted": 0,
+        "unmatched_targets": []
+      },
+      "boundaries": {
+        "expected": [],
+        "predicted": [],
+        "true_positive": 0
+      },
+      "quotes": {
+        "matched": 7,
+        "total": 7
+      },
+      "required_evidence": [],
+      "no_objects_check": null
+    },
+    "usage": {
+      "input_tokens": 1281,
+      "output_tokens": 1961,
+      "total_tokens": 3242
+    }
+  },
+  "run": {
+    "id": "e28fe037-79ff-428a-886a-41c21354bb24",
+    "session_id": "0f8e9c1d-3195-413b-96ca-b30545af3d3b",
+    "status": "complete",
+    "model": "gpt-5-mini",
+    "pipeline_version": "extraction-v1",
+    "input_version": 1,
+    "input_hash": "93b943f110eabe509c9c40e9781b9b0222447e99d86f091596a998fa845d06f0",
+    "created_at": "2026-11-05T06:06:43.281436+00:00",
+    "started_at": "2026-11-05T06:08:13.962428+00:00",
+    "completed_at": "2026-11-05T06:08:50.640665+00:00",
+    "worker_id": "a2ce9c14-6f88-4da1-b787-e4f731c6ce2c",
+    "heartbeat_at": "2026-11-05T06:08:50.640665+00:00",
+    "error": null
+  },
+  "inputs": [
+    {
+      "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+      "event_id": "e617a633-86f8-49b2-a200-bc5ce68da53b",
+      "position": 1,
+      "snapshot": {
+        "id": "e617a633-86f8-49b2-a200-bc5ce68da53b",
+        "source": "chatgpt",
+        "ended_at": "2026-11-05T06:00:30+00:00",
+        "metadata": {
+          "title": "시험 자료",
+          "evaluation_case": "unadopted",
+          "evaluation_name": "AI 추천 미채택",
+          "evaluation_repeat": 1,
+          "extraction_status": "captured",
+          "completion_observed": true
+        },
+        "device_id": "58a72e80-ef52-469b-934d-e140498bb60d",
+        "client_seq": 1,
+        "event_type": "llm_exchange",
+        "session_id": "0f8e9c1d-3195-413b-96ca-b30545af3d3b",
+        "source_ref": {
+          "url": "https://chatgpt.com/c/evaluation"
+        },
+        "started_at": "2026-11-05T06:00:00+00:00",
+        "received_at": "2026-11-05T06:06:32.708725+00:00",
+        "capture_status": "complete",
+        "event_contents": {
+          "event_id": "e617a633-86f8-49b2-a200-bc5ce68da53b",
+          "truncated": false,
+          "content_hash": "a560b5152d9d33dc478e3a912ba7a77913289210d174fc8c7a0d4b09a7171da9",
+          "content_jsonb": {
+            "question": "지금은 선택하지 말고 A와 B의 장단점만 비교해줘. 아직 내 선택은 없어.",
+            "response": "A가 더 적합해 보입니다. A를 채택하는 방식을 추천합니다."
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "7f80e51b-42e4-42fd-b6f4-bd376f2dd45c"
+      }
+    },
+    {
+      "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+      "event_id": "7b5e014d-4faf-4fdc-8493-fbb1744df686",
+      "position": 2,
+      "snapshot": {
+        "id": "7b5e014d-4faf-4fdc-8493-fbb1744df686",
+        "source": "web",
+        "ended_at": "2026-11-05T06:01:30+00:00",
+        "metadata": {
+          "title": "시험 자료",
+          "truncated": false,
+          "content_hash": "73c2d39ddb0913d694e030cb5fea0d2deb3bc7d6ffa8144132aa410aaaa63f0e",
+          "content_length": 45,
+          "evaluation_case": "unadopted",
+          "evaluation_name": "AI 추천 미채택",
+          "evaluation_repeat": 1,
+          "extraction_status": "captured",
+          "completion_observed": true
+        },
+        "device_id": "58a72e80-ef52-469b-934d-e140498bb60d",
+        "client_seq": 2,
+        "event_type": "page_view",
+        "session_id": "0f8e9c1d-3195-413b-96ca-b30545af3d3b",
+        "source_ref": {
+          "url": "https://example.com/evaluation"
+        },
+        "started_at": "2026-11-05T06:01:00+00:00",
+        "received_at": "2026-11-05T06:06:36.128654+00:00",
+        "capture_status": "complete",
+        "event_contents": {
+          "event_id": "7b5e014d-4faf-4fdc-8493-fbb1744df686",
+          "truncated": false,
+          "content_hash": "e2e02150be2c934183a0d915c282d170ea7a96aa85beb416b6ca7c328b7fe917",
+          "content_jsonb": {
+            "text": "A 서비스 소개는 A가 모든 작업에 적합하다고 주장한다. 이는 제공사의 주장이다.",
+            "extracted_at": "2026-11-05T06:00:00Z",
+            "extractor_version": "2.0"
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "01dd53f2-d05a-46ba-9334-88afd9f1e060"
+      }
+    },
+    {
+      "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+      "event_id": "bf5655ee-30b5-4d38-9831-c9d85a85ad9f",
+      "position": 3,
+      "snapshot": {
+        "id": "bf5655ee-30b5-4d38-9831-c9d85a85ad9f",
+        "source": "chatgpt",
+        "ended_at": "2026-11-05T06:02:30+00:00",
+        "metadata": {
+          "title": "시험 자료",
+          "evaluation_case": "unadopted",
+          "evaluation_name": "AI 추천 미채택",
+          "evaluation_repeat": 1,
+          "extraction_status": "captured",
+          "completion_observed": true
+        },
+        "device_id": "58a72e80-ef52-469b-934d-e140498bb60d",
+        "client_seq": 3,
+        "event_type": "llm_exchange",
+        "session_id": "0f8e9c1d-3195-413b-96ca-b30545af3d3b",
+        "source_ref": {
+          "url": "https://chatgpt.com/c/evaluation"
+        },
+        "started_at": "2026-11-05T06:02:00+00:00",
+        "received_at": "2026-11-05T06:06:37.197843+00:00",
+        "capture_status": "complete",
+        "event_contents": {
+          "event_id": "bf5655ee-30b5-4d38-9831-c9d85a85ad9f",
+          "truncated": false,
+          "content_hash": "5546b9493358567e41de88b17bf2337edde4f326de89ad6de78df9e8d977e7d5",
+          "content_jsonb": {
+            "question": "설명은 읽었어. 어느 쪽도 선택하지 않았고, A의 장점도 아직 내 판단이라고 볼 수 없어. 비교에 필요한 정보가 더 있는지 알려줘.",
+            "response": "운영 비용과 실제 성능을 추가로 비교할 수 있습니다."
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "9b7eb2e3-ec53-4132-8192-8d0158ddc124"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+      "stage": "segmentation",
+      "sequence": 0,
+      "result": {
+        "episodes": [
+          {
+            "goal": "A와 B의 장단점 비교를 요청하고, 비교에 필요한 추가 정보를 확인하려고 함.",
+            "title": "시험 자료 비교",
+            "event_ids": [
+              "e617a633-86f8-49b2-a200-bc5ce68da53b",
+              "7b5e014d-4faf-4fdc-8493-fbb1744df686",
+              "bf5655ee-30b5-4d38-9831-c9d85a85ad9f"
+            ],
+            "boundary_reason": "세 차례의 연속된 상호작용이 동일한 연구 질문(시험 자료 비교)에 집중되어 있으며 더 이상의 이벤트가 없음으로 에피소드 종료."
+          }
+        ]
+      },
+      "usage": {
+        "input_tokens": 583,
+        "total_tokens": 907,
+        "output_tokens": 324,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        }
+      },
+      "completed_at": "2026-11-05T06:08:30.545715+00:00"
+    },
+    {
+      "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+      "stage": "extraction",
+      "sequence": 0,
+      "result": {
+        "objects": [
+          {
+            "text": "사용자가 명시적으로 한 요청: '지금은 선택하지 말고 A와 B의 장단점만 비교해줘. 아직 내 선택은 없어.'",
+            "type": "question",
+            "speaker": "user",
+            "evidence": [
+              {
+                "field": "question",
+                "quote": "지금은 선택하지 말고 A와 B의 장단점만 비교해줘. 아직 내 선택은 없어.",
+                "event_id": "e617a633-86f8-49b2-a200-bc5ce68da53b"
+              }
+            ]
+          },
+          {
+            "text": "사용자가 추가로 묻는 요청: '설명은 읽었어. 어느 쪽도 선택하지 않았고, A의 장점도 아직 내 판단이라고 볼 수 없어. 비교에 필요한 정보가 더 있는지 알려줘.'",
+            "type": "question",
+            "speaker": "user",
+            "evidence": [
+              {
+                "field": "question",
+                "quote": "설명은 읽었어. 어느 쪽도 선택하지 않았고, A의 장점도 아직 내 판단이라고 볼 수 없어. 비교에 필요한 정보가 더 있는지 알려줘.",
+                "event_id": "bf5655ee-30b5-4d38-9831-c9d85a85ad9f"
+              }
+            ]
+          },
+          {
+            "text": "출처의 진술: 'A 서비스 소개는 A가 모든 작업에 적합하다고 주장한다. 이는 제공사의 주장이다.'",
+            "type": "evidence",
+            "speaker": "source",
+            "evidence": [
+              {
+                "field": "text",
+                "quote": "A 서비스 소개는 A가 모든 작업에 적합하다고 주장한다. 이는 제공사의 주장이다.",
+                "event_id": "7b5e014d-4faf-4fdc-8493-fbb1744df686"
+              }
+            ]
+          },
+          {
+            "text": "어시스턴트의 권고(초기): 'A가 더 적합해 보입니다. A를 채택하는 방식을 추천합니다.'",
+            "type": "insight",
+            "speaker": "assistant",
+            "evidence": [
+              {
+                "field": "response",
+                "quote": "A가 더 적합해 보입니다. A를 채택하는 방식을 추천합니다.",
+                "event_id": "e617a633-86f8-49b2-a200-bc5ce68da53b"
+              }
+            ]
+          },
+          {
+            "text": "어시스턴트의 제안(추가 비교 항목): '운영 비용과 실제 성능을 추가로 비교할 수 있습니다.'",
+            "type": "insight",
+            "speaker": "assistant",
+            "evidence": [
+              {
+                "field": "response",
+                "quote": "운영 비용과 실제 성능을 추가로 비교할 수 있습니다.",
+                "event_id": "bf5655ee-30b5-4d38-9831-c9d85a85ad9f"
+              }
+            ]
+          },
+          {
+            "text": "사용자는 '지금은 선택하지 말라'고 했으나 어시스턴트는 'A를 채택하는 방식을 추천'하여 불일치가 존재함.",
+            "type": "contradiction",
+            "speaker": "unknown",
+            "evidence": [
+              {
+                "field": "question",
+                "quote": "지금은 선택하지 말고 A와 B의 장단점만 비교해줘. 아직 내 선택은 없어.",
+                "event_id": "e617a633-86f8-49b2-a200-bc5ce68da53b"
+              },
+              {
+                "field": "response",
+                "quote": "A가 더 적합해 보입니다. A를 채택하는 방식을 추천합니다.",
+                "event_id": "e617a633-86f8-49b2-a200-bc5ce68da53b"
+              }
+            ]
+          }
+        ]
+      },
+      "usage": {
+        "input_tokens": 698,
+        "total_tokens": 2335,
+        "output_tokens": 1637,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 704
+        }
+      },
+      "completed_at": "2026-11-05T06:08:49.884072+00:00"
+    }
+  ],
+  "result": {
+    "episodes": [
+      {
+        "id": "bddc124c-a298-43c6-9825-10ebd52deb67",
+        "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+        "sequence": 1,
+        "title": "시험 자료 비교",
+        "goal": "A와 B의 장단점 비교를 요청하고, 비교에 필요한 추가 정보를 확인하려고 함.",
+        "boundary_reason": "세 차례의 연속된 상호작용이 동일한 연구 질문(시험 자료 비교)에 집중되어 있으며 더 이상의 이벤트가 없음으로 에피소드 종료.",
+        "episode_event_links": [
+          {
+            "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+            "event_id": "e617a633-86f8-49b2-a200-bc5ce68da53b",
+            "position": 1,
+            "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67"
+          },
+          {
+            "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+            "event_id": "7b5e014d-4faf-4fdc-8493-fbb1744df686",
+            "position": 2,
+            "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67"
+          },
+          {
+            "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+            "event_id": "bf5655ee-30b5-4d38-9831-c9d85a85ad9f",
+            "position": 3,
+            "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67"
+          }
+        ],
+        "reasoning_objects": [
+          {
+            "id": "15992f4c-010a-4cb9-91c2-b2344b92ef0c",
+            "text": "사용자가 추가로 묻는 요청: '설명은 읽었어. 어느 쪽도 선택하지 않았고, A의 장점도 아직 내 판단이라고 볼 수 없어. 비교에 필요한 정보가 더 있는지 알려줘.'",
+            "type": "question",
+            "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+            "speaker": "user",
+            "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "e8e1a986-7dc8-4bb3-bec7-54566096ad16",
+                "field": "question",
+                "quote": "설명은 읽었어. 어느 쪽도 선택하지 않았고, A의 장점도 아직 내 판단이라고 볼 수 없어. 비교에 필요한 정보가 더 있는지 알려줘.",
+                "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+                "event_id": "bf5655ee-30b5-4d38-9831-c9d85a85ad9f",
+                "object_id": "15992f4c-010a-4cb9-91c2-b2344b92ef0c",
+                "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67"
+              }
+            ]
+          },
+          {
+            "id": "53d205d9-38a4-4668-9338-4498532b7398",
+            "text": "사용자는 '지금은 선택하지 말라'고 했으나 어시스턴트는 'A를 채택하는 방식을 추천'하여 불일치가 존재함.",
+            "type": "contradiction",
+            "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+            "speaker": "unknown",
+            "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "96c11c5a-1419-40a7-adae-fa1cd506c272",
+                "field": "question",
+                "quote": "지금은 선택하지 말고 A와 B의 장단점만 비교해줘. 아직 내 선택은 없어.",
+                "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+                "event_id": "e617a633-86f8-49b2-a200-bc5ce68da53b",
+                "object_id": "53d205d9-38a4-4668-9338-4498532b7398",
+                "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67"
+              },
+              {
+                "id": "81d33f31-ee99-4f5b-80db-e3bf0b21f51e",
+                "field": "response",
+                "quote": "A가 더 적합해 보입니다. A를 채택하는 방식을 추천합니다.",
+                "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+                "event_id": "e617a633-86f8-49b2-a200-bc5ce68da53b",
+                "object_id": "53d205d9-38a4-4668-9338-4498532b7398",
+                "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67"
+              }
+            ]
+          },
+          {
+            "id": "7f954bb5-ddbf-4eeb-8154-3798487ea028",
+            "text": "출처의 진술: 'A 서비스 소개는 A가 모든 작업에 적합하다고 주장한다. 이는 제공사의 주장이다.'",
+            "type": "evidence",
+            "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+            "speaker": "source",
+            "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "2baa0bb1-d34b-4b04-8589-64e6cd459414",
+                "field": "text",
+                "quote": "A 서비스 소개는 A가 모든 작업에 적합하다고 주장한다. 이는 제공사의 주장이다.",
+                "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+                "event_id": "7b5e014d-4faf-4fdc-8493-fbb1744df686",
+                "object_id": "7f954bb5-ddbf-4eeb-8154-3798487ea028",
+                "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67"
+              }
+            ]
+          },
+          {
+            "id": "ab1ea9db-1f2e-442b-8935-dbdba5d8f3fc",
+            "text": "사용자가 명시적으로 한 요청: '지금은 선택하지 말고 A와 B의 장단점만 비교해줘. 아직 내 선택은 없어.'",
+            "type": "question",
+            "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+            "speaker": "user",
+            "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "0ddadc44-7ac2-478a-94d2-0ca1fdc02c3b",
+                "field": "question",
+                "quote": "지금은 선택하지 말고 A와 B의 장단점만 비교해줘. 아직 내 선택은 없어.",
+                "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+                "event_id": "e617a633-86f8-49b2-a200-bc5ce68da53b",
+                "object_id": "ab1ea9db-1f2e-442b-8935-dbdba5d8f3fc",
+                "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67"
+              }
+            ]
+          },
+          {
+            "id": "bd2b1dc3-e5c8-41db-a46e-1ab124ec6849",
+            "text": "어시스턴트의 권고(초기): 'A가 더 적합해 보입니다. A를 채택하는 방식을 추천합니다.'",
+            "type": "insight",
+            "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+            "speaker": "assistant",
+            "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "6ef2b4de-112a-45fb-abe1-e3932672c126",
+                "field": "response",
+                "quote": "A가 더 적합해 보입니다. A를 채택하는 방식을 추천합니다.",
+                "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+                "event_id": "e617a633-86f8-49b2-a200-bc5ce68da53b",
+                "object_id": "bd2b1dc3-e5c8-41db-a46e-1ab124ec6849",
+                "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67"
+              }
+            ]
+          },
+          {
+            "id": "fd21e994-ce58-489b-90e8-0781640c76b3",
+            "text": "어시스턴트의 제안(추가 비교 항목): '운영 비용과 실제 성능을 추가로 비교할 수 있습니다.'",
+            "type": "insight",
+            "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+            "speaker": "assistant",
+            "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "0e72c693-3985-4505-8605-4b68fe2961df",
+                "field": "response",
+                "quote": "운영 비용과 실제 성능을 추가로 비교할 수 있습니다.",
+                "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+                "event_id": "bf5655ee-30b5-4d38-9831-c9d85a85ad9f",
+                "object_id": "fd21e994-ce58-489b-90e8-0781640c76b3",
+                "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67"
+              }
+            ]
+          }
+        ],
+        "event_ids": [
+          "e617a633-86f8-49b2-a200-bc5ce68da53b",
+          "7b5e014d-4faf-4fdc-8493-fbb1744df686",
+          "bf5655ee-30b5-4d38-9831-c9d85a85ad9f"
+        ],
+        "objects": [
+          {
+            "id": "15992f4c-010a-4cb9-91c2-b2344b92ef0c",
+            "text": "사용자가 추가로 묻는 요청: '설명은 읽었어. 어느 쪽도 선택하지 않았고, A의 장점도 아직 내 판단이라고 볼 수 없어. 비교에 필요한 정보가 더 있는지 알려줘.'",
+            "type": "question",
+            "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+            "speaker": "user",
+            "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "e8e1a986-7dc8-4bb3-bec7-54566096ad16",
+                "field": "question",
+                "quote": "설명은 읽었어. 어느 쪽도 선택하지 않았고, A의 장점도 아직 내 판단이라고 볼 수 없어. 비교에 필요한 정보가 더 있는지 알려줘.",
+                "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+                "event_id": "bf5655ee-30b5-4d38-9831-c9d85a85ad9f",
+                "object_id": "15992f4c-010a-4cb9-91c2-b2344b92ef0c",
+                "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "e8e1a986-7dc8-4bb3-bec7-54566096ad16",
+                "field": "question",
+                "quote": "설명은 읽었어. 어느 쪽도 선택하지 않았고, A의 장점도 아직 내 판단이라고 볼 수 없어. 비교에 필요한 정보가 더 있는지 알려줘.",
+                "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+                "event_id": "bf5655ee-30b5-4d38-9831-c9d85a85ad9f",
+                "object_id": "15992f4c-010a-4cb9-91c2-b2344b92ef0c",
+                "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67"
+              }
+            ]
+          },
+          {
+            "id": "53d205d9-38a4-4668-9338-4498532b7398",
+            "text": "사용자는 '지금은 선택하지 말라'고 했으나 어시스턴트는 'A를 채택하는 방식을 추천'하여 불일치가 존재함.",
+            "type": "contradiction",
+            "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+            "speaker": "unknown",
+            "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "96c11c5a-1419-40a7-adae-fa1cd506c272",
+                "field": "question",
+                "quote": "지금은 선택하지 말고 A와 B의 장단점만 비교해줘. 아직 내 선택은 없어.",
+                "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+                "event_id": "e617a633-86f8-49b2-a200-bc5ce68da53b",
+                "object_id": "53d205d9-38a4-4668-9338-4498532b7398",
+                "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67"
+              },
+              {
+                "id": "81d33f31-ee99-4f5b-80db-e3bf0b21f51e",
+                "field": "response",
+                "quote": "A가 더 적합해 보입니다. A를 채택하는 방식을 추천합니다.",
+                "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+                "event_id": "e617a633-86f8-49b2-a200-bc5ce68da53b",
+                "object_id": "53d205d9-38a4-4668-9338-4498532b7398",
+                "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "96c11c5a-1419-40a7-adae-fa1cd506c272",
+                "field": "question",
+                "quote": "지금은 선택하지 말고 A와 B의 장단점만 비교해줘. 아직 내 선택은 없어.",
+                "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+                "event_id": "e617a633-86f8-49b2-a200-bc5ce68da53b",
+                "object_id": "53d205d9-38a4-4668-9338-4498532b7398",
+                "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67"
+              },
+              {
+                "id": "81d33f31-ee99-4f5b-80db-e3bf0b21f51e",
+                "field": "response",
+                "quote": "A가 더 적합해 보입니다. A를 채택하는 방식을 추천합니다.",
+                "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+                "event_id": "e617a633-86f8-49b2-a200-bc5ce68da53b",
+                "object_id": "53d205d9-38a4-4668-9338-4498532b7398",
+                "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67"
+              }
+            ]
+          },
+          {
+            "id": "7f954bb5-ddbf-4eeb-8154-3798487ea028",
+            "text": "출처의 진술: 'A 서비스 소개는 A가 모든 작업에 적합하다고 주장한다. 이는 제공사의 주장이다.'",
+            "type": "evidence",
+            "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+            "speaker": "source",
+            "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "2baa0bb1-d34b-4b04-8589-64e6cd459414",
+                "field": "text",
+                "quote": "A 서비스 소개는 A가 모든 작업에 적합하다고 주장한다. 이는 제공사의 주장이다.",
+                "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+                "event_id": "7b5e014d-4faf-4fdc-8493-fbb1744df686",
+                "object_id": "7f954bb5-ddbf-4eeb-8154-3798487ea028",
+                "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "2baa0bb1-d34b-4b04-8589-64e6cd459414",
+                "field": "text",
+                "quote": "A 서비스 소개는 A가 모든 작업에 적합하다고 주장한다. 이는 제공사의 주장이다.",
+                "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+                "event_id": "7b5e014d-4faf-4fdc-8493-fbb1744df686",
+                "object_id": "7f954bb5-ddbf-4eeb-8154-3798487ea028",
+                "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67"
+              }
+            ]
+          },
+          {
+            "id": "ab1ea9db-1f2e-442b-8935-dbdba5d8f3fc",
+            "text": "사용자가 명시적으로 한 요청: '지금은 선택하지 말고 A와 B의 장단점만 비교해줘. 아직 내 선택은 없어.'",
+            "type": "question",
+            "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+            "speaker": "user",
+            "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "0ddadc44-7ac2-478a-94d2-0ca1fdc02c3b",
+                "field": "question",
+                "quote": "지금은 선택하지 말고 A와 B의 장단점만 비교해줘. 아직 내 선택은 없어.",
+                "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+                "event_id": "e617a633-86f8-49b2-a200-bc5ce68da53b",
+                "object_id": "ab1ea9db-1f2e-442b-8935-dbdba5d8f3fc",
+                "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "0ddadc44-7ac2-478a-94d2-0ca1fdc02c3b",
+                "field": "question",
+                "quote": "지금은 선택하지 말고 A와 B의 장단점만 비교해줘. 아직 내 선택은 없어.",
+                "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+                "event_id": "e617a633-86f8-49b2-a200-bc5ce68da53b",
+                "object_id": "ab1ea9db-1f2e-442b-8935-dbdba5d8f3fc",
+                "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67"
+              }
+            ]
+          },
+          {
+            "id": "bd2b1dc3-e5c8-41db-a46e-1ab124ec6849",
+            "text": "어시스턴트의 권고(초기): 'A가 더 적합해 보입니다. A를 채택하는 방식을 추천합니다.'",
+            "type": "insight",
+            "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+            "speaker": "assistant",
+            "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "6ef2b4de-112a-45fb-abe1-e3932672c126",
+                "field": "response",
+                "quote": "A가 더 적합해 보입니다. A를 채택하는 방식을 추천합니다.",
+                "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+                "event_id": "e617a633-86f8-49b2-a200-bc5ce68da53b",
+                "object_id": "bd2b1dc3-e5c8-41db-a46e-1ab124ec6849",
+                "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "6ef2b4de-112a-45fb-abe1-e3932672c126",
+                "field": "response",
+                "quote": "A가 더 적합해 보입니다. A를 채택하는 방식을 추천합니다.",
+                "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+                "event_id": "e617a633-86f8-49b2-a200-bc5ce68da53b",
+                "object_id": "bd2b1dc3-e5c8-41db-a46e-1ab124ec6849",
+                "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67"
+              }
+            ]
+          },
+          {
+            "id": "fd21e994-ce58-489b-90e8-0781640c76b3",
+            "text": "어시스턴트의 제안(추가 비교 항목): '운영 비용과 실제 성능을 추가로 비교할 수 있습니다.'",
+            "type": "insight",
+            "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+            "speaker": "assistant",
+            "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "0e72c693-3985-4505-8605-4b68fe2961df",
+                "field": "response",
+                "quote": "운영 비용과 실제 성능을 추가로 비교할 수 있습니다.",
+                "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+                "event_id": "bf5655ee-30b5-4d38-9831-c9d85a85ad9f",
+                "object_id": "fd21e994-ce58-489b-90e8-0781640c76b3",
+                "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "0e72c693-3985-4505-8605-4b68fe2961df",
+                "field": "response",
+                "quote": "운영 비용과 실제 성능을 추가로 비교할 수 있습니다.",
+                "run_id": "e28fe037-79ff-428a-886a-41c21354bb24",
+                "event_id": "bf5655ee-30b5-4d38-9831-c9d85a85ad9f",
+                "object_id": "fd21e994-ce58-489b-90e8-0781640c76b3",
+                "episode_id": "bddc124c-a298-43c6-9825-10ebd52deb67"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

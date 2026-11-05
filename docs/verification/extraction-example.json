@@ -1,0 +1,184 @@
+{
+  "input": "tests/fixtures/research-session.json",
+  "synthetic": true,
+  "model": "gpt-5-mini",
+  "verified_at": "2026-11-05T05:38:15.823Z",
+  "result": {
+    "pipeline_version": "extraction-v1",
+    "episodes": [
+      {
+        "title": "브라우저 활동과 대화 기록의 보존 방식 결정",
+        "goal": "웹페이지 주소만 저장할 경우 원문 변경으로 과거 근거 확인이 어려우므로, 주요 본문과 수집 시각을 함께 저장하는 방식으로 보존 정책을 정하고, 수집 후 분석 흐름(세션 분할·질문·근거·결정 추출)을 설계한다.",
+        "boundary_reason": "사용자가 '주요 본문과 수집 시각을 먼저 저장' 방식으로 결정했고, 이후 분석 순서(에피소드 분할 및 근거·결정 추출 방식)를 제안받음으로써 해당 연구 질문과 초기 설계 결정을 도출했으므로 이 연속된 활동 묶음을 종료함.",
+        "event_ids": [
+          "10000000-0000-4000-8000-000000000001",
+          "10000000-0000-4000-8000-000000000002",
+          "10000000-0000-4000-8000-000000000003",
+          "10000000-0000-4000-8000-000000000004",
+          "10000000-0000-4000-8000-000000000005"
+        ],
+        "objects": [
+          {
+            "type": "question",
+            "speaker": "user",
+            "text": "브라우저 활동과 대화 기록을 함께 저장하는 방법",
+            "evidence": [
+              {
+                "event_id": "10000000-0000-4000-8000-000000000001",
+                "field": "query",
+                "quote": "브라우저 활동과 대화 기록을 함께 저장하는 방법"
+              }
+            ]
+          },
+          {
+            "type": "evidence",
+            "speaker": "source",
+            "text": "방문 주소만 저장하면 나중에 페이지가 바뀌었을 때 당시 읽은 내용을 확인하기 어렵다.",
+            "evidence": [
+              {
+                "event_id": "10000000-0000-4000-8000-000000000002",
+                "field": "text",
+                "quote": "방문 주소만 저장하면 나중에 페이지가 바뀌었을 때 당시 읽은 내용을 확인하기 어렵다."
+              }
+            ]
+          },
+          {
+            "type": "hypothesis",
+            "speaker": "source",
+            "text": "주요 본문과 수집 시각을 함께 저장하면 당시 자료를 다시 확인할 수 있다.",
+            "evidence": [
+              {
+                "event_id": "10000000-0000-4000-8000-000000000002",
+                "field": "text",
+                "quote": "주요 본문과 수집 시각을 함께 저장하면 당시 자료를 다시 확인할 수 있다."
+              },
+              {
+                "event_id": "10000000-0000-4000-8000-000000000003",
+                "field": "text",
+                "quote": "주요 본문과 수집 시각을 함께 저장하면 당시 자료를 다시 확인할 수 있다."
+              }
+            ]
+          },
+          {
+            "type": "insight",
+            "speaker": "source",
+            "text": "페이지 열람은 사용자 동의의 증거가 아니다.",
+            "evidence": [
+              {
+                "event_id": "10000000-0000-4000-8000-000000000002",
+                "field": "text",
+                "quote": "페이지 열람은 사용자 동의의 증거가 아니다."
+              }
+            ]
+          },
+          {
+            "type": "decision",
+            "speaker": "user",
+            "text": "URL만으로는 당시 근거를 확인하기 어렵겠네. 주요 본문과 수집 시각을 먼저 저장하는 방식으로 결정할게.",
+            "evidence": [
+              {
+                "event_id": "10000000-0000-4000-8000-000000000004",
+                "field": "question",
+                "quote": "URL만으로는 당시 근거를 확인하기 어렵겠네. 주요 본문과 수집 시각을 먼저 저장하는 방식으로 결정할게."
+              }
+            ]
+          },
+          {
+            "type": "insight",
+            "speaker": "assistant",
+            "text": "본문의 출처와 수집 시각을 보존하고 길이 제한과 민감정보 제외 정책을 함께 적용할 수 있습니다.",
+            "evidence": [
+              {
+                "event_id": "10000000-0000-4000-8000-000000000004",
+                "field": "response",
+                "quote": "본문의 출처와 수집 시각을 보존하고 길이 제한과 민감정보 제외 정책을 함께 적용할 수 있습니다."
+              }
+            ]
+          },
+          {
+            "type": "question",
+            "speaker": "user",
+            "text": "본문을 저장한 다음에는 분석을 어떤 순서로 연결하면 좋을까?",
+            "evidence": [
+              {
+                "event_id": "10000000-0000-4000-8000-000000000005",
+                "field": "question",
+                "quote": "본문을 저장한 다음에는 분석을 어떤 순서로 연결하면 좋을까?"
+              }
+            ]
+          },
+          {
+            "type": "decision",
+            "speaker": "user",
+            "text": "세션 종료 뒤 분석하자.",
+            "evidence": [
+              {
+                "event_id": "10000000-0000-4000-8000-000000000005",
+                "field": "question",
+                "quote": "세션 종료 뒤 분석하자."
+              }
+            ]
+          },
+          {
+            "type": "insight",
+            "speaker": "assistant",
+            "text": "먼저 조사 목적별로 Episode를 분할하고, 질문과 근거와 결정을 원문 인용과 함께 추출하는 방식을 제안합니다.",
+            "evidence": [
+              {
+                "event_id": "10000000-0000-4000-8000-000000000005",
+                "field": "response",
+                "quote": "먼저 조사 목적별로 Episode를 분할하고, 질문과 근거와 결정을 원문 인용과 함께 추출하는 방식을 제안합니다."
+              }
+            ]
+          },
+          {
+            "type": "open_question",
+            "speaker": "user",
+            "text": "비용 한도는 아직 정하지 못했어.",
+            "evidence": [
+              {
+                "event_id": "10000000-0000-4000-8000-000000000005",
+                "field": "question",
+                "quote": "비용 한도는 아직 정하지 못했어."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "usage": [
+    {
+      "stage": "segmentation",
+      "sequence": 0,
+      "usage": {
+        "input_tokens": 795,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 408,
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        },
+        "total_tokens": 1203
+      }
+    },
+    {
+      "stage": "extraction",
+      "sequence": 0,
+      "usage": {
+        "input_tokens": 920,
+        "input_tokens_details": {
+          "cache_write_tokens": 0,
+          "cached_tokens": 0
+        },
+        "output_tokens": 2047,
+        "output_tokens_details": {
+          "reasoning_tokens": 832
+        },
+        "total_tokens": 2967
+      }
+    }
+  ]
+}

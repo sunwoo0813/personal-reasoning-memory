@@ -1,0 +1,233 @@
+{
+  "job": {
+    "case_id": "metadata_only",
+    "name": "본문 없는 방문 기록만 존재",
+    "repeat": 2,
+    "session_id": "2da97af4-c1e9-49ee-aebe-9baee72e3c94",
+    "run_id": "12bbda9c-e5d5-4611-8563-57edb04c955f",
+    "status": "complete",
+    "error": null,
+    "created_at": "2026-11-05T06:08:44.074344+00:00",
+    "started_at": "2026-11-05T06:13:27.434621+00:00",
+    "completed_at": "2026-11-05T06:13:43.373962+00:00",
+    "queue_ms": 283360,
+    "processing_ms": 15939,
+    "score": {
+      "objects": 0,
+      "episodes": 1,
+      "decisions": {
+        "matched": 0,
+        "expected": 0,
+        "predicted": 0,
+        "unmatched_targets": []
+      },
+      "open_questions": {
+        "matched": 0,
+        "expected": 0,
+        "predicted": 0,
+        "unmatched_targets": []
+      },
+      "boundaries": {
+        "expected": [],
+        "predicted": [],
+        "true_positive": 0
+      },
+      "quotes": {
+        "matched": 0,
+        "total": 0
+      },
+      "required_evidence": [],
+      "no_objects_check": true
+    },
+    "usage": {
+      "input_tokens": 880,
+      "output_tokens": 508,
+      "total_tokens": 1388
+    }
+  },
+  "run": {
+    "id": "12bbda9c-e5d5-4611-8563-57edb04c955f",
+    "session_id": "2da97af4-c1e9-49ee-aebe-9baee72e3c94",
+    "status": "complete",
+    "model": "gpt-5-mini",
+    "pipeline_version": "extraction-v1",
+    "input_version": 1,
+    "input_hash": "a06dcb6e03fed6a88e7528b31ec8024987829f924e730e46e6281f1b30b6cbed",
+    "created_at": "2026-11-05T06:08:44.074344+00:00",
+    "started_at": "2026-11-05T06:13:27.434621+00:00",
+    "completed_at": "2026-11-05T06:13:43.373962+00:00",
+    "worker_id": "a2ce9c14-6f88-4da1-b787-e4f731c6ce2c",
+    "heartbeat_at": "2026-11-05T06:13:43.373962+00:00",
+    "error": null
+  },
+  "inputs": [
+    {
+      "run_id": "12bbda9c-e5d5-4611-8563-57edb04c955f",
+      "event_id": "531c5b00-da71-4abc-9c1c-563d6b18a6c4",
+      "position": 1,
+      "snapshot": {
+        "id": "531c5b00-da71-4abc-9c1c-563d6b18a6c4",
+        "source": "web",
+        "ended_at": "2026-11-05T06:00:30+00:00",
+        "metadata": {
+          "title": "A 성능 소개",
+          "truncated": false,
+          "content_hash": null,
+          "content_length": 0,
+          "evaluation_case": "metadata_only",
+          "evaluation_name": "본문 없는 방문 기록만 존재",
+          "evaluation_repeat": 2,
+          "extraction_status": "main_not_found",
+          "completion_observed": true
+        },
+        "device_id": "6a8f2e30-3e11-41e8-bcba-aef6cf7f90e6",
+        "client_seq": 1,
+        "event_type": "page_view",
+        "session_id": "2da97af4-c1e9-49ee-aebe-9baee72e3c94",
+        "source_ref": {
+          "url": "https://example.com/evaluation"
+        },
+        "started_at": "2026-11-05T06:00:00+00:00",
+        "received_at": "2026-11-05T06:08:38.024645+00:00",
+        "capture_status": "metadata_only",
+        "event_contents": {
+          "event_id": "531c5b00-da71-4abc-9c1c-563d6b18a6c4",
+          "truncated": false,
+          "content_hash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "content_jsonb": null,
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "d2177454-9ff8-493f-af3f-4061a6d74cd2"
+      }
+    },
+    {
+      "run_id": "12bbda9c-e5d5-4611-8563-57edb04c955f",
+      "event_id": "9b2a02a7-6f62-4b54-8c25-38e454392ab2",
+      "position": 2,
+      "snapshot": {
+        "id": "9b2a02a7-6f62-4b54-8c25-38e454392ab2",
+        "source": "web",
+        "ended_at": "2026-11-05T06:01:30+00:00",
+        "metadata": {
+          "title": "B 가격 소개",
+          "truncated": false,
+          "content_hash": null,
+          "content_length": 0,
+          "evaluation_case": "metadata_only",
+          "evaluation_name": "본문 없는 방문 기록만 존재",
+          "evaluation_repeat": 2,
+          "extraction_status": "main_not_found",
+          "completion_observed": true
+        },
+        "device_id": "6a8f2e30-3e11-41e8-bcba-aef6cf7f90e6",
+        "client_seq": 2,
+        "event_type": "page_view",
+        "session_id": "2da97af4-c1e9-49ee-aebe-9baee72e3c94",
+        "source_ref": {
+          "url": "https://example.com/evaluation"
+        },
+        "started_at": "2026-11-05T06:01:00+00:00",
+        "received_at": "2026-11-05T06:08:41.148349+00:00",
+        "capture_status": "metadata_only",
+        "event_contents": {
+          "event_id": "9b2a02a7-6f62-4b54-8c25-38e454392ab2",
+          "truncated": false,
+          "content_hash": "74234e98afe7498fb5daf1f36ac2d78acc339464f950703b8c019892f982b90b",
+          "content_jsonb": null,
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "faddb4a5-a4d1-4fad-ad2f-9522fa588162"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "run_id": "12bbda9c-e5d5-4611-8563-57edb04c955f",
+      "stage": "extraction",
+      "sequence": 0,
+      "result": {
+        "objects": []
+      },
+      "usage": {
+        "input_tokens": 498,
+        "total_tokens": 755,
+        "output_tokens": 257,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 192
+        }
+      },
+      "completed_at": "2026-11-05T06:13:42.562555+00:00"
+    },
+    {
+      "run_id": "12bbda9c-e5d5-4611-8563-57edb04c955f",
+      "stage": "segmentation",
+      "sequence": 0,
+      "result": {
+        "episodes": [
+          {
+            "goal": "웹사이트의 서로 다른 소개(성능 및 가격) 페이지를 검토하여 정보를 수집함",
+            "title": "제품 평가 페이지 방문",
+            "event_ids": [
+              "531c5b00-da71-4abc-9c1c-563d6b18a6c4",
+              "9b2a02a7-6f62-4b54-8c25-38e454392ab2"
+            ],
+            "boundary_reason": "제공된 이벤트가 연속적으로 동일한 세션의 페이지 조회들로 끝나므로 하나의 에피소드로 묶음; 이후 이벤트 없음"
+          }
+        ]
+      },
+      "usage": {
+        "input_tokens": 382,
+        "total_tokens": 633,
+        "output_tokens": 251,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 64
+        }
+      },
+      "completed_at": "2026-11-05T06:13:36.721409+00:00"
+    }
+  ],
+  "result": {
+    "episodes": [
+      {
+        "id": "a3e0479e-2b46-488c-8185-6799b1fa7d6a",
+        "run_id": "12bbda9c-e5d5-4611-8563-57edb04c955f",
+        "sequence": 1,
+        "title": "제품 평가 페이지 방문",
+        "goal": "웹사이트의 서로 다른 소개(성능 및 가격) 페이지를 검토하여 정보를 수집함",
+        "boundary_reason": "제공된 이벤트가 연속적으로 동일한 세션의 페이지 조회들로 끝나므로 하나의 에피소드로 묶음; 이후 이벤트 없음",
+        "episode_event_links": [
+          {
+            "run_id": "12bbda9c-e5d5-4611-8563-57edb04c955f",
+            "event_id": "531c5b00-da71-4abc-9c1c-563d6b18a6c4",
+            "position": 1,
+            "episode_id": "a3e0479e-2b46-488c-8185-6799b1fa7d6a"
+          },
+          {
+            "run_id": "12bbda9c-e5d5-4611-8563-57edb04c955f",
+            "event_id": "9b2a02a7-6f62-4b54-8c25-38e454392ab2",
+            "position": 2,
+            "episode_id": "a3e0479e-2b46-488c-8185-6799b1fa7d6a"
+          }
+        ],
+        "reasoning_objects": [],
+        "event_ids": [
+          "531c5b00-da71-4abc-9c1c-563d6b18a6c4",
+          "9b2a02a7-6f62-4b54-8c25-38e454392ab2"
+        ],
+        "objects": []
+      }
+    ]
+  }
+}

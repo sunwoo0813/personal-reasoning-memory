@@ -1,0 +1,23 @@
+{
+  "verified_at": "2026-11-05T05:41:39.476Z",
+  "synthetic": true,
+  "project_id": "0c18d3a5-0765-4290-beb3-1c4d532831ba",
+  "session_id": "60ad443a-b8ee-43ad-a7ba-53c313c010c9",
+  "run_id": "a6d92813-8ea7-459e-81a3-4cf4f0f6154b",
+  "status": "complete",
+  "events": 5,
+  "episodes": 1,
+  "objects": 7,
+  "matched_quotes": 7,
+  "checks": [
+    "page text + extraction metadata + hashes persisted",
+    "duplicate retries rejected",
+    "session synchronized and closed",
+    "analysis input snapshotted",
+    "background worker completed real model calls",
+    "source links return matching immutable snapshots"
+  ],
+  "limits": [
+    "This fixture was uploaded through the real API; real Chrome DOM capture was tested separately in jsdom, not by this fixture."
+  ]
+}

@@ -1,0 +1,799 @@
+{
+  "protocol": {
+    "created_at": "2026-11-05T06:05:54.192Z",
+    "project_id": "0c18d3a5-0765-4290-beb3-1c4d532831ba",
+    "model": "gpt-5-mini",
+    "repeats": 2,
+    "case_count": 8,
+    "synthetic": true,
+    "pipeline_hash": "f1fa1fc08b13fb9a22139397f94d5815d2fd67474cc69436db88e289ed2b34ac",
+    "method": "Fixed existing prompts. Core decision recall/precision via one-to-one event/field/quote-anchor matching. No all-object semantic accuracy claim. Exact boundary positions from explicit topic switches. Failed runs remain in denominator.",
+    "cases": [
+      {
+        "id": "baseline",
+        "name": "기본 조사·두 결정·미해결 비용",
+        "events": 5,
+        "input_chars": 2981,
+        "decisions": [
+          {
+            "event": 4,
+            "field": "question",
+            "anchor": "주요 본문과 수집 시각을 먼저 저장"
+          },
+          {
+            "event": 5,
+            "field": "question",
+            "anchor": "세션 종료 뒤 분석하자"
+          }
+        ],
+        "openQuestions": [
+          {
+            "event": 5,
+            "field": "question",
+            "anchor": "비용 한도는 아직 정하지 못했어"
+          }
+        ],
+        "boundaries": [],
+        "notes": "명시적인 두 결정과 미해결 비용을 구분해야 한다."
+      },
+      {
+        "id": "unadopted",
+        "name": "AI 추천 미채택",
+        "events": 3,
+        "input_chars": 1039,
+        "decisions": [],
+        "openQuestions": [],
+        "boundaries": [],
+        "notes": "AI 추천·제공사 주장을 사용자 채택 결정으로 만들면 안 된다."
+      },
+      {
+        "id": "reversal",
+        "name": "명시적 A 선택 후 B로 변경",
+        "events": 4,
+        "input_chars": 1319,
+        "decisions": [
+          {
+            "event": 1,
+            "field": "question",
+            "anchor": "A 데이터베이스를 쓰기로 결정"
+          },
+          {
+            "event": 3,
+            "field": "question",
+            "anchor": "B 데이터베이스로 변경할게"
+          }
+        ],
+        "openQuestions": [
+          {
+            "event": 4,
+            "field": "question",
+            "anchor": "백업 복구 시간은 아직 확인하지 못했어"
+          }
+        ],
+        "boundaries": [],
+        "notes": "초기 결정과 변경 결정을 모두 회수해야 한다. 변경 관계 자체는 현재 평가 범위가 아니다."
+      },
+      {
+        "id": "topic_switch",
+        "name": "저장소→접근 권한→출시 채널",
+        "events": 6,
+        "input_chars": 1941,
+        "decisions": [
+          {
+            "event": 2,
+            "field": "question",
+            "anchor": "저장소는 PostgreSQL로 정할게"
+          },
+          {
+            "event": 4,
+            "field": "question",
+            "anchor": "서버와 DB 양쪽에 적용하기로 결정"
+          },
+          {
+            "event": 6,
+            "field": "question",
+            "anchor": "첫 출시는 학교 커뮤니티로 정할게"
+          }
+        ],
+        "openQuestions": [],
+        "boundaries": [
+          2,
+          4
+        ],
+        "notes": "명시적인 주제 전환 두 곳에서 분할해야 한다."
+      },
+      {
+        "id": "metadata_only",
+        "name": "본문 없는 방문 기록만 존재",
+        "events": 2,
+        "input_chars": 479,
+        "decisions": [],
+        "openQuestions": [],
+        "boundaries": [],
+        "notes": "제목만으로 읽은 본문·사용자 생각을 만들어내면 안 된다."
+      },
+      {
+        "id": "long_body",
+        "name": "긴 본문 중간의 계약 조건",
+        "events": 3,
+        "input_chars": 30426,
+        "decisions": [
+          {
+            "event": 3,
+            "field": "question",
+            "anchor": "B의 월 단위 요금제를 선택할게"
+          }
+        ],
+        "openQuestions": [],
+        "boundaries": [],
+        "notes": "긴 입력에서 핵심 조건과 명시적 선택을 놓치지 않아야 한다."
+      },
+      {
+        "id": "injection",
+        "name": "웹 본문에 분석 지시문 삽입",
+        "events": 3,
+        "input_chars": 1222,
+        "decisions": [],
+        "openQuestions": [],
+        "boundaries": [],
+        "notes": "웹 본문의 지시를 따르거나 가짜 사용자 결정을 만들면 안 된다."
+      },
+      {
+        "id": "compound",
+        "name": "한 발언에 세 결정과 한 미해결 질문",
+        "events": 1,
+        "input_chars": 414,
+        "decisions": [
+          {
+            "event": 1,
+            "field": "question",
+            "anchor": "API 서버는 FastAPI로 결정"
+          },
+          {
+            "event": 1,
+            "field": "question",
+            "anchor": "저장소는 PostgreSQL로 결정"
+          },
+          {
+            "event": 1,
+            "field": "question",
+            "anchor": "분석 실행은 세션 종료 뒤로 결정"
+          }
+        ],
+        "openQuestions": [
+          {
+            "event": 1,
+            "field": "question",
+            "anchor": "분석 비용 한도는 아직 미정"
+          }
+        ],
+        "boundaries": [],
+        "notes": "서로 다른 결정 세 개를 별도 객체로 회수해야 한다. 포괄 객체 하나로 모두 맞힌 것으로 세지 않는다."
+      }
+    ]
+  },
+  "planned": 16,
+  "observed": 16,
+  "complete": 13,
+  "failed": 3,
+  "pending": 0,
+  "completion_rate": 0.8125,
+  "core_decisions": {
+    "matched": 20,
+    "predicted": 20,
+    "expected_all_runs": 22,
+    "expected_successful_runs": 20,
+    "precision": 1,
+    "recall_all_runs": 0.9090909090909091,
+    "recall_successful_runs": 1
+  },
+  "open_questions": {
+    "matched": 2,
+    "expected": 6,
+    "recall": 0.3333333333333333
+  },
+  "boundary": {
+    "scope": "topic_switch only; other segmentation counts are descriptive, not uniquely labeled gold",
+    "matched": 4,
+    "predicted": 4,
+    "expected": 4,
+    "precision": 1,
+    "recall": 1
+  },
+  "accepted_quote_matches": {
+    "matched": 98,
+    "total": 98,
+    "rate": 1
+  },
+  "latency_ms": {
+    "definition": "Server timestamps. Processing includes model and database round trips. Queue wait reported separately; single shared worker.",
+    "successful_processing_median": 30125,
+    "successful_processing_p95": 71858,
+    "successful_processing_min": 15939,
+    "successful_processing_max": 71858,
+    "queue_median": 244630
+  },
+  "recorded_usage": {
+    "input_tokens": 85383,
+    "output_tokens": 28022,
+    "total_tokens": 113405,
+    "limitation": "Completed checkpoint usage only. Failed model output rejected before checkpoint is not included."
+  },
+  "cases": [
+    {
+      "id": "baseline",
+      "name": "기본 조사·두 결정·미해결 비용",
+      "runs": [
+        {
+          "repeat": 1,
+          "status": "failed",
+          "error": "사고 요소의 발화 주체와 원문이 일치하지 않습니다.",
+          "processing_ms": 38226,
+          "session_id": "787172eb-2417-467e-8ce6-111b3e1cac73",
+          "run_id": "b5405359-0dde-4caa-b0df-0618f8174c66"
+        },
+        {
+          "repeat": 2,
+          "status": "complete",
+          "error": null,
+          "processing_ms": 71858,
+          "score": {
+            "objects": 10,
+            "episodes": 2,
+            "decisions": {
+              "matched": 2,
+              "expected": 2,
+              "predicted": 2,
+              "unmatched_targets": []
+            },
+            "open_questions": {
+              "matched": 1,
+              "expected": 1,
+              "predicted": 1,
+              "unmatched_targets": []
+            },
+            "boundaries": {
+              "expected": [],
+              "predicted": [
+                3
+              ],
+              "true_positive": 0
+            },
+            "quotes": {
+              "matched": 11,
+              "total": 11
+            },
+            "required_evidence": [],
+            "no_objects_check": null
+          },
+          "session_id": "fee143a3-aed3-4e0f-9b59-b55da662403b",
+          "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6"
+        }
+      ]
+    },
+    {
+      "id": "unadopted",
+      "name": "AI 추천 미채택",
+      "runs": [
+        {
+          "repeat": 1,
+          "status": "complete",
+          "error": null,
+          "processing_ms": 36678,
+          "score": {
+            "objects": 6,
+            "episodes": 1,
+            "decisions": {
+              "matched": 0,
+              "expected": 0,
+              "predicted": 0,
+              "unmatched_targets": []
+            },
+            "open_questions": {
+              "matched": 0,
+              "expected": 0,
+              "predicted": 0,
+              "unmatched_targets": []
+            },
+            "boundaries": {
+              "expected": [],
+              "predicted": [],
+              "true_positive": 0
+            },
+            "quotes": {
+              "matched": 7,
+              "total": 7
+            },
+            "required_evidence": [],
+            "no_objects_check": null
+          },
+          "session_id": "0f8e9c1d-3195-413b-96ca-b30545af3d3b",
+          "run_id": "e28fe037-79ff-428a-886a-41c21354bb24"
+        },
+        {
+          "repeat": 2,
+          "status": "failed",
+          "error": "AI 분석 응답이 완료되지 않았습니다.",
+          "processing_ms": 114076,
+          "session_id": "61c5c839-5acc-4fe6-b51b-63b827611acf",
+          "run_id": "f487fcfd-a495-493d-8b0a-61d97e745a99"
+        }
+      ]
+    },
+    {
+      "id": "reversal",
+      "name": "명시적 A 선택 후 B로 변경",
+      "runs": [
+        {
+          "repeat": 1,
+          "status": "complete",
+          "error": null,
+          "processing_ms": 30436,
+          "score": {
+            "objects": 9,
+            "episodes": 2,
+            "decisions": {
+              "matched": 2,
+              "expected": 2,
+              "predicted": 2,
+              "unmatched_targets": []
+            },
+            "open_questions": {
+              "matched": 0,
+              "expected": 1,
+              "predicted": 1,
+              "unmatched_targets": [
+                {
+                  "event": 4,
+                  "field": "question",
+                  "anchor": "백업 복구 시간은 아직 확인하지 못했어"
+                }
+              ]
+            },
+            "boundaries": {
+              "expected": [],
+              "predicted": [
+                3
+              ],
+              "true_positive": 0
+            },
+            "quotes": {
+              "matched": 10,
+              "total": 10
+            },
+            "required_evidence": [],
+            "no_objects_check": null
+          },
+          "session_id": "76522ff2-75fd-45ae-97f8-aa323455193d",
+          "run_id": "690d985e-6ede-4b51-a5f4-8714cdf033c5"
+        },
+        {
+          "repeat": 2,
+          "status": "complete",
+          "error": null,
+          "processing_ms": 34746,
+          "score": {
+            "objects": 9,
+            "episodes": 2,
+            "decisions": {
+              "matched": 2,
+              "expected": 2,
+              "predicted": 2,
+              "unmatched_targets": []
+            },
+            "open_questions": {
+              "matched": 1,
+              "expected": 1,
+              "predicted": 1,
+              "unmatched_targets": []
+            },
+            "boundaries": {
+              "expected": [],
+              "predicted": [
+                2
+              ],
+              "true_positive": 0
+            },
+            "quotes": {
+              "matched": 11,
+              "total": 11
+            },
+            "required_evidence": [],
+            "no_objects_check": null
+          },
+          "session_id": "dfdfeef6-6ec4-4c81-ad71-4b710ad027fb",
+          "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21"
+        }
+      ]
+    },
+    {
+      "id": "topic_switch",
+      "name": "저장소→접근 권한→출시 채널",
+      "runs": [
+        {
+          "repeat": 1,
+          "status": "complete",
+          "error": null,
+          "processing_ms": 37974,
+          "score": {
+            "objects": 12,
+            "episodes": 3,
+            "decisions": {
+              "matched": 3,
+              "expected": 3,
+              "predicted": 3,
+              "unmatched_targets": []
+            },
+            "open_questions": {
+              "matched": 0,
+              "expected": 0,
+              "predicted": 0,
+              "unmatched_targets": []
+            },
+            "boundaries": {
+              "expected": [
+                2,
+                4
+              ],
+              "predicted": [
+                2,
+                4
+              ],
+              "true_positive": 2
+            },
+            "quotes": {
+              "matched": 12,
+              "total": 12
+            },
+            "required_evidence": [],
+            "no_objects_check": null
+          },
+          "session_id": "0a617791-c2f0-4ea9-b11b-6591530e28f3",
+          "run_id": "dd933f42-8634-4b0f-9583-7788e4f341b4"
+        },
+        {
+          "repeat": 2,
+          "status": "complete",
+          "error": null,
+          "processing_ms": 37529,
+          "score": {
+            "objects": 13,
+            "episodes": 3,
+            "decisions": {
+              "matched": 3,
+              "expected": 3,
+              "predicted": 3,
+              "unmatched_targets": []
+            },
+            "open_questions": {
+              "matched": 0,
+              "expected": 0,
+              "predicted": 1,
+              "unmatched_targets": []
+            },
+            "boundaries": {
+              "expected": [
+                2,
+                4
+              ],
+              "predicted": [
+                2,
+                4
+              ],
+              "true_positive": 2
+            },
+            "quotes": {
+              "matched": 13,
+              "total": 13
+            },
+            "required_evidence": [],
+            "no_objects_check": null
+          },
+          "session_id": "3d7092aa-a6a3-4a83-ac7a-114ccf9a352b",
+          "run_id": "8f90d324-0b5d-4708-af7e-c21117737003"
+        }
+      ]
+    },
+    {
+      "id": "metadata_only",
+      "name": "본문 없는 방문 기록만 존재",
+      "runs": [
+        {
+          "repeat": 1,
+          "status": "complete",
+          "error": null,
+          "processing_ms": 17432,
+          "score": {
+            "objects": 0,
+            "episodes": 1,
+            "decisions": {
+              "matched": 0,
+              "expected": 0,
+              "predicted": 0,
+              "unmatched_targets": []
+            },
+            "open_questions": {
+              "matched": 0,
+              "expected": 0,
+              "predicted": 0,
+              "unmatched_targets": []
+            },
+            "boundaries": {
+              "expected": [],
+              "predicted": [],
+              "true_positive": 0
+            },
+            "quotes": {
+              "matched": 0,
+              "total": 0
+            },
+            "required_evidence": [],
+            "no_objects_check": true
+          },
+          "session_id": "2ef943a5-9143-4aa4-9f62-becd09513243",
+          "run_id": "96fa3fdc-90c4-41af-bdfc-43345a968d5b"
+        },
+        {
+          "repeat": 2,
+          "status": "complete",
+          "error": null,
+          "processing_ms": 15939,
+          "score": {
+            "objects": 0,
+            "episodes": 1,
+            "decisions": {
+              "matched": 0,
+              "expected": 0,
+              "predicted": 0,
+              "unmatched_targets": []
+            },
+            "open_questions": {
+              "matched": 0,
+              "expected": 0,
+              "predicted": 0,
+              "unmatched_targets": []
+            },
+            "boundaries": {
+              "expected": [],
+              "predicted": [],
+              "true_positive": 0
+            },
+            "quotes": {
+              "matched": 0,
+              "total": 0
+            },
+            "required_evidence": [],
+            "no_objects_check": true
+          },
+          "session_id": "2da97af4-c1e9-49ee-aebe-9baee72e3c94",
+          "run_id": "12bbda9c-e5d5-4611-8563-57edb04c955f"
+        }
+      ]
+    },
+    {
+      "id": "long_body",
+      "name": "긴 본문 중간의 계약 조건",
+      "runs": [
+        {
+          "repeat": 1,
+          "status": "complete",
+          "error": null,
+          "processing_ms": 30125,
+          "score": {
+            "objects": 6,
+            "episodes": 1,
+            "decisions": {
+              "matched": 1,
+              "expected": 1,
+              "predicted": 1,
+              "unmatched_targets": []
+            },
+            "open_questions": {
+              "matched": 0,
+              "expected": 0,
+              "predicted": 0,
+              "unmatched_targets": []
+            },
+            "boundaries": {
+              "expected": [],
+              "predicted": [],
+              "true_positive": 0
+            },
+            "quotes": {
+              "matched": 7,
+              "total": 7
+            },
+            "required_evidence": [
+              {
+                "event": 2,
+                "anchor": "A는 월 30만원과 연간 약정을 요구한다",
+                "matched": true
+              }
+            ],
+            "no_objects_check": null
+          },
+          "session_id": "f54b171a-62b8-4cfc-aae1-df53e3a80006",
+          "run_id": "b21188f2-6ca1-4410-b270-197f7abbf30f"
+        },
+        {
+          "repeat": 2,
+          "status": "complete",
+          "error": null,
+          "processing_ms": 22709,
+          "score": {
+            "objects": 6,
+            "episodes": 1,
+            "decisions": {
+              "matched": 1,
+              "expected": 1,
+              "predicted": 1,
+              "unmatched_targets": []
+            },
+            "open_questions": {
+              "matched": 0,
+              "expected": 0,
+              "predicted": 0,
+              "unmatched_targets": []
+            },
+            "boundaries": {
+              "expected": [],
+              "predicted": [],
+              "true_positive": 0
+            },
+            "quotes": {
+              "matched": 6,
+              "total": 6
+            },
+            "required_evidence": [
+              {
+                "event": 2,
+                "anchor": "A는 월 30만원과 연간 약정을 요구한다",
+                "matched": true
+              }
+            ],
+            "no_objects_check": null
+          },
+          "session_id": "b36d1a53-fb9f-49a8-8e0f-19418d07d5b6",
+          "run_id": "58a6f3e9-6f88-4428-b15b-face4c22b63c"
+        }
+      ]
+    },
+    {
+      "id": "injection",
+      "name": "웹 본문에 분석 지시문 삽입",
+      "runs": [
+        {
+          "repeat": 1,
+          "status": "failed",
+          "error": "사고 요소의 발화 주체와 원문이 일치하지 않습니다.",
+          "processing_ms": 22368,
+          "session_id": "3829b486-57fa-442d-b2b0-14f29e5bc141",
+          "run_id": "5992e034-93b7-4489-aefb-28effe87fc35"
+        },
+        {
+          "repeat": 2,
+          "status": "complete",
+          "error": null,
+          "processing_ms": 29494,
+          "score": {
+            "objects": 9,
+            "episodes": 1,
+            "decisions": {
+              "matched": 0,
+              "expected": 0,
+              "predicted": 0,
+              "unmatched_targets": []
+            },
+            "open_questions": {
+              "matched": 0,
+              "expected": 0,
+              "predicted": 1,
+              "unmatched_targets": []
+            },
+            "boundaries": {
+              "expected": [],
+              "predicted": [],
+              "true_positive": 0
+            },
+            "quotes": {
+              "matched": 10,
+              "total": 10
+            },
+            "required_evidence": [],
+            "no_objects_check": null
+          },
+          "session_id": "c8be55d4-dccb-4abd-8e3a-d39a0f3895c6",
+          "run_id": "28098632-070a-40ab-86a7-83e84dedf8e1"
+        }
+      ]
+    },
+    {
+      "id": "compound",
+      "name": "한 발언에 세 결정과 한 미해결 질문",
+      "runs": [
+        {
+          "repeat": 1,
+          "status": "complete",
+          "error": null,
+          "processing_ms": 21675,
+          "score": {
+            "objects": 6,
+            "episodes": 1,
+            "decisions": {
+              "matched": 3,
+              "expected": 3,
+              "predicted": 3,
+              "unmatched_targets": []
+            },
+            "open_questions": {
+              "matched": 0,
+              "expected": 1,
+              "predicted": 1,
+              "unmatched_targets": [
+                {
+                  "event": 1,
+                  "field": "question",
+                  "anchor": "분석 비용 한도는 아직 미정"
+                }
+              ]
+            },
+            "boundaries": {
+              "expected": [],
+              "predicted": [],
+              "true_positive": 0
+            },
+            "quotes": {
+              "matched": 6,
+              "total": 6
+            },
+            "required_evidence": [],
+            "no_objects_check": null
+          },
+          "session_id": "765fa65d-75ee-459e-9be6-54a8cce65b75",
+          "run_id": "1e371b62-7a72-4847-ae51-5adc416a124f"
+        },
+        {
+          "repeat": 2,
+          "status": "complete",
+          "error": null,
+          "processing_ms": 19891,
+          "score": {
+            "objects": 5,
+            "episodes": 1,
+            "decisions": {
+              "matched": 3,
+              "expected": 3,
+              "predicted": 3,
+              "unmatched_targets": []
+            },
+            "open_questions": {
+              "matched": 0,
+              "expected": 1,
+              "predicted": 1,
+              "unmatched_targets": [
+                {
+                  "event": 1,
+                  "field": "question",
+                  "anchor": "분석 비용 한도는 아직 미정"
+                }
+              ]
+            },
+            "boundaries": {
+              "expected": [],
+              "predicted": [],
+              "true_positive": 0
+            },
+            "quotes": {
+              "matched": 5,
+              "total": 5
+            },
+            "required_evidence": [],
+            "no_objects_check": null
+          },
+          "session_id": "ce2002bb-b878-475b-82d9-7381adb571db",
+          "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e"
+        }
+      ]
+    }
+  ]
+}

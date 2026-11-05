@@ -1,0 +1,202 @@
+{
+  "job": {
+    "case_id": "unadopted",
+    "name": "AI 추천 미채택",
+    "repeat": 2,
+    "session_id": "61c5c839-5acc-4fe6-b51b-63b827611acf",
+    "run_id": "f487fcfd-a495-493d-8b0a-61d97e745a99",
+    "status": "failed",
+    "error": "AI 분석 응답이 완료되지 않았습니다.",
+    "created_at": "2026-11-05T06:06:55.502225+00:00",
+    "started_at": "2026-11-05T06:08:51.713258+00:00",
+    "completed_at": "2026-11-05T06:10:45.789+00:00",
+    "queue_ms": 116211,
+    "processing_ms": 114076,
+    "usage": {
+      "input_tokens": 586,
+      "output_tokens": 367,
+      "total_tokens": 953
+    }
+  },
+  "run": {
+    "id": "f487fcfd-a495-493d-8b0a-61d97e745a99",
+    "session_id": "61c5c839-5acc-4fe6-b51b-63b827611acf",
+    "status": "failed",
+    "model": "gpt-5-mini",
+    "pipeline_version": "extraction-v1",
+    "input_version": 1,
+    "input_hash": "d5f1c7ff69f8e10d502d1897350a67444cd865d9f423a627f88fcdc6e5c8fa77",
+    "created_at": "2026-11-05T06:06:55.502225+00:00",
+    "started_at": "2026-11-05T06:08:51.713258+00:00",
+    "completed_at": "2026-11-05T06:10:45.789+00:00",
+    "worker_id": "a2ce9c14-6f88-4da1-b787-e4f731c6ce2c",
+    "heartbeat_at": "2026-11-05T06:09:01.37+00:00",
+    "error": "AI 분석 응답이 완료되지 않았습니다."
+  },
+  "inputs": [
+    {
+      "run_id": "f487fcfd-a495-493d-8b0a-61d97e745a99",
+      "event_id": "9e2cf8bb-3fbf-4643-92eb-61fce33b3871",
+      "position": 1,
+      "snapshot": {
+        "id": "9e2cf8bb-3fbf-4643-92eb-61fce33b3871",
+        "source": "chatgpt",
+        "ended_at": "2026-11-05T06:00:30+00:00",
+        "metadata": {
+          "title": "시험 자료",
+          "evaluation_case": "unadopted",
+          "evaluation_name": "AI 추천 미채택",
+          "evaluation_repeat": 2,
+          "extraction_status": "captured",
+          "completion_observed": true
+        },
+        "device_id": "c681f36c-8144-4abd-ab1f-94d45041dd3a",
+        "client_seq": 1,
+        "event_type": "llm_exchange",
+        "session_id": "61c5c839-5acc-4fe6-b51b-63b827611acf",
+        "source_ref": {
+          "url": "https://chatgpt.com/c/evaluation"
+        },
+        "started_at": "2026-11-05T06:00:00+00:00",
+        "received_at": "2026-11-05T06:06:45.557825+00:00",
+        "capture_status": "complete",
+        "event_contents": {
+          "event_id": "9e2cf8bb-3fbf-4643-92eb-61fce33b3871",
+          "truncated": false,
+          "content_hash": "a560b5152d9d33dc478e3a912ba7a77913289210d174fc8c7a0d4b09a7171da9",
+          "content_jsonb": {
+            "question": "지금은 선택하지 말고 A와 B의 장단점만 비교해줘. 아직 내 선택은 없어.",
+            "response": "A가 더 적합해 보입니다. A를 채택하는 방식을 추천합니다."
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "63523d9d-eecb-4f16-beb8-6226c3872596"
+      }
+    },
+    {
+      "run_id": "f487fcfd-a495-493d-8b0a-61d97e745a99",
+      "event_id": "933f4904-9d2e-453d-a2b6-a6fa63f1ca30",
+      "position": 2,
+      "snapshot": {
+        "id": "933f4904-9d2e-453d-a2b6-a6fa63f1ca30",
+        "source": "web",
+        "ended_at": "2026-11-05T06:01:30+00:00",
+        "metadata": {
+          "title": "시험 자료",
+          "truncated": false,
+          "content_hash": "73c2d39ddb0913d694e030cb5fea0d2deb3bc7d6ffa8144132aa410aaaa63f0e",
+          "content_length": 45,
+          "evaluation_case": "unadopted",
+          "evaluation_name": "AI 추천 미채택",
+          "evaluation_repeat": 2,
+          "extraction_status": "captured",
+          "completion_observed": true
+        },
+        "device_id": "c681f36c-8144-4abd-ab1f-94d45041dd3a",
+        "client_seq": 2,
+        "event_type": "page_view",
+        "session_id": "61c5c839-5acc-4fe6-b51b-63b827611acf",
+        "source_ref": {
+          "url": "https://example.com/evaluation"
+        },
+        "started_at": "2026-11-05T06:01:00+00:00",
+        "received_at": "2026-11-05T06:06:47.625993+00:00",
+        "capture_status": "complete",
+        "event_contents": {
+          "event_id": "933f4904-9d2e-453d-a2b6-a6fa63f1ca30",
+          "truncated": false,
+          "content_hash": "e2e02150be2c934183a0d915c282d170ea7a96aa85beb416b6ca7c328b7fe917",
+          "content_jsonb": {
+            "text": "A 서비스 소개는 A가 모든 작업에 적합하다고 주장한다. 이는 제공사의 주장이다.",
+            "extracted_at": "2026-11-05T06:00:00Z",
+            "extractor_version": "2.0"
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "3905dd4a-63be-4c2b-a601-928b05cccd56"
+      }
+    },
+    {
+      "run_id": "f487fcfd-a495-493d-8b0a-61d97e745a99",
+      "event_id": "3af8d283-9dee-4dc6-b047-dc20c6a406c1",
+      "position": 3,
+      "snapshot": {
+        "id": "3af8d283-9dee-4dc6-b047-dc20c6a406c1",
+        "source": "chatgpt",
+        "ended_at": "2026-11-05T06:02:30+00:00",
+        "metadata": {
+          "title": "시험 자료",
+          "evaluation_case": "unadopted",
+          "evaluation_name": "AI 추천 미채택",
+          "evaluation_repeat": 2,
+          "extraction_status": "captured",
+          "completion_observed": true
+        },
+        "device_id": "c681f36c-8144-4abd-ab1f-94d45041dd3a",
+        "client_seq": 3,
+        "event_type": "llm_exchange",
+        "session_id": "61c5c839-5acc-4fe6-b51b-63b827611acf",
+        "source_ref": {
+          "url": "https://chatgpt.com/c/evaluation"
+        },
+        "started_at": "2026-11-05T06:02:00+00:00",
+        "received_at": "2026-11-05T06:06:49.538902+00:00",
+        "capture_status": "complete",
+        "event_contents": {
+          "event_id": "3af8d283-9dee-4dc6-b047-dc20c6a406c1",
+          "truncated": false,
+          "content_hash": "5546b9493358567e41de88b17bf2337edde4f326de89ad6de78df9e8d977e7d5",
+          "content_jsonb": {
+            "question": "설명은 읽었어. 어느 쪽도 선택하지 않았고, A의 장점도 아직 내 판단이라고 볼 수 없어. 비교에 필요한 정보가 더 있는지 알려줘.",
+            "response": "운영 비용과 실제 성능을 추가로 비교할 수 있습니다."
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "7b1767c0-6a75-441e-bc06-1c6cf18550b5"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "run_id": "f487fcfd-a495-493d-8b0a-61d97e745a99",
+      "stage": "segmentation",
+      "sequence": 0,
+      "result": {
+        "episodes": [
+          {
+            "goal": "사용자가 선택하지 않은 상태에서 A와 B의 장단점을 비교할 자료를 수집하고, 추가로 필요한 비교 항목(예: 운영 비용, 실제 성능)을 확인한다.",
+            "title": "A와 B 비교를 위한 정보 수집 및 검토",
+            "event_ids": [
+              "9e2cf8bb-3fbf-4643-92eb-61fce33b3871",
+              "933f4904-9d2e-453d-a2b6-a6fa63f1ca30",
+              "3af8d283-9dee-4dc6-b047-dc20c6a406c1"
+            ],
+            "boundary_reason": "같은 연구 질문(시험 자료: A와 B 비교)을 다루는 일련의 상호작용이 연속되어 더 이상 분기 없이 완료되었으므로 단일 에피소드로 종료."
+          }
+        ]
+      },
+      "usage": {
+        "input_tokens": 586,
+        "total_tokens": 953,
+        "output_tokens": 367,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        }
+      },
+      "completed_at": "2026-11-05T06:09:00.497448+00:00"
+    }
+  ],
+  "result": {
+    "episodes": []
+  }
+}

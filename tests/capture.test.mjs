@@ -3,15 +3,15 @@ import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import fs from 'node:fs';
 
-test('page snapshots never read or return page body text', () => {
+test('page snapshots keep metadata when semantic main content is absent', () => {
  let listener;
- const document={querySelector:selector=>{if(selector==='article,main')throw Error('body was read');return null},addEventListener(){},documentElement:{scrollHeight:1000},title:'Example'};
+ const document={querySelector:selector=>{return null},addEventListener(){},documentElement:{scrollHeight:1000},title:'Example'};
  const context=vm.createContext({document,location:{hostname:'example.com',href:'https://example.com/'},
   chrome:{runtime:{id:'test',sendMessage:()=>Promise.resolve(),onMessage:{addListener(fn){listener=fn}}}},
   addEventListener(){},window:{scrollY:0},innerHeight:500,URL,console});
  vm.runInContext(fs.readFileSync('extension/capture.js','utf8'),context);
  let snapshot;listener({channel:'capture-command',type:'snapshot'},null,r=>{snapshot=r});
- assert.equal(snapshot.title,'Example');assert.equal(snapshot.scroll,0.5);assert.equal('text' in snapshot,false);
+ assert.equal(snapshot.title,'Example');assert.equal(snapshot.scroll,0.5);assert.equal(snapshot.text,null);assert.equal(snapshot.extraction_status,'main_not_found');
 });
 
 test('captures Google search box Enter and avoids duplicating its form submission', () => {

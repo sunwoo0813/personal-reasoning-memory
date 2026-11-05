@@ -1,0 +1,508 @@
+{
+  "job": {
+    "case_id": "compound",
+    "name": "한 발언에 세 결정과 한 미해결 질문",
+    "repeat": 2,
+    "session_id": "ce2002bb-b878-475b-82d9-7381adb571db",
+    "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+    "status": "complete",
+    "error": null,
+    "created_at": "2026-11-05T06:09:21.603692+00:00",
+    "started_at": "2026-11-05T06:15:52.963741+00:00",
+    "completed_at": "2026-11-05T06:16:12.854138+00:00",
+    "queue_ms": 391360,
+    "processing_ms": 19891,
+    "score": {
+      "objects": 5,
+      "episodes": 1,
+      "decisions": {
+        "matched": 3,
+        "expected": 3,
+        "predicted": 3,
+        "unmatched_targets": []
+      },
+      "open_questions": {
+        "matched": 0,
+        "expected": 1,
+        "predicted": 1,
+        "unmatched_targets": [
+          {
+            "event": 1,
+            "field": "question",
+            "anchor": "분석 비용 한도는 아직 미정"
+          }
+        ]
+      },
+      "boundaries": {
+        "expected": [],
+        "predicted": [],
+        "true_positive": 0
+      },
+      "quotes": {
+        "matched": 5,
+        "total": 5
+      },
+      "required_evidence": [],
+      "no_objects_check": null
+    },
+    "usage": {
+      "input_tokens": 893,
+      "output_tokens": 1184,
+      "total_tokens": 2077
+    }
+  },
+  "run": {
+    "id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+    "session_id": "ce2002bb-b878-475b-82d9-7381adb571db",
+    "status": "complete",
+    "model": "gpt-5-mini",
+    "pipeline_version": "extraction-v1",
+    "input_version": 1,
+    "input_hash": "7217fcdd905402a89e90abdb94b8bc82d17cf0829777531149c0535f40dcaaee",
+    "created_at": "2026-11-05T06:09:21.603692+00:00",
+    "started_at": "2026-11-05T06:15:52.963741+00:00",
+    "completed_at": "2026-11-05T06:16:12.854138+00:00",
+    "worker_id": "a2ce9c14-6f88-4da1-b787-e4f731c6ce2c",
+    "heartbeat_at": "2026-11-05T06:16:12.854138+00:00",
+    "error": null
+  },
+  "inputs": [
+    {
+      "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+      "event_id": "f3884778-20f7-4b35-85a1-ca3da361e68f",
+      "position": 1,
+      "snapshot": {
+        "id": "f3884778-20f7-4b35-85a1-ca3da361e68f",
+        "source": "chatgpt",
+        "ended_at": "2026-11-05T06:00:30+00:00",
+        "metadata": {
+          "title": "시험 자료",
+          "evaluation_case": "compound",
+          "evaluation_name": "한 발언에 세 결정과 한 미해결 질문",
+          "evaluation_repeat": 2,
+          "extraction_status": "captured",
+          "completion_observed": true
+        },
+        "device_id": "1c32bebb-628f-4e62-b660-441ac9f241bf",
+        "client_seq": 1,
+        "event_type": "llm_exchange",
+        "session_id": "ce2002bb-b878-475b-82d9-7381adb571db",
+        "source_ref": {
+          "url": "https://chatgpt.com/c/evaluation"
+        },
+        "started_at": "2026-11-05T06:00:00+00:00",
+        "received_at": "2026-11-05T06:09:17.468148+00:00",
+        "capture_status": "complete",
+        "event_contents": {
+          "event_id": "f3884778-20f7-4b35-85a1-ca3da361e68f",
+          "truncated": false,
+          "content_hash": "089b3cc3c0652a8754668c647a3690d4a03fdf59f082fb58293ca7aa2c89590e",
+          "content_jsonb": {
+            "question": "설정을 확정할게. API 서버는 FastAPI로 결정했어. 저장소는 PostgreSQL로 결정했어. 분석 실행은 세션 종료 뒤로 결정했어. 다만 분석 비용 한도는 아직 미정이야. 비용 제한은 어떻게 잡으면 좋을까?",
+            "response": "각 결정을 나누어 기록하고 비용은 별도로 검토할 수 있습니다."
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "b5dfa71d-6de1-4239-9c89-fbaeb1387ca5"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+      "stage": "extraction",
+      "sequence": 0,
+      "result": {
+        "objects": [
+          {
+            "text": "API 서버는 FastAPI로 결정했어.",
+            "type": "decision",
+            "speaker": "user",
+            "evidence": [
+              {
+                "field": "question",
+                "quote": "API 서버는 FastAPI로 결정했어.",
+                "event_id": "f3884778-20f7-4b35-85a1-ca3da361e68f"
+              }
+            ]
+          },
+          {
+            "text": "저장소는 PostgreSQL로 결정했어.",
+            "type": "decision",
+            "speaker": "user",
+            "evidence": [
+              {
+                "field": "question",
+                "quote": "저장소는 PostgreSQL로 결정했어.",
+                "event_id": "f3884778-20f7-4b35-85a1-ca3da361e68f"
+              }
+            ]
+          },
+          {
+            "text": "분석 실행은 세션 종료 뒤로 결정했어.",
+            "type": "decision",
+            "speaker": "user",
+            "evidence": [
+              {
+                "field": "question",
+                "quote": "분석 실행은 세션 종료 뒤로 결정했어.",
+                "event_id": "f3884778-20f7-4b35-85a1-ca3da361e68f"
+              }
+            ]
+          },
+          {
+            "text": "비용 제한은 어떻게 잡으면 좋을까?",
+            "type": "open_question",
+            "speaker": "user",
+            "evidence": [
+              {
+                "field": "question",
+                "quote": "비용 제한은 어떻게 잡으면 좋을까?",
+                "event_id": "f3884778-20f7-4b35-85a1-ca3da361e68f"
+              }
+            ]
+          },
+          {
+            "text": "각 결정을 나누어 기록하고 비용은 별도로 검토할 수 있습니다.",
+            "type": "insight",
+            "speaker": "assistant",
+            "evidence": [
+              {
+                "field": "response",
+                "quote": "각 결정을 나누어 기록하고 비용은 별도로 검토할 수 있습니다.",
+                "event_id": "f3884778-20f7-4b35-85a1-ca3da361e68f"
+              }
+            ]
+          }
+        ]
+      },
+      "usage": {
+        "input_tokens": 507,
+        "total_tokens": 1457,
+        "output_tokens": 950,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 384
+        }
+      },
+      "completed_at": "2026-11-05T06:16:12.215977+00:00"
+    },
+    {
+      "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+      "stage": "segmentation",
+      "sequence": 0,
+      "result": {
+        "episodes": [
+          {
+            "goal": "API 서버를 FastAPI, 저장소를 PostgreSQL로 확정하고 분석 실행 시점을 세션 종료 이후로 결정하는 과정에서 분석 비용 한도를 어떻게 잡을지 문의함.",
+            "title": "시스템 설정 확정 및 비용 제한 문의",
+            "event_ids": [
+              "f3884778-20f7-4b35-85a1-ca3da361e68f"
+            ],
+            "boundary_reason": "단일 대화 교환만 캡처되어 있어 이후 추가 이벤트가 없음(캡처된 이벤트의 종료로 에피소드 종료)."
+          }
+        ]
+      },
+      "usage": {
+        "input_tokens": 386,
+        "total_tokens": 620,
+        "output_tokens": 234,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 64
+        }
+      },
+      "completed_at": "2026-11-05T06:16:00.505453+00:00"
+    }
+  ],
+  "result": {
+    "episodes": [
+      {
+        "id": "26da841c-5f73-4c09-8799-cc43a6897e46",
+        "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+        "sequence": 1,
+        "title": "시스템 설정 확정 및 비용 제한 문의",
+        "goal": "API 서버를 FastAPI, 저장소를 PostgreSQL로 확정하고 분석 실행 시점을 세션 종료 이후로 결정하는 과정에서 분석 비용 한도를 어떻게 잡을지 문의함.",
+        "boundary_reason": "단일 대화 교환만 캡처되어 있어 이후 추가 이벤트가 없음(캡처된 이벤트의 종료로 에피소드 종료).",
+        "episode_event_links": [
+          {
+            "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+            "event_id": "f3884778-20f7-4b35-85a1-ca3da361e68f",
+            "position": 1,
+            "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46"
+          }
+        ],
+        "reasoning_objects": [
+          {
+            "id": "0103b5f0-9bf9-48dd-8db4-c4692c23ba0d",
+            "text": "API 서버는 FastAPI로 결정했어.",
+            "type": "decision",
+            "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+            "speaker": "user",
+            "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "65d8ebb8-4cdd-48de-9469-dd5476f93fe9",
+                "field": "question",
+                "quote": "API 서버는 FastAPI로 결정했어.",
+                "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+                "event_id": "f3884778-20f7-4b35-85a1-ca3da361e68f",
+                "object_id": "0103b5f0-9bf9-48dd-8db4-c4692c23ba0d",
+                "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46"
+              }
+            ]
+          },
+          {
+            "id": "468c3043-97f7-49b5-9d3b-09a692abcfd1",
+            "text": "분석 실행은 세션 종료 뒤로 결정했어.",
+            "type": "decision",
+            "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+            "speaker": "user",
+            "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "e42ed148-5c70-4c9c-8d2d-1b00aedac2ba",
+                "field": "question",
+                "quote": "분석 실행은 세션 종료 뒤로 결정했어.",
+                "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+                "event_id": "f3884778-20f7-4b35-85a1-ca3da361e68f",
+                "object_id": "468c3043-97f7-49b5-9d3b-09a692abcfd1",
+                "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46"
+              }
+            ]
+          },
+          {
+            "id": "9e550bba-c1e4-4dd2-8787-d3759673900f",
+            "text": "각 결정을 나누어 기록하고 비용은 별도로 검토할 수 있습니다.",
+            "type": "insight",
+            "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+            "speaker": "assistant",
+            "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "065f7931-fc59-4f15-9b3c-9379a8aec6b1",
+                "field": "response",
+                "quote": "각 결정을 나누어 기록하고 비용은 별도로 검토할 수 있습니다.",
+                "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+                "event_id": "f3884778-20f7-4b35-85a1-ca3da361e68f",
+                "object_id": "9e550bba-c1e4-4dd2-8787-d3759673900f",
+                "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46"
+              }
+            ]
+          },
+          {
+            "id": "c5fb7095-66fc-4503-815e-dc77680f2d24",
+            "text": "저장소는 PostgreSQL로 결정했어.",
+            "type": "decision",
+            "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+            "speaker": "user",
+            "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "24849d82-7390-4d0b-a8d8-c42aaf212cd7",
+                "field": "question",
+                "quote": "저장소는 PostgreSQL로 결정했어.",
+                "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+                "event_id": "f3884778-20f7-4b35-85a1-ca3da361e68f",
+                "object_id": "c5fb7095-66fc-4503-815e-dc77680f2d24",
+                "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46"
+              }
+            ]
+          },
+          {
+            "id": "d3b35555-e07a-4c58-88f0-7a91d1bd9442",
+            "text": "비용 제한은 어떻게 잡으면 좋을까?",
+            "type": "open_question",
+            "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+            "speaker": "user",
+            "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "55b34bdc-3f3c-4709-9056-e91ce65e8ad6",
+                "field": "question",
+                "quote": "비용 제한은 어떻게 잡으면 좋을까?",
+                "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+                "event_id": "f3884778-20f7-4b35-85a1-ca3da361e68f",
+                "object_id": "d3b35555-e07a-4c58-88f0-7a91d1bd9442",
+                "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46"
+              }
+            ]
+          }
+        ],
+        "event_ids": [
+          "f3884778-20f7-4b35-85a1-ca3da361e68f"
+        ],
+        "objects": [
+          {
+            "id": "0103b5f0-9bf9-48dd-8db4-c4692c23ba0d",
+            "text": "API 서버는 FastAPI로 결정했어.",
+            "type": "decision",
+            "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+            "speaker": "user",
+            "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "65d8ebb8-4cdd-48de-9469-dd5476f93fe9",
+                "field": "question",
+                "quote": "API 서버는 FastAPI로 결정했어.",
+                "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+                "event_id": "f3884778-20f7-4b35-85a1-ca3da361e68f",
+                "object_id": "0103b5f0-9bf9-48dd-8db4-c4692c23ba0d",
+                "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "65d8ebb8-4cdd-48de-9469-dd5476f93fe9",
+                "field": "question",
+                "quote": "API 서버는 FastAPI로 결정했어.",
+                "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+                "event_id": "f3884778-20f7-4b35-85a1-ca3da361e68f",
+                "object_id": "0103b5f0-9bf9-48dd-8db4-c4692c23ba0d",
+                "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46"
+              }
+            ]
+          },
+          {
+            "id": "468c3043-97f7-49b5-9d3b-09a692abcfd1",
+            "text": "분석 실행은 세션 종료 뒤로 결정했어.",
+            "type": "decision",
+            "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+            "speaker": "user",
+            "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "e42ed148-5c70-4c9c-8d2d-1b00aedac2ba",
+                "field": "question",
+                "quote": "분석 실행은 세션 종료 뒤로 결정했어.",
+                "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+                "event_id": "f3884778-20f7-4b35-85a1-ca3da361e68f",
+                "object_id": "468c3043-97f7-49b5-9d3b-09a692abcfd1",
+                "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "e42ed148-5c70-4c9c-8d2d-1b00aedac2ba",
+                "field": "question",
+                "quote": "분석 실행은 세션 종료 뒤로 결정했어.",
+                "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+                "event_id": "f3884778-20f7-4b35-85a1-ca3da361e68f",
+                "object_id": "468c3043-97f7-49b5-9d3b-09a692abcfd1",
+                "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46"
+              }
+            ]
+          },
+          {
+            "id": "9e550bba-c1e4-4dd2-8787-d3759673900f",
+            "text": "각 결정을 나누어 기록하고 비용은 별도로 검토할 수 있습니다.",
+            "type": "insight",
+            "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+            "speaker": "assistant",
+            "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "065f7931-fc59-4f15-9b3c-9379a8aec6b1",
+                "field": "response",
+                "quote": "각 결정을 나누어 기록하고 비용은 별도로 검토할 수 있습니다.",
+                "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+                "event_id": "f3884778-20f7-4b35-85a1-ca3da361e68f",
+                "object_id": "9e550bba-c1e4-4dd2-8787-d3759673900f",
+                "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "065f7931-fc59-4f15-9b3c-9379a8aec6b1",
+                "field": "response",
+                "quote": "각 결정을 나누어 기록하고 비용은 별도로 검토할 수 있습니다.",
+                "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+                "event_id": "f3884778-20f7-4b35-85a1-ca3da361e68f",
+                "object_id": "9e550bba-c1e4-4dd2-8787-d3759673900f",
+                "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46"
+              }
+            ]
+          },
+          {
+            "id": "c5fb7095-66fc-4503-815e-dc77680f2d24",
+            "text": "저장소는 PostgreSQL로 결정했어.",
+            "type": "decision",
+            "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+            "speaker": "user",
+            "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "24849d82-7390-4d0b-a8d8-c42aaf212cd7",
+                "field": "question",
+                "quote": "저장소는 PostgreSQL로 결정했어.",
+                "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+                "event_id": "f3884778-20f7-4b35-85a1-ca3da361e68f",
+                "object_id": "c5fb7095-66fc-4503-815e-dc77680f2d24",
+                "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "24849d82-7390-4d0b-a8d8-c42aaf212cd7",
+                "field": "question",
+                "quote": "저장소는 PostgreSQL로 결정했어.",
+                "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+                "event_id": "f3884778-20f7-4b35-85a1-ca3da361e68f",
+                "object_id": "c5fb7095-66fc-4503-815e-dc77680f2d24",
+                "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46"
+              }
+            ]
+          },
+          {
+            "id": "d3b35555-e07a-4c58-88f0-7a91d1bd9442",
+            "text": "비용 제한은 어떻게 잡으면 좋을까?",
+            "type": "open_question",
+            "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+            "speaker": "user",
+            "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "55b34bdc-3f3c-4709-9056-e91ce65e8ad6",
+                "field": "question",
+                "quote": "비용 제한은 어떻게 잡으면 좋을까?",
+                "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+                "event_id": "f3884778-20f7-4b35-85a1-ca3da361e68f",
+                "object_id": "d3b35555-e07a-4c58-88f0-7a91d1bd9442",
+                "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "55b34bdc-3f3c-4709-9056-e91ce65e8ad6",
+                "field": "question",
+                "quote": "비용 제한은 어떻게 잡으면 좋을까?",
+                "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+                "event_id": "f3884778-20f7-4b35-85a1-ca3da361e68f",
+                "object_id": "d3b35555-e07a-4c58-88f0-7a91d1bd9442",
+                "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

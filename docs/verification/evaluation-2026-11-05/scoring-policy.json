@@ -1,0 +1,5 @@
+{
+  "recorded_at": "2026-11-05T06:10:27.342Z",
+  "boundary_metric_scope": "topic_switch only",
+  "rationale": "Other cases can reasonably be split in several ways. For example, data collection and policy selection in baseline may form separate Episodes. Their boundary counts are reported descriptively, not scored as semantic errors. The fixed explicit-switch case alone has exact boundary gold. No production prompt or expected core decisions changed."
+}

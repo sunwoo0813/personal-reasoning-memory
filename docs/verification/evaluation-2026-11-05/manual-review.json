@@ -1,0 +1,291 @@
+{
+  "reviewed_at": "2026-11-05T11:38:27.420Z",
+  "reviewer": "assistant source/output comparison; not independent human evaluation",
+  "scope": "Qualitative audit of displayed objects and deterministic scorer false negatives. No production prompts changed. Core decisions in all completed outputs were inspected against their quotes.",
+  "unresolved_question_scoring": {
+    "strict_anchor_matches": 2,
+    "total_preannotated": 6,
+    "equivalent_variants_accepted_after_review": 2,
+    "reviewed_recovered": 4,
+    "reviewed_missing_or_partial": 2,
+    "note": "4/6 is a qualitative adjudication on this sample, not the original pre-registered automatic score. One failed run and the omitted unknown recovery duration remain missing."
+  },
+  "reviews": [
+    {
+      "case_id": "topic_switch",
+      "repeat": 2,
+      "object": {
+        "id": "fabf95b4-6665-4bf7-a14d-21b1e21a0fd8",
+        "text": "접근 권한 논의를 마치겠다는 발화가 남긴 미해결 여부",
+        "type": "open_question",
+        "run_id": "8f90d324-0b5d-4708-af7e-c21117737003",
+        "speaker": "user",
+        "episode_id": "e4bc197a-9864-4e0f-b738-4edda3e10d88",
+        "verification_status": "quote_matched",
+        "object_evidence_links": [
+          {
+            "id": "bf4eec97-a7fb-4fcd-818d-a8d86ad4e3ce",
+            "field": "question",
+            "quote": "접근 권한 논의는 마칠게.",
+            "run_id": "8f90d324-0b5d-4708-af7e-c21117737003",
+            "event_id": "c38562a7-f706-4e5d-a9d7-964eb78654c4",
+            "object_id": "fabf95b4-6665-4bf7-a14d-21b1e21a0fd8",
+            "episode_id": "e4bc197a-9864-4e0f-b738-4edda3e10d88"
+          }
+        ],
+        "evidence": [
+          {
+            "id": "bf4eec97-a7fb-4fcd-818d-a8d86ad4e3ce",
+            "field": "question",
+            "quote": "접근 권한 논의는 마칠게.",
+            "run_id": "8f90d324-0b5d-4708-af7e-c21117737003",
+            "event_id": "c38562a7-f706-4e5d-a9d7-964eb78654c4",
+            "object_id": "fabf95b4-6665-4bf7-a14d-21b1e21a0fd8",
+            "episode_id": "e4bc197a-9864-4e0f-b738-4edda3e10d88"
+          }
+        ]
+      },
+      "judgment": "unsupported_open_question",
+      "reason": "The source explicitly ends the discussion; it does not leave an unresolved access-control question."
+    },
+    {
+      "case_id": "long_body",
+      "repeat": 1,
+      "object": {
+        "id": "1a381dd3-8804-49b7-8214-11f555689642",
+        "text": "자료 본문은 '이 배경만으로 최종 선택을 추론해서는 안 된다'고 밝히고 있으나, 사용자는 B 요금제를 선택했다고 명시했다.",
+        "type": "contradiction",
+        "run_id": "b21188f2-6ca1-4410-b270-197f7abbf30f",
+        "speaker": "unknown",
+        "episode_id": "6bf97743-4256-457d-8507-d5015280f70d",
+        "verification_status": "quote_matched",
+        "object_evidence_links": [
+          {
+            "id": "25a35fd7-3695-4e1f-a470-7099351b2105",
+            "field": "text",
+            "quote": "추가 검토가 필요하고 이 배경만으로 최종 선택을 추론해서는 안 된다.",
+            "run_id": "b21188f2-6ca1-4410-b270-197f7abbf30f",
+            "event_id": "8aef24d7-b5ba-4f0e-b70b-6d68cc73e1b9",
+            "object_id": "1a381dd3-8804-49b7-8214-11f555689642",
+            "episode_id": "6bf97743-4256-457d-8507-d5015280f70d"
+          },
+          {
+            "id": "41d08a5b-c449-495b-93b3-47b38df565b0",
+            "field": "question",
+            "quote": "연간 약정을 피하려고 B의 월 단위 요금제를 선택할게.",
+            "run_id": "b21188f2-6ca1-4410-b270-197f7abbf30f",
+            "event_id": "f655ae03-1c36-4771-9df6-3ab1dec262f4",
+            "object_id": "1a381dd3-8804-49b7-8214-11f555689642",
+            "episode_id": "6bf97743-4256-457d-8507-d5015280f70d"
+          }
+        ],
+        "evidence": [
+          {
+            "id": "25a35fd7-3695-4e1f-a470-7099351b2105",
+            "field": "text",
+            "quote": "추가 검토가 필요하고 이 배경만으로 최종 선택을 추론해서는 안 된다.",
+            "run_id": "b21188f2-6ca1-4410-b270-197f7abbf30f",
+            "event_id": "8aef24d7-b5ba-4f0e-b70b-6d68cc73e1b9",
+            "object_id": "1a381dd3-8804-49b7-8214-11f555689642",
+            "episode_id": "6bf97743-4256-457d-8507-d5015280f70d"
+          },
+          {
+            "id": "41d08a5b-c449-495b-93b3-47b38df565b0",
+            "field": "question",
+            "quote": "연간 약정을 피하려고 B의 월 단위 요금제를 선택할게.",
+            "run_id": "b21188f2-6ca1-4410-b270-197f7abbf30f",
+            "event_id": "f655ae03-1c36-4771-9df6-3ab1dec262f4",
+            "object_id": "1a381dd3-8804-49b7-8214-11f555689642",
+            "episode_id": "6bf97743-4256-457d-8507-d5015280f70d"
+          }
+        ]
+      },
+      "judgment": "unsupported_contradiction",
+      "reason": "A caution against inferring a decision from background material does not contradict the user explicitly choosing B after reading contract terms."
+    },
+    {
+      "case_id": "reversal",
+      "repeat": 2,
+      "object": {
+        "id": "c341e0f2-c3b5-407c-9238-0e0ec8b6eb72",
+        "text": "초기 저장소는 A 데이터베이스를 쓰기로 결정했어.",
+        "type": "contradiction",
+        "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+        "speaker": "unknown",
+        "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1",
+        "verification_status": "quote_matched",
+        "object_evidence_links": [
+          {
+            "id": "a623b681-686f-421f-89b2-13eb70d9f7a5",
+            "field": "text",
+            "quote": "A는 월 고정비 12만원이 필요하다.",
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "event_id": "450126cd-0871-4848-9557-b3930d10fd2d",
+            "object_id": "c341e0f2-c3b5-407c-9238-0e0ec8b6eb72",
+            "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+          },
+          {
+            "id": "f5099f82-84e0-4c63-85fb-3d7277d64f00",
+            "field": "text",
+            "quote": "B는 현재 규모에서 월 2만원이다.",
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "event_id": "450126cd-0871-4848-9557-b3930d10fd2d",
+            "object_id": "c341e0f2-c3b5-407c-9238-0e0ec8b6eb72",
+            "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+          },
+          {
+            "id": "7fa63f4e-0aeb-42bf-bc00-903f02b51c31",
+            "field": "question",
+            "quote": "초기 저장소는 A 데이터베이스를 쓰기로 결정했어.",
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "event_id": "bad2d50f-91fd-48c2-918f-36b9e12d7bc3",
+            "object_id": "c341e0f2-c3b5-407c-9238-0e0ec8b6eb72",
+            "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+          }
+        ],
+        "evidence": [
+          {
+            "id": "a623b681-686f-421f-89b2-13eb70d9f7a5",
+            "field": "text",
+            "quote": "A는 월 고정비 12만원이 필요하다.",
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "event_id": "450126cd-0871-4848-9557-b3930d10fd2d",
+            "object_id": "c341e0f2-c3b5-407c-9238-0e0ec8b6eb72",
+            "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+          },
+          {
+            "id": "f5099f82-84e0-4c63-85fb-3d7277d64f00",
+            "field": "text",
+            "quote": "B는 현재 규모에서 월 2만원이다.",
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "event_id": "450126cd-0871-4848-9557-b3930d10fd2d",
+            "object_id": "c341e0f2-c3b5-407c-9238-0e0ec8b6eb72",
+            "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+          },
+          {
+            "id": "7fa63f4e-0aeb-42bf-bc00-903f02b51c31",
+            "field": "question",
+            "quote": "초기 저장소는 A 데이터베이스를 쓰기로 결정했어.",
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "event_id": "bad2d50f-91fd-48c2-918f-36b9e12d7bc3",
+            "object_id": "c341e0f2-c3b5-407c-9238-0e0ec8b6eb72",
+            "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+          }
+        ]
+      },
+      "judgment": "unsupported_contradiction",
+      "reason": "Different prices do not logically contradict the original choice of A. The object also omits the actual conflict description."
+    },
+    {
+      "case_id": "reversal",
+      "repeat": 1,
+      "object": {
+        "id": "dcdabc9d-632e-4e11-9c6c-d22357e73dbe",
+        "text": "열린 질문으로 남아있는 항목 — 복구 테스트 방법",
+        "type": "open_question",
+        "run_id": "690d985e-6ede-4b51-a5f4-8714cdf033c5",
+        "speaker": "user",
+        "episode_id": "8c02116a-7947-4eb6-9494-1ec8ba801ec2",
+        "verification_status": "quote_matched",
+        "object_evidence_links": [
+          {
+            "id": "15d19255-16d8-459c-b5e2-f4d041ac936b",
+            "field": "question",
+            "quote": "복구 테스트는 어떻게 할까?",
+            "run_id": "690d985e-6ede-4b51-a5f4-8714cdf033c5",
+            "event_id": "4d5ee70a-350c-4682-bef6-290861855d6f",
+            "object_id": "dcdabc9d-632e-4e11-9c6c-d22357e73dbe",
+            "episode_id": "8c02116a-7947-4eb6-9494-1ec8ba801ec2"
+          }
+        ],
+        "evidence": [
+          {
+            "id": "15d19255-16d8-459c-b5e2-f4d041ac936b",
+            "field": "question",
+            "quote": "복구 테스트는 어떻게 할까?",
+            "run_id": "690d985e-6ede-4b51-a5f4-8714cdf033c5",
+            "event_id": "4d5ee70a-350c-4682-bef6-290861855d6f",
+            "object_id": "dcdabc9d-632e-4e11-9c6c-d22357e73dbe",
+            "episode_id": "8c02116a-7947-4eb6-9494-1ec8ba801ec2"
+          }
+        ]
+      },
+      "judgment": "partial_core_fact",
+      "reason": "It preserves the question about test method, but not the specifically pre-annotated unknown backup recovery duration."
+    },
+    {
+      "case_id": "compound",
+      "repeat": 1,
+      "object": {
+        "id": "37ed13fb-246d-47fc-9085-4efc5a7fb6e5",
+        "text": "비용 제한은 어떻게 잡으면 좋을까?",
+        "type": "open_question",
+        "run_id": "1e371b62-7a72-4847-ae51-5adc416a124f",
+        "speaker": "user",
+        "episode_id": "9546bf04-be3f-4634-a3af-785a12354f61",
+        "verification_status": "quote_matched",
+        "object_evidence_links": [
+          {
+            "id": "3891e5d1-ad16-4ea0-b2e1-506847c53f9c",
+            "field": "question",
+            "quote": "비용 제한은 어떻게 잡으면 좋을까?",
+            "run_id": "1e371b62-7a72-4847-ae51-5adc416a124f",
+            "event_id": "5c2cd631-5d31-4a76-909b-8e0b0a0ef80a",
+            "object_id": "37ed13fb-246d-47fc-9085-4efc5a7fb6e5",
+            "episode_id": "9546bf04-be3f-4634-a3af-785a12354f61"
+          }
+        ],
+        "evidence": [
+          {
+            "id": "3891e5d1-ad16-4ea0-b2e1-506847c53f9c",
+            "field": "question",
+            "quote": "비용 제한은 어떻게 잡으면 좋을까?",
+            "run_id": "1e371b62-7a72-4847-ae51-5adc416a124f",
+            "event_id": "5c2cd631-5d31-4a76-909b-8e0b0a0ef80a",
+            "object_id": "37ed13fb-246d-47fc-9085-4efc5a7fb6e5",
+            "episode_id": "9546bf04-be3f-4634-a3af-785a12354f61"
+          }
+        ]
+      },
+      "judgment": "equivalent_unresolved_budget_question",
+      "reason": "How to set a cost limit is a reasonable expression of the pre-annotated unresolved analysis budget. Strict anchor matching scored it as missing."
+    },
+    {
+      "case_id": "compound",
+      "repeat": 2,
+      "object": {
+        "id": "d3b35555-e07a-4c58-88f0-7a91d1bd9442",
+        "text": "비용 제한은 어떻게 잡으면 좋을까?",
+        "type": "open_question",
+        "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+        "speaker": "user",
+        "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46",
+        "verification_status": "quote_matched",
+        "object_evidence_links": [
+          {
+            "id": "55b34bdc-3f3c-4709-9056-e91ce65e8ad6",
+            "field": "question",
+            "quote": "비용 제한은 어떻게 잡으면 좋을까?",
+            "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+            "event_id": "f3884778-20f7-4b35-85a1-ca3da361e68f",
+            "object_id": "d3b35555-e07a-4c58-88f0-7a91d1bd9442",
+            "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46"
+          }
+        ],
+        "evidence": [
+          {
+            "id": "55b34bdc-3f3c-4709-9056-e91ce65e8ad6",
+            "field": "question",
+            "quote": "비용 제한은 어떻게 잡으면 좋을까?",
+            "run_id": "b3604143-e97a-45ae-a498-a1e0225ad04e",
+            "event_id": "f3884778-20f7-4b35-85a1-ca3da361e68f",
+            "object_id": "d3b35555-e07a-4c58-88f0-7a91d1bd9442",
+            "episode_id": "26da841c-5f73-4c09-8799-cc43a6897e46"
+          }
+        ]
+      },
+      "judgment": "equivalent_unresolved_budget_question",
+      "reason": "Same semantic-equivalence limitation in the automatic anchor score."
+    }
+  ]
+}

@@ -1,0 +1,1089 @@
+{
+  "job": {
+    "case_id": "baseline",
+    "name": "기본 조사·두 결정·미해결 비용",
+    "repeat": 2,
+    "session_id": "fee143a3-aed3-4e0f-9b59-b55da662403b",
+    "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+    "status": "complete",
+    "error": null,
+    "created_at": "2026-11-05T06:06:32.41225+00:00",
+    "started_at": "2026-11-05T06:07:00.353578+00:00",
+    "completed_at": "2026-11-05T06:08:12.211582+00:00",
+    "queue_ms": 27941,
+    "processing_ms": 71858,
+    "score": {
+      "objects": 10,
+      "episodes": 2,
+      "decisions": {
+        "matched": 2,
+        "expected": 2,
+        "predicted": 2,
+        "unmatched_targets": []
+      },
+      "open_questions": {
+        "matched": 1,
+        "expected": 1,
+        "predicted": 1,
+        "unmatched_targets": []
+      },
+      "boundaries": {
+        "expected": [],
+        "predicted": [
+          3
+        ],
+        "true_positive": 0
+      },
+      "quotes": {
+        "matched": 11,
+        "total": 11
+      },
+      "required_evidence": [],
+      "no_objects_check": null
+    },
+    "usage": {
+      "input_tokens": 2146,
+      "output_tokens": 2965,
+      "total_tokens": 5111
+    }
+  },
+  "run": {
+    "id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+    "session_id": "fee143a3-aed3-4e0f-9b59-b55da662403b",
+    "status": "complete",
+    "model": "gpt-5-mini",
+    "pipeline_version": "extraction-v1",
+    "input_version": 1,
+    "input_hash": "a78e3157256c9fe2326919406e89465c604a9412ab940e51b1c0a5af538e98f7",
+    "created_at": "2026-11-05T06:06:32.41225+00:00",
+    "started_at": "2026-11-05T06:07:00.353578+00:00",
+    "completed_at": "2026-11-05T06:08:12.211582+00:00",
+    "worker_id": "a2ce9c14-6f88-4da1-b787-e4f731c6ce2c",
+    "heartbeat_at": "2026-11-05T06:08:12.211582+00:00",
+    "error": null
+  },
+  "inputs": [
+    {
+      "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+      "event_id": "029f92bc-f426-4f70-9537-1c1c067f9dbe",
+      "position": 1,
+      "snapshot": {
+        "id": "029f92bc-f426-4f70-9537-1c1c067f9dbe",
+        "source": "google",
+        "ended_at": "2026-11-05T06:00:30+00:00",
+        "metadata": {
+          "evaluation_case": "baseline",
+          "evaluation_name": "기본 조사·두 결정·미해결 비용",
+          "evaluation_repeat": 2
+        },
+        "device_id": "b26a8071-f852-4154-8df9-4512a2e8a5de",
+        "client_seq": 1,
+        "event_type": "search",
+        "session_id": "fee143a3-aed3-4e0f-9b59-b55da662403b",
+        "source_ref": {
+          "url": "https://www.google.com/search?q=research+memory"
+        },
+        "started_at": "2026-11-05T06:00:00+00:00",
+        "received_at": "2026-11-05T06:06:21.826318+00:00",
+        "capture_status": "complete",
+        "event_contents": {
+          "event_id": "029f92bc-f426-4f70-9537-1c1c067f9dbe",
+          "truncated": false,
+          "content_hash": "0117abce3b53d87c4e02cf41bb39841fdd8fcb25b76240b832aa47143eeaa866",
+          "content_jsonb": {
+            "query": "브라우저 활동과 대화 기록을 함께 저장하는 방법"
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "4de3ab68-2f6e-4c6b-8937-b16cddd041f9"
+      }
+    },
+    {
+      "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+      "event_id": "70a3b26f-316a-4797-8d79-6364311f15a8",
+      "position": 2,
+      "snapshot": {
+        "id": "70a3b26f-316a-4797-8d79-6364311f15a8",
+        "source": "web",
+        "ended_at": "2026-11-05T06:01:30+00:00",
+        "metadata": {
+          "title": "조사 기록 보존 방식 비교",
+          "truncated": false,
+          "content_hash": "adc19bb9684eb26e4c0583247391a5c550455e58535cbbab1de3ee04b8fa7ae5",
+          "active_seconds": 120,
+          "content_length": 114,
+          "parser_version": "2.0",
+          "evaluation_case": "baseline",
+          "evaluation_name": "기본 조사·두 결정·미해결 비용",
+          "evaluation_repeat": 2,
+          "extraction_status": "captured"
+        },
+        "device_id": "b26a8071-f852-4154-8df9-4512a2e8a5de",
+        "client_seq": 2,
+        "event_type": "page_view",
+        "session_id": "fee143a3-aed3-4e0f-9b59-b55da662403b",
+        "source_ref": {
+          "url": "https://example.com/research-memory",
+          "tab_id": 2
+        },
+        "started_at": "2026-11-05T06:01:00+00:00",
+        "received_at": "2026-11-05T06:06:23.64161+00:00",
+        "capture_status": "complete",
+        "event_contents": {
+          "event_id": "70a3b26f-316a-4797-8d79-6364311f15a8",
+          "truncated": false,
+          "content_hash": "261d73b837ebb7dd71b022001e8153d6cee3bb339babb0a45bd198e85eb9d887",
+          "content_jsonb": {
+            "text": "방문 주소만 저장하면 나중에 페이지가 바뀌었을 때 당시 읽은 내용을 확인하기 어렵다. 주요 본문과 수집 시각을 함께 저장하면 당시 자료를 다시 확인할 수 있다. 페이지 열람은 사용자 동의의 증거가 아니다.",
+            "extracted_at": "2026-11-05T03:03:00Z",
+            "extractor_version": "2.0"
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "eb771413-c8cb-4183-a26a-0e453333fa25"
+      }
+    },
+    {
+      "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+      "event_id": "f51a5fd0-950e-4112-8f75-bb87fca6b172",
+      "position": 3,
+      "snapshot": {
+        "id": "f51a5fd0-950e-4112-8f75-bb87fca6b172",
+        "source": "web",
+        "ended_at": "2026-11-05T06:02:30+00:00",
+        "metadata": {
+          "action": "copy",
+          "location": "unavailable",
+          "evaluation_case": "baseline",
+          "evaluation_name": "기본 조사·두 결정·미해결 비용",
+          "evaluation_repeat": 2
+        },
+        "device_id": "b26a8071-f852-4154-8df9-4512a2e8a5de",
+        "client_seq": 3,
+        "event_type": "copy_highlight",
+        "session_id": "fee143a3-aed3-4e0f-9b59-b55da662403b",
+        "source_ref": {
+          "url": "https://example.com/research-memory",
+          "tab_id": 2
+        },
+        "started_at": "2026-11-05T06:02:00+00:00",
+        "received_at": "2026-11-05T06:06:25.314959+00:00",
+        "capture_status": "partial",
+        "event_contents": {
+          "event_id": "f51a5fd0-950e-4112-8f75-bb87fca6b172",
+          "truncated": false,
+          "content_hash": "d27988593765fd0c10a0b91f88ddfe9427f765949e0e4e1621d104f8c9af5371",
+          "content_jsonb": {
+            "text": "주요 본문과 수집 시각을 함께 저장하면 당시 자료를 다시 확인할 수 있다."
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "400b60de-efc6-45c0-981f-83c4df7f4fe5"
+      }
+    },
+    {
+      "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+      "event_id": "6b5fffad-53cd-4700-bd94-055044983e82",
+      "position": 4,
+      "snapshot": {
+        "id": "6b5fffad-53cd-4700-bd94-055044983e82",
+        "source": "chatgpt",
+        "ended_at": "2026-11-05T06:03:30+00:00",
+        "metadata": {
+          "evaluation_case": "baseline",
+          "evaluation_name": "기본 조사·두 결정·미해결 비용",
+          "evaluation_repeat": 2,
+          "completion_observed": true
+        },
+        "device_id": "b26a8071-f852-4154-8df9-4512a2e8a5de",
+        "client_seq": 4,
+        "event_type": "llm_exchange",
+        "session_id": "fee143a3-aed3-4e0f-9b59-b55da662403b",
+        "source_ref": {
+          "url": "https://chatgpt.com/c/example"
+        },
+        "started_at": "2026-11-05T06:03:00+00:00",
+        "received_at": "2026-11-05T06:06:27.736772+00:00",
+        "capture_status": "complete",
+        "event_contents": {
+          "event_id": "6b5fffad-53cd-4700-bd94-055044983e82",
+          "truncated": false,
+          "content_hash": "e1f1756aa4847163b29e9589d50d64f4e0c83bf7b8d07cb46faac643ef9e1730",
+          "content_jsonb": {
+            "question": "URL만으로는 당시 근거를 확인하기 어렵겠네. 주요 본문과 수집 시각을 먼저 저장하는 방식으로 결정할게.",
+            "response": "본문의 출처와 수집 시각을 보존하고 길이 제한과 민감정보 제외 정책을 함께 적용할 수 있습니다."
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "4c821db9-e3c6-4425-929e-fa05c85a590c"
+      }
+    },
+    {
+      "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+      "event_id": "a7f57ce4-85a7-4c82-88b2-784918620221",
+      "position": 5,
+      "snapshot": {
+        "id": "a7f57ce4-85a7-4c82-88b2-784918620221",
+        "source": "chatgpt",
+        "ended_at": "2026-11-05T06:04:30+00:00",
+        "metadata": {
+          "evaluation_case": "baseline",
+          "evaluation_name": "기본 조사·두 결정·미해결 비용",
+          "evaluation_repeat": 2,
+          "completion_observed": true
+        },
+        "device_id": "b26a8071-f852-4154-8df9-4512a2e8a5de",
+        "client_seq": 5,
+        "event_type": "llm_exchange",
+        "session_id": "fee143a3-aed3-4e0f-9b59-b55da662403b",
+        "source_ref": {
+          "url": "https://chatgpt.com/c/example"
+        },
+        "started_at": "2026-11-05T06:04:00+00:00",
+        "received_at": "2026-11-05T06:06:29.304245+00:00",
+        "capture_status": "complete",
+        "event_contents": {
+          "event_id": "a7f57ce4-85a7-4c82-88b2-784918620221",
+          "truncated": false,
+          "content_hash": "506bf5847b0a46999e93d16da39ca5c4f6edecdcf3bf10488cd656b2ad1f80e2",
+          "content_jsonb": {
+            "question": "본문을 저장한 다음에는 분석을 어떤 순서로 연결하면 좋을까? 세션 종료 뒤 분석하자. 비용 한도는 아직 정하지 못했어.",
+            "response": "먼저 조사 목적별로 Episode를 분할하고, 질문과 근거와 결정을 원문 인용과 함께 추출하는 방식을 제안합니다."
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "401656c6-0f6b-4cbb-a1fc-84ee0a7f0c87"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+      "stage": "segmentation",
+      "sequence": 0,
+      "result": {
+        "episodes": [
+          {
+            "goal": "브라우저 활동과 대화 기록을 함께 저장할 때 어떤 정보를 보존해야 나중에 근거로 활용할 수 있는지 조사했다.",
+            "title": "브라우저 활동과 대화 기록 저장 방식 조사",
+            "event_ids": [
+              "029f92bc-f426-4f70-9537-1c1c067f9dbe",
+              "70a3b26f-316a-4797-8d79-6364311f15a8",
+              "f51a5fd0-950e-4112-8f75-bb87fca6b172"
+            ],
+            "boundary_reason": "관련 문서 열람과 주요 문장 하이라이트를 완료하고, 보존할 정보(본문과 수집 시각) 도출로 이 단계 종료."
+          },
+          {
+            "goal": "본문과 수집 시각 보존을 전제로 민감정보 제외·길이 제한 등의 정책과, 세션 종료 후 Episode 단위로 분할해 질문·근거·결정을 원문 인용과 함께 추출하는 분석 순서를 검토했다.",
+            "title": "저장 정책 및 분석 순서 결정 검토",
+            "event_ids": [
+              "6b5fffad-53cd-4700-bd94-055044983e82",
+              "a7f57ce4-85a7-4c82-88b2-784918620221"
+            ],
+            "boundary_reason": "저장 항목(본문·수집 시각) 결정과 분석 절차(에피소드 분할, 질문·근거·결정 추출) 제안까지 논의되어 이 단계 종료."
+          }
+        ]
+      },
+      "usage": {
+        "input_tokens": 839,
+        "total_tokens": 1401,
+        "output_tokens": 562,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 128
+        }
+      },
+      "completed_at": "2026-11-05T06:07:20.788534+00:00"
+    },
+    {
+      "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+      "stage": "extraction",
+      "sequence": 0,
+      "result": {
+        "objects": [
+          {
+            "text": "브라우저 활동과 대화 기록을 함께 저장하는 방법",
+            "type": "question",
+            "speaker": "user",
+            "evidence": [
+              {
+                "field": "query",
+                "quote": "브라우저 활동과 대화 기록을 함께 저장하는 방법",
+                "event_id": "029f92bc-f426-4f70-9537-1c1c067f9dbe"
+              }
+            ]
+          },
+          {
+            "text": "방문 주소만 저장하면 나중에 페이지가 바뀌었을 때 당시 읽은 내용을 확인하기 어렵다.",
+            "type": "evidence",
+            "speaker": "source",
+            "evidence": [
+              {
+                "field": "text",
+                "quote": "방문 주소만 저장하면 나중에 페이지가 바뀌었을 때 당시 읽은 내용을 확인하기 어렵다.",
+                "event_id": "70a3b26f-316a-4797-8d79-6364311f15a8"
+              }
+            ]
+          },
+          {
+            "text": "주요 본문과 수집 시각을 함께 저장하면 당시 자료를 다시 확인할 수 있다.",
+            "type": "insight",
+            "speaker": "source",
+            "evidence": [
+              {
+                "field": "text",
+                "quote": "주요 본문과 수집 시각을 함께 저장하면 당시 자료를 다시 확인할 수 있다.",
+                "event_id": "70a3b26f-316a-4797-8d79-6364311f15a8"
+              },
+              {
+                "field": "text",
+                "quote": "주요 본문과 수집 시각을 함께 저장하면 당시 자료를 다시 확인할 수 있다.",
+                "event_id": "f51a5fd0-950e-4112-8f75-bb87fca6b172"
+              }
+            ]
+          },
+          {
+            "text": "페이지 열람은 사용자 동의의 증거가 아니다.",
+            "type": "evidence",
+            "speaker": "source",
+            "evidence": [
+              {
+                "field": "text",
+                "quote": "페이지 열람은 사용자 동의의 증거가 아니다.",
+                "event_id": "70a3b26f-316a-4797-8d79-6364311f15a8"
+              }
+            ]
+          }
+        ]
+      },
+      "usage": {
+        "input_tokens": 677,
+        "total_tokens": 1792,
+        "output_tokens": 1115,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 512
+        }
+      },
+      "completed_at": "2026-11-05T06:07:39.728565+00:00"
+    },
+    {
+      "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+      "stage": "extraction",
+      "sequence": 1,
+      "result": {
+        "objects": [
+          {
+            "text": "URL만으로는 당시 근거를 확인하기 어렵겠네. 주요 본문과 수집 시각을 먼저 저장하는 방식으로 결정할게.",
+            "type": "decision",
+            "speaker": "user",
+            "evidence": [
+              {
+                "field": "question",
+                "quote": "URL만으로는 당시 근거를 확인하기 어렵겠네. 주요 본문과 수집 시각을 먼저 저장하는 방식으로 결정할게.",
+                "event_id": "6b5fffad-53cd-4700-bd94-055044983e82"
+              }
+            ]
+          },
+          {
+            "text": "본문의 출처와 수집 시각을 보존하고 길이 제한과 민감정보 제외 정책을 함께 적용할 수 있습니다.",
+            "type": "insight",
+            "speaker": "assistant",
+            "evidence": [
+              {
+                "field": "response",
+                "quote": "본문의 출처와 수집 시각을 보존하고 길이 제한과 민감정보 제외 정책을 함께 적용할 수 있습니다.",
+                "event_id": "6b5fffad-53cd-4700-bd94-055044983e82"
+              }
+            ]
+          },
+          {
+            "text": "본문을 저장한 다음에는 분석을 어떤 순서로 연결하면 좋을까?",
+            "type": "question",
+            "speaker": "user",
+            "evidence": [
+              {
+                "field": "question",
+                "quote": "본문을 저장한 다음에는 분석을 어떤 순서로 연결하면 좋을까?",
+                "event_id": "a7f57ce4-85a7-4c82-88b2-784918620221"
+              }
+            ]
+          },
+          {
+            "text": "세션 종료 뒤 분석하자.",
+            "type": "decision",
+            "speaker": "user",
+            "evidence": [
+              {
+                "field": "question",
+                "quote": "세션 종료 뒤 분석하자.",
+                "event_id": "a7f57ce4-85a7-4c82-88b2-784918620221"
+              }
+            ]
+          },
+          {
+            "text": "비용 한도는 아직 정하지 못했어.",
+            "type": "open_question",
+            "speaker": "user",
+            "evidence": [
+              {
+                "field": "question",
+                "quote": "비용 한도는 아직 정하지 못했어.",
+                "event_id": "a7f57ce4-85a7-4c82-88b2-784918620221"
+              }
+            ]
+          },
+          {
+            "text": "먼저 조사 목적별로 Episode를 분할하고, 질문과 근거와 결정을 원문 인용과 함께 추출하는 방식을 제안합니다.",
+            "type": "insight",
+            "speaker": "assistant",
+            "evidence": [
+              {
+                "field": "response",
+                "quote": "먼저 조사 목적별로 Episode를 분할하고, 질문과 근거와 결정을 원문 인용과 함께 추출하는 방식을 제안합니다.",
+                "event_id": "a7f57ce4-85a7-4c82-88b2-784918620221"
+              }
+            ]
+          }
+        ]
+      },
+      "usage": {
+        "input_tokens": 630,
+        "total_tokens": 1918,
+        "output_tokens": 1288,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 704
+        }
+      },
+      "completed_at": "2026-11-05T06:08:09.386969+00:00"
+    }
+  ],
+  "result": {
+    "episodes": [
+      {
+        "id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc",
+        "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+        "sequence": 1,
+        "title": "브라우저 활동과 대화 기록 저장 방식 조사",
+        "goal": "브라우저 활동과 대화 기록을 함께 저장할 때 어떤 정보를 보존해야 나중에 근거로 활용할 수 있는지 조사했다.",
+        "boundary_reason": "관련 문서 열람과 주요 문장 하이라이트를 완료하고, 보존할 정보(본문과 수집 시각) 도출로 이 단계 종료.",
+        "episode_event_links": [
+          {
+            "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+            "event_id": "029f92bc-f426-4f70-9537-1c1c067f9dbe",
+            "position": 1,
+            "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc"
+          },
+          {
+            "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+            "event_id": "70a3b26f-316a-4797-8d79-6364311f15a8",
+            "position": 2,
+            "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc"
+          },
+          {
+            "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+            "event_id": "f51a5fd0-950e-4112-8f75-bb87fca6b172",
+            "position": 3,
+            "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc"
+          }
+        ],
+        "reasoning_objects": [
+          {
+            "id": "100e91ac-e438-4230-9e65-bea1127ae0a8",
+            "text": "브라우저 활동과 대화 기록을 함께 저장하는 방법",
+            "type": "question",
+            "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+            "speaker": "user",
+            "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "94593f2b-da9a-46db-b4cc-f97896e03996",
+                "field": "query",
+                "quote": "브라우저 활동과 대화 기록을 함께 저장하는 방법",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "029f92bc-f426-4f70-9537-1c1c067f9dbe",
+                "object_id": "100e91ac-e438-4230-9e65-bea1127ae0a8",
+                "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc"
+              }
+            ]
+          },
+          {
+            "id": "85e4723f-6006-42a4-8c6e-320a54bd75e7",
+            "text": "주요 본문과 수집 시각을 함께 저장하면 당시 자료를 다시 확인할 수 있다.",
+            "type": "insight",
+            "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+            "speaker": "source",
+            "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "23e43757-8da9-4e04-841d-dc34887c5925",
+                "field": "text",
+                "quote": "주요 본문과 수집 시각을 함께 저장하면 당시 자료를 다시 확인할 수 있다.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "70a3b26f-316a-4797-8d79-6364311f15a8",
+                "object_id": "85e4723f-6006-42a4-8c6e-320a54bd75e7",
+                "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc"
+              },
+              {
+                "id": "d21fa3f5-6408-4f69-b3c1-4217486704d8",
+                "field": "text",
+                "quote": "주요 본문과 수집 시각을 함께 저장하면 당시 자료를 다시 확인할 수 있다.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "f51a5fd0-950e-4112-8f75-bb87fca6b172",
+                "object_id": "85e4723f-6006-42a4-8c6e-320a54bd75e7",
+                "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc"
+              }
+            ]
+          },
+          {
+            "id": "8dc5a46e-34ce-4f2a-a2b8-15cce07f58f8",
+            "text": "방문 주소만 저장하면 나중에 페이지가 바뀌었을 때 당시 읽은 내용을 확인하기 어렵다.",
+            "type": "evidence",
+            "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+            "speaker": "source",
+            "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "f46c3a7c-c520-4356-b8e6-1d681feb35da",
+                "field": "text",
+                "quote": "방문 주소만 저장하면 나중에 페이지가 바뀌었을 때 당시 읽은 내용을 확인하기 어렵다.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "70a3b26f-316a-4797-8d79-6364311f15a8",
+                "object_id": "8dc5a46e-34ce-4f2a-a2b8-15cce07f58f8",
+                "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc"
+              }
+            ]
+          },
+          {
+            "id": "a4168048-e92a-49ce-aff4-2519c5ea2c56",
+            "text": "페이지 열람은 사용자 동의의 증거가 아니다.",
+            "type": "evidence",
+            "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+            "speaker": "source",
+            "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "0a30077d-5115-4a3c-9769-b4e413b116ed",
+                "field": "text",
+                "quote": "페이지 열람은 사용자 동의의 증거가 아니다.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "70a3b26f-316a-4797-8d79-6364311f15a8",
+                "object_id": "a4168048-e92a-49ce-aff4-2519c5ea2c56",
+                "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc"
+              }
+            ]
+          }
+        ],
+        "event_ids": [
+          "029f92bc-f426-4f70-9537-1c1c067f9dbe",
+          "70a3b26f-316a-4797-8d79-6364311f15a8",
+          "f51a5fd0-950e-4112-8f75-bb87fca6b172"
+        ],
+        "objects": [
+          {
+            "id": "100e91ac-e438-4230-9e65-bea1127ae0a8",
+            "text": "브라우저 활동과 대화 기록을 함께 저장하는 방법",
+            "type": "question",
+            "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+            "speaker": "user",
+            "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "94593f2b-da9a-46db-b4cc-f97896e03996",
+                "field": "query",
+                "quote": "브라우저 활동과 대화 기록을 함께 저장하는 방법",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "029f92bc-f426-4f70-9537-1c1c067f9dbe",
+                "object_id": "100e91ac-e438-4230-9e65-bea1127ae0a8",
+                "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "94593f2b-da9a-46db-b4cc-f97896e03996",
+                "field": "query",
+                "quote": "브라우저 활동과 대화 기록을 함께 저장하는 방법",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "029f92bc-f426-4f70-9537-1c1c067f9dbe",
+                "object_id": "100e91ac-e438-4230-9e65-bea1127ae0a8",
+                "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc"
+              }
+            ]
+          },
+          {
+            "id": "85e4723f-6006-42a4-8c6e-320a54bd75e7",
+            "text": "주요 본문과 수집 시각을 함께 저장하면 당시 자료를 다시 확인할 수 있다.",
+            "type": "insight",
+            "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+            "speaker": "source",
+            "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "23e43757-8da9-4e04-841d-dc34887c5925",
+                "field": "text",
+                "quote": "주요 본문과 수집 시각을 함께 저장하면 당시 자료를 다시 확인할 수 있다.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "70a3b26f-316a-4797-8d79-6364311f15a8",
+                "object_id": "85e4723f-6006-42a4-8c6e-320a54bd75e7",
+                "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc"
+              },
+              {
+                "id": "d21fa3f5-6408-4f69-b3c1-4217486704d8",
+                "field": "text",
+                "quote": "주요 본문과 수집 시각을 함께 저장하면 당시 자료를 다시 확인할 수 있다.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "f51a5fd0-950e-4112-8f75-bb87fca6b172",
+                "object_id": "85e4723f-6006-42a4-8c6e-320a54bd75e7",
+                "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "23e43757-8da9-4e04-841d-dc34887c5925",
+                "field": "text",
+                "quote": "주요 본문과 수집 시각을 함께 저장하면 당시 자료를 다시 확인할 수 있다.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "70a3b26f-316a-4797-8d79-6364311f15a8",
+                "object_id": "85e4723f-6006-42a4-8c6e-320a54bd75e7",
+                "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc"
+              },
+              {
+                "id": "d21fa3f5-6408-4f69-b3c1-4217486704d8",
+                "field": "text",
+                "quote": "주요 본문과 수집 시각을 함께 저장하면 당시 자료를 다시 확인할 수 있다.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "f51a5fd0-950e-4112-8f75-bb87fca6b172",
+                "object_id": "85e4723f-6006-42a4-8c6e-320a54bd75e7",
+                "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc"
+              }
+            ]
+          },
+          {
+            "id": "8dc5a46e-34ce-4f2a-a2b8-15cce07f58f8",
+            "text": "방문 주소만 저장하면 나중에 페이지가 바뀌었을 때 당시 읽은 내용을 확인하기 어렵다.",
+            "type": "evidence",
+            "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+            "speaker": "source",
+            "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "f46c3a7c-c520-4356-b8e6-1d681feb35da",
+                "field": "text",
+                "quote": "방문 주소만 저장하면 나중에 페이지가 바뀌었을 때 당시 읽은 내용을 확인하기 어렵다.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "70a3b26f-316a-4797-8d79-6364311f15a8",
+                "object_id": "8dc5a46e-34ce-4f2a-a2b8-15cce07f58f8",
+                "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "f46c3a7c-c520-4356-b8e6-1d681feb35da",
+                "field": "text",
+                "quote": "방문 주소만 저장하면 나중에 페이지가 바뀌었을 때 당시 읽은 내용을 확인하기 어렵다.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "70a3b26f-316a-4797-8d79-6364311f15a8",
+                "object_id": "8dc5a46e-34ce-4f2a-a2b8-15cce07f58f8",
+                "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc"
+              }
+            ]
+          },
+          {
+            "id": "a4168048-e92a-49ce-aff4-2519c5ea2c56",
+            "text": "페이지 열람은 사용자 동의의 증거가 아니다.",
+            "type": "evidence",
+            "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+            "speaker": "source",
+            "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "0a30077d-5115-4a3c-9769-b4e413b116ed",
+                "field": "text",
+                "quote": "페이지 열람은 사용자 동의의 증거가 아니다.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "70a3b26f-316a-4797-8d79-6364311f15a8",
+                "object_id": "a4168048-e92a-49ce-aff4-2519c5ea2c56",
+                "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "0a30077d-5115-4a3c-9769-b4e413b116ed",
+                "field": "text",
+                "quote": "페이지 열람은 사용자 동의의 증거가 아니다.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "70a3b26f-316a-4797-8d79-6364311f15a8",
+                "object_id": "a4168048-e92a-49ce-aff4-2519c5ea2c56",
+                "episode_id": "7157bfa0-367d-4a82-9f6f-62f141e22bfc"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "379ae16a-497a-4a96-9d90-1ef53eb7866e",
+        "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+        "sequence": 2,
+        "title": "저장 정책 및 분석 순서 결정 검토",
+        "goal": "본문과 수집 시각 보존을 전제로 민감정보 제외·길이 제한 등의 정책과, 세션 종료 후 Episode 단위로 분할해 질문·근거·결정을 원문 인용과 함께 추출하는 분석 순서를 검토했다.",
+        "boundary_reason": "저장 항목(본문·수집 시각) 결정과 분석 절차(에피소드 분할, 질문·근거·결정 추출) 제안까지 논의되어 이 단계 종료.",
+        "episode_event_links": [
+          {
+            "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+            "event_id": "6b5fffad-53cd-4700-bd94-055044983e82",
+            "position": 1,
+            "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e"
+          },
+          {
+            "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+            "event_id": "a7f57ce4-85a7-4c82-88b2-784918620221",
+            "position": 2,
+            "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e"
+          }
+        ],
+        "reasoning_objects": [
+          {
+            "id": "186a6017-ed75-48ec-b2be-53e626c45dfa",
+            "text": "세션 종료 뒤 분석하자.",
+            "type": "decision",
+            "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+            "speaker": "user",
+            "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "820b30de-026a-48c2-8b9b-eb3d1e87d325",
+                "field": "question",
+                "quote": "세션 종료 뒤 분석하자.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "a7f57ce4-85a7-4c82-88b2-784918620221",
+                "object_id": "186a6017-ed75-48ec-b2be-53e626c45dfa",
+                "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e"
+              }
+            ]
+          },
+          {
+            "id": "19074e75-de30-4187-8d7a-0e61db440f37",
+            "text": "본문의 출처와 수집 시각을 보존하고 길이 제한과 민감정보 제외 정책을 함께 적용할 수 있습니다.",
+            "type": "insight",
+            "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+            "speaker": "assistant",
+            "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "111491ec-218b-418c-b282-148ce72d219f",
+                "field": "response",
+                "quote": "본문의 출처와 수집 시각을 보존하고 길이 제한과 민감정보 제외 정책을 함께 적용할 수 있습니다.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "6b5fffad-53cd-4700-bd94-055044983e82",
+                "object_id": "19074e75-de30-4187-8d7a-0e61db440f37",
+                "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e"
+              }
+            ]
+          },
+          {
+            "id": "c0f7f67d-7ccf-46fc-9fdf-2666300a34fa",
+            "text": "본문을 저장한 다음에는 분석을 어떤 순서로 연결하면 좋을까?",
+            "type": "question",
+            "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+            "speaker": "user",
+            "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "504a0911-ecca-448f-8a70-6bb8293d22dd",
+                "field": "question",
+                "quote": "본문을 저장한 다음에는 분석을 어떤 순서로 연결하면 좋을까?",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "a7f57ce4-85a7-4c82-88b2-784918620221",
+                "object_id": "c0f7f67d-7ccf-46fc-9fdf-2666300a34fa",
+                "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e"
+              }
+            ]
+          },
+          {
+            "id": "c49f27eb-fca3-4e50-becd-8338e0e61cff",
+            "text": "URL만으로는 당시 근거를 확인하기 어렵겠네. 주요 본문과 수집 시각을 먼저 저장하는 방식으로 결정할게.",
+            "type": "decision",
+            "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+            "speaker": "user",
+            "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "0789d0e8-5532-432b-9d0e-60305f3c5035",
+                "field": "question",
+                "quote": "URL만으로는 당시 근거를 확인하기 어렵겠네. 주요 본문과 수집 시각을 먼저 저장하는 방식으로 결정할게.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "6b5fffad-53cd-4700-bd94-055044983e82",
+                "object_id": "c49f27eb-fca3-4e50-becd-8338e0e61cff",
+                "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e"
+              }
+            ]
+          },
+          {
+            "id": "cb224f79-c414-4317-84bf-95851e852ce9",
+            "text": "먼저 조사 목적별로 Episode를 분할하고, 질문과 근거와 결정을 원문 인용과 함께 추출하는 방식을 제안합니다.",
+            "type": "insight",
+            "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+            "speaker": "assistant",
+            "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "584879a8-1fd7-4b75-b1a5-2aa13e1a27e6",
+                "field": "response",
+                "quote": "먼저 조사 목적별로 Episode를 분할하고, 질문과 근거와 결정을 원문 인용과 함께 추출하는 방식을 제안합니다.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "a7f57ce4-85a7-4c82-88b2-784918620221",
+                "object_id": "cb224f79-c414-4317-84bf-95851e852ce9",
+                "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e"
+              }
+            ]
+          },
+          {
+            "id": "e6ce7595-58c6-40ca-bc7e-d9bb9442c06d",
+            "text": "비용 한도는 아직 정하지 못했어.",
+            "type": "open_question",
+            "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+            "speaker": "user",
+            "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "f1533fe4-6436-4cff-a180-8791c4cd9510",
+                "field": "question",
+                "quote": "비용 한도는 아직 정하지 못했어.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "a7f57ce4-85a7-4c82-88b2-784918620221",
+                "object_id": "e6ce7595-58c6-40ca-bc7e-d9bb9442c06d",
+                "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e"
+              }
+            ]
+          }
+        ],
+        "event_ids": [
+          "6b5fffad-53cd-4700-bd94-055044983e82",
+          "a7f57ce4-85a7-4c82-88b2-784918620221"
+        ],
+        "objects": [
+          {
+            "id": "186a6017-ed75-48ec-b2be-53e626c45dfa",
+            "text": "세션 종료 뒤 분석하자.",
+            "type": "decision",
+            "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+            "speaker": "user",
+            "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "820b30de-026a-48c2-8b9b-eb3d1e87d325",
+                "field": "question",
+                "quote": "세션 종료 뒤 분석하자.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "a7f57ce4-85a7-4c82-88b2-784918620221",
+                "object_id": "186a6017-ed75-48ec-b2be-53e626c45dfa",
+                "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "820b30de-026a-48c2-8b9b-eb3d1e87d325",
+                "field": "question",
+                "quote": "세션 종료 뒤 분석하자.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "a7f57ce4-85a7-4c82-88b2-784918620221",
+                "object_id": "186a6017-ed75-48ec-b2be-53e626c45dfa",
+                "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e"
+              }
+            ]
+          },
+          {
+            "id": "19074e75-de30-4187-8d7a-0e61db440f37",
+            "text": "본문의 출처와 수집 시각을 보존하고 길이 제한과 민감정보 제외 정책을 함께 적용할 수 있습니다.",
+            "type": "insight",
+            "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+            "speaker": "assistant",
+            "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "111491ec-218b-418c-b282-148ce72d219f",
+                "field": "response",
+                "quote": "본문의 출처와 수집 시각을 보존하고 길이 제한과 민감정보 제외 정책을 함께 적용할 수 있습니다.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "6b5fffad-53cd-4700-bd94-055044983e82",
+                "object_id": "19074e75-de30-4187-8d7a-0e61db440f37",
+                "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "111491ec-218b-418c-b282-148ce72d219f",
+                "field": "response",
+                "quote": "본문의 출처와 수집 시각을 보존하고 길이 제한과 민감정보 제외 정책을 함께 적용할 수 있습니다.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "6b5fffad-53cd-4700-bd94-055044983e82",
+                "object_id": "19074e75-de30-4187-8d7a-0e61db440f37",
+                "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e"
+              }
+            ]
+          },
+          {
+            "id": "c0f7f67d-7ccf-46fc-9fdf-2666300a34fa",
+            "text": "본문을 저장한 다음에는 분석을 어떤 순서로 연결하면 좋을까?",
+            "type": "question",
+            "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+            "speaker": "user",
+            "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "504a0911-ecca-448f-8a70-6bb8293d22dd",
+                "field": "question",
+                "quote": "본문을 저장한 다음에는 분석을 어떤 순서로 연결하면 좋을까?",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "a7f57ce4-85a7-4c82-88b2-784918620221",
+                "object_id": "c0f7f67d-7ccf-46fc-9fdf-2666300a34fa",
+                "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "504a0911-ecca-448f-8a70-6bb8293d22dd",
+                "field": "question",
+                "quote": "본문을 저장한 다음에는 분석을 어떤 순서로 연결하면 좋을까?",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "a7f57ce4-85a7-4c82-88b2-784918620221",
+                "object_id": "c0f7f67d-7ccf-46fc-9fdf-2666300a34fa",
+                "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e"
+              }
+            ]
+          },
+          {
+            "id": "c49f27eb-fca3-4e50-becd-8338e0e61cff",
+            "text": "URL만으로는 당시 근거를 확인하기 어렵겠네. 주요 본문과 수집 시각을 먼저 저장하는 방식으로 결정할게.",
+            "type": "decision",
+            "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+            "speaker": "user",
+            "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "0789d0e8-5532-432b-9d0e-60305f3c5035",
+                "field": "question",
+                "quote": "URL만으로는 당시 근거를 확인하기 어렵겠네. 주요 본문과 수집 시각을 먼저 저장하는 방식으로 결정할게.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "6b5fffad-53cd-4700-bd94-055044983e82",
+                "object_id": "c49f27eb-fca3-4e50-becd-8338e0e61cff",
+                "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "0789d0e8-5532-432b-9d0e-60305f3c5035",
+                "field": "question",
+                "quote": "URL만으로는 당시 근거를 확인하기 어렵겠네. 주요 본문과 수집 시각을 먼저 저장하는 방식으로 결정할게.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "6b5fffad-53cd-4700-bd94-055044983e82",
+                "object_id": "c49f27eb-fca3-4e50-becd-8338e0e61cff",
+                "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e"
+              }
+            ]
+          },
+          {
+            "id": "cb224f79-c414-4317-84bf-95851e852ce9",
+            "text": "먼저 조사 목적별로 Episode를 분할하고, 질문과 근거와 결정을 원문 인용과 함께 추출하는 방식을 제안합니다.",
+            "type": "insight",
+            "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+            "speaker": "assistant",
+            "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "584879a8-1fd7-4b75-b1a5-2aa13e1a27e6",
+                "field": "response",
+                "quote": "먼저 조사 목적별로 Episode를 분할하고, 질문과 근거와 결정을 원문 인용과 함께 추출하는 방식을 제안합니다.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "a7f57ce4-85a7-4c82-88b2-784918620221",
+                "object_id": "cb224f79-c414-4317-84bf-95851e852ce9",
+                "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "584879a8-1fd7-4b75-b1a5-2aa13e1a27e6",
+                "field": "response",
+                "quote": "먼저 조사 목적별로 Episode를 분할하고, 질문과 근거와 결정을 원문 인용과 함께 추출하는 방식을 제안합니다.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "a7f57ce4-85a7-4c82-88b2-784918620221",
+                "object_id": "cb224f79-c414-4317-84bf-95851e852ce9",
+                "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e"
+              }
+            ]
+          },
+          {
+            "id": "e6ce7595-58c6-40ca-bc7e-d9bb9442c06d",
+            "text": "비용 한도는 아직 정하지 못했어.",
+            "type": "open_question",
+            "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+            "speaker": "user",
+            "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "f1533fe4-6436-4cff-a180-8791c4cd9510",
+                "field": "question",
+                "quote": "비용 한도는 아직 정하지 못했어.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "a7f57ce4-85a7-4c82-88b2-784918620221",
+                "object_id": "e6ce7595-58c6-40ca-bc7e-d9bb9442c06d",
+                "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "f1533fe4-6436-4cff-a180-8791c4cd9510",
+                "field": "question",
+                "quote": "비용 한도는 아직 정하지 못했어.",
+                "run_id": "e39e5ca9-ff86-4989-9ee6-999d5afd4aa6",
+                "event_id": "a7f57ce4-85a7-4c82-88b2-784918620221",
+                "object_id": "e6ce7595-58c6-40ca-bc7e-d9bb9442c06d",
+                "episode_id": "379ae16a-497a-4a96-9d90-1ef53eb7866e"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

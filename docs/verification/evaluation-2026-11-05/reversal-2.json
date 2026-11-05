@@ -1,0 +1,1016 @@
+{
+  "job": {
+    "case_id": "reversal",
+    "name": "명시적 A 선택 후 B로 변경",
+    "repeat": 2,
+    "session_id": "dfdfeef6-6ec4-4c81-ad71-4b710ad027fb",
+    "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+    "status": "complete",
+    "error": null,
+    "created_at": "2026-11-05T06:07:28.785669+00:00",
+    "started_at": "2026-11-05T06:11:16.798208+00:00",
+    "completed_at": "2026-11-05T06:11:51.544627+00:00",
+    "queue_ms": 228013,
+    "processing_ms": 34746,
+    "score": {
+      "objects": 9,
+      "episodes": 2,
+      "decisions": {
+        "matched": 2,
+        "expected": 2,
+        "predicted": 2,
+        "unmatched_targets": []
+      },
+      "open_questions": {
+        "matched": 1,
+        "expected": 1,
+        "predicted": 1,
+        "unmatched_targets": []
+      },
+      "boundaries": {
+        "expected": [],
+        "predicted": [
+          2
+        ],
+        "true_positive": 0
+      },
+      "quotes": {
+        "matched": 11,
+        "total": 11
+      },
+      "required_evidence": [],
+      "no_objects_check": null
+    },
+    "usage": {
+      "input_tokens": 1846,
+      "output_tokens": 2688,
+      "total_tokens": 4534
+    }
+  },
+  "run": {
+    "id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+    "session_id": "dfdfeef6-6ec4-4c81-ad71-4b710ad027fb",
+    "status": "complete",
+    "model": "gpt-5-mini",
+    "pipeline_version": "extraction-v1",
+    "input_version": 1,
+    "input_hash": "d72355abb129245513718aad0a00c230b372940cbf39f4ba1d1138b9e4a4e476",
+    "created_at": "2026-11-05T06:07:28.785669+00:00",
+    "started_at": "2026-11-05T06:11:16.798208+00:00",
+    "completed_at": "2026-11-05T06:11:51.544627+00:00",
+    "worker_id": "a2ce9c14-6f88-4da1-b787-e4f731c6ce2c",
+    "heartbeat_at": "2026-11-05T06:11:51.544627+00:00",
+    "error": null
+  },
+  "inputs": [
+    {
+      "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+      "event_id": "bad2d50f-91fd-48c2-918f-36b9e12d7bc3",
+      "position": 1,
+      "snapshot": {
+        "id": "bad2d50f-91fd-48c2-918f-36b9e12d7bc3",
+        "source": "chatgpt",
+        "ended_at": "2026-11-05T06:00:30+00:00",
+        "metadata": {
+          "title": "시험 자료",
+          "evaluation_case": "reversal",
+          "evaluation_name": "명시적 A 선택 후 B로 변경",
+          "evaluation_repeat": 2,
+          "extraction_status": "captured",
+          "completion_observed": true
+        },
+        "device_id": "51f07e5e-8c28-4701-8b85-36c537ca8504",
+        "client_seq": 1,
+        "event_type": "llm_exchange",
+        "session_id": "dfdfeef6-6ec4-4c81-ad71-4b710ad027fb",
+        "source_ref": {
+          "url": "https://chatgpt.com/c/evaluation"
+        },
+        "started_at": "2026-11-05T06:00:00+00:00",
+        "received_at": "2026-11-05T06:07:18.579591+00:00",
+        "capture_status": "complete",
+        "event_contents": {
+          "event_id": "bad2d50f-91fd-48c2-918f-36b9e12d7bc3",
+          "truncated": false,
+          "content_hash": "527e61ca326d30df57f68ce482c8ff43604ec8f5bcf21bf65003d3859ea726a0",
+          "content_jsonb": {
+            "question": "초기 저장소는 A 데이터베이스를 쓰기로 결정했어.",
+            "response": "A의 운영 비용을 검토하세요."
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "1466bdae-cb51-4b33-9d34-c84c19dc9ca1"
+      }
+    },
+    {
+      "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+      "event_id": "450126cd-0871-4848-9557-b3930d10fd2d",
+      "position": 2,
+      "snapshot": {
+        "id": "450126cd-0871-4848-9557-b3930d10fd2d",
+        "source": "web",
+        "ended_at": "2026-11-05T06:01:30+00:00",
+        "metadata": {
+          "title": "저장소 비용 비교",
+          "truncated": false,
+          "content_hash": "139b1145269bbf7c2641cfc61c24e562dd2a29430050bea884641cd57235ddbb",
+          "content_length": 40,
+          "evaluation_case": "reversal",
+          "evaluation_name": "명시적 A 선택 후 B로 변경",
+          "evaluation_repeat": 2,
+          "extraction_status": "captured",
+          "completion_observed": true
+        },
+        "device_id": "51f07e5e-8c28-4701-8b85-36c537ca8504",
+        "client_seq": 2,
+        "event_type": "page_view",
+        "session_id": "dfdfeef6-6ec4-4c81-ad71-4b710ad027fb",
+        "source_ref": {
+          "url": "https://example.com/evaluation"
+        },
+        "started_at": "2026-11-05T06:01:00+00:00",
+        "received_at": "2026-11-05T06:07:20.782132+00:00",
+        "capture_status": "complete",
+        "event_contents": {
+          "event_id": "450126cd-0871-4848-9557-b3930d10fd2d",
+          "truncated": false,
+          "content_hash": "0cdf030821efed9bb75a1ce25d09accfb4a94742bc19c9ef2fd54457d251db3d",
+          "content_jsonb": {
+            "text": "A는 월 고정비 12만원이 필요하다. B는 현재 규모에서 월 2만원이다.",
+            "extracted_at": "2026-11-05T06:00:00Z",
+            "extractor_version": "2.0"
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "4a927067-b9c3-4251-89bb-ffd22498012a"
+      }
+    },
+    {
+      "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+      "event_id": "0f4e7e3a-0253-4d4f-9c5c-42b3b5d10026",
+      "position": 3,
+      "snapshot": {
+        "id": "0f4e7e3a-0253-4d4f-9c5c-42b3b5d10026",
+        "source": "chatgpt",
+        "ended_at": "2026-11-05T06:02:30+00:00",
+        "metadata": {
+          "title": "시험 자료",
+          "evaluation_case": "reversal",
+          "evaluation_name": "명시적 A 선택 후 B로 변경",
+          "evaluation_repeat": 2,
+          "extraction_status": "captured",
+          "completion_observed": true
+        },
+        "device_id": "51f07e5e-8c28-4701-8b85-36c537ca8504",
+        "client_seq": 3,
+        "event_type": "llm_exchange",
+        "session_id": "dfdfeef6-6ec4-4c81-ad71-4b710ad027fb",
+        "source_ref": {
+          "url": "https://chatgpt.com/c/evaluation"
+        },
+        "started_at": "2026-11-05T06:02:00+00:00",
+        "received_at": "2026-11-05T06:07:21.824575+00:00",
+        "capture_status": "complete",
+        "event_contents": {
+          "event_id": "0f4e7e3a-0253-4d4f-9c5c-42b3b5d10026",
+          "truncated": false,
+          "content_hash": "975b0554caf00fd99535be518d18da3a9f143f4d9236a33c346c9e9dadcc33ae",
+          "content_jsonb": {
+            "question": "예산을 확인했어. 앞서 정한 A 사용은 취소하고 B 데이터베이스로 변경할게. 월 고정비를 줄이기 위해서야.",
+            "response": "변경 내용과 이유를 함께 기록할 수 있습니다."
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "192ecc08-c2ce-4ef8-81d4-db9ac50d2af6"
+      }
+    },
+    {
+      "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+      "event_id": "ad0b8134-4790-4d58-b866-d628de0d9ae2",
+      "position": 4,
+      "snapshot": {
+        "id": "ad0b8134-4790-4d58-b866-d628de0d9ae2",
+        "source": "chatgpt",
+        "ended_at": "2026-11-05T06:03:30+00:00",
+        "metadata": {
+          "title": "시험 자료",
+          "evaluation_case": "reversal",
+          "evaluation_name": "명시적 A 선택 후 B로 변경",
+          "evaluation_repeat": 2,
+          "extraction_status": "captured",
+          "completion_observed": true
+        },
+        "device_id": "51f07e5e-8c28-4701-8b85-36c537ca8504",
+        "client_seq": 4,
+        "event_type": "llm_exchange",
+        "session_id": "dfdfeef6-6ec4-4c81-ad71-4b710ad027fb",
+        "source_ref": {
+          "url": "https://chatgpt.com/c/evaluation"
+        },
+        "started_at": "2026-11-05T06:03:00+00:00",
+        "received_at": "2026-11-05T06:07:25.635382+00:00",
+        "capture_status": "complete",
+        "event_contents": {
+          "event_id": "ad0b8134-4790-4d58-b866-d628de0d9ae2",
+          "truncated": false,
+          "content_hash": "94fd13a5aa6e158e328930f76d89b0946d8181c9e76e370f76f5a3de87d7e2f5",
+          "content_jsonb": {
+            "question": "B의 백업 복구 시간은 아직 확인하지 못했어. 복구 테스트는 어떻게 할까?",
+            "response": "복구 목표 시간을 먼저 정한 뒤 시험할 수 있습니다."
+          },
+          "parser_version": "1.0",
+          "redaction_status": "filtered"
+        },
+        "schema_version": "1.0",
+        "client_event_id": "cf6ba47a-47d5-42cb-bcde-6fd8397ca300"
+      }
+    }
+  ],
+  "steps": [
+    {
+      "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+      "stage": "segmentation",
+      "sequence": 0,
+      "result": {
+        "episodes": [
+          {
+            "goal": "초기 저장소로 A 데이터베이스를 사용하기로 한 결정을 바탕으로 A의 운영 비용을 검토한다.",
+            "title": "초기 저장소 결정 및 비용 검토",
+            "event_ids": [
+              "bad2d50f-91fd-48c2-918f-36b9e12d7bc3",
+              "450126cd-0871-4848-9557-b3930d10fd2d"
+            ],
+            "boundary_reason": "다음 이벤트에서 사용 저장소 변경 결정을 포함하는 새로운 목적(비용 절감에 따른 B로의 전환)이 시작되므로 여기서 구분함."
+          },
+          {
+            "goal": "A 사용 취소 후 B 데이터베이스로 변경하려는 결정과 변경 이유(월 고정비 절감)를 기록하고, B의 백업 복구 시간 확인을 위한 복구 시험 방안을 검토한다.",
+            "title": "데이터베이스 변경 결정 및 복구 시험 검토",
+            "event_ids": [
+              "0f4e7e3a-0253-4d4f-9c5c-42b3b5d10026",
+              "ad0b8134-4790-4d58-b866-d628de0d9ae2"
+            ],
+            "boundary_reason": "이 에피소드는 저장소 변경 결정과 그에 따른 복구 테스트 관련 새로운 질문으로 이어지므로 이전 비용 검토와 구분됨."
+          }
+        ]
+      },
+      "usage": {
+        "input_tokens": 689,
+        "total_tokens": 1118,
+        "output_tokens": 429,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 64
+        }
+      },
+      "completed_at": "2026-11-05T06:11:23.806333+00:00"
+    },
+    {
+      "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+      "stage": "extraction",
+      "sequence": 0,
+      "result": {
+        "objects": [
+          {
+            "text": "초기 저장소는 A 데이터베이스를 쓰기로 결정했어.",
+            "type": "decision",
+            "speaker": "user",
+            "evidence": [
+              {
+                "field": "question",
+                "quote": "초기 저장소는 A 데이터베이스를 쓰기로 결정했어.",
+                "event_id": "bad2d50f-91fd-48c2-918f-36b9e12d7bc3"
+              }
+            ]
+          },
+          {
+            "text": "A의 운영 비용을 검토하세요.",
+            "type": "open_question",
+            "speaker": "assistant",
+            "evidence": [
+              {
+                "field": "response",
+                "quote": "A의 운영 비용을 검토하세요.",
+                "event_id": "bad2d50f-91fd-48c2-918f-36b9e12d7bc3"
+              }
+            ]
+          },
+          {
+            "text": "A는 월 고정비 12만원이 필요하다.",
+            "type": "evidence",
+            "speaker": "source",
+            "evidence": [
+              {
+                "field": "text",
+                "quote": "A는 월 고정비 12만원이 필요하다.",
+                "event_id": "450126cd-0871-4848-9557-b3930d10fd2d"
+              }
+            ]
+          },
+          {
+            "text": "B는 현재 규모에서 월 2만원이다.",
+            "type": "evidence",
+            "speaker": "source",
+            "evidence": [
+              {
+                "field": "text",
+                "quote": "B는 현재 규모에서 월 2만원이다.",
+                "event_id": "450126cd-0871-4848-9557-b3930d10fd2d"
+              }
+            ]
+          },
+          {
+            "text": "초기 저장소는 A 데이터베이스를 쓰기로 결정했어.",
+            "type": "contradiction",
+            "speaker": "unknown",
+            "evidence": [
+              {
+                "field": "question",
+                "quote": "초기 저장소는 A 데이터베이스를 쓰기로 결정했어.",
+                "event_id": "bad2d50f-91fd-48c2-918f-36b9e12d7bc3"
+              },
+              {
+                "field": "text",
+                "quote": "A는 월 고정비 12만원이 필요하다.",
+                "event_id": "450126cd-0871-4848-9557-b3930d10fd2d"
+              },
+              {
+                "field": "text",
+                "quote": "B는 현재 규모에서 월 2만원이다.",
+                "event_id": "450126cd-0871-4848-9557-b3930d10fd2d"
+              }
+            ]
+          }
+        ]
+      },
+      "usage": {
+        "input_tokens": 553,
+        "total_tokens": 1983,
+        "output_tokens": 1430,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 768
+        }
+      },
+      "completed_at": "2026-11-05T06:11:40.010663+00:00"
+    },
+    {
+      "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+      "stage": "extraction",
+      "sequence": 1,
+      "result": {
+        "objects": [
+          {
+            "text": "앞서 정한 A 사용은 취소하고 B 데이터베이스로 변경할게. 월 고정비를 줄이기 위해서야.",
+            "type": "decision",
+            "speaker": "user",
+            "evidence": [
+              {
+                "field": "question",
+                "quote": "앞서 정한 A 사용은 취소하고 B 데이터베이스로 변경할게. 월 고정비를 줄이기 위해서야.",
+                "event_id": "0f4e7e3a-0253-4d4f-9c5c-42b3b5d10026"
+              }
+            ]
+          },
+          {
+            "text": "B의 백업 복구 시간은 아직 확인하지 못했어. 복구 테스트는 어떻게 할까?",
+            "type": "open_question",
+            "speaker": "user",
+            "evidence": [
+              {
+                "field": "question",
+                "quote": "B의 백업 복구 시간은 아직 확인하지 못했어. 복구 테스트는 어떻게 할까?",
+                "event_id": "ad0b8134-4790-4d58-b866-d628de0d9ae2"
+              }
+            ]
+          },
+          {
+            "text": "변경 내용과 이유를 함께 기록할 수 있습니다.",
+            "type": "insight",
+            "speaker": "assistant",
+            "evidence": [
+              {
+                "field": "response",
+                "quote": "변경 내용과 이유를 함께 기록할 수 있습니다.",
+                "event_id": "0f4e7e3a-0253-4d4f-9c5c-42b3b5d10026"
+              }
+            ]
+          },
+          {
+            "text": "복구 목표 시간을 먼저 정한 뒤 시험할 수 있습니다.",
+            "type": "insight",
+            "speaker": "assistant",
+            "evidence": [
+              {
+                "field": "response",
+                "quote": "복구 목표 시간을 먼저 정한 뒤 시험할 수 있습니다.",
+                "event_id": "ad0b8134-4790-4d58-b866-d628de0d9ae2"
+              }
+            ]
+          }
+        ]
+      },
+      "usage": {
+        "input_tokens": 604,
+        "total_tokens": 1433,
+        "output_tokens": 829,
+        "input_tokens_details": {
+          "cached_tokens": 0,
+          "cache_write_tokens": 0
+        },
+        "output_tokens_details": {
+          "reasoning_tokens": 320
+        }
+      },
+      "completed_at": "2026-11-05T06:11:50.861697+00:00"
+    }
+  ],
+  "result": {
+    "episodes": [
+      {
+        "id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1",
+        "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+        "sequence": 1,
+        "title": "초기 저장소 결정 및 비용 검토",
+        "goal": "초기 저장소로 A 데이터베이스를 사용하기로 한 결정을 바탕으로 A의 운영 비용을 검토한다.",
+        "boundary_reason": "다음 이벤트에서 사용 저장소 변경 결정을 포함하는 새로운 목적(비용 절감에 따른 B로의 전환)이 시작되므로 여기서 구분함.",
+        "episode_event_links": [
+          {
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "event_id": "bad2d50f-91fd-48c2-918f-36b9e12d7bc3",
+            "position": 1,
+            "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+          },
+          {
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "event_id": "450126cd-0871-4848-9557-b3930d10fd2d",
+            "position": 2,
+            "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+          }
+        ],
+        "reasoning_objects": [
+          {
+            "id": "4d53de50-b10f-4c76-85af-357796448c46",
+            "text": "B는 현재 규모에서 월 2만원이다.",
+            "type": "evidence",
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "speaker": "source",
+            "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "ed23bcaa-fb91-40ff-832e-1827cf106941",
+                "field": "text",
+                "quote": "B는 현재 규모에서 월 2만원이다.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "450126cd-0871-4848-9557-b3930d10fd2d",
+                "object_id": "4d53de50-b10f-4c76-85af-357796448c46",
+                "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+              }
+            ]
+          },
+          {
+            "id": "bb9f522f-9ad1-4909-8965-fc1e84eacd87",
+            "text": "A는 월 고정비 12만원이 필요하다.",
+            "type": "evidence",
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "speaker": "source",
+            "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "affc9722-8b7c-43dd-ab12-5e968897cca7",
+                "field": "text",
+                "quote": "A는 월 고정비 12만원이 필요하다.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "450126cd-0871-4848-9557-b3930d10fd2d",
+                "object_id": "bb9f522f-9ad1-4909-8965-fc1e84eacd87",
+                "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+              }
+            ]
+          },
+          {
+            "id": "c341e0f2-c3b5-407c-9238-0e0ec8b6eb72",
+            "text": "초기 저장소는 A 데이터베이스를 쓰기로 결정했어.",
+            "type": "contradiction",
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "speaker": "unknown",
+            "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "a623b681-686f-421f-89b2-13eb70d9f7a5",
+                "field": "text",
+                "quote": "A는 월 고정비 12만원이 필요하다.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "450126cd-0871-4848-9557-b3930d10fd2d",
+                "object_id": "c341e0f2-c3b5-407c-9238-0e0ec8b6eb72",
+                "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+              },
+              {
+                "id": "f5099f82-84e0-4c63-85fb-3d7277d64f00",
+                "field": "text",
+                "quote": "B는 현재 규모에서 월 2만원이다.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "450126cd-0871-4848-9557-b3930d10fd2d",
+                "object_id": "c341e0f2-c3b5-407c-9238-0e0ec8b6eb72",
+                "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+              },
+              {
+                "id": "7fa63f4e-0aeb-42bf-bc00-903f02b51c31",
+                "field": "question",
+                "quote": "초기 저장소는 A 데이터베이스를 쓰기로 결정했어.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "bad2d50f-91fd-48c2-918f-36b9e12d7bc3",
+                "object_id": "c341e0f2-c3b5-407c-9238-0e0ec8b6eb72",
+                "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+              }
+            ]
+          },
+          {
+            "id": "c41de027-f710-4e2b-81fb-76c304bc357d",
+            "text": "A의 운영 비용을 검토하세요.",
+            "type": "open_question",
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "speaker": "assistant",
+            "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "4bbadd1b-809a-4a11-9c48-f3790c4851d6",
+                "field": "response",
+                "quote": "A의 운영 비용을 검토하세요.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "bad2d50f-91fd-48c2-918f-36b9e12d7bc3",
+                "object_id": "c41de027-f710-4e2b-81fb-76c304bc357d",
+                "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+              }
+            ]
+          },
+          {
+            "id": "d5e3b3c7-9520-4896-8e62-83b8d12217bd",
+            "text": "초기 저장소는 A 데이터베이스를 쓰기로 결정했어.",
+            "type": "decision",
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "speaker": "user",
+            "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "f01cee34-8af7-4f1c-bf45-21bd1f33ac7b",
+                "field": "question",
+                "quote": "초기 저장소는 A 데이터베이스를 쓰기로 결정했어.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "bad2d50f-91fd-48c2-918f-36b9e12d7bc3",
+                "object_id": "d5e3b3c7-9520-4896-8e62-83b8d12217bd",
+                "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+              }
+            ]
+          }
+        ],
+        "event_ids": [
+          "bad2d50f-91fd-48c2-918f-36b9e12d7bc3",
+          "450126cd-0871-4848-9557-b3930d10fd2d"
+        ],
+        "objects": [
+          {
+            "id": "4d53de50-b10f-4c76-85af-357796448c46",
+            "text": "B는 현재 규모에서 월 2만원이다.",
+            "type": "evidence",
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "speaker": "source",
+            "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "ed23bcaa-fb91-40ff-832e-1827cf106941",
+                "field": "text",
+                "quote": "B는 현재 규모에서 월 2만원이다.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "450126cd-0871-4848-9557-b3930d10fd2d",
+                "object_id": "4d53de50-b10f-4c76-85af-357796448c46",
+                "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "ed23bcaa-fb91-40ff-832e-1827cf106941",
+                "field": "text",
+                "quote": "B는 현재 규모에서 월 2만원이다.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "450126cd-0871-4848-9557-b3930d10fd2d",
+                "object_id": "4d53de50-b10f-4c76-85af-357796448c46",
+                "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+              }
+            ]
+          },
+          {
+            "id": "bb9f522f-9ad1-4909-8965-fc1e84eacd87",
+            "text": "A는 월 고정비 12만원이 필요하다.",
+            "type": "evidence",
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "speaker": "source",
+            "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "affc9722-8b7c-43dd-ab12-5e968897cca7",
+                "field": "text",
+                "quote": "A는 월 고정비 12만원이 필요하다.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "450126cd-0871-4848-9557-b3930d10fd2d",
+                "object_id": "bb9f522f-9ad1-4909-8965-fc1e84eacd87",
+                "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "affc9722-8b7c-43dd-ab12-5e968897cca7",
+                "field": "text",
+                "quote": "A는 월 고정비 12만원이 필요하다.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "450126cd-0871-4848-9557-b3930d10fd2d",
+                "object_id": "bb9f522f-9ad1-4909-8965-fc1e84eacd87",
+                "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+              }
+            ]
+          },
+          {
+            "id": "c341e0f2-c3b5-407c-9238-0e0ec8b6eb72",
+            "text": "초기 저장소는 A 데이터베이스를 쓰기로 결정했어.",
+            "type": "contradiction",
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "speaker": "unknown",
+            "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "a623b681-686f-421f-89b2-13eb70d9f7a5",
+                "field": "text",
+                "quote": "A는 월 고정비 12만원이 필요하다.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "450126cd-0871-4848-9557-b3930d10fd2d",
+                "object_id": "c341e0f2-c3b5-407c-9238-0e0ec8b6eb72",
+                "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+              },
+              {
+                "id": "f5099f82-84e0-4c63-85fb-3d7277d64f00",
+                "field": "text",
+                "quote": "B는 현재 규모에서 월 2만원이다.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "450126cd-0871-4848-9557-b3930d10fd2d",
+                "object_id": "c341e0f2-c3b5-407c-9238-0e0ec8b6eb72",
+                "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+              },
+              {
+                "id": "7fa63f4e-0aeb-42bf-bc00-903f02b51c31",
+                "field": "question",
+                "quote": "초기 저장소는 A 데이터베이스를 쓰기로 결정했어.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "bad2d50f-91fd-48c2-918f-36b9e12d7bc3",
+                "object_id": "c341e0f2-c3b5-407c-9238-0e0ec8b6eb72",
+                "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "a623b681-686f-421f-89b2-13eb70d9f7a5",
+                "field": "text",
+                "quote": "A는 월 고정비 12만원이 필요하다.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "450126cd-0871-4848-9557-b3930d10fd2d",
+                "object_id": "c341e0f2-c3b5-407c-9238-0e0ec8b6eb72",
+                "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+              },
+              {
+                "id": "f5099f82-84e0-4c63-85fb-3d7277d64f00",
+                "field": "text",
+                "quote": "B는 현재 규모에서 월 2만원이다.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "450126cd-0871-4848-9557-b3930d10fd2d",
+                "object_id": "c341e0f2-c3b5-407c-9238-0e0ec8b6eb72",
+                "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+              },
+              {
+                "id": "7fa63f4e-0aeb-42bf-bc00-903f02b51c31",
+                "field": "question",
+                "quote": "초기 저장소는 A 데이터베이스를 쓰기로 결정했어.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "bad2d50f-91fd-48c2-918f-36b9e12d7bc3",
+                "object_id": "c341e0f2-c3b5-407c-9238-0e0ec8b6eb72",
+                "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+              }
+            ]
+          },
+          {
+            "id": "c41de027-f710-4e2b-81fb-76c304bc357d",
+            "text": "A의 운영 비용을 검토하세요.",
+            "type": "open_question",
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "speaker": "assistant",
+            "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "4bbadd1b-809a-4a11-9c48-f3790c4851d6",
+                "field": "response",
+                "quote": "A의 운영 비용을 검토하세요.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "bad2d50f-91fd-48c2-918f-36b9e12d7bc3",
+                "object_id": "c41de027-f710-4e2b-81fb-76c304bc357d",
+                "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "4bbadd1b-809a-4a11-9c48-f3790c4851d6",
+                "field": "response",
+                "quote": "A의 운영 비용을 검토하세요.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "bad2d50f-91fd-48c2-918f-36b9e12d7bc3",
+                "object_id": "c41de027-f710-4e2b-81fb-76c304bc357d",
+                "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+              }
+            ]
+          },
+          {
+            "id": "d5e3b3c7-9520-4896-8e62-83b8d12217bd",
+            "text": "초기 저장소는 A 데이터베이스를 쓰기로 결정했어.",
+            "type": "decision",
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "speaker": "user",
+            "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "f01cee34-8af7-4f1c-bf45-21bd1f33ac7b",
+                "field": "question",
+                "quote": "초기 저장소는 A 데이터베이스를 쓰기로 결정했어.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "bad2d50f-91fd-48c2-918f-36b9e12d7bc3",
+                "object_id": "d5e3b3c7-9520-4896-8e62-83b8d12217bd",
+                "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "f01cee34-8af7-4f1c-bf45-21bd1f33ac7b",
+                "field": "question",
+                "quote": "초기 저장소는 A 데이터베이스를 쓰기로 결정했어.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "bad2d50f-91fd-48c2-918f-36b9e12d7bc3",
+                "object_id": "d5e3b3c7-9520-4896-8e62-83b8d12217bd",
+                "episode_id": "2b060c37-89e1-4cbd-a292-8b4b4205e2e1"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "290e48c5-f665-4152-818d-8395b081a53b",
+        "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+        "sequence": 2,
+        "title": "데이터베이스 변경 결정 및 복구 시험 검토",
+        "goal": "A 사용 취소 후 B 데이터베이스로 변경하려는 결정과 변경 이유(월 고정비 절감)를 기록하고, B의 백업 복구 시간 확인을 위한 복구 시험 방안을 검토한다.",
+        "boundary_reason": "이 에피소드는 저장소 변경 결정과 그에 따른 복구 테스트 관련 새로운 질문으로 이어지므로 이전 비용 검토와 구분됨.",
+        "episode_event_links": [
+          {
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "event_id": "0f4e7e3a-0253-4d4f-9c5c-42b3b5d10026",
+            "position": 1,
+            "episode_id": "290e48c5-f665-4152-818d-8395b081a53b"
+          },
+          {
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "event_id": "ad0b8134-4790-4d58-b866-d628de0d9ae2",
+            "position": 2,
+            "episode_id": "290e48c5-f665-4152-818d-8395b081a53b"
+          }
+        ],
+        "reasoning_objects": [
+          {
+            "id": "59f47a32-d391-4a45-b4d4-1500abdaa513",
+            "text": "변경 내용과 이유를 함께 기록할 수 있습니다.",
+            "type": "insight",
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "speaker": "assistant",
+            "episode_id": "290e48c5-f665-4152-818d-8395b081a53b",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "f92908f8-0de4-4345-8fd5-be2a2cac00e7",
+                "field": "response",
+                "quote": "변경 내용과 이유를 함께 기록할 수 있습니다.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "0f4e7e3a-0253-4d4f-9c5c-42b3b5d10026",
+                "object_id": "59f47a32-d391-4a45-b4d4-1500abdaa513",
+                "episode_id": "290e48c5-f665-4152-818d-8395b081a53b"
+              }
+            ]
+          },
+          {
+            "id": "883dd28d-3dc8-471f-9232-75b26b8459b8",
+            "text": "앞서 정한 A 사용은 취소하고 B 데이터베이스로 변경할게. 월 고정비를 줄이기 위해서야.",
+            "type": "decision",
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "speaker": "user",
+            "episode_id": "290e48c5-f665-4152-818d-8395b081a53b",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "296bdad3-698a-4742-83e6-b9f6504915ac",
+                "field": "question",
+                "quote": "앞서 정한 A 사용은 취소하고 B 데이터베이스로 변경할게. 월 고정비를 줄이기 위해서야.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "0f4e7e3a-0253-4d4f-9c5c-42b3b5d10026",
+                "object_id": "883dd28d-3dc8-471f-9232-75b26b8459b8",
+                "episode_id": "290e48c5-f665-4152-818d-8395b081a53b"
+              }
+            ]
+          },
+          {
+            "id": "efb1f734-55c7-48ca-8951-e3cb6cf9b208",
+            "text": "복구 목표 시간을 먼저 정한 뒤 시험할 수 있습니다.",
+            "type": "insight",
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "speaker": "assistant",
+            "episode_id": "290e48c5-f665-4152-818d-8395b081a53b",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "62b4eff6-c13e-467b-88ec-24245166afa0",
+                "field": "response",
+                "quote": "복구 목표 시간을 먼저 정한 뒤 시험할 수 있습니다.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "ad0b8134-4790-4d58-b866-d628de0d9ae2",
+                "object_id": "efb1f734-55c7-48ca-8951-e3cb6cf9b208",
+                "episode_id": "290e48c5-f665-4152-818d-8395b081a53b"
+              }
+            ]
+          },
+          {
+            "id": "f3d4245f-84a3-4f83-9c4a-1a740a566a27",
+            "text": "B의 백업 복구 시간은 아직 확인하지 못했어. 복구 테스트는 어떻게 할까?",
+            "type": "open_question",
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "speaker": "user",
+            "episode_id": "290e48c5-f665-4152-818d-8395b081a53b",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "129b7928-0c28-46f1-b384-fd9ad5b30dc9",
+                "field": "question",
+                "quote": "B의 백업 복구 시간은 아직 확인하지 못했어. 복구 테스트는 어떻게 할까?",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "ad0b8134-4790-4d58-b866-d628de0d9ae2",
+                "object_id": "f3d4245f-84a3-4f83-9c4a-1a740a566a27",
+                "episode_id": "290e48c5-f665-4152-818d-8395b081a53b"
+              }
+            ]
+          }
+        ],
+        "event_ids": [
+          "0f4e7e3a-0253-4d4f-9c5c-42b3b5d10026",
+          "ad0b8134-4790-4d58-b866-d628de0d9ae2"
+        ],
+        "objects": [
+          {
+            "id": "59f47a32-d391-4a45-b4d4-1500abdaa513",
+            "text": "변경 내용과 이유를 함께 기록할 수 있습니다.",
+            "type": "insight",
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "speaker": "assistant",
+            "episode_id": "290e48c5-f665-4152-818d-8395b081a53b",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "f92908f8-0de4-4345-8fd5-be2a2cac00e7",
+                "field": "response",
+                "quote": "변경 내용과 이유를 함께 기록할 수 있습니다.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "0f4e7e3a-0253-4d4f-9c5c-42b3b5d10026",
+                "object_id": "59f47a32-d391-4a45-b4d4-1500abdaa513",
+                "episode_id": "290e48c5-f665-4152-818d-8395b081a53b"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "f92908f8-0de4-4345-8fd5-be2a2cac00e7",
+                "field": "response",
+                "quote": "변경 내용과 이유를 함께 기록할 수 있습니다.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "0f4e7e3a-0253-4d4f-9c5c-42b3b5d10026",
+                "object_id": "59f47a32-d391-4a45-b4d4-1500abdaa513",
+                "episode_id": "290e48c5-f665-4152-818d-8395b081a53b"
+              }
+            ]
+          },
+          {
+            "id": "883dd28d-3dc8-471f-9232-75b26b8459b8",
+            "text": "앞서 정한 A 사용은 취소하고 B 데이터베이스로 변경할게. 월 고정비를 줄이기 위해서야.",
+            "type": "decision",
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "speaker": "user",
+            "episode_id": "290e48c5-f665-4152-818d-8395b081a53b",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "296bdad3-698a-4742-83e6-b9f6504915ac",
+                "field": "question",
+                "quote": "앞서 정한 A 사용은 취소하고 B 데이터베이스로 변경할게. 월 고정비를 줄이기 위해서야.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "0f4e7e3a-0253-4d4f-9c5c-42b3b5d10026",
+                "object_id": "883dd28d-3dc8-471f-9232-75b26b8459b8",
+                "episode_id": "290e48c5-f665-4152-818d-8395b081a53b"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "296bdad3-698a-4742-83e6-b9f6504915ac",
+                "field": "question",
+                "quote": "앞서 정한 A 사용은 취소하고 B 데이터베이스로 변경할게. 월 고정비를 줄이기 위해서야.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "0f4e7e3a-0253-4d4f-9c5c-42b3b5d10026",
+                "object_id": "883dd28d-3dc8-471f-9232-75b26b8459b8",
+                "episode_id": "290e48c5-f665-4152-818d-8395b081a53b"
+              }
+            ]
+          },
+          {
+            "id": "efb1f734-55c7-48ca-8951-e3cb6cf9b208",
+            "text": "복구 목표 시간을 먼저 정한 뒤 시험할 수 있습니다.",
+            "type": "insight",
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "speaker": "assistant",
+            "episode_id": "290e48c5-f665-4152-818d-8395b081a53b",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "62b4eff6-c13e-467b-88ec-24245166afa0",
+                "field": "response",
+                "quote": "복구 목표 시간을 먼저 정한 뒤 시험할 수 있습니다.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "ad0b8134-4790-4d58-b866-d628de0d9ae2",
+                "object_id": "efb1f734-55c7-48ca-8951-e3cb6cf9b208",
+                "episode_id": "290e48c5-f665-4152-818d-8395b081a53b"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "62b4eff6-c13e-467b-88ec-24245166afa0",
+                "field": "response",
+                "quote": "복구 목표 시간을 먼저 정한 뒤 시험할 수 있습니다.",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "ad0b8134-4790-4d58-b866-d628de0d9ae2",
+                "object_id": "efb1f734-55c7-48ca-8951-e3cb6cf9b208",
+                "episode_id": "290e48c5-f665-4152-818d-8395b081a53b"
+              }
+            ]
+          },
+          {
+            "id": "f3d4245f-84a3-4f83-9c4a-1a740a566a27",
+            "text": "B의 백업 복구 시간은 아직 확인하지 못했어. 복구 테스트는 어떻게 할까?",
+            "type": "open_question",
+            "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+            "speaker": "user",
+            "episode_id": "290e48c5-f665-4152-818d-8395b081a53b",
+            "verification_status": "quote_matched",
+            "object_evidence_links": [
+              {
+                "id": "129b7928-0c28-46f1-b384-fd9ad5b30dc9",
+                "field": "question",
+                "quote": "B의 백업 복구 시간은 아직 확인하지 못했어. 복구 테스트는 어떻게 할까?",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "ad0b8134-4790-4d58-b866-d628de0d9ae2",
+                "object_id": "f3d4245f-84a3-4f83-9c4a-1a740a566a27",
+                "episode_id": "290e48c5-f665-4152-818d-8395b081a53b"
+              }
+            ],
+            "evidence": [
+              {
+                "id": "129b7928-0c28-46f1-b384-fd9ad5b30dc9",
+                "field": "question",
+                "quote": "B의 백업 복구 시간은 아직 확인하지 못했어. 복구 테스트는 어떻게 할까?",
+                "run_id": "e2b32c8b-d849-4a45-b5b3-9632d6c3ef21",
+                "event_id": "ad0b8134-4790-4d58-b866-d628de0d9ae2",
+                "object_id": "f3d4245f-84a3-4f83-9c4a-1a740a566a27",
+                "episode_id": "290e48c5-f665-4152-818d-8395b081a53b"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
