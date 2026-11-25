@@ -1,0 +1,101 @@
+run,object_id,semantic_support,type_supported,speaker_correct,reason,unnecessary_reason
+new-R1,new-R1-E1-O8,unsupported,False,True,결정 정리 요청은 미해결 의사결정 질문이 아님,
+new-R1,new-R1-E1-O10,unsupported,True,True,persistent 구분은 있지만 navigator.storage.persist API 이름/사용법은 선택 구간에 없음,
+new-R1,new-R1-E1-O11,unsupported,True,True,문서 소개만 선택하고 브라우저명/estimate API까지 주장,
+new-R1,new-R1-E1-O13,unsupported,True,True,선택 원문의 제안을 채택 가설이라고 보강,
+new-R1,new-R1-E1-O14,unsupported,True,True,선택 구간에 저장 추상화 권고 없음,
+new-R1,new-R1-E1-O15,unsupported,False,True,단계적 도입 권고를 Insight로 분류; 명시적 새로운 이해의 기록이 아님,
+new-R1,new-R1-E1-O16,unsupported,True,True,결정/제목만 선택하여 다기기·보존 요구와 결정으로 이어진 과정을 보강,
+new-R1,new-R1-E1-O17,unsupported,True,True,일반 축출 설명에 무관한 MVP 테스트 권고 구간을 함께 선택,
+new-R1,new-R1-E1-O20,unsupported,True,True,Dexie/PWA 설명은 비동기·트랜잭션·idb 주장 근거가 아님,
+new-R1,new-R1-E1-O21,supported,True,True,선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.,사용자 결정/다른 AI 결정 요약 반복
+new-R1,new-R1-E1-O22,unsupported,True,True,동기화 동작·복잡도만 선택하고 데이터 보존 요구까지 모두 만족한다고 보강,
+new-R1,new-R1-E1-O24,unsupported,True,True,CRUD/필수/백업 조각은 나열한 인증·동기화·실패 재시도 전체를 지지하지 못함,
+new-R1,new-R1-E1-O25,unsupported,True,True,선택 구간은 Supabase 기능/중앙 역할만 보여주고 IndexedDB 오프라인 역할이 없음,
+new-R1,new-R1-E1-O27,supported,True,True,선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.,동일 결정 요약 반복 및 문서 날짜가 독립 핵심 사고가 아님
+new-R1,new-R1-E1-O28,unsupported,True,True,검토 요청과 상태 표시 문장만으로 이번 결정의 의미/요구사항과 정책 재설계 전체를 지지하지 못함,
+new-R1,new-R1-E1-O29,unsupported,True,True,문서 제목만 선택; 작성 요청과 답변 완료 과정 전체를 근거로 삼기 부족,문서 작성 메타 정보만 추가
+new-R1,new-R1-E1-O31,unsupported,False,True,동기화 상태 구분 구현 원칙이며 충돌하는 기존 사용자 판단이 제시되지 않음,
+new-R1,new-R1-E1-O34,unsupported,True,True,저장 완료 확인 문장만으로 IndexedDB 트랜잭션 완료 조건까지 확장,
+new-R1,new-R1-E2-O5,unsupported,True,True,표 제목·항목 조각은 세 대안 이름/복구·접근 제어 비교 전체를 지지하지 못함,
+new-R1,new-R1-E2-O8,unsupported,False,True,유의사항/보안 권고를 실제 기존 가설과의 충돌 없이 Contradiction으로 분류,
+new-R1,new-R1-E2-O9,unsupported,True,True,표 조각에 IndexedDB 등 주장 대상명/상태 연결이 누락,이전 목적의 저장소 상태 및 회원가입 보류를 AI가 반복 요약
+new-R1,new-R1-E2-O11,unsupported,True,True,AI의 일방 후속 질문을 이 Episode에서 미해결로 남긴 핵심 질문으로 단정,
+new-R1,new-R1-E2-O12,supported,True,True,선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.,사용자 Open Question을 AI가 반복 요약
+new-R1,new-R1-E2-O14,unsupported,True,True,계정 생성/RLS만 선택하여 로그인 화면 제공·신규 가입 비활성화까지 추가,
+new-R1,new-R1-E2-O15,unsupported,True,True,A/C에 관한 설명 일부만 선택하여 모든 대안의 비교를 요약했다고 주장,
+new-R1,new-R1-E2-O16,supported,True,True,선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.,O10의 인증 도입 비용 설명 반복
+new-R1,new-R1-E2-O17,unsupported,False,True,장단점/복잡도 비교만으로 실제 가설에 대한 Contradiction이라고 할 수 없음,
+new-R1,new-R1-E2-O18,unsupported,False,True,Auth 지원 방식이라는 기술 사실이지 검토 중인 잠정 가설이 아님,
+new-R2,new-R2-E1-O3,unsupported,False,True,이후 E19에서 해결된 저장 방식 검토를 미해결로 유지,
+new-R2,new-R2-E1-O4,unsupported,False,True,이후 E19에서 해결된 저장 방식 검토를 미해결로 유지,
+new-R2,new-R2-E1-O7,unsupported,True,True,persistent 요청 거부 여부는 선택 구간에 없음,
+new-R2,new-R2-E1-O8,unsupported,True,True,비동기/버전은 있지만 트랜잭션 처리가 선택 구간에 없음,
+new-R2,new-R2-E1-O9,unsupported,True,True,단일 기기·백업/복구·저장 실패 조건을 선택 근거 없이 보강,
+new-R2,new-R2-E1-O10,unsupported,True,True,선택 구간에 기기 손상·동기화 제약이 없고 무관한 표 조각 포함,
+new-R2,new-R2-E1-O11,unsupported,True,True,선택 근거만으로 노트북/스마트폰 요구·판단 수정 과정을 전부 뒷받침하지 못함,
+new-R2,new-R2-E2-O9,supported,True,True,선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.,사용자 보류를 AI가 재서술
+new-R2,new-R2-E2-O10,unsupported,False,True,선택지 장단점 차이를 실제 이전 가설과의 충돌 없이 Contradiction으로 분류,
+new-R2,new-R2-E2-O13,unsupported,False,True,회원가입과 접근 제어의 개념 구분이지 충돌하는 실제 이전 판단이 아님,
+new-R2,new-R2-E2-O14,supported,True,True,선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.,O11의 미래 인증 설계 비용 설명 반복
+new-R2,new-R2-E2-O15,unsupported,True,True,C의 전체 복잡도를 가장 낮다고 서술하지만 선택 원문은 겉보기보다 높을 수 있음,
+new-R2,new-R2-E2-O16,unsupported,False,True,항상 로그인해야 한다는 기존 판단이 원문에 없음,
+new-R2,new-R2-E2-O19,unsupported,True,True,선택 근거에 로그인 화면 제공 부분이 없음,O6의 B 권고 반복
+new-R2,new-R2-E2-O20,unsupported,False,True,나중에 가입 추가 가능과 사전 식별 설계 필요는 모순되는 명제가 아님,
+new-R2,new-R2-E2-O21,supported,True,True,선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.,O9와 동일한 보류 상태 요약
+new-R2,new-R2-E2-O22,unsupported,False,True,UX/보안 설계 제약 비교만으로 실제 기존 판단과의 모순을 추출,
+new-R2,new-R2-E2-O23,supported,True,True,선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.,O11과 같은 사용자 식별 선행 제안
+new-R2,new-R2-E2-O25,unsupported,True,True,표 조각에 Supabase/각 상태의 대상 연결이 없음,이전 목적의 저장소 상태와 회원가입 보류를 반복
+new-R2,new-R2-E2-O26,supported,True,True,선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.,O12의 재검토 기준/시점 반복
+new-R2,new-R2-E2-O27,unsupported,False,True,단순 장단점이며 개발 속도 상승이라는 추가 주장도 선택 원문에 없음,O20의 인증 설계 비용 문제를 반복
+new-R2,new-R2-E2-O28,supported,True,True,선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.,O11/O9의 제안·상태 반복
+new-R2,new-R2-E2-O29,unsupported,False,True,구현 범위 축소와 보안 설정 필요는 상충하는 주장이 아님,이미 추출한 보안 설정/구현 범위의 반복
+new-R2,new-R2-E2-O30,unsupported,True,True,테스트 이후 재검토를 반드시 결론을 낼 수 있다는 절차적 가정으로 보강,
+new-R2,new-R2-E2-O31,unsupported,True,True,선택 원문에 테스트 이후 재검토라는 요약의 일부 근거가 없음,O9/O21의 보류 상태 반복
+new-R2,new-R2-E2-O32,unsupported,False,True,서로 양립 가능한 권고를 충돌로 처리,O20의 같은 비용 논점 반복
+new-R2,new-R2-E2-O34,unsupported,True,True,조건부 C/B 우선 고려라는 제안이 선택 원문에 없음,
+new-R2,new-R2-E2-O35,supported,True,True,선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.,O18의 가입/접근 제어 분리 반복
+new-R2,new-R2-E2-O36,unsupported,True,False,사용자 회원가입 질문/보류를 기록한다지만 선택 근거는 다른 AI 질문/재검토 표 조각,기존 사용자 질문·보류를 잘못된 AI 근거로 재서술
+new-R2,new-R2-E2-O37,unsupported,False,True,서로 다른 목표 간 균형을 실제 가설과의 충돌로 처리,
+new-R2,new-R2-E2-O38,supported,True,True,선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.,O17의 RLS/신규 가입 제한 설명 반복
+new-R2,new-R2-E2-O39,unsupported,False,True,간단한 시작과 키 보호는 양립 가능; 구체적 기존 가설과 충돌 없음,O22의 UX/보안 논점 반복
+new-R2,new-R2-E2-O40,supported,True,True,선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.,O11/O23의 선행 식별/보안 설계 반복
+new-R2,new-R2-E2-O41,unsupported,False,True,상태 표를 토대로 분석자가 과정이 구조화됐다고 보강; 발언에 표현된 새로운 이해가 아님,이미 추출한 상태/재검토 정보 반복
+new-R2,new-R2-E2-O42,unsupported,True,False,사용자의 직접 표현을 인용한 기록이라고 하지만 AI 재서술만 선택,사용자 보류/재검토를 AI 재서술로 반복
+new-R2,new-R2-E2-O44,unsupported,True,True,접근 제어·식별 체계 선행 설계라는 전체 권고를 선택 원문으로 충분히 뒷받침하지 못함,O28의 실행 권고 반복
+new-R2,new-R2-E2-O45,unsupported,False,True,선택지 차이만으로 실제 이전 판단과의 충돌을 생성,이미 추출한 대안 B/C 차이 반복
+new-R2,new-R2-E2-O46,supported,True,True,선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.,O12/O26의 테스트/판단 기준 반복
+new-R2,new-R2-E2-O47,unsupported,True,True,대상 이름 없는 표 조각으로 전체 아키텍처 확정/회원가입만 미해결을 재구성,저장소 및 보류 상태의 반복 요약
+new-R2,new-R2-E2-O48,unsupported,False,True,개발 속도 향상은 선택 원문에 없으며 단순 비용/효과 차이를 모순으로 처리,O27의 속도/설계 비용 논점 반복
+new-R2,new-R2-E2-O49,unsupported,True,True,테스트 UX 결과에 따라 C를 유지하고 Magic Link로 타협한다는 제안은 원문에 없음,
+new-R2,new-R2-E2-O50,supported,True,True,선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.,O9의 같은 보류 상태 반복
+new-R2,new-R2-E2-O51,unsupported,False,True,사전 식별 설계와 이후 회원가입 추가는 양립하며 상충 권고가 아님,O20의 동일 비용/선행 설계 논점 반복
+new-R2,new-R2-E2-O52,supported,True,True,선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.,기존 상태·시점·판단 기준 반복
+new-R3,new-R3-E1-O8,unsupported,False,True,확정된 결정문 요약을 잠정 Hypothesis로 변경하고 실무적이라는 평가를 보강,O7 및 사용자 결정과 같은 하이브리드 제안 반복
+new-R3,new-R3-E1-O9,unsupported,True,True,비동기 설명은 있으나 트랜잭션 사용이 선택 구간에 없음,
+new-R3,new-R3-E1-O12,unsupported,True,True,표 조각/백업 문장으로 기기 고장 및 동기화 불가를 모두 지지하지 못함,
+new-R3,new-R3-E1-O13,unsupported,True,True,수정 가설 채택/아키텍처 선언만으로 단일 기기 전제·다기기 요구 판단 전환 전체를 지지하지 못함,
+new-R3,new-R3-E1-O14,unsupported,True,True,선택 구간에 PWA/Service Worker 및 저장 실패 처리 없음,
+new-R3,new-R3-E1-O16,unsupported,True,True,동기화 흐름만 선택하여 Supabase와 보존 요구를 모두 만족시키는 판단으로 확장,O7과 같은 하이브리드 제안/효과 반복
+new-R3,new-R3-E1-O17,unsupported,True,True,선택 구간에 동기화·충돌 해결 추가 작업 없음,
+new-R3,new-R3-E1-O18,unsupported,True,True,백업 필요/개인용 추천/동기화 제목은 quota/estimate API의 근거가 아님,
+new-R3,new-R3-E1-O19,unsupported,True,True,체크리스트 일부만 선택하고 실시간 공동편집 제외/로그인/우선순위를 추가,
+new-R3,new-R3-E1-O20,supported,True,True,선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.,사용자 결정과 변화 이유의 AI 재서술
+new-R3,new-R3-E1-O21,unsupported,False,True,로컬 저장이면 절대 안전하다는 실제 기존 발언이 없음; 사용자 가설보다 강한 주장을 만들어 반박,
+new-R3,new-R3-E1-O22,unsupported,True,True,버전 관리·유효성 검사·롤백 전략까지 선택 근거 없이 보강,
+new-R3,new-R3-E1-O23,unsupported,True,True,선택 근거에 서버 동기화 완료 데이터의 Supabase 기준 규칙이 없음,
+new-R3,new-R3-E1-O24,unsupported,True,True,로컬 동기화 흐름/복잡도 문장만으로 데이터 안전성 개선까지 모두 지지하지 못함,
+new-R3,new-R3-E1-O25,unsupported,True,True,트랜잭션 종료 설명은 관련되지만 데이터 마이그레이션 문장은 저장 완료 확인 주장과 무관,
+new-R3,new-R3-E1-O26,unsupported,True,True,체크리스트 조각만 선택하여 재시작/백업 복원/사용자 알림 등 전체 체크리스트를 주장,
+new-R3,new-R3-E1-O27,unsupported,True,True,DB/auth/충돌 규칙만 선택하여 별도 동기화 계층 개발까지 전체를 지지하지 못함,
+new-R3,new-R3-E1-O28,unsupported,True,True,AI 질문을 실제 설계 방향 전환 기준으로 단정하는 후반 해석은 선택 근거에 없음,
+new-R3,new-R3-E1-O30,unsupported,False,True,최종 결정문서 요약이며 새로운 이해를 기록한 Insight가 아님,O20의 같은 결정문/단계적 도입 권고 반복
+new-R3,new-R3-E1-O31,unsupported,True,True,선택 구간에 백업·캐시 일관성 항목 없음,
+new-R3,new-R3-E1-O32,supported,True,True,선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.,사용자 결정과 O20의 AI 결정 요약 반복
+new-R3,new-R3-E1-O33,unsupported,True,True,초기 복잡도 제목/보존 위험만으로 미래 변경비용을 보강,
+new-R3,new-R3-E1-O37,unsupported,True,True,승인 방식의 브라우저별 차이는 선택 근거에 없으며 무관한 복잡도 제목 포함,
+new-R3,new-R3-E1-O38,unsupported,False,True,구현 순서 제안은 Insight가 아니며 구체적 단계도 선택 근거에 없음,
+new-R3,new-R3-E1-O39,unsupported,True,True,질문 자체를 최종 설계 판단을 바꾸는 결정적 기준으로 확대,O28과 같은 AI 질문/설계 조건 반복
+new-R3,new-R3-E2-O3,supported,True,True,선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.,사용자 미해결 상태를 AI가 재서술
+new-R3,new-R3-E2-O4,unsupported,True,True,확정이라는 표 조각에 Supabase/IndexedDB 등 대상명이 없음,
+new-R3,new-R3-E2-O9,unsupported,False,True,UI 숨김만으로 충분하다는 실제 기존 사용자 가설 없이 보안 유의사항을 Contradiction으로 처리,

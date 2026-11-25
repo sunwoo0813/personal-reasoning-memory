@@ -1,0 +1,1364 @@
+{
+  "baseline": [
+    {
+      "evaluation_id": "B-EP02-O01",
+      "original_id": "2594bc8f-2316-4891-9512-8f80b12c9bff",
+      "episode": 2,
+      "type": "question",
+      "speaker": "user",
+      "text": "web.dev offline data storage",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "65ad89e8-c928-4a23-b0f9-d63bf0b23ad7",
+          "field": "query",
+          "quote": "web.dev offline data storage",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "9aa24f4e-55a8-4945-8728-ac306261aba1",
+          "object_id": "2594bc8f-2316-4891-9512-8f80b12c9bff",
+          "episode_id": "5b5cb1c4-1490-4f92-9d0a-9324a61c4438",
+          "event_index": 6,
+          "event_label": "E06",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP02-O02",
+      "original_id": "25ec2894-9599-499f-ad9e-ab0b3dac86c9",
+      "episode": 2,
+      "type": "insight",
+      "speaker": "source",
+      "text": "WebStorage는 키/값 문자열을 저장하는 동기식 API이고, IndexedDB는 구조화된 데이터를 저장하기 위한 비동기 NoSQL 객체 스토리지라는 점에서 용도가 다릅니다.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "085cdbc7-a338-462e-b8f6-2da69295b87c",
+          "field": "text",
+          "quote": "WebStorage: 로컬 스토리지 또는 세션 스토리지를 사용하여 키/값 문자열 쌍을 저장하는 방법입니다. 서비스 워커 컨텍스트에서는 사용할 수 없습니다. 이 API는 동기식이므로 복잡한 데이터 스토리지에는 권장되지 않습니다.",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "7e04dbd8-6f36-44dd-8187-1247ebd9478a",
+          "object_id": "25ec2894-9599-499f-ad9e-ab0b3dac86c9",
+          "episode_id": "5b5cb1c4-1490-4f92-9d0a-9324a61c4438",
+          "event_index": 7,
+          "event_label": "E07",
+          "verification_status": "quote_matched"
+        },
+        {
+          "id": "5a96a91b-0166-4fbe-a00e-cb4ced06c440",
+          "field": "text",
+          "quote": "IndexedDB\n: 구조화된 데이터 및 blob (바이너리 데이터)을 위한 NoSQL 객체 스토리지 옵션입니다.",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "7e04dbd8-6f36-44dd-8187-1247ebd9478a",
+          "object_id": "25ec2894-9599-499f-ad9e-ab0b3dac86c9",
+          "episode_id": "5b5cb1c4-1490-4f92-9d0a-9324a61c4438",
+          "event_index": 7,
+          "event_label": "E07",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP02-O03",
+      "original_id": "291e4d15-fcf0-4742-a97b-2c0eb3f2dfb9",
+      "episode": 2,
+      "type": "evidence",
+      "speaker": "source",
+      "text": "IndexedDB 작업은 애플리케이션 블록을 방지하기 위해 모두 비동기로 이뤄집니다.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "84d039bd-2153-4750-9195-25c4ff48416d",
+          "field": "text",
+          "quote": "IndexedDB 작업은 애플리케이션 블록을 방지하기 위해 모두 비동기로 이뤄집니다.",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "091bb788-33da-4e99-acca-07b96bae5064",
+          "object_id": "291e4d15-fcf0-4742-a97b-2c0eb3f2dfb9",
+          "episode_id": "5b5cb1c4-1490-4f92-9d0a-9324a61c4438",
+          "event_index": 5,
+          "event_label": "E05",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP02-O04",
+      "original_id": "665c44e9-d6f0-4b0b-8df6-57948079b362",
+      "episode": 2,
+      "type": "evidence",
+      "speaker": "source",
+      "text": "IndexedDB는 파일이나 블롭 등 많은 양의 구조화된 데이터를 클라이언트에 저장하기 위한 로우 레벨 API입니다.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "575ea176-fb2d-4bb3-9700-21dfdda60666",
+          "field": "text",
+          "quote": "IndexedDB는 파일이나 블롭 등 많은 양의 구조화된 데이터를 클라이언트에 저장하기 위한 로우 레벨 API입니다.",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "091bb788-33da-4e99-acca-07b96bae5064",
+          "object_id": "665c44e9-d6f0-4b0b-8df6-57948079b362",
+          "episode_id": "5b5cb1c4-1490-4f92-9d0a-9324a61c4438",
+          "event_index": 5,
+          "event_label": "E05",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP02-O05",
+      "original_id": "8fe60ee1-65aa-41d6-9cd5-1c657547ff8e",
+      "episode": 2,
+      "type": "question",
+      "speaker": "user",
+      "text": "mdn indexDB API",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "1d4ab382-264b-4aec-8d7f-825b783c370b",
+          "field": "query",
+          "quote": "mdn indexDB API",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "12e37d5d-488b-4ca1-8a31-913efdf5889f",
+          "object_id": "8fe60ee1-65aa-41d6-9cd5-1c657547ff8e",
+          "episode_id": "5b5cb1c4-1490-4f92-9d0a-9324a61c4438",
+          "event_index": 4,
+          "event_label": "E04",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP02-O06",
+      "original_id": "93d9a202-c1a8-49f5-90a4-5cf910813e9f",
+      "episode": 2,
+      "type": "evidence",
+      "speaker": "source",
+      "text": "IndexedDB\n: 구조화된 데이터 및 blob (바이너리 데이터)을 위한 NoSQL 객체 스토리지 옵션입니다.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "458a71f6-97a1-4b5b-822a-6352f9818cbf",
+          "field": "text",
+          "quote": "IndexedDB\n: 구조화된 데이터 및 blob (바이너리 데이터)을 위한 NoSQL 객체 스토리지 옵션입니다.",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "7e04dbd8-6f36-44dd-8187-1247ebd9478a",
+          "object_id": "93d9a202-c1a8-49f5-90a4-5cf910813e9f",
+          "episode_id": "5b5cb1c4-1490-4f92-9d0a-9324a61c4438",
+          "event_index": 7,
+          "event_label": "E07",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP02-O07",
+      "original_id": "99c90cb7-a481-4597-99e8-4044e7aedca4",
+      "episode": 2,
+      "type": "evidence",
+      "speaker": "source",
+      "text": "영구 스토리지를 요청하려면\nStorageManager.persist()\n를 호출합니다.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "6f8c9b92-d571-4e6a-b038-153295c4b801",
+          "field": "text",
+          "quote": "영구 스토리지를 요청하려면\nStorageManager.persist()\n를 호출합니다.",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "7e04dbd8-6f36-44dd-8187-1247ebd9478a",
+          "object_id": "99c90cb7-a481-4597-99e8-4044e7aedca4",
+          "episode_id": "5b5cb1c4-1490-4f92-9d0a-9324a61c4438",
+          "event_index": 7,
+          "event_label": "E07",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP03-O01",
+      "original_id": "49562933-1957-4b60-8924-31bf02814682",
+      "episode": 3,
+      "type": "evidence",
+      "speaker": "source",
+      "text": "IndexedDB : 구조화된 데이터 및 blob (바이너리 데이터)을 위한 NoSQL 객체 스토리지 옵션입니다.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "22f0a1ae-6be0-470c-83b1-eb086111b1e1",
+          "field": "text",
+          "quote": "IndexedDB\n: 구조화된 데이터 및 blob (바이너리 데이터)을 위한 NoSQL 객체 스토리지 옵션입니다.",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "76ea89d0-0140-44e6-ba5f-9ca59459c07a",
+          "object_id": "49562933-1957-4b60-8924-31bf02814682",
+          "episode_id": "cea224f6-529a-47ce-a4d0-4c8c3743662b",
+          "event_index": 12,
+          "event_label": "E12",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP03-O02",
+      "original_id": "4dd2c8ba-56ce-4db1-8cc7-fd01349a0dda",
+      "episode": 3,
+      "type": "insight",
+      "speaker": "assistant",
+      "text": "저장소 추상화: UI 컴포넌트가 IndexedDB를 직접 호출하지 않도록 데이터 접근 계층을 분리할 것. 추후 클라우드 동기화를 추가할 때 수정 범위를 줄일 수 있어.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "0fff8a2c-5326-4813-8b0f-fa8980cf33c3",
+          "field": "response",
+          "quote": "저장소 추상화: UI 컴포넌트가 IndexedDB를 직접 호출하지 않도록 데이터 접근 계층을 분리할 것. 추후 클라우드 동기화를 추가할 때 수정 범위를 줄일 수 있어.",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "ed3c4e3f-3a74-4ce9-88e9-b3d1535b0e95",
+          "object_id": "4dd2c8ba-56ce-4db1-8cc7-fd01349a0dda",
+          "episode_id": "cea224f6-529a-47ce-a4d0-4c8c3743662b",
+          "event_index": 9,
+          "event_label": "E09",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP03-O03",
+      "original_id": "54ae8169-8ce0-4128-a835-5bf70ac772a3",
+      "episode": 3,
+      "type": "insight",
+      "speaker": "assistant",
+      "text": "백업 및 복원 기능: JSON 파일로 전체 메모를 내보내고 다시 가져올 수 있도록 구현할 것.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "58b5fcdd-50a6-4ee1-82ab-9a02c9171b2f",
+          "field": "response",
+          "quote": "백업 및 복원 기능: JSON 파일로 전체 메모를 내보내고 다시 가져올 수 있도록 구현할 것.",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "ed3c4e3f-3a74-4ce9-88e9-b3d1535b0e95",
+          "object_id": "54ae8169-8ce0-4128-a835-5bf70ac772a3",
+          "episode_id": "cea224f6-529a-47ce-a4d0-4c8c3743662b",
+          "event_index": 9,
+          "event_label": "E09",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP03-O04",
+      "original_id": "59b106bc-4700-4090-8607-299d8903991a",
+      "episode": 3,
+      "type": "open_question",
+      "speaker": "user",
+      "text": "indexedDB data loss browser storage eviction",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "72f11de9-bb1a-4d33-8105-850ab011da62",
+          "field": "query",
+          "quote": "indexedDB data loss browser storage eviction",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "da62f3f2-7ce5-4625-aa5b-615169758338",
+          "object_id": "59b106bc-4700-4090-8607-299d8903991a",
+          "episode_id": "cea224f6-529a-47ce-a4d0-4c8c3743662b",
+          "event_index": 14,
+          "event_label": "E14",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP03-O05",
+      "original_id": "6fa38e41-8791-4107-b253-80fe232cb170",
+      "episode": 3,
+      "type": "contradiction",
+      "speaker": "assistant",
+      "text": "IndexedDB가 메모 데이터를 저장할 수 있다는 사실과, IndexedDB만으로 신뢰할 수 있는 메모 서비스를 운영할 수 있다는 판단은 별개야.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "e4c8bc20-b30b-4f59-8c3c-564f5f658444",
+          "field": "response",
+          "quote": "IndexedDB가 메모 데이터를 저장할 수 있다는 사실과, IndexedDB만으로 신뢰할 수 있는 메모 서비스를 운영할 수 있다는 판단은 별개야.",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "3d95ae56-0184-4ec8-9c79-edcd4bfb91ce",
+          "object_id": "6fa38e41-8791-4107-b253-80fe232cb170",
+          "episode_id": "cea224f6-529a-47ce-a4d0-4c8c3743662b",
+          "event_index": 16,
+          "event_label": "E16",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP03-O06",
+      "original_id": "89db6184-cf61-47cc-bcf0-95446494e358",
+      "episode": 3,
+      "type": "hypothesis",
+      "speaker": "assistant",
+      "text": "개인 사용자 1명을 대상으로 하는 메모 웹앱의 초기 MVP에서는 서버 운영 비용과 개발 복잡도를 줄이기 위해 IndexedDB만으로 데이터를 저장해도 충분할 것이다.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "8c91fa61-9800-4351-96bd-d3953fe23f9d",
+          "field": "response",
+          "quote": "개인 사용자 1명을 대상으로 하는 메모 웹앱의 초기 MVP에서는 서버 운영 비용과 개발 복잡도를 줄이기 위해 IndexedDB만으로 데이터를 저장해도 충분할 것이다.",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "3d95ae56-0184-4ec8-9c79-edcd4bfb91ce",
+          "object_id": "89db6184-cf61-47cc-bcf0-95446494e358",
+          "episode_id": "cea224f6-529a-47ce-a4d0-4c8c3743662b",
+          "event_index": 16,
+          "event_label": "E16",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP03-O07",
+      "original_id": "98eb6514-0365-49ef-95d2-27ea35c6f767",
+      "episode": 3,
+      "type": "insight",
+      "speaker": "assistant",
+      "text": "브라우저 데이터는 영구 보관이 보장되지 않기 때문에 IndexedDB를 사용하더라도 별도의 백업 수단은 필요해.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "cf5911f2-3ee5-4a8e-963c-f462a1048c72",
+          "field": "response",
+          "quote": "브라우저 데이터는 영구 보관이 보장되지 않기 때문에 IndexedDB를 사용하더라도 별도의 백업 수단은 필요해.",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "ed3c4e3f-3a74-4ce9-88e9-b3d1535b0e95",
+          "object_id": "98eb6514-0365-49ef-95d2-27ea35c6f767",
+          "episode_id": "cea224f6-529a-47ce-a4d0-4c8c3743662b",
+          "event_index": 9,
+          "event_label": "E09",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP03-O08",
+      "original_id": "a59793ad-ea97-4976-b92e-e994a3c9b26a",
+      "episode": 3,
+      "type": "insight",
+      "speaker": "assistant",
+      "text": "IndexedDB는 데이터를 로컬에 저장하지만 웹앱의 HTML, JavaScript, CSS까지 저장해서 실행해 주는 것은 아니므로 오프라인 실행을 위해 Service Worker와 캐시 전략을 별도로 구현해야 해.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "9334fe2c-6b25-4b47-a680-f43729238aac",
+          "field": "response",
+          "quote": "IndexedDB는 데이터를 로컬에 저장하지만 웹앱의 HTML, JavaScript, CSS까지 저장해서 실행해 주는 것은 아니야.\n\n따라서 인터넷 없이 앱을 새로 열 수 있으려면 Service Worker와 캐시 전략 등을 별도로 구현해야 해.",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "3d95ae56-0184-4ec8-9c79-edcd4bfb91ce",
+          "object_id": "a59793ad-ea97-4976-b92e-e994a3c9b26a",
+          "episode_id": "cea224f6-529a-47ce-a4d0-4c8c3743662b",
+          "event_index": 16,
+          "event_label": "E16",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP03-O09",
+      "original_id": "ad73a4cf-cd38-414a-afc1-77cea836a4f7",
+      "episode": 3,
+      "type": "open_question",
+      "speaker": "assistant",
+      "text": "이 메모 앱을 앞으로도 노트북 한 대에서만 사용할 생각이야, 아니면 스마트폰에서도 같은 메모를 확인하고 싶어?",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "2544fd5a-661a-4168-92d8-75ad95648670",
+          "field": "response",
+          "quote": "이 메모 앱을 앞으로도 노트북 한 대에서만 사용할 생각이야, 아니면 스마트폰에서도 같은 메모를 확인하고 싶어?",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "ed3c4e3f-3a74-4ce9-88e9-b3d1535b0e95",
+          "object_id": "ad73a4cf-cd38-414a-afc1-77cea836a4f7",
+          "episode_id": "cea224f6-529a-47ce-a4d0-4c8c3743662b",
+          "event_index": 9,
+          "event_label": "E09",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP03-O10",
+      "original_id": "b1e3f0b6-9266-4da2-814c-f8858c8f770a",
+      "episode": 3,
+      "type": "evidence",
+      "speaker": "source",
+      "text": "The data stored in the browser by an origin is best-effort by default.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "81b8b358-74ea-4074-9e3d-bf4c65440b8c",
+          "field": "text",
+          "quote": "The data stored in the browser by an origin is best-effort by default.",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "cea924fc-a959-4e71-8805-3074f62960c3",
+          "object_id": "b1e3f0b6-9266-4da2-814c-f8858c8f770a",
+          "episode_id": "cea224f6-529a-47ce-a4d0-4c8c3743662b",
+          "event_index": 15,
+          "event_label": "E15",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP03-O11",
+      "original_id": "c2b637a4-f3c2-46c5-ada6-78c03751d95d",
+      "episode": 3,
+      "type": "evidence",
+      "speaker": "source",
+      "text": "IndexedDB는 파일이나 블롭 등 많은 양의 구조화된 데이터를 클라이언트에 저장하기 위한 로우 레벨 API입니다. IndexedDB API는 인덱스를 사용해 데이터를 고성능으로 탐색할 수 있습니다.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "6c553294-6b91-4667-9fa5-85671bf15801",
+          "field": "text",
+          "quote": "IndexedDB는 파일이나 블롭 등 많은 양의 구조화된 데이터를 클라이언트에 저장하기 위한 로우 레벨 API입니다. IndexedDB API는 인덱스를 사용해 데이터를 고성능으로 탐색할 수 있습니다.",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "1315faa1-c193-48d9-b872-33b918c3d7f3",
+          "object_id": "c2b637a4-f3c2-46c5-ada6-78c03751d95d",
+          "episode_id": "cea224f6-529a-47ce-a4d0-4c8c3743662b",
+          "event_index": 11,
+          "event_label": "E11",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP03-O12",
+      "original_id": "c602efc5-f6c8-444b-819c-0836d270902a",
+      "episode": 3,
+      "type": "question",
+      "speaker": "user",
+      "text": "MDN 문서를 보니 IndexedDB로 브라우저에 데이터를 저장할 수 있네. 그렇다면 초기 MVP에서는 별도 클라우드 데이터베이스 없이 IndexedDB만 사용하는게 합리적이라는 가설을 세울 수 있겠어. 이 판단에서 놓치고 있는 위험이 있을까?",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "a81849dc-6bff-4595-b6a1-5b0718762c37",
+          "field": "question",
+          "quote": "MDN 문서를 보니 IndexedDB로 브라우저에 데이터를 저장할 수 있네. 그렇다면 초기 MVP에서는 별도 클라우드 데이터베이스 없이 IndexedDB만 사용하는게 합리적이라는 가설을 세울 수 있겠어. 이 판단에서 놓치고 있는 위험이 있을까?",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "3d95ae56-0184-4ec8-9c79-edcd4bfb91ce",
+          "object_id": "c602efc5-f6c8-444b-819c-0836d270902a",
+          "episode_id": "cea224f6-529a-47ce-a4d0-4c8c3743662b",
+          "event_index": 16,
+          "event_label": "E16",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP03-O13",
+      "original_id": "d090e7ab-e4a3-42fa-a51f-13233ae4713a",
+      "episode": 3,
+      "type": "open_question",
+      "speaker": "user",
+      "text": "indexedDB data loss browser storage eviction",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "08ca27b9-5670-4ebf-9bcf-73eaba06c750",
+          "field": "query",
+          "quote": "indexedDB data loss browser storage eviction",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "72bc9476-5242-4815-9bcc-0a80448389f6",
+          "object_id": "d090e7ab-e4a3-42fa-a51f-13233ae4713a",
+          "episode_id": "cea224f6-529a-47ce-a4d0-4c8c3743662b",
+          "event_index": 13,
+          "event_label": "E13",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP03-O14",
+      "original_id": "d4adfca8-6c71-4194-8d2d-1e0ac3cba35c",
+      "episode": 3,
+      "type": "question",
+      "speaker": "user",
+      "text": "나는 개인용 메모 웹앱을 만들려고 해. 초기에는 혼자 사용하는 앱이고, 빠른 실행 속도와 간단한 구조가 중요해. 그래서 서버 없이 브라우저에 데이터를 저장하는 Offline-first 방식이 더 좋을 것 같아. 이 방식의 장단점을 설명해줘",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "fd08c027-85b4-4eb3-840b-39751d0f46ba",
+          "field": "question",
+          "quote": "나는 개인용 메모 웹앱을 만들려고 해. 초기에는 혼자 사용하는 앱이고, 빠른 실행 속도와 간단한 구조가 중요해. 그래서 서버 없이 브라우저에 데이터를 저장하는 Offline-first 방식이 더 좋을 것 같아. 이 방식의 장단점을 설명해줘",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "ed3c4e3f-3a74-4ce9-88e9-b3d1535b0e95",
+          "object_id": "d4adfca8-6c71-4194-8d2d-1e0ac3cba35c",
+          "episode_id": "cea224f6-529a-47ce-a4d0-4c8c3743662b",
+          "event_index": 9,
+          "event_label": "E09",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP03-O15",
+      "original_id": "ebbb9a64-05d1-4878-896c-080e6d7d3ff7",
+      "episode": 3,
+      "type": "insight",
+      "speaker": "assistant",
+      "text": "IndexedDB는 브라우저가 관리하는 저장소라서 navigator.storage.persist()로 요청할 수는 있지만 브라우저가 요청을 거부할 수도 있고 사용자의 명시적 삭제까지 막지는 못해.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "77b290f9-27da-4afe-b565-8378408800eb",
+          "field": "response",
+          "quote": "navigator.storage.persist()를 통해 영속 저장을 요청할 수 있지만, 브라우저가 요청을 거부할 수도 있고 사용자의 명시적 삭제까지 막지는 못해.",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "3d95ae56-0184-4ec8-9c79-edcd4bfb91ce",
+          "object_id": "ebbb9a64-05d1-4878-896c-080e6d7d3ff7",
+          "episode_id": "cea224f6-529a-47ce-a4d0-4c8c3743662b",
+          "event_index": 16,
+          "event_label": "E16",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP03-O16",
+      "original_id": "fbef0370-314d-468f-8d89-1f71d6fe9414",
+      "episode": 3,
+      "type": "insight",
+      "speaker": "assistant",
+      "text": "특히 백업과 복구 테스트가 중요해. 메모 데이터를 내보내기만 하는 것이 아니라, 실제로 삭제한 뒤 정상 복원되는지 확인해야 해.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "7d0efeff-1096-4da5-ae34-69910a37e7d8",
+          "field": "response",
+          "quote": "특히 백업과 복구 테스트가 중요해. 메모 데이터를 내보내기만 하는 것이 아니라, 실제로 삭제한 뒤 정상 복원되는지 확인해야 해.",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "3d95ae56-0184-4ec8-9c79-edcd4bfb91ce",
+          "object_id": "fbef0370-314d-468f-8d89-1f71d6fe9414",
+          "episode_id": "cea224f6-529a-47ce-a4d0-4c8c3743662b",
+          "event_index": 16,
+          "event_label": "E16",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP04-O01",
+      "original_id": "2b296c9a-70f9-4fc8-89b0-0e743dc8219d",
+      "episode": 4,
+      "type": "question",
+      "speaker": "user",
+      "text": "저장 방식에 대한 결정은 끝났어. 이제 다른 문제를 고민할게. 이 개인 메모 앱의 MVP에 회원가입 기능을 넣어야 할까? 사용자 경험과 개발 복잡도를 기준으로 비교해줘. 아직 결정하지는 않을거야",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "ea2b2a31-8dbb-42db-81b1-2906a2876e70",
+          "field": "question",
+          "quote": "저장 방식에 대한 결정은 끝났어. 이제 다른 문제를 고민할게. 이 개인 메모 앱의 MVP에 회원가입 기능을 넣어야 할까? 사용자 경험과 개발 복잡도를 기준으로 비교해줘. 아직 결정하지는 않을거야",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "3c505d9a-ead4-41ee-9eb0-135567bd6144",
+          "object_id": "2b296c9a-70f9-4fc8-89b0-0e743dc8219d",
+          "episode_id": "b582227a-4244-490c-8093-8cb77508016a",
+          "event_index": 20,
+          "event_label": "E20",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP04-O02",
+      "original_id": "42dd4102-6652-427f-b078-82bed1c08594",
+      "episode": 4,
+      "type": "insight",
+      "speaker": "assistant",
+      "text": "이 구조에서는 메모를 작성하면 우선 IndexedDB에 저장하고, 동기화 대기 상태로 표시해. 인터넷에 연결되면 변경사항을 클라우드에 전송하지.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "a85efded-90b1-4804-a736-add5adb43c15",
+          "field": "response",
+          "quote": "이 구조에서는 메모를 작성하면 우선 IndexedDB에 저장하고, 동기화 대기 상태로 표시해. 인터넷에 연결되면 변경사항을 클라우드에 전송하지.",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "f225995d-1dbe-48f2-8fae-5e10639ba8c0",
+          "object_id": "42dd4102-6652-427f-b078-82bed1c08594",
+          "episode_id": "b582227a-4244-490c-8093-8cb77508016a",
+          "event_index": 17,
+          "event_label": "E17",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP04-O03",
+      "original_id": "6cb765ce-0d9f-411d-b119-030fb139aeda",
+      "episode": 4,
+      "type": "insight",
+      "speaker": "assistant",
+      "text": "동기화 충돌. 노트북과 스마트폰에서 같은 메모를 오프라인으로 수정했다면 어느 버전을 남길지 결정해야 해.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "d725c59d-ec2d-4db9-94a2-028eba0f7c6d",
+          "field": "response",
+          "quote": "동기화 충돌. 노트북과 스마트폰에서 같은 메모를 오프라인으로 수정했다면 어느 버전을 남길지 결정해야 해.",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "f225995d-1dbe-48f2-8fae-5e10639ba8c0",
+          "object_id": "6cb765ce-0d9f-411d-b119-030fb139aeda",
+          "episode_id": "b582227a-4244-490c-8093-8cb77508016a",
+          "event_index": 17,
+          "event_label": "E17",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP04-O04",
+      "original_id": "83840374-5133-44bb-b59e-f36b7712a7de",
+      "episode": 4,
+      "type": "insight",
+      "speaker": "assistant",
+      "text": "MVP에서는 Supabase를 메인 데이터 저장소로 사용하고, IndexedDB를 오프라인 임시 저장 및 로컬 캐시로 활용한다.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "4ea8f614-b284-4c13-9acc-82a2c5876b5a",
+          "field": "response",
+          "quote": "MVP에서는 Supabase를 메인 데이터 저장소로 사용하고, IndexedDB를 오프라인 임시 저장 및 로컬 캐시로 활용한다.",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "263cc105-3ef9-4d46-9792-bb2c82b20511",
+          "object_id": "83840374-5133-44bb-b59e-f36b7712a7de",
+          "episode_id": "b582227a-4244-490c-8093-8cb77508016a",
+          "event_index": 19,
+          "event_label": "E19",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP04-O05",
+      "original_id": "a531a407-6431-4a29-b8bd-ed358d695291",
+      "episode": 4,
+      "type": "decision",
+      "speaker": "user",
+      "text": "최종적으로 결정했어. MVP에서는 Supabase를 메인 데이터 저장소로 사용하고, IndexedDB는 오프라인 임시 저장과 캐시에 활용할게. 처음 생각했던 IndexedDB 단독 방식은 기기 간 동기화와 데이터 보존 요구사항 때문에 채택하지 않겠어. 이 결정을 정리해줘.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "ca59619e-41fb-4c4d-a64b-c89cbe986e4c",
+          "field": "question",
+          "quote": "최종적으로 결정했어. MVP에서는 Supabase를 메인 데이터 저장소로 사용하고, IndexedDB는 오프라인 임시 저장과 캐시에 활용할게. 처음 생각했던 IndexedDB 단독 방식은 기기 간 동기화와 데이터 보존 요구사항 때문에 채택하지 않겠어. 이 결정을 정리해줘.",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "263cc105-3ef9-4d46-9792-bb2c82b20511",
+          "object_id": "a531a407-6431-4a29-b8bd-ed358d695291",
+          "episode_id": "b582227a-4244-490c-8093-8cb77508016a",
+          "event_index": 19,
+          "event_label": "E19",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP04-O06",
+      "original_id": "a888b96f-5364-4279-b97d-1409a7629e82",
+      "episode": 4,
+      "type": "insight",
+      "speaker": "assistant",
+      "text": "Offline-first + Cloud Sync 구조",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "3ab6feab-6c25-4cab-a2f3-04269016228c",
+          "field": "response",
+          "quote": "Offline-first + Cloud Sync 구조",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "f225995d-1dbe-48f2-8fae-5e10639ba8c0",
+          "object_id": "a888b96f-5364-4279-b97d-1409a7629e82",
+          "episode_id": "b582227a-4244-490c-8093-8cb77508016a",
+          "event_index": 17,
+          "event_label": "E17",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP04-O07",
+      "original_id": "b14017df-309c-44d6-8ee0-63bcfc09d7d3",
+      "episode": 4,
+      "type": "open_question",
+      "speaker": "user",
+      "text": "회원가입은 아직 결정하지 않을게. 다음에 실제 사용자 테스트를 한 뒤 다시 판단하겠어. 지금은 이 질문을 미해결 상태로 남겨두자.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "522824e7-0b60-4eee-b17e-4f663b28095f",
+          "field": "question",
+          "quote": "회원가입은 아직 결정하지 않을게. 다음에 실제 사용자 테스트를 한 뒤 다시 판단하겠어. 지금은 이 질문을 미해결 상태로 남겨두자.",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "04969e86-0ad9-4f67-a124-7979c035ef58",
+          "object_id": "b14017df-309c-44d6-8ee0-63bcfc09d7d3",
+          "episode_id": "b582227a-4244-490c-8093-8cb77508016a",
+          "event_index": 22,
+          "event_label": "E22",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP04-O08",
+      "original_id": "be4b41a8-087d-4567-8c38-33865d1c962b",
+      "episode": 4,
+      "type": "insight",
+      "speaker": "assistant",
+      "text": "Supabase의 데이터베이스와 인증 기능을 활용해 별도의 백엔드 구현 부담을 줄인다.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "10cb72ed-33cd-4d9d-93d3-376e552e4354",
+          "field": "response",
+          "quote": "Supabase의 데이터베이스와 인증 기능을 활용해 별도의 백엔드 구현 부담을 줄인다.",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "263cc105-3ef9-4d46-9792-bb2c82b20511",
+          "object_id": "be4b41a8-087d-4567-8c38-33865d1c962b",
+          "episode_id": "b582227a-4244-490c-8093-8cb77508016a",
+          "event_index": 19,
+          "event_label": "E19",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP04-O09",
+      "original_id": "c65cf2ef-8b42-45bb-9eca-c527b4971d1f",
+      "episode": 4,
+      "type": "question",
+      "speaker": "user",
+      "text": "브라우저 저장소의 데이터가 특정 조건에서 삭제될 수 있다는 정보를 확인했어. 그런데 생각해보니 이 앱은 나중에 노트북과 스마트폰에서도 같은 메모를 사용해야해. 처음에는 로컬 저장만으로 충분하다고 생각했지만, 지금은 데이터 유실과 기기 간 동기화가 걱정돼. 초기 가설을 다시 평가해줘",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "46bee353-edc6-424a-9891-83264e8f7738",
+          "field": "question",
+          "quote": "브라우저 저장소의 데이터가 특정 조건에서 삭제될 수 있다는 정보를 확인했어. 그런데 생각해보니 이 앱은 나중에 노트북과 스마트폰에서도 같은 메모를 사용해야해. 처음에는 로컬 저장만으로 충분하다고 생각했지만, 지금은 데이터 유실과 기기 간 동기화가 걱정돼. 초기 가설을 다시 평가해줘",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "f225995d-1dbe-48f2-8fae-5e10639ba8c0",
+          "object_id": "c65cf2ef-8b42-45bb-9eca-c527b4971d1f",
+          "episode_id": "b582227a-4244-490c-8093-8cb77508016a",
+          "event_index": 17,
+          "event_label": "E17",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP04-O10",
+      "original_id": "ec0bc63a-18ec-40e8-8a0f-e1a5803be4b3",
+      "episode": 4,
+      "type": "question",
+      "speaker": "user",
+      "text": "그렇다면 차라리 처음부터 Cloud-first 방식으로 개발하는 건 어떨까? Supabase를 사용하는 방안도 함께 검토해줘. 단, 아직 어떤 방식을 선택할지는 결정하지 않았어",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "8f2f039d-7e30-4044-ad7c-1b8c26490f66",
+          "field": "question",
+          "quote": "그렇다면 차라리 처음부터 Cloud-first 방식으로 개발하는 건 어떨까? Supabase를 사용하는 방안도 함께 검토해줘. 단, 아직 어떤 방식을 선택할지는 결정하지 않았어",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "abb7d905-464b-4301-b35c-9559823597cf",
+          "object_id": "ec0bc63a-18ec-40e8-8a0f-e1a5803be4b3",
+          "episode_id": "b582227a-4244-490c-8093-8cb77508016a",
+          "event_index": 18,
+          "event_label": "E18",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP04-O11",
+      "original_id": "f09f489c-0d5d-4590-9274-f5d4a8144940",
+      "episode": 4,
+      "type": "hypothesis",
+      "speaker": "assistant",
+      "text": "IndexedDB를 로컬 저장 계층으로 유지하고 클라우드 DB를 결합하면, 빠른 응답성과 오프라인 사용성을 유지하면서 기기 간 동기화와 데이터 보존 문제를 개선할 수 있다.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "6c3479a1-8b9e-4889-bea6-186c7df7c005",
+          "field": "response",
+          "quote": "IndexedDB를 로컬 저장 계층으로 유지하고 클라우드 DB를 결합하면, 빠른 응답성과 오프라인 사용성을 유지하면서 기기 간 동기화와 데이터 보존 문제를 개선할 수 있다.",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "f225995d-1dbe-48f2-8fae-5e10639ba8c0",
+          "object_id": "f09f489c-0d5d-4590-9274-f5d4a8144940",
+          "episode_id": "b582227a-4244-490c-8093-8cb77508016a",
+          "event_index": 17,
+          "event_label": "E17",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "B-EP04-O12",
+      "original_id": "fc158e78-99ba-48e1-80a4-adfc2b5bedac",
+      "episode": 4,
+      "type": "insight",
+      "speaker": "assistant",
+      "text": "개인용 메모 웹앱 MVP의 회원가입 기능 도입 여부는 미해결(Open Question) 상태로 유지할게.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "id": "17a54fb6-ec91-47c1-81ee-b506aca9e798",
+          "field": "response",
+          "quote": "개인용 메모 웹앱 MVP의 회원가입 기능 도입 여부는 미해결(Open Question) 상태로 유지할게.",
+          "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+          "event_id": "04969e86-0ad9-4f67-a124-7979c035ef58",
+          "object_id": "fc158e78-99ba-48e1-80a4-adfc2b5bedac",
+          "episode_id": "b582227a-4244-490c-8093-8cb77508016a",
+          "event_index": 22,
+          "event_label": "E22",
+          "verification_status": "quote_matched"
+        }
+      ]
+    }
+  ],
+  "rejected_final_ep01_candidate": [
+    {
+      "evaluation_id": "D-EP01-A03-O01",
+      "original_id": null,
+      "episode": 1,
+      "type": "question",
+      "speaker": "user",
+      "text": "나는 개인용 메모 웹앱을 만들려고 해. 초기에는 혼자 사용하는 앱이고, 빠른 실행 속도와 간단한 구조가 중요해. 그래서 서버 없이 브라우저에 데이터를 저장하는 Offline-first 방식이 더 좋을 것 같아. 이 방식의 장단점을 설명해줘",
+      "accepted_in_run": false,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "event_id": "ed3c4e3f-3a74-4ce9-88e9-b3d1535b0e95",
+          "field": "question",
+          "quote": "나는 개인용 메모 웹앱을 만들려고 해. 초기에는 혼자 사용하는 앱이고, 빠른 실행 속도와 간단한 구조가 중요해. 그래서 서버 없이 브라우저에 데이터를 저장하는 Offline-first 방식이 더 좋을 것 같아. 이 방식의 장단점을 설명해줘",
+          "event_index": 9,
+          "event_label": "E09",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "D-EP01-A03-O02",
+      "original_id": null,
+      "episode": 1,
+      "type": "question",
+      "speaker": "user",
+      "text": "MDN 문서를 보니 IndexedDB로 브라우저에 데이터를 저장할 수 있네. 그렇다면 초기 MVP에서는 별도 클라우드 데이터베이스 없이 IndexedDB만 사용하는게 합리적이라는 가설을 세울 수 있겠어. 이 판단에서 놓치고 있는 위험이 있을까?",
+      "accepted_in_run": false,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "event_id": "3d95ae56-0184-4ec8-9c79-edcd4bfb91ce",
+          "field": "question",
+          "quote": "MDN 문서를 보니 IndexedDB로 브라우저에 데이터를 저장할 수 있네. 그렇다면 초기 MVP에서는 별도 클라우드 데이터베이스 없이 IndexedDB만 사용하는게 합리적이라는 가설을 세울 수 있겠어. 이 판단에서 놓치고 있는 위험이 있을까?",
+          "event_index": 16,
+          "event_label": "E16",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "D-EP01-A03-O03",
+      "original_id": null,
+      "episode": 1,
+      "type": "question",
+      "speaker": "user",
+      "text": "그렇다면 차라리 처음부터 Cloud-first 방식으로 개발하는 건 어떨까? Supabase를 사용하는 방안도 함께 검토해줘. 단, 아직 어떤 방식을 선택할지는 결정하지 않았어",
+      "accepted_in_run": false,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "event_id": "abb7d905-464b-4301-b35c-9559823597cf",
+          "field": "question",
+          "quote": "그렇다면 차라리 처음부터 Cloud-first 방식으로 개발하는 건 어떨까? Supabase를 사용하는 방안도 함께 검토해줘. 단, 아직 어떤 방식을 선택할지는 결정하지 않았어",
+          "event_index": 18,
+          "event_label": "E18",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "D-EP01-A03-O04",
+      "original_id": null,
+      "episode": 1,
+      "type": "evidence",
+      "speaker": "source",
+      "text": "MDN IndexedDB 설명",
+      "accepted_in_run": false,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "event_id": "fa8ea361-d1d5-4cbd-b518-fca030858743",
+          "field": "text",
+          "quote": "IndexedDB는 파일이나 블롭 등 많은 양의 구조화된 데이터를 클라이언트에 저장하기 위한 로우 레벨 API입니다.",
+          "event_index": 8,
+          "event_label": "E08",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "D-EP01-A03-O05",
+      "original_id": null,
+      "episode": 1,
+      "type": "evidence",
+      "speaker": "source",
+      "text": "web.dev IndexedDB 요약",
+      "accepted_in_run": false,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "event_id": "7e04dbd8-6f36-44dd-8187-1247ebd9478a",
+          "field": "text",
+          "quote": "IndexedDB\n: 구조화된 데이터 및 blob (바이너리 데이터)을 위한 NoSQL 객체 스토리지 옵션입니다.",
+          "event_index": 7,
+          "event_label": "E07",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "D-EP01-A03-O06",
+      "original_id": null,
+      "episode": 1,
+      "type": "evidence",
+      "speaker": "source",
+      "text": "브라우저 저장 기본 정책",
+      "accepted_in_run": false,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "event_id": "cea924fc-a959-4e71-8805-3074f62960c3",
+          "field": "text",
+          "quote": "The data stored in the browser by an origin is best-effort by default.",
+          "event_index": 15,
+          "event_label": "E15",
+          "verification_status": "quote_matched"
+        },
+        {
+          "event_id": "cea924fc-a959-4e71-8805-3074f62960c3",
+          "field": "text",
+          "quote": "Data eviction is the process by which a browser deletes an origin's stored data.",
+          "event_index": 15,
+          "event_label": "E15",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "D-EP01-A03-O07",
+      "original_id": null,
+      "episode": 1,
+      "type": "insight",
+      "speaker": "assistant",
+      "text": "개인용 메모 웹앱이라면 Offline-first 방식은 충분히 합리적인 선택이야. 특히 초기 사용자가 본인 한 명이고, 빠른 실행 속도와 단순한 구조를 중요하게 생각한다면 서버 기반 아키텍처보다 유리한 부분이 많아.",
+      "accepted_in_run": false,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "event_id": "ed3c4e3f-3a74-4ce9-88e9-b3d1535b0e95",
+          "field": "response",
+          "quote": "개인용 메모 웹앱이라면 Offline-first 방식은 충분히 합리적인 선택이야. 특히 초기 사용자가 본인 한 명이고, 빠른 실행 속도와 단순한 구조를 중요하게 생각한다면 서버 기반 아키텍처보다 유리한 부분이 많아.",
+          "event_index": 9,
+          "event_label": "E09",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "D-EP01-A03-O08",
+      "original_id": null,
+      "episode": 1,
+      "type": "insight",
+      "speaker": "assistant",
+      "text": "현재 요구사항이라면 초기에는 서버 없이 IndexedDB를 중심으로 개발하는 것이 적절해.",
+      "accepted_in_run": false,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "event_id": "ed3c4e3f-3a74-4ce9-88e9-b3d1535b0e95",
+          "field": "response",
+          "quote": "현재 요구사항이라면 초기에는 서버 없이 IndexedDB를 중심으로 개발하는 것이 적절해.",
+          "event_index": 9,
+          "event_label": "E09",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "D-EP01-A03-O09",
+      "original_id": null,
+      "episode": 1,
+      "type": "insight",
+      "speaker": "assistant",
+      "text": "초기에는 IndexedDB만으로 시작하되, 실제 사용을 통해 데이터 보존의 중요성과 여러 기기에서 사용할 필요성을 검증한 뒤 클라우드 동기화 도입 여부를 결정하는 것이 합리적이다.",
+      "accepted_in_run": false,
+      "verification_status": "validation_failed",
+      "semantic_status": "manual_review_required",
+      "validation_error": "근거 인용문이 해당 Episode 원문에 존재하지 않습니다.",
+      "evidence": [
+        {
+          "event_id": "3d95ae56-0184-4ec8-9c79-edcd4bfb91ce",
+          "field": "response",
+          "quote": "초기에는 IndexedDB만으로 시작하되, 실제 사용을 통해 데이터 보존의 중요성과 여러 기기에서 사용할 필요성을 검증한 뒤 클라우드 동기화 도입 여부를 결정하는 것이 합리적이다.",
+          "event_index": 16,
+          "event_label": "E16",
+          "verification_status": "quote_mismatch"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "D-EP01-A03-O10",
+      "original_id": null,
+      "episode": 1,
+      "type": "insight",
+      "speaker": "assistant",
+      "text": "IndexedDB를 로컬 저장 계층으로 유지하고 클라우드 DB를 결합하면, 빠른 응답성과 오프라인 사용성을 유지하면서 기기 간 동기화와 데이터 보존 문제를 개선할 수 있다.",
+      "accepted_in_run": false,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "event_id": "f225995d-1dbe-48f2-8fae-5e10639ba8c0",
+          "field": "response",
+          "quote": "IndexedDB를 로컬 저장 계층으로 유지하고 클라우드 DB를 결합하면, 빠른 응답성과 오프라인 사용성을 유지하면서 기기 간 동기화와 데이터 보존 문제를 개선할 수 있다.",
+          "event_index": 17,
+          "event_label": "E17",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "D-EP01-A03-O11",
+      "original_id": null,
+      "episode": 1,
+      "type": "contradiction",
+      "speaker": "assistant",
+      "text": "Assistant의 초기 권고(IndexedDB 단독 권장)와 이후 권고(클라우드 결합 권장) 간의 차이",
+      "accepted_in_run": false,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "event_id": "ed3c4e3f-3a74-4ce9-88e9-b3d1535b0e95",
+          "field": "response",
+          "quote": "현재 요구사항이라면 초기에는 서버 없이 IndexedDB를 중심으로 개발하는 것이 적절해.",
+          "event_index": 9,
+          "event_label": "E09",
+          "verification_status": "quote_matched"
+        },
+        {
+          "event_id": "f225995d-1dbe-48f2-8fae-5e10639ba8c0",
+          "field": "response",
+          "quote": "IndexedDB를 로컬 저장 계층으로 유지하고 클라우드 DB를 결합하면, 빠른 응답성과 오프라인 사용성을 유지하면서 기기 간 동기화와 데이터 보존 문제를 개선할 수 있다.",
+          "event_index": 17,
+          "event_label": "E17",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "D-EP01-A03-O12",
+      "original_id": null,
+      "episode": 1,
+      "type": "decision",
+      "speaker": "user",
+      "text": "최종적으로 결정했어. MVP에서는 Supabase를 메인 데이터 저장소로 사용하고, IndexedDB는 오프라인 임시 저장과 캐시에 활용할게. 처음 생각했던 IndexedDB 단독 방식은 기기 간 동기화와 데이터 보존 요구사항 때문에 채택하지 않겠어",
+      "accepted_in_run": false,
+      "verification_status": "validation_failed",
+      "semantic_status": "manual_review_required",
+      "validation_error": "근거 인용문이 해당 Episode 원문에 존재하지 않습니다.",
+      "evidence": [
+        {
+          "event_id": "263cc105-3ef9-4d46-9792-bb2c82b20511",
+          "field": "question",
+          "quote": "최종적으로 결정했어. MVP에서는 Supabase를 메인데이터 저장소로 사용하고, IndexedDB는 오프라인 임시 저장과 캐시에 활용할게. 처음 생각했던 IndexedDB 단독 방식은 기기 간 동기화와 데이터 보존 요구사항 때문에 채택하지 않겠어",
+          "event_index": 19,
+          "event_label": "E19",
+          "verification_status": "quote_mismatch"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "D-EP01-A03-O13",
+      "original_id": null,
+      "episode": 1,
+      "type": "open_question",
+      "speaker": "user",
+      "text": "단, 아직 어떤 방식을 선택할지는 결정하지 않았어",
+      "accepted_in_run": false,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "event_id": "abb7d905-464b-4301-b35c-9559823597cf",
+          "field": "question",
+          "quote": "단, 아직 어떤 방식을 선택할지는 결정하지 않았어",
+          "event_index": 18,
+          "event_label": "E18",
+          "verification_status": "quote_matched"
+        }
+      ]
+    }
+  ],
+  "isolated_ep02": [
+    {
+      "evaluation_id": "N-EP02-O01",
+      "original_id": null,
+      "episode": 2,
+      "type": "question",
+      "speaker": "user",
+      "text": "저장 방식에 대한 결정은 끝났어. 이제 다른 문제를 고민할게. 이 개인 메모 앱의 MVP에 회원가입 기능을 넣어야 할까? 사용자 경험과 개발 복잡도를 기준으로 비교해줘. 아직 결정하지는 않을거야",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "event_id": "3c505d9a-ead4-41ee-9eb0-135567bd6144",
+          "field": "question",
+          "quote": "저장 방식에 대한 결정은 끝났어. 이제 다른 문제를 고민할게. 이 개인 메모 앱의 MVP에 회원가입 기능을 넣어야 할까? 사용자 경험과 개발 복잡도를 기준으로 비교해줘. 아직 결정하지는 않을거야",
+          "event_index": 20,
+          "event_label": "E20",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "N-EP02-O02",
+      "original_id": null,
+      "episode": 2,
+      "type": "evidence",
+      "speaker": "assistant",
+      "text": "B. 본인 계정만 로그인\n\n현재 가장 유력\n개인용이라는 조건과 데이터 보안을 동시에 만족시키면서 구현 범위를 줄일 수 있어. 인증 기능을 완전히 없애지 않아 기기 변경에도 대응하기 쉬워.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "event_id": "3c505d9a-ead4-41ee-9eb0-135567bd6144",
+          "field": "response",
+          "quote": "B. 본인 계정만 로그인\n\n현재 가장 유력\n개인용이라는 조건과 데이터 보안을 동시에 만족시키면서 구현 범위를 줄일 수 있어. 인증 기능을 완전히 없애지 않아 기기 변경에도 대응하기 쉬워.",
+          "event_index": 20,
+          "event_label": "E20",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "N-EP02-O03",
+      "original_id": null,
+      "episode": 2,
+      "type": "insight",
+      "speaker": "assistant",
+      "text": "회원가입 UI는 선택 사항으로 두되, 데이터 모델에는 사용자 식별 체계를 처음부터 포함하는 방향이 합리적이야.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "event_id": "3c505d9a-ead4-41ee-9eb0-135567bd6144",
+          "field": "response",
+          "quote": "따라서 회원가입 UI는 선택 사항으로 두되, 데이터 모델에는 사용자 식별 체계를 처음부터 포함하는 방향이 합리적이야.",
+          "event_index": 20,
+          "event_label": "E20",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "N-EP02-O04",
+      "original_id": null,
+      "episode": 2,
+      "type": "evidence",
+      "speaker": "assistant",
+      "text": "Supabase\n\nIndexedDB (오프라인 임시 저장 및 캐시)",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "event_id": "04969e86-0ad9-4f67-a124-7979c035ef58",
+          "field": "response",
+          "quote": "메인 데이터 저장소\n\n\t\n\n확정\n\n\t\n\nSupabase\n\n\n\n\n로컬 저장소\n\n\t\n\n확정\n\n\t\n\nIndexedDB (오프라인 임시 저장 및 캐시)",
+          "event_index": 22,
+          "event_label": "E22",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "N-EP02-O05",
+      "original_id": null,
+      "episode": 2,
+      "type": "open_question",
+      "speaker": "assistant",
+      "text": "미해결 질문: 회원가입 기능이 필요한가?",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "event_id": "04969e86-0ad9-4f67-a124-7979c035ef58",
+          "field": "response",
+          "quote": "미해결 질문: 회원가입 기능이 필요한가?",
+          "event_index": 22,
+          "event_label": "E22",
+          "verification_status": "quote_matched"
+        }
+      ]
+    },
+    {
+      "evaluation_id": "N-EP02-O06",
+      "original_id": null,
+      "episode": 2,
+      "type": "decision",
+      "speaker": "user",
+      "text": "회원가입은 아직 결정하지 않을게. 다음에 실제 사용자 테스트를 한 뒤 다시 판단하겠어. 지금은 이 질문을 미해결 상태로 남겨두자.",
+      "accepted_in_run": true,
+      "verification_status": "quote_matched",
+      "semantic_status": "manual_review_required",
+      "validation_error": null,
+      "evidence": [
+        {
+          "event_id": "04969e86-0ad9-4f67-a124-7979c035ef58",
+          "field": "question",
+          "quote": "회원가입은 아직 결정하지 않을게. 다음에 실제 사용자 테스트를 한 뒤 다시 판단하겠어. 지금은 이 질문을 미해결 상태로 남겨두자.",
+          "event_index": 22,
+          "event_label": "E22",
+          "verification_status": "quote_matched"
+        }
+      ]
+    }
+  ]
+}

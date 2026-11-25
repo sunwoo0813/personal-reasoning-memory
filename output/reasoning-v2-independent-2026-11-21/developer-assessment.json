@@ -1,0 +1,51 @@
+{
+  "scope": "새로운 4개 분야 합성 사례의 개발자 평가. 최종 수정 전에 결과를 열어본 개발 사례이므로 최종 holdout과 구분한다.",
+  "cases": {
+    "commute": {
+      "status": "pass",
+      "hypothesis": true,
+      "explicit_change": true,
+      "adopt_and_reject_decision": true,
+      "search_not_open_question": true,
+      "ai_proposal_not_adopted": true,
+      "unnecessary_objects": [
+        5
+      ],
+      "note": "AI가 사용자 결정을 다시 기록한 마지막 객체는 중복이다."
+    },
+    "course": {
+      "status": "pass",
+      "question": true,
+      "deferral_as_open_question": true,
+      "reconsideration_condition": true,
+      "zero_decision": true,
+      "unnecessary_objects": [
+        4
+      ]
+    },
+    "resolved": {
+      "status": "partial",
+      "hypothesis": true,
+      "adoption_decision": true,
+      "rejection_as_decision": false,
+      "remaining_open_question": true,
+      "closed_question_not_open": true,
+      "error": "실외 기각을 Evidence(O3)에 담고 Decision으로 분리하지 않았다.",
+      "unnecessary_objects": [
+        7
+      ]
+    },
+    "source-ownership": {
+      "status": "pass",
+      "question": true,
+      "zero_user_decision": true,
+      "no_invented_user_hypothesis_insight": true,
+      "no_source_adoption": true,
+      "unnecessary_objects": [
+        3
+      ],
+      "note": "AI 가설을 O2와 O3에서 반복했다."
+    }
+  },
+  "assessor": "Codex coding agent, not human or independent verification"
+}

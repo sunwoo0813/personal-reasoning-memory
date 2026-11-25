@@ -1,0 +1,2713 @@
+{
+  "protocol": {
+    "version": "reasoning-v2-evaluation-01",
+    "fixed_before_execution": true,
+    "scope": "22 unchanged captured events, fixed purpose-v2 EP01 E01-E19 / EP02 E20-E22, gpt-5-mini, 3 independent full runs; additional independent synthetic domains once each",
+    "comparators": [
+      "original extraction-v1: 35 objects in 4 episodes",
+      "evidence-grounding-v2-final-2026-11-20: 2/3 full runs complete"
+    ],
+    "adjudication": "Human-readable manual semantic assessment of text, type, speaker, selected source quotes and full user context. Store per-target and per-object labels with reasons; do not call keyword checks semantic accuracy. This is developer assessment, not blinded external review.",
+    "recall": "A target requires correct type/speaker, semantically present text and direct evidence from the specified user turn. Partial or embedded in a generic question is reported separately, not full typed recall. One compound object may express multiple distinct facts; it is not multiple independent objects.",
+    "precision": "For decisions and open_question, all emitted objects of that type are the denominator (including assistant/source objects). Decision must explicitly adopt/reject, not defer; open_question must remain unresolved and be user-owned. Duplicate true paraphrases count as supported but are separately counted redundant.",
+    "speaker_accuracy": "Evaluate ownership claimed in the text against direct selected speech, in addition to deterministic field/speaker consistency. Unknown is not scored correct ownership.",
+    "semantic_support": "Check all material claims, type, relevant selected spans, negation, temporal status and adoption. Report developer-supported fraction and uncertain separately. Existing model_supported is not ground truth or objective verification.",
+    "unnecessary_duplicates": "Object repeats another without a distinct speech act/information contribution, repeats AI recommendations, or contains off-purpose technical detail. Record object IDs and reasons; do not use object count alone.",
+    "completion": "Full run completes only when every episode validates. Failed run contributes zero accepted objects and zero operational target recall; report completed-only quality separately so failures cannot disappear from results.",
+    "literal_match": "All selected refs must pass exact UTF-16 source slice and substring checks; report matched refs / emitted refs.",
+    "cost": "Sum all recorded input/output/total usage including repairs and support review, report per-run elapsed milliseconds and API calls; unknown API usage remains unknown.",
+    "no_tuning": "Do not change classification or evaluation thresholds after these runs start. Preserve all failed candidates and raw calls. A new implementation requires a separate output directory/protocol.",
+    "limits": "Historical different-size samples and one session cannot establish general improvement or isolate policy causality; synthetic independent cases are smoke tests, not a population benchmark. No relationship graph scoring."
+  },
+  "completion": {
+    "complete": 3,
+    "total": 3
+  },
+  "source_unchanged": true,
+  "code_unchanged": true,
+  "measures": [
+    {
+      "id": "original",
+      "status": "complete",
+      "episode_count": 4,
+      "object_count": 35,
+      "questions": {
+        "recovered": 0,
+        "expected": 2
+      },
+      "hypotheses": {
+        "recovered": 0,
+        "expected": 2
+      },
+      "decisions": {
+        "recovered": 0,
+        "expected": 2,
+        "precision": {
+          "supported": 0,
+          "predicted": 1,
+          "unreviewed": 1
+        }
+      },
+      "open_questions": {
+        "recovered": 0,
+        "expected": 2,
+        "precision": {
+          "supported": 0,
+          "predicted": 4,
+          "unreviewed": 4
+        }
+      },
+      "targets": [
+        {
+          "id": "Q1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "저장 방식의 장단점/선택 문제",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "Q2",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 MVP 도입 질문",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "H1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "초기 서버 없는 Offline-first 선호",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "H2",
+          "episode": 1,
+          "event_position": 16,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 MVP 가설",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "R1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "evidence",
+            "contradiction",
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "데이터 보존과 기기 간 동기화 위험을 사용자 인식",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "I1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "로컬만 충분하다는 가설을 재검토하는 명시적 변화",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "A1",
+          "episode": 1,
+          "event_position": 18,
+          "allowed_types": [
+            "question",
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "Cloud-first와 Supabase 검토, 미결정 상태",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "D1",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "Supabase 메인과 IndexedDB 보조 채택",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "D2",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 기각",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "C1",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "evidence",
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "UX와 개발 복잡도 평가 기준",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "O1",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 도입 여부 미결정",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "O2",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "실제 사용자 테스트 이후 재검토 조건",
+          "matched_object_ids": [],
+          "recovered": false
+        }
+      ],
+      "quote_match": {
+        "matched": 36,
+        "total": 36
+      },
+      "field_speaker_consistency": {
+        "correct": 35,
+        "total": 35
+      },
+      "semantic_support": {
+        "supported": 0,
+        "unsupported": 0,
+        "uncertain": 0,
+        "unreviewed": 35,
+        "total": 35
+      },
+      "unnecessary_duplicates": [],
+      "objects": [
+        {
+          "id": "original-E2-O1",
+          "type": "question",
+          "speaker": "user"
+        },
+        {
+          "id": "original-E2-O2",
+          "type": "insight",
+          "speaker": "source"
+        },
+        {
+          "id": "original-E2-O3",
+          "type": "evidence",
+          "speaker": "source"
+        },
+        {
+          "id": "original-E2-O4",
+          "type": "evidence",
+          "speaker": "source"
+        },
+        {
+          "id": "original-E2-O5",
+          "type": "question",
+          "speaker": "user"
+        },
+        {
+          "id": "original-E2-O6",
+          "type": "evidence",
+          "speaker": "source"
+        },
+        {
+          "id": "original-E2-O7",
+          "type": "evidence",
+          "speaker": "source"
+        },
+        {
+          "id": "original-E3-O1",
+          "type": "evidence",
+          "speaker": "source"
+        },
+        {
+          "id": "original-E3-O2",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "original-E3-O3",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "original-E3-O4",
+          "type": "open_question",
+          "speaker": "user"
+        },
+        {
+          "id": "original-E3-O5",
+          "type": "contradiction",
+          "speaker": "assistant"
+        },
+        {
+          "id": "original-E3-O6",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "original-E3-O7",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "original-E3-O8",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "original-E3-O9",
+          "type": "open_question",
+          "speaker": "assistant"
+        },
+        {
+          "id": "original-E3-O10",
+          "type": "evidence",
+          "speaker": "source"
+        },
+        {
+          "id": "original-E3-O11",
+          "type": "evidence",
+          "speaker": "source"
+        },
+        {
+          "id": "original-E3-O12",
+          "type": "question",
+          "speaker": "user"
+        },
+        {
+          "id": "original-E3-O13",
+          "type": "open_question",
+          "speaker": "user"
+        },
+        {
+          "id": "original-E3-O14",
+          "type": "question",
+          "speaker": "user"
+        },
+        {
+          "id": "original-E3-O15",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "original-E3-O16",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "original-E4-O1",
+          "type": "question",
+          "speaker": "user"
+        },
+        {
+          "id": "original-E4-O2",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "original-E4-O3",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "original-E4-O4",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "original-E4-O5",
+          "type": "decision",
+          "speaker": "user"
+        },
+        {
+          "id": "original-E4-O6",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "original-E4-O7",
+          "type": "open_question",
+          "speaker": "user"
+        },
+        {
+          "id": "original-E4-O8",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "original-E4-O9",
+          "type": "question",
+          "speaker": "user"
+        },
+        {
+          "id": "original-E4-O10",
+          "type": "question",
+          "speaker": "user"
+        },
+        {
+          "id": "original-E4-O11",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "original-E4-O12",
+          "type": "insight",
+          "speaker": "assistant"
+        }
+      ]
+    },
+    {
+      "id": "grounding-R1",
+      "status": "complete",
+      "episode_count": 2,
+      "object_count": 24,
+      "questions": {
+        "recovered": 0,
+        "expected": 2
+      },
+      "hypotheses": {
+        "recovered": 0,
+        "expected": 2
+      },
+      "decisions": {
+        "recovered": 0,
+        "expected": 2,
+        "precision": {
+          "supported": 0,
+          "predicted": 2,
+          "unreviewed": 2
+        }
+      },
+      "open_questions": {
+        "recovered": 0,
+        "expected": 2,
+        "precision": {
+          "supported": 0,
+          "predicted": 3,
+          "unreviewed": 3
+        }
+      },
+      "targets": [
+        {
+          "id": "Q1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "저장 방식의 장단점/선택 문제",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "Q2",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 MVP 도입 질문",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "H1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "초기 서버 없는 Offline-first 선호",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "H2",
+          "episode": 1,
+          "event_position": 16,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 MVP 가설",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "R1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "evidence",
+            "contradiction",
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "데이터 보존과 기기 간 동기화 위험을 사용자 인식",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "I1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "로컬만 충분하다는 가설을 재검토하는 명시적 변화",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "A1",
+          "episode": 1,
+          "event_position": 18,
+          "allowed_types": [
+            "question",
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "Cloud-first와 Supabase 검토, 미결정 상태",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "D1",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "Supabase 메인과 IndexedDB 보조 채택",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "D2",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 기각",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "C1",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "evidence",
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "UX와 개발 복잡도 평가 기준",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "O1",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 도입 여부 미결정",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "O2",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "실제 사용자 테스트 이후 재검토 조건",
+          "matched_object_ids": [],
+          "recovered": false
+        }
+      ],
+      "quote_match": {
+        "matched": 51,
+        "total": 51
+      },
+      "field_speaker_consistency": {
+        "correct": 24,
+        "total": 24
+      },
+      "semantic_support": {
+        "supported": 0,
+        "unsupported": 0,
+        "uncertain": 0,
+        "unreviewed": 24,
+        "total": 24
+      },
+      "unnecessary_duplicates": [],
+      "objects": [
+        {
+          "id": "grounding-R1-E1-O1",
+          "type": "question",
+          "speaker": "user"
+        },
+        {
+          "id": "grounding-R1-E1-O2",
+          "type": "evidence",
+          "speaker": "source"
+        },
+        {
+          "id": "grounding-R1-E1-O3",
+          "type": "evidence",
+          "speaker": "source"
+        },
+        {
+          "id": "grounding-R1-E1-O4",
+          "type": "question",
+          "speaker": "user"
+        },
+        {
+          "id": "grounding-R1-E1-O5",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R1-E1-O6",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R1-E1-O7",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R1-E1-O8",
+          "type": "evidence",
+          "speaker": "source"
+        },
+        {
+          "id": "grounding-R1-E1-O9",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R1-E1-O10",
+          "type": "question",
+          "speaker": "user"
+        },
+        {
+          "id": "grounding-R1-E1-O11",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R1-E1-O12",
+          "type": "decision",
+          "speaker": "user"
+        },
+        {
+          "id": "grounding-R1-E1-O13",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R1-E1-O14",
+          "type": "open_question",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R1-E2-O1",
+          "type": "question",
+          "speaker": "user"
+        },
+        {
+          "id": "grounding-R1-E2-O2",
+          "type": "decision",
+          "speaker": "user"
+        },
+        {
+          "id": "grounding-R1-E2-O3",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R1-E2-O4",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R1-E2-O5",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R1-E2-O6",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R1-E2-O7",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R1-E2-O8",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R1-E2-O9",
+          "type": "open_question",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R1-E2-O10",
+          "type": "open_question",
+          "speaker": "assistant"
+        }
+      ],
+      "usage": {
+        "input_tokens": 135967,
+        "output_tokens": 7508,
+        "total_tokens": 143475
+      },
+      "duration_ms": 88907
+    },
+    {
+      "id": "grounding-R2",
+      "status": "failed",
+      "episode_count": 0,
+      "object_count": 0,
+      "questions": {
+        "recovered": 0,
+        "expected": 2
+      },
+      "hypotheses": {
+        "recovered": 0,
+        "expected": 2
+      },
+      "decisions": {
+        "recovered": 0,
+        "expected": 2,
+        "precision": {
+          "supported": 0,
+          "predicted": 0,
+          "unreviewed": 0
+        }
+      },
+      "open_questions": {
+        "recovered": 0,
+        "expected": 2,
+        "precision": {
+          "supported": 0,
+          "predicted": 0,
+          "unreviewed": 0
+        }
+      },
+      "targets": [
+        {
+          "id": "Q1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "저장 방식의 장단점/선택 문제",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "Q2",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 MVP 도입 질문",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "H1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "초기 서버 없는 Offline-first 선호",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "H2",
+          "episode": 1,
+          "event_position": 16,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 MVP 가설",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "R1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "evidence",
+            "contradiction",
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "데이터 보존과 기기 간 동기화 위험을 사용자 인식",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "I1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "로컬만 충분하다는 가설을 재검토하는 명시적 변화",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "A1",
+          "episode": 1,
+          "event_position": 18,
+          "allowed_types": [
+            "question",
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "Cloud-first와 Supabase 검토, 미결정 상태",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "D1",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "Supabase 메인과 IndexedDB 보조 채택",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "D2",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 기각",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "C1",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "evidence",
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "UX와 개발 복잡도 평가 기준",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "O1",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 도입 여부 미결정",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "O2",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "실제 사용자 테스트 이후 재검토 조건",
+          "matched_object_ids": [],
+          "recovered": false
+        }
+      ],
+      "quote_match": {
+        "matched": 0,
+        "total": 0
+      },
+      "field_speaker_consistency": {
+        "correct": 0,
+        "total": 0
+      },
+      "semantic_support": {
+        "supported": 0,
+        "unsupported": 0,
+        "uncertain": 0,
+        "unreviewed": 0,
+        "total": 0
+      },
+      "unnecessary_duplicates": [],
+      "objects": [],
+      "usage": {
+        "input_tokens": 170217,
+        "output_tokens": 7601,
+        "total_tokens": 177818
+      },
+      "duration_ms": 89922
+    },
+    {
+      "id": "grounding-R3",
+      "status": "complete",
+      "episode_count": 2,
+      "object_count": 25,
+      "questions": {
+        "recovered": 0,
+        "expected": 2
+      },
+      "hypotheses": {
+        "recovered": 0,
+        "expected": 2
+      },
+      "decisions": {
+        "recovered": 0,
+        "expected": 2,
+        "precision": {
+          "supported": 0,
+          "predicted": 4,
+          "unreviewed": 4
+        }
+      },
+      "open_questions": {
+        "recovered": 0,
+        "expected": 2,
+        "precision": {
+          "supported": 0,
+          "predicted": 2,
+          "unreviewed": 2
+        }
+      },
+      "targets": [
+        {
+          "id": "Q1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "저장 방식의 장단점/선택 문제",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "Q2",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 MVP 도입 질문",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "H1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "초기 서버 없는 Offline-first 선호",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "H2",
+          "episode": 1,
+          "event_position": 16,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 MVP 가설",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "R1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "evidence",
+            "contradiction",
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "데이터 보존과 기기 간 동기화 위험을 사용자 인식",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "I1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "로컬만 충분하다는 가설을 재검토하는 명시적 변화",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "A1",
+          "episode": 1,
+          "event_position": 18,
+          "allowed_types": [
+            "question",
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "Cloud-first와 Supabase 검토, 미결정 상태",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "D1",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "Supabase 메인과 IndexedDB 보조 채택",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "D2",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 기각",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "C1",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "evidence",
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "UX와 개발 복잡도 평가 기준",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "O1",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 도입 여부 미결정",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "O2",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "실제 사용자 테스트 이후 재검토 조건",
+          "matched_object_ids": [],
+          "recovered": false
+        }
+      ],
+      "quote_match": {
+        "matched": 50,
+        "total": 50
+      },
+      "field_speaker_consistency": {
+        "correct": 25,
+        "total": 25
+      },
+      "semantic_support": {
+        "supported": 0,
+        "unsupported": 0,
+        "uncertain": 0,
+        "unreviewed": 25,
+        "total": 25
+      },
+      "unnecessary_duplicates": [],
+      "objects": [
+        {
+          "id": "grounding-R3-E1-O1",
+          "type": "question",
+          "speaker": "user"
+        },
+        {
+          "id": "grounding-R3-E1-O2",
+          "type": "evidence",
+          "speaker": "source"
+        },
+        {
+          "id": "grounding-R3-E1-O3",
+          "type": "evidence",
+          "speaker": "source"
+        },
+        {
+          "id": "grounding-R3-E1-O4",
+          "type": "evidence",
+          "speaker": "source"
+        },
+        {
+          "id": "grounding-R3-E1-O5",
+          "type": "question",
+          "speaker": "user"
+        },
+        {
+          "id": "grounding-R3-E1-O6",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R3-E1-O7",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R3-E1-O8",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R3-E1-O9",
+          "type": "question",
+          "speaker": "user"
+        },
+        {
+          "id": "grounding-R3-E1-O10",
+          "type": "decision",
+          "speaker": "user"
+        },
+        {
+          "id": "grounding-R3-E1-O11",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R3-E1-O12",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R3-E1-O13",
+          "type": "open_question",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R3-E2-O1",
+          "type": "question",
+          "speaker": "user"
+        },
+        {
+          "id": "grounding-R3-E2-O2",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R3-E2-O3",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R3-E2-O4",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R3-E2-O5",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R3-E2-O6",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R3-E2-O7",
+          "type": "question",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R3-E2-O8",
+          "type": "decision",
+          "speaker": "user"
+        },
+        {
+          "id": "grounding-R3-E2-O9",
+          "type": "decision",
+          "speaker": "user"
+        },
+        {
+          "id": "grounding-R3-E2-O10",
+          "type": "decision",
+          "speaker": "user"
+        },
+        {
+          "id": "grounding-R3-E2-O11",
+          "type": "open_question",
+          "speaker": "assistant"
+        },
+        {
+          "id": "grounding-R3-E2-O12",
+          "type": "evidence",
+          "speaker": "assistant"
+        }
+      ],
+      "usage": {
+        "input_tokens": 199452,
+        "output_tokens": 10299,
+        "total_tokens": 209751
+      },
+      "duration_ms": 123154
+    },
+    {
+      "id": "new-R1",
+      "status": "complete",
+      "episode_count": 2,
+      "object_count": 38,
+      "questions": {
+        "recovered": 0,
+        "expected": 2
+      },
+      "hypotheses": {
+        "recovered": 0,
+        "expected": 2
+      },
+      "decisions": {
+        "recovered": 0,
+        "expected": 2,
+        "precision": {
+          "supported": 0,
+          "predicted": 1,
+          "unreviewed": 1
+        }
+      },
+      "open_questions": {
+        "recovered": 0,
+        "expected": 2,
+        "precision": {
+          "supported": 0,
+          "predicted": 2,
+          "unreviewed": 2
+        }
+      },
+      "targets": [
+        {
+          "id": "Q1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "저장 방식의 장단점/선택 문제",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "Q2",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 MVP 도입 질문",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "H1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "초기 서버 없는 Offline-first 선호",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "H2",
+          "episode": 1,
+          "event_position": 16,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 MVP 가설",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "R1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "evidence",
+            "contradiction",
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "데이터 보존과 기기 간 동기화 위험을 사용자 인식",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "I1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "로컬만 충분하다는 가설을 재검토하는 명시적 변화",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "A1",
+          "episode": 1,
+          "event_position": 18,
+          "allowed_types": [
+            "question",
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "Cloud-first와 Supabase 검토, 미결정 상태",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "D1",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "Supabase 메인과 IndexedDB 보조 채택",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "D2",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 기각",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "C1",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "evidence",
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "UX와 개발 복잡도 평가 기준",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "O1",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 도입 여부 미결정",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "O2",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "실제 사용자 테스트 이후 재검토 조건",
+          "matched_object_ids": [],
+          "recovered": false
+        }
+      ],
+      "quote_match": {
+        "matched": 95,
+        "total": 95
+      },
+      "field_speaker_consistency": {
+        "correct": 38,
+        "total": 38
+      },
+      "semantic_support": {
+        "supported": 0,
+        "unsupported": 0,
+        "uncertain": 0,
+        "unreviewed": 38,
+        "total": 38
+      },
+      "unnecessary_duplicates": [],
+      "objects": [
+        {
+          "id": "new-R1-E1-O1",
+          "type": "question",
+          "speaker": "user"
+        },
+        {
+          "id": "new-R1-E1-O2",
+          "type": "hypothesis",
+          "speaker": "user"
+        },
+        {
+          "id": "new-R1-E1-O3",
+          "type": "question",
+          "speaker": "user"
+        },
+        {
+          "id": "new-R1-E1-O4",
+          "type": "open_question",
+          "speaker": "user"
+        },
+        {
+          "id": "new-R1-E1-O5",
+          "type": "decision",
+          "speaker": "user"
+        },
+        {
+          "id": "new-R1-E1-O6",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E1-O7",
+          "type": "evidence",
+          "speaker": "source"
+        },
+        {
+          "id": "new-R1-E1-O8",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E1-O9",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E1-O10",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E1-O11",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E1-O12",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E1-O13",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E1-O14",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E1-O15",
+          "type": "contradiction",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E1-O16",
+          "type": "evidence",
+          "speaker": "source"
+        },
+        {
+          "id": "new-R1-E1-O17",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E1-O18",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E1-O19",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E1-O20",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E1-O21",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E1-O22",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E1-O23",
+          "type": "contradiction",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E1-O24",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E2-O1",
+          "type": "question",
+          "speaker": "user"
+        },
+        {
+          "id": "new-R1-E2-O2",
+          "type": "evidence",
+          "speaker": "user"
+        },
+        {
+          "id": "new-R1-E2-O3",
+          "type": "evidence",
+          "speaker": "user"
+        },
+        {
+          "id": "new-R1-E2-O4",
+          "type": "open_question",
+          "speaker": "user"
+        },
+        {
+          "id": "new-R1-E2-O5",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E2-O6",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E2-O7",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E2-O8",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E2-O9",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E2-O10",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E2-O11",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E2-O12",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E2-O13",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R1-E2-O14",
+          "type": "contradiction",
+          "speaker": "assistant"
+        }
+      ],
+      "usage": {
+        "input_tokens": 90795,
+        "output_tokens": 10070,
+        "total_tokens": 100865
+      },
+      "duration_ms": 114049,
+      "call_count": 6
+    },
+    {
+      "id": "new-R2",
+      "status": "complete",
+      "episode_count": 2,
+      "object_count": 26,
+      "questions": {
+        "recovered": 0,
+        "expected": 2
+      },
+      "hypotheses": {
+        "recovered": 0,
+        "expected": 2
+      },
+      "decisions": {
+        "recovered": 0,
+        "expected": 2,
+        "precision": {
+          "supported": 0,
+          "predicted": 1,
+          "unreviewed": 1
+        }
+      },
+      "open_questions": {
+        "recovered": 0,
+        "expected": 2,
+        "precision": {
+          "supported": 0,
+          "predicted": 2,
+          "unreviewed": 2
+        }
+      },
+      "targets": [
+        {
+          "id": "Q1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "저장 방식의 장단점/선택 문제",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "Q2",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 MVP 도입 질문",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "H1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "초기 서버 없는 Offline-first 선호",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "H2",
+          "episode": 1,
+          "event_position": 16,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 MVP 가설",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "R1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "evidence",
+            "contradiction",
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "데이터 보존과 기기 간 동기화 위험을 사용자 인식",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "I1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "로컬만 충분하다는 가설을 재검토하는 명시적 변화",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "A1",
+          "episode": 1,
+          "event_position": 18,
+          "allowed_types": [
+            "question",
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "Cloud-first와 Supabase 검토, 미결정 상태",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "D1",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "Supabase 메인과 IndexedDB 보조 채택",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "D2",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 기각",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "C1",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "evidence",
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "UX와 개발 복잡도 평가 기준",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "O1",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 도입 여부 미결정",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "O2",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "실제 사용자 테스트 이후 재검토 조건",
+          "matched_object_ids": [],
+          "recovered": false
+        }
+      ],
+      "quote_match": {
+        "matched": 67,
+        "total": 67
+      },
+      "field_speaker_consistency": {
+        "correct": 26,
+        "total": 26
+      },
+      "semantic_support": {
+        "supported": 0,
+        "unsupported": 0,
+        "uncertain": 0,
+        "unreviewed": 26,
+        "total": 26
+      },
+      "unnecessary_duplicates": [],
+      "objects": [
+        {
+          "id": "new-R2-E1-O1",
+          "type": "question",
+          "speaker": "user"
+        },
+        {
+          "id": "new-R2-E1-O2",
+          "type": "hypothesis",
+          "speaker": "user"
+        },
+        {
+          "id": "new-R2-E1-O3",
+          "type": "open_question",
+          "speaker": "user"
+        },
+        {
+          "id": "new-R2-E1-O4",
+          "type": "question",
+          "speaker": "user"
+        },
+        {
+          "id": "new-R2-E1-O5",
+          "type": "decision",
+          "speaker": "user"
+        },
+        {
+          "id": "new-R2-E1-O6",
+          "type": "evidence",
+          "speaker": "source"
+        },
+        {
+          "id": "new-R2-E1-O7",
+          "type": "evidence",
+          "speaker": "source"
+        },
+        {
+          "id": "new-R2-E1-O8",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R2-E1-O9",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R2-E1-O10",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R2-E1-O11",
+          "type": "contradiction",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R2-E1-O12",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R2-E1-O13",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R2-E1-O14",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R2-E1-O15",
+          "type": "evidence",
+          "speaker": "source"
+        },
+        {
+          "id": "new-R2-E1-O16",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R2-E1-O17",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R2-E2-O1",
+          "type": "question",
+          "speaker": "user"
+        },
+        {
+          "id": "new-R2-E2-O2",
+          "type": "evidence",
+          "speaker": "user"
+        },
+        {
+          "id": "new-R2-E2-O3",
+          "type": "open_question",
+          "speaker": "user"
+        },
+        {
+          "id": "new-R2-E2-O4",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R2-E2-O5",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R2-E2-O6",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R2-E2-O7",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R2-E2-O8",
+          "type": "contradiction",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R2-E2-O9",
+          "type": "evidence",
+          "speaker": "assistant"
+        }
+      ],
+      "usage": {
+        "input_tokens": 90693,
+        "output_tokens": 7776,
+        "total_tokens": 98469
+      },
+      "duration_ms": 87521,
+      "call_count": 6
+    },
+    {
+      "id": "new-R3",
+      "status": "complete",
+      "episode_count": 2,
+      "object_count": 101,
+      "questions": {
+        "recovered": 0,
+        "expected": 2
+      },
+      "hypotheses": {
+        "recovered": 0,
+        "expected": 2
+      },
+      "decisions": {
+        "recovered": 0,
+        "expected": 2,
+        "precision": {
+          "supported": 0,
+          "predicted": 1,
+          "unreviewed": 1
+        }
+      },
+      "open_questions": {
+        "recovered": 0,
+        "expected": 2,
+        "precision": {
+          "supported": 0,
+          "predicted": 2,
+          "unreviewed": 2
+        }
+      },
+      "targets": [
+        {
+          "id": "Q1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "저장 방식의 장단점/선택 문제",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "Q2",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 MVP 도입 질문",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "H1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "초기 서버 없는 Offline-first 선호",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "H2",
+          "episode": 1,
+          "event_position": 16,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 MVP 가설",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "R1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "evidence",
+            "contradiction",
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "데이터 보존과 기기 간 동기화 위험을 사용자 인식",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "I1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "로컬만 충분하다는 가설을 재검토하는 명시적 변화",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "A1",
+          "episode": 1,
+          "event_position": 18,
+          "allowed_types": [
+            "question",
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "Cloud-first와 Supabase 검토, 미결정 상태",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "D1",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "Supabase 메인과 IndexedDB 보조 채택",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "D2",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 기각",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "C1",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "evidence",
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "UX와 개발 복잡도 평가 기준",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "O1",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 도입 여부 미결정",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "O2",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "실제 사용자 테스트 이후 재검토 조건",
+          "matched_object_ids": [],
+          "recovered": false
+        }
+      ],
+      "quote_match": {
+        "matched": 238,
+        "total": 238
+      },
+      "field_speaker_consistency": {
+        "correct": 101,
+        "total": 101
+      },
+      "semantic_support": {
+        "supported": 0,
+        "unsupported": 0,
+        "uncertain": 0,
+        "unreviewed": 101,
+        "total": 101
+      },
+      "unnecessary_duplicates": [],
+      "objects": [
+        {
+          "id": "new-R3-E1-O1",
+          "type": "question",
+          "speaker": "user"
+        },
+        {
+          "id": "new-R3-E1-O2",
+          "type": "hypothesis",
+          "speaker": "user"
+        },
+        {
+          "id": "new-R3-E1-O3",
+          "type": "open_question",
+          "speaker": "user"
+        },
+        {
+          "id": "new-R3-E1-O4",
+          "type": "question",
+          "speaker": "user"
+        },
+        {
+          "id": "new-R3-E1-O5",
+          "type": "decision",
+          "speaker": "user"
+        },
+        {
+          "id": "new-R3-E1-O6",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E1-O7",
+          "type": "evidence",
+          "speaker": "source"
+        },
+        {
+          "id": "new-R3-E1-O8",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E1-O9",
+          "type": "contradiction",
+          "speaker": "source"
+        },
+        {
+          "id": "new-R3-E1-O10",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E1-O11",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E1-O12",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E1-O13",
+          "type": "contradiction",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E1-O14",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E1-O15",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E1-O16",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E1-O17",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E1-O18",
+          "type": "contradiction",
+          "speaker": "source"
+        },
+        {
+          "id": "new-R3-E1-O19",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E1-O20",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E1-O21",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E1-O22",
+          "type": "contradiction",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E1-O23",
+          "type": "evidence",
+          "speaker": "source"
+        },
+        {
+          "id": "new-R3-E1-O24",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E1-O25",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O1",
+          "type": "question",
+          "speaker": "user"
+        },
+        {
+          "id": "new-R3-E2-O2",
+          "type": "open_question",
+          "speaker": "user"
+        },
+        {
+          "id": "new-R3-E2-O3",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O4",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O5",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O6",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O7",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O8",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O9",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O10",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O11",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O12",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O13",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O14",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O15",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O16",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O17",
+          "type": "contradiction",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O18",
+          "type": "contradiction",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O19",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O20",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O21",
+          "type": "evidence",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O22",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O23",
+          "type": "contradiction",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O24",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O25",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O26",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O27",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O28",
+          "type": "contradiction",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O29",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O30",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O31",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O32",
+          "type": "contradiction",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O33",
+          "type": "contradiction",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O34",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O35",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O36",
+          "type": "contradiction",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O37",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O38",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O39",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O40",
+          "type": "contradiction",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O41",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O42",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O43",
+          "type": "contradiction",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O44",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O45",
+          "type": "contradiction",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O46",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O47",
+          "type": "contradiction",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O48",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O49",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O50",
+          "type": "contradiction",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O51",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O52",
+          "type": "contradiction",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O53",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O54",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O55",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O56",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O57",
+          "type": "contradiction",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O58",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O59",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O60",
+          "type": "contradiction",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O61",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O62",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O63",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O64",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O65",
+          "type": "contradiction",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O66",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O67",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O68",
+          "type": "contradiction",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O69",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O70",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O71",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O72",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O73",
+          "type": "insight",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O74",
+          "type": "contradiction",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O75",
+          "type": "hypothesis",
+          "speaker": "assistant"
+        },
+        {
+          "id": "new-R3-E2-O76",
+          "type": "insight",
+          "speaker": "assistant"
+        }
+      ],
+      "usage": {
+        "input_tokens": 153629,
+        "output_tokens": 21265,
+        "total_tokens": 174894
+      },
+      "duration_ms": 243905,
+      "call_count": 8
+    }
+  ]
+}

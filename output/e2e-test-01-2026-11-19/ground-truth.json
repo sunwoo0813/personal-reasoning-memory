@@ -1,0 +1,110 @@
+[
+  {
+    "id": "EP01-01",
+    "meaning": "초기 질문: 어떤 데이터 저장 방식을 선택할 것인가?",
+    "event_indices": [
+      9
+    ]
+  },
+  {
+    "id": "EP01-02",
+    "meaning": "초기 선호: Offline-first 및 서버 없는 로컬 저장 선호",
+    "event_indices": [
+      9
+    ]
+  },
+  {
+    "id": "EP01-03",
+    "meaning": "사용자 가설: IndexedDB 단독 저장으로 MVP 구현 가능",
+    "event_indices": [
+      16
+    ]
+  },
+  {
+    "id": "EP01-04",
+    "meaning": "근거: IndexedDB의 로컬 데이터 저장 기능",
+    "event_indices": [
+      5,
+      7,
+      8,
+      11,
+      12,
+      16
+    ]
+  },
+  {
+    "id": "EP01-05",
+    "meaning": "반론: 데이터 보존 위험 및 기기 간 동기화 한계",
+    "event_indices": [
+      9,
+      15,
+      16,
+      17
+    ]
+  },
+  {
+    "id": "EP01-06",
+    "meaning": "생각 변화: IndexedDB 단독 방식 재검토",
+    "event_indices": [
+      17
+    ]
+  },
+  {
+    "id": "EP01-07",
+    "meaning": "검토 대안: Cloud-first 및 Supabase",
+    "event_indices": [
+      18
+    ]
+  },
+  {
+    "id": "EP01-08",
+    "meaning": "최종 사용자 결정: Supabase 메인 + IndexedDB 보조",
+    "event_indices": [
+      19
+    ]
+  },
+  {
+    "id": "EP01-09",
+    "meaning": "기각된 대안: IndexedDB 단독 저장",
+    "event_indices": [
+      19
+    ]
+  },
+  {
+    "id": "EP02-01",
+    "meaning": "새로운 질문: MVP 회원가입 기능 필요 여부",
+    "event_indices": [
+      20
+    ]
+  },
+  {
+    "id": "EP02-02",
+    "meaning": "평가 기준: 사용자 경험과 개발 복잡도",
+    "event_indices": [
+      20
+    ]
+  },
+  {
+    "id": "EP02-03",
+    "meaning": "사용자 판단: 아직 결정하지 않음",
+    "event_indices": [
+      20,
+      22
+    ]
+  },
+  {
+    "id": "EP02-04",
+    "meaning": "미해결 질문: 회원가입 도입 여부",
+    "event_indices": [
+      20,
+      22
+    ]
+  },
+  {
+    "id": "EP02-05",
+    "meaning": "후속 조건: 실제 사용자 테스트 후 재검토",
+    "event_indices": [
+      22
+    ]
+  }
+]

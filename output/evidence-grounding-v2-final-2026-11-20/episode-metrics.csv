@@ -1,0 +1,7 @@
+﻿repeat,episode,status,candidates,validated,unresolved,accepted_in_full_run,repair_rounds,schema_regenerations,model_calls,error_counts
+"1","1","complete","14","14","0","14","1","0","4","{""duplicate_evidence"":1}"
+"1","2","complete","10","10","0","10","0","0","2","{}"
+"2","1","failed","15","14","1","0","2","0","6","{""duplicate_evidence"":2,""alignment_uncertain"":3,""unresolved_objects"":1}"
+"2","2","not_reached","","0","","0","0","0","0","{}"
+"3","1","complete","13","13","0","13","2","0","6","{""duplicate_evidence"":1,""alignment_uncertain"":2}"
+"3","2","complete","12","12","0","12","1","0","4","{""duplicate_evidence"":1}"

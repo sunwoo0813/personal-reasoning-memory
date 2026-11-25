@@ -1,0 +1,23 @@
+{
+  "version": "reasoning-v2-evaluation-02",
+  "fixed_before_execution": true,
+  "scope": "22 unchanged captured events, fixed purpose-v2 EP01 E01-E19 / EP02 E20-E22, gpt-5-mini, 3 independent full runs; additional independent synthetic domains once each",
+  "comparators": [
+    "original extraction-v1: 35 objects in 4 episodes",
+    "evidence-grounding-v2-final-2026-11-20: 2/3 full runs complete"
+  ],
+  "adjudication": "Human-readable manual semantic assessment of text, type, speaker, selected source quotes and full user context. Store per-target and per-object labels with reasons; do not call keyword checks semantic accuracy. This is developer assessment, not blinded external review.",
+  "recall": "A target requires correct type/speaker, semantically present text and direct evidence from the specified user turn. Partial or embedded in a generic question is reported separately, not full typed recall. One compound object may express multiple distinct facts; it is not multiple independent objects.",
+  "precision": "For decisions and open_question, all emitted objects of that type are the denominator (including assistant/source objects). Decision must explicitly adopt/reject, not defer; open_question must remain unresolved and be user-owned. Duplicate true paraphrases count as supported but are separately counted redundant.",
+  "speaker_accuracy": "Evaluate ownership claimed in the text against direct selected speech, in addition to deterministic field/speaker consistency. Unknown is not scored correct ownership.",
+  "semantic_support": "Check all material claims, type, relevant selected spans, negation, temporal status and adoption. Report developer-supported fraction and uncertain separately. Existing model_supported is not ground truth or objective verification.",
+  "unnecessary_duplicates": "Object repeats another without a distinct speech act/information contribution, repeats AI recommendations, or contains off-purpose technical detail. Record object IDs and reasons; do not use object count alone.",
+  "completion": "Full run completes only when every episode validates. Failed run contributes zero accepted objects and zero operational target recall; report completed-only quality separately so failures cannot disappear from results.",
+  "literal_match": "All selected refs must pass exact UTF-16 source slice and substring checks; report matched refs / emitted refs.",
+  "cost": "Sum all recorded input/output/total usage including repairs and support review, report per-run elapsed milliseconds and API calls; unknown API usage remains unknown.",
+  "no_tuning": "Do not change classification or evaluation thresholds after these runs start. Preserve all failed candidates and raw calls. A new implementation requires a separate output directory/protocol.",
+  "limits": "Historical different-size samples and one session cannot establish general improvement or isolate policy causality; synthetic independent cases are smoke tests, not a population benchmark. No relationship graph scoring.",
+  "development_pilot": "output/reasoning-v2-2026-11-21 (3 runs) and output/reasoning-v2-independent-2026-11-21 (4 new-domain development cases); preserved separately. Added generic user speech-act draft revision after observing omissions and resolved open-question errors. Metrics and ground truth unchanged.",
+  "candidate_count": "Prepared object slots after user draft revision and support extraction; initial and revised user counts and raw responses are preserved separately.",
+  "independent_holdout": "evals/reasoning-v2/holdout-cases.json: two additional domains fixed before final implementation run, evaluated once after freezing code; do not tune after seeing results."
+}

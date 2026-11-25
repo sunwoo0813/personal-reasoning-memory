@@ -1,0 +1,73 @@
+{
+  "run": {
+    "id": "f6cf55c8-bb30-41cb-89f5-b398384dbf4f",
+    "kind": "local_segmentation_evaluation",
+    "source_run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+    "model": "gpt-5-mini",
+    "policy": "purpose-v2",
+    "status": "failed",
+    "created_at": "2026-11-19T02:06:28.536Z",
+    "error": "질문 16의 이전 맥락 연결이 관찰된 범위를 벗어나거나 새 조사 목적과 충돌합니다.",
+    "completed_at": "2026-11-19T02:07:35.497Z",
+    "source_unchanged": true
+  },
+  "source_state_hash": "539b8a772d2585eaa1f50a231d087e6c492e4700c66a37d8636806943d19f135",
+  "source_input_hash": "a005a03b9694f3199435676f52f972729e6e6ce6e53be54478dfe3bbc150fdab",
+  "before": [
+    {
+      "sequence": 1,
+      "title": "초기 질문: 오프라인 우선(Offline-first) 도입 고려",
+      "goal": "개인용 메모 웹앱에 서버 없이 브라우저 저장(Offline-first)을 사용하는 초안 아이디어를 제기하고 장단점을 문의함.",
+      "boundary_reason": "사용자가 오프라인 우선 방식 도입에 관한 첫 질문(및 관련 ChatGPT 접속)을 제기한 시점에서 종료.",
+      "event_indices": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "sequence": 2,
+      "title": "브라우저 로컬 저장 옵션 조사",
+      "goal": "IndexedDB와 PWA/오프라인 데이터 저장 관련 기술 문서(MDN, web.dev 등)를 검색해 기술적 근거와 구현 방법을 수집함.",
+      "boundary_reason": "관련 검색과 문서(IndexedDB, web.dev) 조회를 마친 시점에서 종료.",
+      "event_indices": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "sequence": 3,
+      "title": "가설 검증과 위험 분석 — IndexedDB 단독 사용 평가",
+      "goal": "IndexedDB만을 초기 MVP 저장소로 사용하는 가설을 세우고, 데이터 유실·백업·동기화 등 놓치기 쉬운 위험을 확인한 뒤 MVP 검증 체크리스트를 도출함.",
+      "boundary_reason": "IndexedDB 단독 가설의 위험 분석과 MVP 검증 항목·결론(IndexedDB 단독은 조건부로만 허용)을 정리한 LLM 응답과 저장 한도 문서 조회까지 완료되어 종료.",
+      "event_indices": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16
+      ]
+    },
+    {
+      "sequence": 4,
+      "title": "아키텍처 재검토: 클라우드( Supabase ) 도입 및 인증(회원가입) 검토",
+      "goal": "기기 간 동기화 요구를 반영해 Supabase를 메인 저장소로 하고 IndexedDB는 캐시/오프라인 임시 저장으로 사용하는 최종 아키텍처를 확정하고, 회원가입 도입 여부를 UX·개발 복잡도로 비교하여 미해결로 남김.",
+      "boundary_reason": "Supabase 중심 아키텍처 확정과 회원가입 관련 의사결정을 미해결(Open) 상태로 보류하는 결론을 문서화하며 세션의 결정 단계가 마무리되어 종료.",
+      "event_indices": [
+        17,
+        18,
+        19,
+        20,
+        21,
+        22
+      ]
+    }
+  ],
+  "after": []
+}

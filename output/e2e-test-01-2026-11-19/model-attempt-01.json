@@ -1,0 +1,147 @@
+{
+  "episode": 1,
+  "stage": "extract_episode",
+  "requested_at": "2026-11-19T04:52:23.785Z",
+  "correction_reason": null,
+  "result": {
+    "objects": [
+      {
+        "type": "question",
+        "speaker": "user",
+        "text": "나는 개인용 메모 웹앱을 만들려고 해. 초기에는 혼자 사용하는 앱이고, 빠른 실행 속도와 간단한 구조가 중요해. 그래서 서버 없이 브라우저에 데이터를 저장하는 Offline-first 방식이 더 좋을 것 같아. 이 방식의 장단점을 설명해줘",
+        "evidence": []
+      },
+      {
+        "type": "question",
+        "speaker": "user",
+        "text": "MDN 문서를 보니 IndexedDB로 브라우저에 데이터를 저장할 수 있네. 그렇다면 초기 MVP에서는 별도 클라우드 데이터베이스 없이 IndexedDB만 사용하는게 합리적이라는 가설을 세울 수 있겠어. 이 판단에서 놓치고 있는 위험이 있을까?",
+        "evidence": []
+      },
+      {
+        "type": "evidence",
+        "speaker": "source",
+        "text": "IndexedDB는 파일이나 블롭 등 많은 양의 구조화된 데이터를 클라이언트에 저장하기 위한 로우 레벨 API입니다.",
+        "evidence": [
+          {
+            "event_id": "fa8ea361-d1d5-4cbd-b518-fca030858743",
+            "field": "text",
+            "quote": "IndexedDB는 파일이나 블롭 등 많은 양의 구조화된 데이터를 클라이언트에 저장하기 위한 로우 레벨 API입니다."
+          }
+        ]
+      },
+      {
+        "type": "evidence",
+        "speaker": "source",
+        "text": "IndexedDB : 구조화된 데이터 및 blob (바이너리 데이터)을 위한 NoSQL 객체 스토리지 옵션입니다.",
+        "evidence": [
+          {
+            "event_id": "7e04dbd8-6f36-44dd-8187-1247ebd9478a",
+            "field": "text",
+            "quote": "IndexedDB\n: 구조화된 데이터 및 blob (바이너리 데이터)을 위한 NoSQL 객체 스토리지 옵션입니다."
+          }
+        ]
+      },
+      {
+        "type": "evidence",
+        "speaker": "source",
+        "text": "The data stored in the browser by an origin is best-effort by default.",
+        "evidence": [
+          {
+            "event_id": "cea924fc-a959-4e71-8805-3074f62960c3",
+            "field": "text",
+            "quote": "The data stored in the browser by an origin is best-effort by default."
+          }
+        ]
+      },
+      {
+        "type": "evidence",
+        "speaker": "source",
+        "text": "If, for any reason, developers need persistent storage (e.g., when building a web app that relies on critical data that isn't persisted anywhere else), they can do so by using the\nnavigator.storage.persist()\nmethod of the\nStorage API\n.",
+        "evidence": [
+          {
+            "event_id": "cea924fc-a959-4e71-8805-3074f62960c3",
+            "field": "text",
+            "quote": "If, for any reason, developers need persistent storage (e.g., when building a web app that relies on critical data that isn't persisted anywhere else), they can do so by using the\nnavigator.storage.persist()\nmethod of the\nStorage API\n."
+          }
+        ]
+      },
+      {
+        "type": "insight",
+        "speaker": "assistant",
+        "text": "초기에는 서버 없이 IndexedDB를 중심으로 개발하는 것이 적절해.",
+        "evidence": [
+          {
+            "event_id": "ed3c4e3f-3a74-4ce9-88e9-b3d1535b0e95",
+            "field": "response",
+            "quote": "현재 요구사항이라면 초기에는 서버 없이 IndexedDB를 중심으로 개발하는 것이 적절해."
+          }
+        ]
+      },
+      {
+        "type": "insight",
+        "speaker": "assistant",
+        "text": "추천 MVP 기술 구조\n\n프론트엔드: React + Vite + TypeScript\n\n로컬 DB: IndexedDB (Dexie.js 활용)\n\n오프라인 실행: PWA + Service Worker\n\n데이터 백업: JSON 파일 내보내기 및 가져오기\n\n백엔드: 없음",
+        "evidence": [
+          {
+            "event_id": "ed3c4e3f-3a74-4ce9-88e9-b3d1535b0e95",
+            "field": "response",
+            "quote": "추천 MVP 기술 구조\n\n프론트엔드: React + Vite + TypeScript\n\n로컬 DB: IndexedDB (Dexie.js 활용)\n\n오프라인 실행: PWA + Service Worker\n\n데이터 백업: JSON 파일 내보내기 및 가져오기\n\n백엔드: 없음"
+          }
+        ]
+      },
+      {
+        "type": "insight",
+        "speaker": "assistant",
+        "text": "초기에는 IndexedDB만으로 시작하되, 실제 사용을 통해 데이터 보존의 중요성과 여러 기기에서 사용할 필요성을 검증한 뒤 클라우드 동기화 도입 여부를 결정하는 것이 합리적이다.",
+        "evidence": [
+          {
+            "event_id": "3d95ae56-0184-4ec8-9c79-edcd4bfb91ce",
+            "field": "response",
+            "quote": "초기에는 IndexedDB만으로 시작하되, 실제 사용을 통해 데이터 보존의 중요성과 여러 기기에서 사용할 필요성을 검증한 뒤 클라우드 동기화 도입 여부를 결정하는 것이 합리적이다."
+          }
+        ]
+      },
+      {
+        "type": "insight",
+        "speaker": "assistant",
+        "text": "IndexedDB를 로컬 저장 계층으로 유지하고 클라우드 DB를 결합하면, 빠른 응답성과 오프라인 사용성을 유지하면서 기기 간 동기화와 데이터 보존 문제를 개선할 수 있다.",
+        "evidence": [
+          {
+            "event_id": "f225995d-1dbe-48f2-8fae-5e10639ba8c0",
+            "field": "response",
+            "quote": "IndexedDB를 로컬 저장 계층으로 유지하고 클라우드 DB를 결합하면, 빠른 응답성과 오프라인 사용성을 유지하면서 기기 간 동기화와 데이터 보존 문제를 개선할 수 있다."
+          }
+        ]
+      },
+      {
+        "type": "decision",
+        "speaker": "user",
+        "text": "최종적으로 결정했어. MVP에서는 Supabase를 메인 데이터 저장소로 사용하고, IndexedDB는 오프라인 임시 저장과 캐시에 활용할게. 처음 생각했던 IndexedDB 단독 방식은 기기 간 동기화와 데이터 보존 요구사항 때문에 채택하지 않겠어",
+        "evidence": [
+          {
+            "event_id": "263cc105-3ef9-4d46-9792-bb2c82b20511",
+            "field": "question",
+            "quote": "최종적으로 결정했어. MVP에서는 Supabase를 메인 데이터 저장소로 사용하고, IndexedDB는 오프라인 임시 저장과 캐시에 활용할게. 처음 생각했던 IndexedDB 단독 방식은 기기 간 동기화와 데이터 보존 요구사항 때문에 채택하지 않겠어"
+          }
+        ]
+      }
+    ]
+  },
+  "usage": {
+    "input_tokens": 25526,
+    "input_tokens_details": {
+      "cache_write_tokens": 0,
+      "cache_write_tokens_details": {
+        "ttl_12h_tokens": 0,
+        "ttl_30m_tokens": 0
+      },
+      "cached_tokens": 0
+    },
+    "output_tokens": 2220,
+    "output_tokens_details": {
+      "reasoning_tokens": 832
+    },
+    "total_tokens": 27746
+  },
+  "response_id": "resp_0067ad9f5c467e1c016afe805f2a3887d098b8235901108f6d"
+}

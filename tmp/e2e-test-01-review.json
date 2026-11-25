@@ -1,0 +1,46 @@
+{
+  "reviewer": "현재 코딩 어시스턴트의 비맹검 원문 대조 검토. 별도 LLM 채점 호출과 독립 사람 채점 없음.",
+  "ground_truth_reviews": [
+    {"id":"EP01-01","baseline":"full","baseline_objects":["B-EP03-O14"],"diagnostic_objects":["D-EP01-A03-O01"],"diagnostic_meaning":"표현됨; 전체 EP01 거부로 정식 회수 판정 제외"},
+    {"id":"EP01-02","baseline":"full","baseline_objects":["B-EP03-O14"],"diagnostic_objects":["D-EP01-A03-O01"],"diagnostic_meaning":"초기 선호가 사용자 question 객체의 전문 안에 표현됨"},
+    {"id":"EP01-03","baseline":"partial","baseline_objects":["B-EP03-O12","B-EP03-O06"],"diagnostic_objects":["D-EP01-A03-O02"],"diagnostic_meaning":"사용자 발언은 question에 남지만 user/hypothesis 객체 없음. 기존도 assistant/hypothesis가 별도로 있고 사용자 가설은 question에 포함됨"},
+    {"id":"EP01-04","baseline":"full","baseline_objects":["B-EP02-O04","B-EP02-O06","B-EP03-O11"],"diagnostic_objects":["D-EP01-A03-O04","D-EP01-A03-O05"],"diagnostic_meaning":"로컬 구조화 데이터 저장 기능의 원문 근거 표현됨"},
+    {"id":"EP01-05","baseline":"full","baseline_objects":["B-EP03-O05","B-EP03-O07","B-EP03-O10","B-EP04-O09"],"diagnostic_objects":["D-EP01-A03-O06","D-EP01-A03-O10"],"diagnostic_meaning":"보존 위험 근거와 동기화 개선 제안은 있지만 사용자의 위험 인식 E17은 개별 객체로 없음"},
+    {"id":"EP01-06","baseline":"full","baseline_objects":["B-EP04-O09"],"diagnostic_objects":["D-EP01-A03-O11"],"diagnostic_meaning":"사용자 생각 변화가 아닌 AI 권고 변화만 contradiction으로 표현. E17.question 직접 근거 객체 없음"},
+    {"id":"EP01-07","baseline":"full","baseline_objects":["B-EP04-O10"],"diagnostic_objects":["D-EP01-A03-O03"],"diagnostic_meaning":"사용자의 미확정 Cloud-first/Supabase 검토가 표현됨"},
+    {"id":"EP01-08","baseline":"full","baseline_objects":["B-EP04-O05"],"diagnostic_objects":["D-EP01-A03-O12"],"diagnostic_meaning":"결정 의미는 표현했으나 E19 인용의 '메인 데이터'를 '메인데이터'로 바꿔 증거 검증 실패"},
+    {"id":"EP01-09","baseline":"full","baseline_objects":["B-EP04-O05"],"diagnostic_objects":["D-EP01-A03-O12"],"diagnostic_meaning":"IndexedDB 단독 기각의 의미는 같은 결정 객체 안에 있으나 해당 객체의 인용 검증 실패"},
+    {"id":"EP02-01","baseline":"full","baseline_objects":["B-EP04-O01"],"new_status":"full_isolated_ep02","new_objects":["N-EP02-O01"],"note":"새 질문과 이전 저장 문제 종료를 사용자 원문으로 보존"},
+    {"id":"EP02-02","baseline":"full","baseline_objects":["B-EP04-O01"],"new_status":"full_isolated_ep02","new_objects":["N-EP02-O01"],"note":"UX·개발 복잡도가 사용자 질문 전문에 들어 있으므로 별도 객체가 없어도 의미 회수"},
+    {"id":"EP02-03","baseline":"full","baseline_objects":["B-EP04-O01","B-EP04-O07"],"new_status":"full_isolated_ep02","new_objects":["N-EP02-O01","N-EP02-O06"],"note":"미결정 유지·판단 보류를 정확히 표현. 도입/배제 확정으로 해석하지 않음"},
+    {"id":"EP02-04","baseline":"full","baseline_objects":["B-EP04-O07"],"new_status":"full_isolated_ep02","new_objects":["N-EP02-O05","N-EP02-O06"],"note":"미해결 의미는 회수. 다만 open_question은 assistant이고 user/open_question은 0개. 사용자의 보류 발언은 decision으로 표현"},
+    {"id":"EP02-05","baseline":"full","baseline_objects":["B-EP04-O07"],"new_status":"full_isolated_ep02","new_objects":["N-EP02-O06"],"note":"실제 사용자 테스트 후 재판단 조건을 사용자 원문으로 보존"}
+  ],
+  "baseline_confirmed_misclassifications": [
+    {"id":"B-EP03-O04","reason":"E14의 검색 문자열만으로 user/open_question을 생성. 질문의 미해결 상태에 대한 직접 사용자 발언이 아님"},
+    {"id":"B-EP03-O13","reason":"E13의 같은 검색 문자열만으로 user/open_question을 생성. 검색 행위와 미해결 의사결정의 구분 실패"}
+  ],
+  "baseline_temporally_ambiguous_open_question": {"id":"B-EP03-O09","reason":"E09에서 AI가 스마트폰 사용 여부를 질문한 것은 실제 발화이나 E17에서 사용자가 다중 기기 필요성을 답함. 역사적 질문으로는 유효하므로 관계/상태 추적 미구현만으로 확정 오분류에 넣지 않음"},
+  "baseline_redundancy_clusters": [
+    {"retained":"B-EP02-O06","extras":["B-EP03-O01"],"reason":"동일 web.dev 설명을 E07과 재방문 E12에서 같은 의미로 반복. 출처 참조는 보존하되 핵심 객체 중복으로 검토"},
+    {"retained":"B-EP04-O11","extras":["B-EP04-O06"],"reason":"같은 E17 AI 제안에서 'Offline-first + Cloud Sync 구조'라는 제목형 객체가 더 구체적인 혼합 구조 가설과 겹침"},
+    {"retained":"B-EP04-O07","extras":["B-EP04-O12"],"reason":"사용자가 남긴 회원가입 미해결 상태를 AI가 다시 확인한 echo. 별도 핵심 사고 요소로서 추가 정보가 적음. 화자·인용 자체는 정확함"}
+  ],
+  "baseline_secondary_detail_candidates": [
+    {"id":"B-EP03-O02","reason":"저장소 추상화 구현 조언"},
+    {"id":"B-EP03-O03","reason":"JSON 백업·복원 기능 구현 조언"},
+    {"id":"B-EP03-O08","reason":"Service Worker·캐시 구현 설명"},
+    {"id":"B-EP03-O15","reason":"persist() 승인·삭제 방지의 기술 세부 설명"},
+    {"id":"B-EP03-O16","reason":"복구 테스트 절차 조언"},
+    {"id":"B-EP04-O02","reason":"동기화 대기·전송 처리 설명"},
+    {"id":"B-EP04-O03","reason":"동기화 충돌 구현 문제"},
+    {"id":"B-EP04-O08","reason":"Supabase 인증·백엔드 구현 이점"}
+  ],
+  "new_isolated_secondary_detail_candidates": [
+    {"id":"N-EP02-O04","reason":"회원가입 검토 구간에서 E22 AI 요약의 이전 저장소 결정을 다시 독립 evidence로 생성. 원문에는 있지만 이번 목적의 핵심 사고 요소로서 낮은 우선순위"}
+  ],
+  "new_isolated_ambiguous_classifications": [
+    {"id":"N-EP02-O02","reason":"AI의 '본인 계정만 로그인' 추천을 evidence로 분류. speaker와 원문은 맞지만 검증된 사실/권고의 역할 구분은 추가 기준이 필요하므로 확정 오분류에 넣지 않음"},
+    {"id":"N-EP02-O06","reason":"'보류하기로 한 결정'으로는 decision이 타당할 수 있음. 회원가입 도입 또는 배제의 결정이라고 읽으면 안 되며, 별도 user/open_question 미생성은 분류 커버리지의 빈틈으로 기록"}
+  ]
+}

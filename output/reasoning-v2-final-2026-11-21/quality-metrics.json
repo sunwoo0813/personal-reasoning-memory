@@ -1,0 +1,4113 @@
+{
+  "assessment_notice": "Semantic labels are fallible Codex-agent source comparisons, not human or independent objective verification.",
+  "protocol": {
+    "version": "reasoning-v2-evaluation-02",
+    "fixed_before_execution": true,
+    "scope": "22 unchanged captured events, fixed purpose-v2 EP01 E01-E19 / EP02 E20-E22, gpt-5-mini, 3 independent full runs; additional independent synthetic domains once each",
+    "comparators": [
+      "original extraction-v1: 35 objects in 4 episodes",
+      "evidence-grounding-v2-final-2026-11-20: 2/3 full runs complete"
+    ],
+    "adjudication": "Human-readable manual semantic assessment of text, type, speaker, selected source quotes and full user context. Store per-target and per-object labels with reasons; do not call keyword checks semantic accuracy. This is developer assessment, not blinded external review.",
+    "recall": "A target requires correct type/speaker, semantically present text and direct evidence from the specified user turn. Partial or embedded in a generic question is reported separately, not full typed recall. One compound object may express multiple distinct facts; it is not multiple independent objects.",
+    "precision": "For decisions and open_question, all emitted objects of that type are the denominator (including assistant/source objects). Decision must explicitly adopt/reject, not defer; open_question must remain unresolved and be user-owned. Duplicate true paraphrases count as supported but are separately counted redundant.",
+    "speaker_accuracy": "Evaluate ownership claimed in the text against direct selected speech, in addition to deterministic field/speaker consistency. Unknown is not scored correct ownership.",
+    "semantic_support": "Check all material claims, type, relevant selected spans, negation, temporal status and adoption. Report developer-supported fraction and uncertain separately. Existing model_supported is not ground truth or objective verification.",
+    "unnecessary_duplicates": "Object repeats another without a distinct speech act/information contribution, repeats AI recommendations, or contains off-purpose technical detail. Record object IDs and reasons; do not use object count alone.",
+    "completion": "Full run completes only when every episode validates. Failed run contributes zero accepted objects and zero operational target recall; report completed-only quality separately so failures cannot disappear from results.",
+    "literal_match": "All selected refs must pass exact UTF-16 source slice and substring checks; report matched refs / emitted refs.",
+    "cost": "Sum all recorded input/output/total usage including repairs and support review, report per-run elapsed milliseconds and API calls; unknown API usage remains unknown.",
+    "no_tuning": "Do not change classification or evaluation thresholds after these runs start. Preserve all failed candidates and raw calls. A new implementation requires a separate output directory/protocol.",
+    "limits": "Historical different-size samples and one session cannot establish general improvement or isolate policy causality; synthetic independent cases are smoke tests, not a population benchmark. No relationship graph scoring.",
+    "development_pilot": "output/reasoning-v2-2026-11-21 (3 runs) and output/reasoning-v2-independent-2026-11-21 (4 new-domain development cases); preserved separately. Added generic user speech-act draft revision after observing omissions and resolved open-question errors. Metrics and ground truth unchanged.",
+    "candidate_count": "Prepared object slots after user draft revision and support extraction; initial and revised user counts and raw responses are preserved separately.",
+    "independent_holdout": "evals/reasoning-v2/holdout-cases.json: two additional domains fixed before final implementation run, evaluated once after freezing code; do not tune after seeing results."
+  },
+  "completion": {
+    "complete": 3,
+    "total": 3
+  },
+  "source_unchanged": true,
+  "code_unchanged": true,
+  "measures": [
+    {
+      "id": "original",
+      "status": "complete",
+      "episode_count": 4,
+      "object_count": 35,
+      "questions": {
+        "recovered": 2,
+        "expected": 2
+      },
+      "hypotheses": {
+        "recovered": 0,
+        "expected": 2
+      },
+      "decisions": {
+        "recovered": 2,
+        "expected": 2,
+        "precision": {
+          "supported": 1,
+          "predicted": 1,
+          "unreviewed": 0
+        }
+      },
+      "open_questions": {
+        "recovered": 2,
+        "expected": 2,
+        "precision": {
+          "supported": 1,
+          "predicted": 4,
+          "unreviewed": 0
+        }
+      },
+      "targets": [
+        {
+          "id": "Q1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "저장 방식의 장단점/선택 문제",
+          "matched_object_ids": [
+            "original-E3-O14"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "Q2",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 MVP 도입 질문",
+          "matched_object_ids": [
+            "original-E4-O1"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "H1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "초기 서버 없는 Offline-first 선호",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "H2",
+          "episode": 1,
+          "event_position": 16,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 MVP 가설",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "R1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "evidence",
+            "contradiction",
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "데이터 보존과 기기 간 동기화 위험을 사용자 인식",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "I1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "로컬만 충분하다는 가설을 재검토하는 명시적 변화",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "A1",
+          "episode": 1,
+          "event_position": 18,
+          "allowed_types": [
+            "question",
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "Cloud-first와 Supabase 검토, 미결정 상태",
+          "matched_object_ids": [
+            "original-E4-O10"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "D1",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "Supabase 메인과 IndexedDB 보조 채택",
+          "matched_object_ids": [
+            "original-E4-O5"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "D2",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 기각",
+          "matched_object_ids": [
+            "original-E4-O5"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "C1",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "evidence",
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "UX와 개발 복잡도 평가 기준",
+          "matched_object_ids": [
+            "original-E4-O1"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "O1",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 도입 여부 미결정",
+          "matched_object_ids": [
+            "original-E4-O7"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "O2",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "실제 사용자 테스트 이후 재검토 조건",
+          "matched_object_ids": [
+            "original-E4-O7"
+          ],
+          "recovered": true
+        }
+      ],
+      "quote_match": {
+        "matched": 36,
+        "total": 36
+      },
+      "field_speaker_consistency": {
+        "correct": 35,
+        "total": 35
+      },
+      "speaker_ownership": {
+        "correct": 35,
+        "total": 35,
+        "unreviewed": 0
+      },
+      "semantic_support": {
+        "supported": 26,
+        "unsupported": 9,
+        "uncertain": 0,
+        "unreviewed": 0,
+        "total": 35
+      },
+      "unnecessary_duplicates": [
+        {
+          "id": "original-E2-O6",
+          "reason": "다른 객체의 IndexedDB 로컬 구조화 저장 설명과 반복"
+        },
+        {
+          "id": "original-E3-O1",
+          "reason": "다른 객체의 IndexedDB 로컬 구조화 저장 설명과 반복"
+        },
+        {
+          "id": "original-E3-O11",
+          "reason": "다른 객체의 IndexedDB 로컬 구조화 저장 설명과 반복"
+        },
+        {
+          "id": "original-E3-O13",
+          "reason": "동일 검색어 Open Question의 반복"
+        },
+        {
+          "id": "original-E4-O4",
+          "reason": "사용자 결정/미해결 상태의 AI 재서술 또는 의미 없는 제목"
+        },
+        {
+          "id": "original-E4-O6",
+          "reason": "사용자 결정/미해결 상태의 AI 재서술 또는 의미 없는 제목"
+        },
+        {
+          "id": "original-E4-O12",
+          "reason": "사용자 결정/미해결 상태의 AI 재서술 또는 의미 없는 제목"
+        }
+      ],
+      "objects": [
+        {
+          "id": "original-E2-O1",
+          "type": "question",
+          "speaker": "user",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "검색어만을 Question으로 분류"
+        },
+        {
+          "id": "original-E2-O2",
+          "type": "insight",
+          "speaker": "source",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "original-E2-O3",
+          "type": "evidence",
+          "speaker": "source",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "original-E2-O4",
+          "type": "evidence",
+          "speaker": "source",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "original-E2-O5",
+          "type": "question",
+          "speaker": "user",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "검색어만을 Question으로 분류"
+        },
+        {
+          "id": "original-E2-O6",
+          "type": "evidence",
+          "speaker": "source",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함.",
+          "unnecessary_reason": "다른 객체의 IndexedDB 로컬 구조화 저장 설명과 반복"
+        },
+        {
+          "id": "original-E2-O7",
+          "type": "evidence",
+          "speaker": "source",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "original-E3-O1",
+          "type": "evidence",
+          "speaker": "source",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함.",
+          "unnecessary_reason": "다른 객체의 IndexedDB 로컬 구조화 저장 설명과 반복"
+        },
+        {
+          "id": "original-E3-O2",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "추상화 구현 권고이지 새로운 이해를 기록한 Insight가 아님"
+        },
+        {
+          "id": "original-E3-O3",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "내보내기 구현 권고이지 새로운 이해를 기록한 Insight가 아님"
+        },
+        {
+          "id": "original-E3-O4",
+          "type": "open_question",
+          "speaker": "user",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "검색어는 미해결 질문의 증거가 아님"
+        },
+        {
+          "id": "original-E3-O5",
+          "type": "contradiction",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "original-E3-O6",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "original-E3-O7",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "original-E3-O8",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "original-E3-O9",
+          "type": "open_question",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "AI가 물은 기기 사용 질문은 사용자의 미해결 질문이 아니며 E17에서 다기기 요구가 드러남"
+        },
+        {
+          "id": "original-E3-O10",
+          "type": "evidence",
+          "speaker": "source",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "original-E3-O11",
+          "type": "evidence",
+          "speaker": "source",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함.",
+          "unnecessary_reason": "다른 객체의 IndexedDB 로컬 구조화 저장 설명과 반복"
+        },
+        {
+          "id": "original-E3-O12",
+          "type": "question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "original-E3-O13",
+          "type": "open_question",
+          "speaker": "user",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "검색어는 미해결 질문의 증거가 아님",
+          "unnecessary_reason": "동일 검색어 Open Question의 반복"
+        },
+        {
+          "id": "original-E3-O14",
+          "type": "question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "original-E3-O15",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "original-E3-O16",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "original-E4-O1",
+          "type": "question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "original-E4-O2",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "original-E4-O3",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "original-E4-O4",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함.",
+          "unnecessary_reason": "사용자 결정/미해결 상태의 AI 재서술 또는 의미 없는 제목"
+        },
+        {
+          "id": "original-E4-O5",
+          "type": "decision",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "original-E4-O6",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "구조 제목만으로 독립 Insight 의미를 뒷받침하지 못함",
+          "unnecessary_reason": "사용자 결정/미해결 상태의 AI 재서술 또는 의미 없는 제목"
+        },
+        {
+          "id": "original-E4-O7",
+          "type": "open_question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "original-E4-O8",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "original-E4-O9",
+          "type": "question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "original-E4-O10",
+          "type": "question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "original-E4-O11",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "original-E4-O12",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "미해결 상태를 반복 기록한 AI 발언이며 Insight로 분류할 이해 변화가 아님",
+          "unnecessary_reason": "사용자 결정/미해결 상태의 AI 재서술 또는 의미 없는 제목"
+        }
+      ]
+    },
+    {
+      "id": "grounding-R1",
+      "status": "complete",
+      "episode_count": 2,
+      "object_count": 24,
+      "questions": {
+        "recovered": 2,
+        "expected": 2
+      },
+      "hypotheses": {
+        "recovered": 0,
+        "expected": 2
+      },
+      "decisions": {
+        "recovered": 2,
+        "expected": 2,
+        "precision": {
+          "supported": 1,
+          "predicted": 2,
+          "unreviewed": 0
+        }
+      },
+      "open_questions": {
+        "recovered": 0,
+        "expected": 2,
+        "precision": {
+          "supported": 0,
+          "predicted": 3,
+          "unreviewed": 0
+        }
+      },
+      "targets": [
+        {
+          "id": "Q1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "저장 방식의 장단점/선택 문제",
+          "matched_object_ids": [
+            "grounding-R1-E1-O1"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "Q2",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 MVP 도입 질문",
+          "matched_object_ids": [
+            "grounding-R1-E2-O1"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "H1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "초기 서버 없는 Offline-first 선호",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "H2",
+          "episode": 1,
+          "event_position": 16,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 MVP 가설",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "R1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "evidence",
+            "contradiction",
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "데이터 보존과 기기 간 동기화 위험을 사용자 인식",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "I1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "로컬만 충분하다는 가설을 재검토하는 명시적 변화",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "A1",
+          "episode": 1,
+          "event_position": 18,
+          "allowed_types": [
+            "question",
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "Cloud-first와 Supabase 검토, 미결정 상태",
+          "matched_object_ids": [
+            "grounding-R1-E1-O10"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "D1",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "Supabase 메인과 IndexedDB 보조 채택",
+          "matched_object_ids": [
+            "grounding-R1-E1-O12"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "D2",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 기각",
+          "matched_object_ids": [
+            "grounding-R1-E1-O12"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "C1",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "evidence",
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "UX와 개발 복잡도 평가 기준",
+          "matched_object_ids": [
+            "grounding-R1-E2-O1"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "O1",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 도입 여부 미결정",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "O2",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "실제 사용자 테스트 이후 재검토 조건",
+          "matched_object_ids": [],
+          "recovered": false
+        }
+      ],
+      "quote_match": {
+        "matched": 51,
+        "total": 51
+      },
+      "field_speaker_consistency": {
+        "correct": 24,
+        "total": 24
+      },
+      "speaker_ownership": {
+        "correct": 24,
+        "total": 24,
+        "unreviewed": 0
+      },
+      "semantic_support": {
+        "supported": 15,
+        "unsupported": 9,
+        "uncertain": 0,
+        "unreviewed": 0,
+        "total": 24
+      },
+      "unnecessary_duplicates": [
+        {
+          "id": "grounding-R1-E1-O13",
+          "reason": "사용자 결정 또는 미해결 상태를 AI가 반복 요약"
+        },
+        {
+          "id": "grounding-R1-E2-O10",
+          "reason": "사용자 결정 또는 미해결 상태를 AI가 반복 요약"
+        }
+      ],
+      "objects": [
+        {
+          "id": "grounding-R1-E1-O1",
+          "type": "question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R1-E1-O2",
+          "type": "evidence",
+          "speaker": "source",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R1-E1-O3",
+          "type": "evidence",
+          "speaker": "source",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 구간에 구조화 저장용 IndexedDB 권고와 핵심 Cache/IndexedDB 조합이 직접 담겨 있지 않으며 무관한 DB 예제 구간 포함"
+        },
+        {
+          "id": "grounding-R1-E1-O4",
+          "type": "question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R1-E1-O5",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R1-E1-O6",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "기기 고장 주장은 선택 원문에 없고 백엔드 생략/저장 기술 나열은 해당 위험 해석과 무관"
+        },
+        {
+          "id": "grounding-R1-E1-O7",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R1-E1-O8",
+          "type": "evidence",
+          "speaker": "source",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "LRU/축출은 지지하지만 브라우저별 영구 저장 승인 차이라는 세부 주장은 선택 구간에 없음"
+        },
+        {
+          "id": "grounding-R1-E1-O9",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R1-E1-O10",
+          "type": "question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R1-E1-O11",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "동기화 실패 처리를 포함한 모든 구현 주장에 대한 선택 근거가 부족"
+        },
+        {
+          "id": "grounding-R1-E1-O12",
+          "type": "decision",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R1-E1-O13",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 근거에 Auth/변경 전송·재시도·중복 처리 등 객체가 덧붙인 구체 항목 없음",
+          "unnecessary_reason": "사용자 결정 또는 미해결 상태를 AI가 반복 요약"
+        },
+        {
+          "id": "grounding-R1-E1-O14",
+          "type": "open_question",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "AI가 제안한 동기화 질문을 사용자 미해결 질문으로 확정할 수 없음"
+        },
+        {
+          "id": "grounding-R1-E2-O1",
+          "type": "question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R1-E2-O2",
+          "type": "decision",
+          "speaker": "user",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "회원가입 보류는 채택/기각 결정이 아니라 미해결 상태"
+        },
+        {
+          "id": "grounding-R1-E2-O3",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R1-E2-O4",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R1-E2-O5",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R1-E2-O6",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R1-E2-O7",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R1-E2-O8",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R1-E2-O9",
+          "type": "open_question",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "AI가 일방 제시한 향후 공개 범위 질문"
+        },
+        {
+          "id": "grounding-R1-E2-O10",
+          "type": "open_question",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "사용자 미해결 상태를 AI 재서술로 대체",
+          "unnecessary_reason": "사용자 결정 또는 미해결 상태를 AI가 반복 요약"
+        }
+      ],
+      "usage": {
+        "input_tokens": 135967,
+        "output_tokens": 7508,
+        "total_tokens": 143475
+      },
+      "duration_ms": 88907
+    },
+    {
+      "id": "grounding-R2",
+      "status": "failed",
+      "episode_count": 0,
+      "object_count": 0,
+      "questions": {
+        "recovered": 0,
+        "expected": 2
+      },
+      "hypotheses": {
+        "recovered": 0,
+        "expected": 2
+      },
+      "decisions": {
+        "recovered": 0,
+        "expected": 2,
+        "precision": {
+          "supported": 0,
+          "predicted": 0,
+          "unreviewed": 0
+        }
+      },
+      "open_questions": {
+        "recovered": 0,
+        "expected": 2,
+        "precision": {
+          "supported": 0,
+          "predicted": 0,
+          "unreviewed": 0
+        }
+      },
+      "targets": [
+        {
+          "id": "Q1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "저장 방식의 장단점/선택 문제",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "Q2",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 MVP 도입 질문",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "H1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "초기 서버 없는 Offline-first 선호",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "H2",
+          "episode": 1,
+          "event_position": 16,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 MVP 가설",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "R1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "evidence",
+            "contradiction",
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "데이터 보존과 기기 간 동기화 위험을 사용자 인식",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "I1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "로컬만 충분하다는 가설을 재검토하는 명시적 변화",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "A1",
+          "episode": 1,
+          "event_position": 18,
+          "allowed_types": [
+            "question",
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "Cloud-first와 Supabase 검토, 미결정 상태",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "D1",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "Supabase 메인과 IndexedDB 보조 채택",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "D2",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 기각",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "C1",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "evidence",
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "UX와 개발 복잡도 평가 기준",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "O1",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 도입 여부 미결정",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "O2",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "실제 사용자 테스트 이후 재검토 조건",
+          "matched_object_ids": [],
+          "recovered": false
+        }
+      ],
+      "quote_match": {
+        "matched": 0,
+        "total": 0
+      },
+      "field_speaker_consistency": {
+        "correct": 0,
+        "total": 0
+      },
+      "speaker_ownership": {
+        "correct": 0,
+        "total": 0,
+        "unreviewed": 0
+      },
+      "semantic_support": {
+        "supported": 0,
+        "unsupported": 0,
+        "uncertain": 0,
+        "unreviewed": 0,
+        "total": 0
+      },
+      "unnecessary_duplicates": [],
+      "objects": [],
+      "usage": {
+        "input_tokens": 170217,
+        "output_tokens": 7601,
+        "total_tokens": 177818
+      },
+      "duration_ms": 89922
+    },
+    {
+      "id": "grounding-R3",
+      "status": "complete",
+      "episode_count": 2,
+      "object_count": 25,
+      "questions": {
+        "recovered": 2,
+        "expected": 2
+      },
+      "hypotheses": {
+        "recovered": 0,
+        "expected": 2
+      },
+      "decisions": {
+        "recovered": 2,
+        "expected": 2,
+        "precision": {
+          "supported": 1,
+          "predicted": 4,
+          "unreviewed": 0
+        }
+      },
+      "open_questions": {
+        "recovered": 0,
+        "expected": 2,
+        "precision": {
+          "supported": 0,
+          "predicted": 2,
+          "unreviewed": 0
+        }
+      },
+      "targets": [
+        {
+          "id": "Q1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "저장 방식의 장단점/선택 문제",
+          "matched_object_ids": [
+            "grounding-R3-E1-O1"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "Q2",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 MVP 도입 질문",
+          "matched_object_ids": [
+            "grounding-R3-E2-O1"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "H1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "초기 서버 없는 Offline-first 선호",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "H2",
+          "episode": 1,
+          "event_position": 16,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 MVP 가설",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "R1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "evidence",
+            "contradiction",
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "데이터 보존과 기기 간 동기화 위험을 사용자 인식",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "I1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "로컬만 충분하다는 가설을 재검토하는 명시적 변화",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "A1",
+          "episode": 1,
+          "event_position": 18,
+          "allowed_types": [
+            "question",
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "Cloud-first와 Supabase 검토, 미결정 상태",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "D1",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "Supabase 메인과 IndexedDB 보조 채택",
+          "matched_object_ids": [
+            "grounding-R3-E1-O10"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "D2",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 기각",
+          "matched_object_ids": [
+            "grounding-R3-E1-O10"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "C1",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "evidence",
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "UX와 개발 복잡도 평가 기준",
+          "matched_object_ids": [
+            "grounding-R3-E2-O1"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "O1",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 도입 여부 미결정",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "O2",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "실제 사용자 테스트 이후 재검토 조건",
+          "matched_object_ids": [],
+          "recovered": false
+        }
+      ],
+      "quote_match": {
+        "matched": 50,
+        "total": 50
+      },
+      "field_speaker_consistency": {
+        "correct": 25,
+        "total": 25
+      },
+      "speaker_ownership": {
+        "correct": 25,
+        "total": 25,
+        "unreviewed": 0
+      },
+      "semantic_support": {
+        "supported": 13,
+        "unsupported": 12,
+        "uncertain": 0,
+        "unreviewed": 0,
+        "total": 25
+      },
+      "unnecessary_duplicates": [
+        {
+          "id": "grounding-R3-E1-O11",
+          "reason": "결정/보류/상태를 반복하거나 동일 보류를 다중 객체로 생성"
+        },
+        {
+          "id": "grounding-R3-E2-O9",
+          "reason": "결정/보류/상태를 반복하거나 동일 보류를 다중 객체로 생성"
+        },
+        {
+          "id": "grounding-R3-E2-O10",
+          "reason": "결정/보류/상태를 반복하거나 동일 보류를 다중 객체로 생성"
+        },
+        {
+          "id": "grounding-R3-E2-O11",
+          "reason": "결정/보류/상태를 반복하거나 동일 보류를 다중 객체로 생성"
+        },
+        {
+          "id": "grounding-R3-E2-O12",
+          "reason": "결정/보류/상태를 반복하거나 동일 보류를 다중 객체로 생성"
+        }
+      ],
+      "objects": [
+        {
+          "id": "grounding-R3-E1-O1",
+          "type": "question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R3-E1-O2",
+          "type": "evidence",
+          "speaker": "source",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "소개 구간만 선택하여 비동기·트랜잭션·보존 정책 주장을 지지하지 못함"
+        },
+        {
+          "id": "grounding-R3-E1-O3",
+          "type": "evidence",
+          "speaker": "source",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "소개/목차만으로 구조화 저장 권고·네트워크 리소스 구분 주장이 직접 지지되지 않음"
+        },
+        {
+          "id": "grounding-R3-E1-O4",
+          "type": "evidence",
+          "speaker": "source",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "문서 소개만으로 best-effort/LRU/persist 세부 해석을 지지하지 못함"
+        },
+        {
+          "id": "grounding-R3-E1-O5",
+          "type": "question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R3-E1-O6",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R3-E1-O7",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R3-E1-O8",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R3-E1-O9",
+          "type": "question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R3-E1-O10",
+          "type": "decision",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R3-E1-O11",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 구간에 동기화 계층과 Auth라는 추가 주장 없음",
+          "unnecessary_reason": "결정/보류/상태를 반복하거나 동일 보류를 다중 객체로 생성"
+        },
+        {
+          "id": "grounding-R3-E1-O12",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "제목·동기화 전송 한 줄은 충돌·백업·인증 전체 주장 근거로 부족"
+        },
+        {
+          "id": "grounding-R3-E1-O13",
+          "type": "open_question",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "AI가 제안한 추가 설계 질문을 사용자 미해결로 처리"
+        },
+        {
+          "id": "grounding-R3-E2-O1",
+          "type": "question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R3-E2-O2",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R3-E2-O3",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R3-E2-O4",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R3-E2-O5",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R3-E2-O6",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 기록된 발화/주장을 지지하며 사용자/AI/자료 귀속을 구분함."
+        },
+        {
+          "id": "grounding-R3-E2-O7",
+          "type": "question",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "AI가 제시한 후속 질문은 사용자가 직접 해결하려고 제기한 Question이 아님"
+        },
+        {
+          "id": "grounding-R3-E2-O8",
+          "type": "decision",
+          "speaker": "user",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "보류는 채택/기각 결정이 아님"
+        },
+        {
+          "id": "grounding-R3-E2-O9",
+          "type": "decision",
+          "speaker": "user",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "보류는 채택/기각 결정이 아님",
+          "unnecessary_reason": "결정/보류/상태를 반복하거나 동일 보류를 다중 객체로 생성"
+        },
+        {
+          "id": "grounding-R3-E2-O10",
+          "type": "decision",
+          "speaker": "user",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "보류는 채택/기각 결정이 아님",
+          "unnecessary_reason": "결정/보류/상태를 반복하거나 동일 보류를 다중 객체로 생성"
+        },
+        {
+          "id": "grounding-R3-E2-O11",
+          "type": "open_question",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "사용자 미해결 문제를 AI 재서술로 대체",
+          "unnecessary_reason": "결정/보류/상태를 반복하거나 동일 보류를 다중 객체로 생성"
+        },
+        {
+          "id": "grounding-R3-E2-O12",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "확정/미해결 등 표 조각만 선택하고 대상명·상태 연결 없이 구조와 결론을 합성",
+          "unnecessary_reason": "결정/보류/상태를 반복하거나 동일 보류를 다중 객체로 생성"
+        }
+      ],
+      "usage": {
+        "input_tokens": 199452,
+        "output_tokens": 10299,
+        "total_tokens": 209751
+      },
+      "duration_ms": 123154
+    },
+    {
+      "id": "new-R1",
+      "status": "complete",
+      "episode_count": 2,
+      "object_count": 53,
+      "questions": {
+        "recovered": 2,
+        "expected": 2
+      },
+      "hypotheses": {
+        "recovered": 1,
+        "expected": 2
+      },
+      "decisions": {
+        "recovered": 2,
+        "expected": 2,
+        "precision": {
+          "supported": 1,
+          "predicted": 1,
+          "unreviewed": 0
+        }
+      },
+      "open_questions": {
+        "recovered": 2,
+        "expected": 2,
+        "precision": {
+          "supported": 1,
+          "predicted": 2,
+          "unreviewed": 0
+        }
+      },
+      "targets": [
+        {
+          "id": "Q1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "저장 방식의 장단점/선택 문제",
+          "matched_object_ids": [
+            "new-R1-E1-O1"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "Q2",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 MVP 도입 질문",
+          "matched_object_ids": [
+            "new-R1-E2-O1"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "H1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "초기 서버 없는 Offline-first 선호",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "H2",
+          "episode": 1,
+          "event_position": 16,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 MVP 가설",
+          "matched_object_ids": [
+            "new-R1-E1-O2"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "R1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "evidence",
+            "contradiction",
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "데이터 보존과 기기 간 동기화 위험을 사용자 인식",
+          "matched_object_ids": [
+            "new-R1-E1-O5"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "I1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "로컬만 충분하다는 가설을 재검토하는 명시적 변화",
+          "matched_object_ids": [
+            "new-R1-E1-O5"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "A1",
+          "episode": 1,
+          "event_position": 18,
+          "allowed_types": [
+            "question",
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "Cloud-first와 Supabase 검토, 미결정 상태",
+          "matched_object_ids": [
+            "new-R1-E1-O6"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "D1",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "Supabase 메인과 IndexedDB 보조 채택",
+          "matched_object_ids": [
+            "new-R1-E1-O7"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "D2",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 기각",
+          "matched_object_ids": [
+            "new-R1-E1-O7"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "C1",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "evidence",
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "UX와 개발 복잡도 평가 기준",
+          "matched_object_ids": [
+            "new-R1-E2-O2"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "O1",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 도입 여부 미결정",
+          "matched_object_ids": [
+            "new-R1-E2-O3"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "O2",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "실제 사용자 테스트 이후 재검토 조건",
+          "matched_object_ids": [
+            "new-R1-E2-O3"
+          ],
+          "recovered": true
+        }
+      ],
+      "quote_match": {
+        "matched": 85,
+        "total": 85
+      },
+      "field_speaker_consistency": {
+        "correct": 53,
+        "total": 53
+      },
+      "speaker_ownership": {
+        "correct": 53,
+        "total": 53,
+        "unreviewed": 0
+      },
+      "semantic_support": {
+        "supported": 29,
+        "unsupported": 24,
+        "uncertain": 0,
+        "unreviewed": 0,
+        "total": 53
+      },
+      "unnecessary_duplicates": [
+        {
+          "id": "new-R1-E1-O21",
+          "reason": "사용자 결정/다른 AI 결정 요약 반복"
+        },
+        {
+          "id": "new-R1-E1-O27",
+          "reason": "동일 결정 요약 반복 및 문서 날짜가 독립 핵심 사고가 아님"
+        },
+        {
+          "id": "new-R1-E1-O29",
+          "reason": "문서 작성 메타 정보만 추가"
+        },
+        {
+          "id": "new-R1-E2-O9",
+          "reason": "이전 목적의 저장소 상태 및 회원가입 보류를 AI가 반복 요약"
+        },
+        {
+          "id": "new-R1-E2-O12",
+          "reason": "사용자 Open Question을 AI가 반복 요약"
+        },
+        {
+          "id": "new-R1-E2-O16",
+          "reason": "O10의 인증 도입 비용 설명 반복"
+        }
+      ],
+      "objects": [
+        {
+          "id": "new-R1-E1-O1",
+          "type": "question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R1-E1-O2",
+          "type": "hypothesis",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R1-E1-O3",
+          "type": "question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R1-E1-O4",
+          "type": "evidence",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R1-E1-O5",
+          "type": "insight",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R1-E1-O6",
+          "type": "question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R1-E1-O7",
+          "type": "decision",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R1-E1-O8",
+          "type": "open_question",
+          "speaker": "user",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "결정 정리 요청은 미해결 의사결정 질문이 아님"
+        },
+        {
+          "id": "new-R1-E1-O9",
+          "type": "evidence",
+          "speaker": "source",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R1-E1-O10",
+          "type": "evidence",
+          "speaker": "source",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "persistent 구분은 있지만 navigator.storage.persist API 이름/사용법은 선택 구간에 없음"
+        },
+        {
+          "id": "new-R1-E1-O11",
+          "type": "evidence",
+          "speaker": "source",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "문서 소개만 선택하고 브라우저명/estimate API까지 주장"
+        },
+        {
+          "id": "new-R1-E1-O12",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R1-E1-O13",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문의 제안을 채택 가설이라고 보강"
+        },
+        {
+          "id": "new-R1-E1-O14",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 구간에 저장 추상화 권고 없음"
+        },
+        {
+          "id": "new-R1-E1-O15",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "단계적 도입 권고를 Insight로 분류; 명시적 새로운 이해의 기록이 아님"
+        },
+        {
+          "id": "new-R1-E1-O16",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "결정/제목만 선택하여 다기기·보존 요구와 결정으로 이어진 과정을 보강"
+        },
+        {
+          "id": "new-R1-E1-O17",
+          "type": "contradiction",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "일반 축출 설명에 무관한 MVP 테스트 권고 구간을 함께 선택"
+        },
+        {
+          "id": "new-R1-E1-O18",
+          "type": "contradiction",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R1-E1-O19",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R1-E1-O20",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "Dexie/PWA 설명은 비동기·트랜잭션·idb 주장 근거가 아님"
+        },
+        {
+          "id": "new-R1-E1-O21",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.",
+          "unnecessary_reason": "사용자 결정/다른 AI 결정 요약 반복"
+        },
+        {
+          "id": "new-R1-E1-O22",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "동기화 동작·복잡도만 선택하고 데이터 보존 요구까지 모두 만족한다고 보강"
+        },
+        {
+          "id": "new-R1-E1-O23",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R1-E1-O24",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "CRUD/필수/백업 조각은 나열한 인증·동기화·실패 재시도 전체를 지지하지 못함"
+        },
+        {
+          "id": "new-R1-E1-O25",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 구간은 Supabase 기능/중앙 역할만 보여주고 IndexedDB 오프라인 역할이 없음"
+        },
+        {
+          "id": "new-R1-E1-O26",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R1-E1-O27",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.",
+          "unnecessary_reason": "동일 결정 요약 반복 및 문서 날짜가 독립 핵심 사고가 아님"
+        },
+        {
+          "id": "new-R1-E1-O28",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "검토 요청과 상태 표시 문장만으로 이번 결정의 의미/요구사항과 정책 재설계 전체를 지지하지 못함"
+        },
+        {
+          "id": "new-R1-E1-O29",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "문서 제목만 선택; 작성 요청과 답변 완료 과정 전체를 근거로 삼기 부족",
+          "unnecessary_reason": "문서 작성 메타 정보만 추가"
+        },
+        {
+          "id": "new-R1-E1-O30",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R1-E1-O31",
+          "type": "contradiction",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "동기화 상태 구분 구현 원칙이며 충돌하는 기존 사용자 판단이 제시되지 않음"
+        },
+        {
+          "id": "new-R1-E1-O32",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R1-E1-O33",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R1-E1-O34",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "저장 완료 확인 문장만으로 IndexedDB 트랜잭션 완료 조건까지 확장"
+        },
+        {
+          "id": "new-R1-E2-O1",
+          "type": "question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R1-E2-O2",
+          "type": "evidence",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R1-E2-O3",
+          "type": "open_question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R1-E2-O4",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R1-E2-O5",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "표 제목·항목 조각은 세 대안 이름/복구·접근 제어 비교 전체를 지지하지 못함"
+        },
+        {
+          "id": "new-R1-E2-O6",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R1-E2-O7",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R1-E2-O8",
+          "type": "contradiction",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "유의사항/보안 권고를 실제 기존 가설과의 충돌 없이 Contradiction으로 분류"
+        },
+        {
+          "id": "new-R1-E2-O9",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "표 조각에 IndexedDB 등 주장 대상명/상태 연결이 누락",
+          "unnecessary_reason": "이전 목적의 저장소 상태 및 회원가입 보류를 AI가 반복 요약"
+        },
+        {
+          "id": "new-R1-E2-O10",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R1-E2-O11",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "AI의 일방 후속 질문을 이 Episode에서 미해결로 남긴 핵심 질문으로 단정"
+        },
+        {
+          "id": "new-R1-E2-O12",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.",
+          "unnecessary_reason": "사용자 Open Question을 AI가 반복 요약"
+        },
+        {
+          "id": "new-R1-E2-O13",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R1-E2-O14",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "계정 생성/RLS만 선택하여 로그인 화면 제공·신규 가입 비활성화까지 추가"
+        },
+        {
+          "id": "new-R1-E2-O15",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "A/C에 관한 설명 일부만 선택하여 모든 대안의 비교를 요약했다고 주장"
+        },
+        {
+          "id": "new-R1-E2-O16",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.",
+          "unnecessary_reason": "O10의 인증 도입 비용 설명 반복"
+        },
+        {
+          "id": "new-R1-E2-O17",
+          "type": "contradiction",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "장단점/복잡도 비교만으로 실제 가설에 대한 Contradiction이라고 할 수 없음"
+        },
+        {
+          "id": "new-R1-E2-O18",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "Auth 지원 방식이라는 기술 사실이지 검토 중인 잠정 가설이 아님"
+        },
+        {
+          "id": "new-R1-E2-O19",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        }
+      ],
+      "usage": {
+        "input_tokens": 93491,
+        "output_tokens": 12515,
+        "total_tokens": 106006
+      },
+      "duration_ms": 142350,
+      "call_count": 8
+    },
+    {
+      "id": "new-R2",
+      "status": "complete",
+      "episode_count": 2,
+      "object_count": 63,
+      "questions": {
+        "recovered": 2,
+        "expected": 2
+      },
+      "hypotheses": {
+        "recovered": 1,
+        "expected": 2
+      },
+      "decisions": {
+        "recovered": 2,
+        "expected": 2,
+        "precision": {
+          "supported": 1,
+          "predicted": 1,
+          "unreviewed": 0
+        }
+      },
+      "open_questions": {
+        "recovered": 2,
+        "expected": 2,
+        "precision": {
+          "supported": 1,
+          "predicted": 3,
+          "unreviewed": 0
+        }
+      },
+      "targets": [
+        {
+          "id": "Q1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "저장 방식의 장단점/선택 문제",
+          "matched_object_ids": [
+            "new-R2-E1-O1"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "Q2",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 MVP 도입 질문",
+          "matched_object_ids": [
+            "new-R2-E2-O1"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "H1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "초기 서버 없는 Offline-first 선호",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "H2",
+          "episode": 1,
+          "event_position": 16,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 MVP 가설",
+          "matched_object_ids": [
+            "new-R2-E1-O2"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "R1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "evidence",
+            "contradiction",
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "데이터 보존과 기기 간 동기화 위험을 사용자 인식",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "I1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "로컬만 충분하다는 가설을 재검토하는 명시적 변화",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "A1",
+          "episode": 1,
+          "event_position": 18,
+          "allowed_types": [
+            "question",
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "Cloud-first와 Supabase 검토, 미결정 상태",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "D1",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "Supabase 메인과 IndexedDB 보조 채택",
+          "matched_object_ids": [
+            "new-R2-E1-O5"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "D2",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 기각",
+          "matched_object_ids": [
+            "new-R2-E1-O5"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "C1",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "evidence",
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "UX와 개발 복잡도 평가 기준",
+          "matched_object_ids": [
+            "new-R2-E2-O1"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "O1",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 도입 여부 미결정",
+          "matched_object_ids": [
+            "new-R2-E2-O2"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "O2",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "실제 사용자 테스트 이후 재검토 조건",
+          "matched_object_ids": [
+            "new-R2-E2-O2"
+          ],
+          "recovered": true
+        }
+      ],
+      "quote_match": {
+        "matched": 149,
+        "total": 149
+      },
+      "field_speaker_consistency": {
+        "correct": 63,
+        "total": 63
+      },
+      "speaker_ownership": {
+        "correct": 61,
+        "total": 63,
+        "unreviewed": 0
+      },
+      "semantic_support": {
+        "supported": 31,
+        "unsupported": 32,
+        "uncertain": 0,
+        "unreviewed": 0,
+        "total": 63
+      },
+      "unnecessary_duplicates": [
+        {
+          "id": "new-R2-E2-O9",
+          "reason": "사용자 보류를 AI가 재서술"
+        },
+        {
+          "id": "new-R2-E2-O14",
+          "reason": "O11의 미래 인증 설계 비용 설명 반복"
+        },
+        {
+          "id": "new-R2-E2-O19",
+          "reason": "O6의 B 권고 반복"
+        },
+        {
+          "id": "new-R2-E2-O21",
+          "reason": "O9와 동일한 보류 상태 요약"
+        },
+        {
+          "id": "new-R2-E2-O23",
+          "reason": "O11과 같은 사용자 식별 선행 제안"
+        },
+        {
+          "id": "new-R2-E2-O25",
+          "reason": "이전 목적의 저장소 상태와 회원가입 보류를 반복"
+        },
+        {
+          "id": "new-R2-E2-O26",
+          "reason": "O12의 재검토 기준/시점 반복"
+        },
+        {
+          "id": "new-R2-E2-O27",
+          "reason": "O20의 인증 설계 비용 문제를 반복"
+        },
+        {
+          "id": "new-R2-E2-O28",
+          "reason": "O11/O9의 제안·상태 반복"
+        },
+        {
+          "id": "new-R2-E2-O29",
+          "reason": "이미 추출한 보안 설정/구현 범위의 반복"
+        },
+        {
+          "id": "new-R2-E2-O31",
+          "reason": "O9/O21의 보류 상태 반복"
+        },
+        {
+          "id": "new-R2-E2-O32",
+          "reason": "O20의 같은 비용 논점 반복"
+        },
+        {
+          "id": "new-R2-E2-O35",
+          "reason": "O18의 가입/접근 제어 분리 반복"
+        },
+        {
+          "id": "new-R2-E2-O36",
+          "reason": "기존 사용자 질문·보류를 잘못된 AI 근거로 재서술"
+        },
+        {
+          "id": "new-R2-E2-O38",
+          "reason": "O17의 RLS/신규 가입 제한 설명 반복"
+        },
+        {
+          "id": "new-R2-E2-O39",
+          "reason": "O22의 UX/보안 논점 반복"
+        },
+        {
+          "id": "new-R2-E2-O40",
+          "reason": "O11/O23의 선행 식별/보안 설계 반복"
+        },
+        {
+          "id": "new-R2-E2-O41",
+          "reason": "이미 추출한 상태/재검토 정보 반복"
+        },
+        {
+          "id": "new-R2-E2-O42",
+          "reason": "사용자 보류/재검토를 AI 재서술로 반복"
+        },
+        {
+          "id": "new-R2-E2-O44",
+          "reason": "O28의 실행 권고 반복"
+        },
+        {
+          "id": "new-R2-E2-O45",
+          "reason": "이미 추출한 대안 B/C 차이 반복"
+        },
+        {
+          "id": "new-R2-E2-O46",
+          "reason": "O12/O26의 테스트/판단 기준 반복"
+        },
+        {
+          "id": "new-R2-E2-O47",
+          "reason": "저장소 및 보류 상태의 반복 요약"
+        },
+        {
+          "id": "new-R2-E2-O48",
+          "reason": "O27의 속도/설계 비용 논점 반복"
+        },
+        {
+          "id": "new-R2-E2-O50",
+          "reason": "O9의 같은 보류 상태 반복"
+        },
+        {
+          "id": "new-R2-E2-O51",
+          "reason": "O20의 동일 비용/선행 설계 논점 반복"
+        },
+        {
+          "id": "new-R2-E2-O52",
+          "reason": "기존 상태·시점·판단 기준 반복"
+        }
+      ],
+      "objects": [
+        {
+          "id": "new-R2-E1-O1",
+          "type": "question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R2-E1-O2",
+          "type": "hypothesis",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R2-E1-O3",
+          "type": "open_question",
+          "speaker": "user",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "이후 E19에서 해결된 저장 방식 검토를 미해결로 유지"
+        },
+        {
+          "id": "new-R2-E1-O4",
+          "type": "open_question",
+          "speaker": "user",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "이후 E19에서 해결된 저장 방식 검토를 미해결로 유지"
+        },
+        {
+          "id": "new-R2-E1-O5",
+          "type": "decision",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R2-E1-O6",
+          "type": "evidence",
+          "speaker": "source",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R2-E1-O7",
+          "type": "evidence",
+          "speaker": "source",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "persistent 요청 거부 여부는 선택 구간에 없음"
+        },
+        {
+          "id": "new-R2-E1-O8",
+          "type": "evidence",
+          "speaker": "source",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "비동기/버전은 있지만 트랜잭션 처리가 선택 구간에 없음"
+        },
+        {
+          "id": "new-R2-E1-O9",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "단일 기기·백업/복구·저장 실패 조건을 선택 근거 없이 보강"
+        },
+        {
+          "id": "new-R2-E1-O10",
+          "type": "contradiction",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 구간에 기기 손상·동기화 제약이 없고 무관한 표 조각 포함"
+        },
+        {
+          "id": "new-R2-E1-O11",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 근거만으로 노트북/스마트폰 요구·판단 수정 과정을 전부 뒷받침하지 못함"
+        },
+        {
+          "id": "new-R2-E2-O1",
+          "type": "question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R2-E2-O2",
+          "type": "open_question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R2-E2-O3",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R2-E2-O4",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R2-E2-O5",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R2-E2-O6",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R2-E2-O7",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R2-E2-O8",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R2-E2-O9",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.",
+          "unnecessary_reason": "사용자 보류를 AI가 재서술"
+        },
+        {
+          "id": "new-R2-E2-O10",
+          "type": "contradiction",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "선택지 장단점 차이를 실제 이전 가설과의 충돌 없이 Contradiction으로 분류"
+        },
+        {
+          "id": "new-R2-E2-O11",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R2-E2-O12",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R2-E2-O13",
+          "type": "contradiction",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "회원가입과 접근 제어의 개념 구분이지 충돌하는 실제 이전 판단이 아님"
+        },
+        {
+          "id": "new-R2-E2-O14",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.",
+          "unnecessary_reason": "O11의 미래 인증 설계 비용 설명 반복"
+        },
+        {
+          "id": "new-R2-E2-O15",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "C의 전체 복잡도를 가장 낮다고 서술하지만 선택 원문은 겉보기보다 높을 수 있음"
+        },
+        {
+          "id": "new-R2-E2-O16",
+          "type": "contradiction",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "항상 로그인해야 한다는 기존 판단이 원문에 없음"
+        },
+        {
+          "id": "new-R2-E2-O17",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R2-E2-O18",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R2-E2-O19",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 근거에 로그인 화면 제공 부분이 없음",
+          "unnecessary_reason": "O6의 B 권고 반복"
+        },
+        {
+          "id": "new-R2-E2-O20",
+          "type": "contradiction",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "나중에 가입 추가 가능과 사전 식별 설계 필요는 모순되는 명제가 아님"
+        },
+        {
+          "id": "new-R2-E2-O21",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.",
+          "unnecessary_reason": "O9와 동일한 보류 상태 요약"
+        },
+        {
+          "id": "new-R2-E2-O22",
+          "type": "contradiction",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "UX/보안 설계 제약 비교만으로 실제 기존 판단과의 모순을 추출"
+        },
+        {
+          "id": "new-R2-E2-O23",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.",
+          "unnecessary_reason": "O11과 같은 사용자 식별 선행 제안"
+        },
+        {
+          "id": "new-R2-E2-O24",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R2-E2-O25",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "표 조각에 Supabase/각 상태의 대상 연결이 없음",
+          "unnecessary_reason": "이전 목적의 저장소 상태와 회원가입 보류를 반복"
+        },
+        {
+          "id": "new-R2-E2-O26",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.",
+          "unnecessary_reason": "O12의 재검토 기준/시점 반복"
+        },
+        {
+          "id": "new-R2-E2-O27",
+          "type": "contradiction",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "단순 장단점이며 개발 속도 상승이라는 추가 주장도 선택 원문에 없음",
+          "unnecessary_reason": "O20의 인증 설계 비용 문제를 반복"
+        },
+        {
+          "id": "new-R2-E2-O28",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.",
+          "unnecessary_reason": "O11/O9의 제안·상태 반복"
+        },
+        {
+          "id": "new-R2-E2-O29",
+          "type": "contradiction",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "구현 범위 축소와 보안 설정 필요는 상충하는 주장이 아님",
+          "unnecessary_reason": "이미 추출한 보안 설정/구현 범위의 반복"
+        },
+        {
+          "id": "new-R2-E2-O30",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "테스트 이후 재검토를 반드시 결론을 낼 수 있다는 절차적 가정으로 보강"
+        },
+        {
+          "id": "new-R2-E2-O31",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문에 테스트 이후 재검토라는 요약의 일부 근거가 없음",
+          "unnecessary_reason": "O9/O21의 보류 상태 반복"
+        },
+        {
+          "id": "new-R2-E2-O32",
+          "type": "contradiction",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "서로 양립 가능한 권고를 충돌로 처리",
+          "unnecessary_reason": "O20의 같은 비용 논점 반복"
+        },
+        {
+          "id": "new-R2-E2-O33",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R2-E2-O34",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "조건부 C/B 우선 고려라는 제안이 선택 원문에 없음"
+        },
+        {
+          "id": "new-R2-E2-O35",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.",
+          "unnecessary_reason": "O18의 가입/접근 제어 분리 반복"
+        },
+        {
+          "id": "new-R2-E2-O36",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": false,
+          "reason": "사용자 회원가입 질문/보류를 기록한다지만 선택 근거는 다른 AI 질문/재검토 표 조각",
+          "unnecessary_reason": "기존 사용자 질문·보류를 잘못된 AI 근거로 재서술"
+        },
+        {
+          "id": "new-R2-E2-O37",
+          "type": "contradiction",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "서로 다른 목표 간 균형을 실제 가설과의 충돌로 처리"
+        },
+        {
+          "id": "new-R2-E2-O38",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.",
+          "unnecessary_reason": "O17의 RLS/신규 가입 제한 설명 반복"
+        },
+        {
+          "id": "new-R2-E2-O39",
+          "type": "contradiction",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "간단한 시작과 키 보호는 양립 가능; 구체적 기존 가설과 충돌 없음",
+          "unnecessary_reason": "O22의 UX/보안 논점 반복"
+        },
+        {
+          "id": "new-R2-E2-O40",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.",
+          "unnecessary_reason": "O11/O23의 선행 식별/보안 설계 반복"
+        },
+        {
+          "id": "new-R2-E2-O41",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "상태 표를 토대로 분석자가 과정이 구조화됐다고 보강; 발언에 표현된 새로운 이해가 아님",
+          "unnecessary_reason": "이미 추출한 상태/재검토 정보 반복"
+        },
+        {
+          "id": "new-R2-E2-O42",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": false,
+          "reason": "사용자의 직접 표현을 인용한 기록이라고 하지만 AI 재서술만 선택",
+          "unnecessary_reason": "사용자 보류/재검토를 AI 재서술로 반복"
+        },
+        {
+          "id": "new-R2-E2-O43",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R2-E2-O44",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "접근 제어·식별 체계 선행 설계라는 전체 권고를 선택 원문으로 충분히 뒷받침하지 못함",
+          "unnecessary_reason": "O28의 실행 권고 반복"
+        },
+        {
+          "id": "new-R2-E2-O45",
+          "type": "contradiction",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "선택지 차이만으로 실제 이전 판단과의 충돌을 생성",
+          "unnecessary_reason": "이미 추출한 대안 B/C 차이 반복"
+        },
+        {
+          "id": "new-R2-E2-O46",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.",
+          "unnecessary_reason": "O12/O26의 테스트/판단 기준 반복"
+        },
+        {
+          "id": "new-R2-E2-O47",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "대상 이름 없는 표 조각으로 전체 아키텍처 확정/회원가입만 미해결을 재구성",
+          "unnecessary_reason": "저장소 및 보류 상태의 반복 요약"
+        },
+        {
+          "id": "new-R2-E2-O48",
+          "type": "contradiction",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "개발 속도 향상은 선택 원문에 없으며 단순 비용/효과 차이를 모순으로 처리",
+          "unnecessary_reason": "O27의 속도/설계 비용 논점 반복"
+        },
+        {
+          "id": "new-R2-E2-O49",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "테스트 UX 결과에 따라 C를 유지하고 Magic Link로 타협한다는 제안은 원문에 없음"
+        },
+        {
+          "id": "new-R2-E2-O50",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.",
+          "unnecessary_reason": "O9의 같은 보류 상태 반복"
+        },
+        {
+          "id": "new-R2-E2-O51",
+          "type": "contradiction",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "사전 식별 설계와 이후 회원가입 추가는 양립하며 상충 권고가 아님",
+          "unnecessary_reason": "O20의 동일 비용/선행 설계 논점 반복"
+        },
+        {
+          "id": "new-R2-E2-O52",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.",
+          "unnecessary_reason": "기존 상태·시점·판단 기준 반복"
+        }
+      ],
+      "usage": {
+        "input_tokens": 92438,
+        "output_tokens": 13027,
+        "total_tokens": 105465
+      },
+      "duration_ms": 151068,
+      "call_count": 8
+    },
+    {
+      "id": "new-R3",
+      "status": "complete",
+      "episode_count": 2,
+      "object_count": 48,
+      "questions": {
+        "recovered": 2,
+        "expected": 2
+      },
+      "hypotheses": {
+        "recovered": 1,
+        "expected": 2
+      },
+      "decisions": {
+        "recovered": 2,
+        "expected": 2,
+        "precision": {
+          "supported": 1,
+          "predicted": 1,
+          "unreviewed": 0
+        }
+      },
+      "open_questions": {
+        "recovered": 2,
+        "expected": 2,
+        "precision": {
+          "supported": 1,
+          "predicted": 1,
+          "unreviewed": 0
+        }
+      },
+      "targets": [
+        {
+          "id": "Q1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "저장 방식의 장단점/선택 문제",
+          "matched_object_ids": [
+            "new-R3-E1-O1"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "Q2",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 MVP 도입 질문",
+          "matched_object_ids": [
+            "new-R3-E2-O1"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "H1",
+          "episode": 1,
+          "event_position": 9,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "초기 서버 없는 Offline-first 선호",
+          "matched_object_ids": [],
+          "recovered": false
+        },
+        {
+          "id": "H2",
+          "episode": 1,
+          "event_position": 16,
+          "allowed_types": [
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 MVP 가설",
+          "matched_object_ids": [
+            "new-R3-E1-O2"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "R1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "evidence",
+            "contradiction",
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "데이터 보존과 기기 간 동기화 위험을 사용자 인식",
+          "matched_object_ids": [
+            "new-R3-E1-O6"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "I1",
+          "episode": 1,
+          "event_position": 17,
+          "allowed_types": [
+            "insight"
+          ],
+          "speaker": "user",
+          "meaning": "로컬만 충분하다는 가설을 재검토하는 명시적 변화",
+          "matched_object_ids": [
+            "new-R3-E1-O6"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "A1",
+          "episode": 1,
+          "event_position": 18,
+          "allowed_types": [
+            "question",
+            "hypothesis"
+          ],
+          "speaker": "user",
+          "meaning": "Cloud-first와 Supabase 검토, 미결정 상태",
+          "matched_object_ids": [
+            "new-R3-E1-O4"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "D1",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "Supabase 메인과 IndexedDB 보조 채택",
+          "matched_object_ids": [
+            "new-R3-E1-O5"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "D2",
+          "episode": 1,
+          "event_position": 19,
+          "allowed_types": [
+            "decision"
+          ],
+          "speaker": "user",
+          "meaning": "IndexedDB 단독 기각",
+          "matched_object_ids": [
+            "new-R3-E1-O5"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "C1",
+          "episode": 2,
+          "event_position": 20,
+          "allowed_types": [
+            "evidence",
+            "question"
+          ],
+          "speaker": "user",
+          "meaning": "UX와 개발 복잡도 평가 기준",
+          "matched_object_ids": [
+            "new-R3-E2-O1"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "O1",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "회원가입 도입 여부 미결정",
+          "matched_object_ids": [
+            "new-R3-E2-O2"
+          ],
+          "recovered": true
+        },
+        {
+          "id": "O2",
+          "episode": 2,
+          "event_position": 22,
+          "allowed_types": [
+            "open_question"
+          ],
+          "speaker": "user",
+          "meaning": "실제 사용자 테스트 이후 재검토 조건",
+          "matched_object_ids": [
+            "new-R3-E2-O2"
+          ],
+          "recovered": true
+        }
+      ],
+      "quote_match": {
+        "matched": 105,
+        "total": 105
+      },
+      "field_speaker_consistency": {
+        "correct": 48,
+        "total": 48
+      },
+      "speaker_ownership": {
+        "correct": 48,
+        "total": 48,
+        "unreviewed": 0
+      },
+      "semantic_support": {
+        "supported": 23,
+        "unsupported": 25,
+        "uncertain": 0,
+        "unreviewed": 0,
+        "total": 48
+      },
+      "unnecessary_duplicates": [
+        {
+          "id": "new-R3-E1-O8",
+          "reason": "O7 및 사용자 결정과 같은 하이브리드 제안 반복"
+        },
+        {
+          "id": "new-R3-E1-O16",
+          "reason": "O7과 같은 하이브리드 제안/효과 반복"
+        },
+        {
+          "id": "new-R3-E1-O20",
+          "reason": "사용자 결정과 변화 이유의 AI 재서술"
+        },
+        {
+          "id": "new-R3-E1-O30",
+          "reason": "O20의 같은 결정문/단계적 도입 권고 반복"
+        },
+        {
+          "id": "new-R3-E1-O32",
+          "reason": "사용자 결정과 O20의 AI 결정 요약 반복"
+        },
+        {
+          "id": "new-R3-E1-O39",
+          "reason": "O28과 같은 AI 질문/설계 조건 반복"
+        },
+        {
+          "id": "new-R3-E2-O3",
+          "reason": "사용자 미해결 상태를 AI가 재서술"
+        }
+      ],
+      "objects": [
+        {
+          "id": "new-R3-E1-O1",
+          "type": "question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R3-E1-O2",
+          "type": "hypothesis",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R3-E1-O3",
+          "type": "question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R3-E1-O4",
+          "type": "question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R3-E1-O5",
+          "type": "decision",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R3-E1-O6",
+          "type": "insight",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R3-E1-O7",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R3-E1-O8",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "확정된 결정문 요약을 잠정 Hypothesis로 변경하고 실무적이라는 평가를 보강",
+          "unnecessary_reason": "O7 및 사용자 결정과 같은 하이브리드 제안 반복"
+        },
+        {
+          "id": "new-R3-E1-O9",
+          "type": "evidence",
+          "speaker": "source",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "비동기 설명은 있으나 트랜잭션 사용이 선택 구간에 없음"
+        },
+        {
+          "id": "new-R3-E1-O10",
+          "type": "evidence",
+          "speaker": "source",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R3-E1-O11",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R3-E1-O12",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "표 조각/백업 문장으로 기기 고장 및 동기화 불가를 모두 지지하지 못함"
+        },
+        {
+          "id": "new-R3-E1-O13",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "수정 가설 채택/아키텍처 선언만으로 단일 기기 전제·다기기 요구 판단 전환 전체를 지지하지 못함"
+        },
+        {
+          "id": "new-R3-E1-O14",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 구간에 PWA/Service Worker 및 저장 실패 처리 없음"
+        },
+        {
+          "id": "new-R3-E1-O15",
+          "type": "contradiction",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R3-E1-O16",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "동기화 흐름만 선택하여 Supabase와 보존 요구를 모두 만족시키는 판단으로 확장",
+          "unnecessary_reason": "O7과 같은 하이브리드 제안/효과 반복"
+        },
+        {
+          "id": "new-R3-E1-O17",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 구간에 동기화·충돌 해결 추가 작업 없음"
+        },
+        {
+          "id": "new-R3-E1-O18",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "백업 필요/개인용 추천/동기화 제목은 quota/estimate API의 근거가 아님"
+        },
+        {
+          "id": "new-R3-E1-O19",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "체크리스트 일부만 선택하고 실시간 공동편집 제외/로그인/우선순위를 추가"
+        },
+        {
+          "id": "new-R3-E1-O20",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.",
+          "unnecessary_reason": "사용자 결정과 변화 이유의 AI 재서술"
+        },
+        {
+          "id": "new-R3-E1-O21",
+          "type": "contradiction",
+          "speaker": "source",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "로컬 저장이면 절대 안전하다는 실제 기존 발언이 없음; 사용자 가설보다 강한 주장을 만들어 반박"
+        },
+        {
+          "id": "new-R3-E1-O22",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "버전 관리·유효성 검사·롤백 전략까지 선택 근거 없이 보강"
+        },
+        {
+          "id": "new-R3-E1-O23",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 근거에 서버 동기화 완료 데이터의 Supabase 기준 규칙이 없음"
+        },
+        {
+          "id": "new-R3-E1-O24",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "로컬 동기화 흐름/복잡도 문장만으로 데이터 안전성 개선까지 모두 지지하지 못함"
+        },
+        {
+          "id": "new-R3-E1-O25",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "트랜잭션 종료 설명은 관련되지만 데이터 마이그레이션 문장은 저장 완료 확인 주장과 무관"
+        },
+        {
+          "id": "new-R3-E1-O26",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "체크리스트 조각만 선택하여 재시작/백업 복원/사용자 알림 등 전체 체크리스트를 주장"
+        },
+        {
+          "id": "new-R3-E1-O27",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "DB/auth/충돌 규칙만 선택하여 별도 동기화 계층 개발까지 전체를 지지하지 못함"
+        },
+        {
+          "id": "new-R3-E1-O28",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "AI 질문을 실제 설계 방향 전환 기준으로 단정하는 후반 해석은 선택 근거에 없음"
+        },
+        {
+          "id": "new-R3-E1-O29",
+          "type": "contradiction",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R3-E1-O30",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "최종 결정문서 요약이며 새로운 이해를 기록한 Insight가 아님",
+          "unnecessary_reason": "O20의 같은 결정문/단계적 도입 권고 반복"
+        },
+        {
+          "id": "new-R3-E1-O31",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 구간에 백업·캐시 일관성 항목 없음"
+        },
+        {
+          "id": "new-R3-E1-O32",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.",
+          "unnecessary_reason": "사용자 결정과 O20의 AI 결정 요약 반복"
+        },
+        {
+          "id": "new-R3-E1-O33",
+          "type": "contradiction",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "초기 복잡도 제목/보존 위험만으로 미래 변경비용을 보강"
+        },
+        {
+          "id": "new-R3-E1-O34",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R3-E1-O35",
+          "type": "evidence",
+          "speaker": "source",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R3-E1-O36",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R3-E1-O37",
+          "type": "contradiction",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "승인 방식의 브라우저별 차이는 선택 근거에 없으며 무관한 복잡도 제목 포함"
+        },
+        {
+          "id": "new-R3-E1-O38",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "구현 순서 제안은 Insight가 아니며 구체적 단계도 선택 근거에 없음"
+        },
+        {
+          "id": "new-R3-E1-O39",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "질문 자체를 최종 설계 판단을 바꾸는 결정적 기준으로 확대",
+          "unnecessary_reason": "O28과 같은 AI 질문/설계 조건 반복"
+        },
+        {
+          "id": "new-R3-E2-O1",
+          "type": "question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R3-E2-O2",
+          "type": "open_question",
+          "speaker": "user",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R3-E2-O3",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함.",
+          "unnecessary_reason": "사용자 미해결 상태를 AI가 재서술"
+        },
+        {
+          "id": "new-R3-E2-O4",
+          "type": "evidence",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "확정이라는 표 조각에 Supabase/IndexedDB 등 대상명이 없음"
+        },
+        {
+          "id": "new-R3-E2-O5",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R3-E2-O6",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R3-E2-O7",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R3-E2-O8",
+          "type": "insight",
+          "speaker": "assistant",
+          "semantic_support": "supported",
+          "type_supported": true,
+          "speaker_correct": true,
+          "reason": "선택 원문이 해당 발화/주장을 지지하고 화자 귀속이 일치함."
+        },
+        {
+          "id": "new-R3-E2-O9",
+          "type": "contradiction",
+          "speaker": "assistant",
+          "semantic_support": "unsupported",
+          "type_supported": false,
+          "speaker_correct": true,
+          "reason": "UI 숨김만으로 충분하다는 실제 기존 사용자 가설 없이 보안 유의사항을 Contradiction으로 처리"
+        }
+      ],
+      "usage": {
+        "input_tokens": 98137,
+        "output_tokens": 12414,
+        "total_tokens": 110551
+      },
+      "duration_ms": 149773,
+      "call_count": 8
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "baseline": {
+    "objects": 35,
+    "episodes": 4,
+    "decisions": {
+      "matched": 1,
+      "expected": 1,
+      "predicted": 1,
+      "unmatched_targets": []
+    },
+    "open_questions": {
+      "matched": 1,
+      "expected": 1,
+      "predicted": 3,
+      "unmatched_targets": []
+    },
+    "boundaries": {
+      "expected": [
+        19
+      ],
+      "predicted": [
+        3,
+        8,
+        16
+      ],
+      "true_positive": 0
+    },
+    "quotes": {
+      "matched": 36,
+      "total": 36
+    },
+    "required_evidence": [],
+    "no_objects_check": null
+  },
+  "new_full": null,
+  "isolated_ep02": {
+    "objects": 6,
+    "episodes": 1,
+    "decisions": {
+      "matched": 0,
+      "expected": 0,
+      "predicted": 1,
+      "unmatched_targets": []
+    },
+    "open_questions": {
+      "matched": 0,
+      "expected": 1,
+      "predicted": 0,
+      "unmatched_targets": [
+        {
+          "event": 22,
+          "field": "question",
+          "anchor": "미해결 상태로 남겨두자"
+        }
+      ]
+    },
+    "boundaries": {
+      "expected": [],
+      "predicted": [],
+      "true_positive": 0
+    },
+    "quotes": {
+      "matched": 6,
+      "total": 6
+    },
+    "required_evidence": [],
+    "no_objects_check": null
+  }
+}

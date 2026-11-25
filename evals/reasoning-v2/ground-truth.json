@@ -1,0 +1,126 @@
+[
+  {
+    "id": "Q1",
+    "episode": 1,
+    "event_position": 9,
+    "allowed_types": [
+      "question"
+    ],
+    "speaker": "user",
+    "meaning": "저장 방식의 장단점/선택 문제"
+  },
+  {
+    "id": "Q2",
+    "episode": 2,
+    "event_position": 20,
+    "allowed_types": [
+      "question"
+    ],
+    "speaker": "user",
+    "meaning": "회원가입 MVP 도입 질문"
+  },
+  {
+    "id": "H1",
+    "episode": 1,
+    "event_position": 9,
+    "allowed_types": [
+      "hypothesis"
+    ],
+    "speaker": "user",
+    "meaning": "초기 서버 없는 Offline-first 선호"
+  },
+  {
+    "id": "H2",
+    "episode": 1,
+    "event_position": 16,
+    "allowed_types": [
+      "hypothesis"
+    ],
+    "speaker": "user",
+    "meaning": "IndexedDB 단독 MVP 가설"
+  },
+  {
+    "id": "R1",
+    "episode": 1,
+    "event_position": 17,
+    "allowed_types": [
+      "evidence",
+      "contradiction",
+      "insight"
+    ],
+    "speaker": "user",
+    "meaning": "데이터 보존과 기기 간 동기화 위험을 사용자 인식"
+  },
+  {
+    "id": "I1",
+    "episode": 1,
+    "event_position": 17,
+    "allowed_types": [
+      "insight"
+    ],
+    "speaker": "user",
+    "meaning": "로컬만 충분하다는 가설을 재검토하는 명시적 변화"
+  },
+  {
+    "id": "A1",
+    "episode": 1,
+    "event_position": 18,
+    "allowed_types": [
+      "question",
+      "hypothesis"
+    ],
+    "speaker": "user",
+    "meaning": "Cloud-first와 Supabase 검토, 미결정 상태"
+  },
+  {
+    "id": "D1",
+    "episode": 1,
+    "event_position": 19,
+    "allowed_types": [
+      "decision"
+    ],
+    "speaker": "user",
+    "meaning": "Supabase 메인과 IndexedDB 보조 채택"
+  },
+  {
+    "id": "D2",
+    "episode": 1,
+    "event_position": 19,
+    "allowed_types": [
+      "decision"
+    ],
+    "speaker": "user",
+    "meaning": "IndexedDB 단독 기각"
+  },
+  {
+    "id": "C1",
+    "episode": 2,
+    "event_position": 20,
+    "allowed_types": [
+      "evidence",
+      "question"
+    ],
+    "speaker": "user",
+    "meaning": "UX와 개발 복잡도 평가 기준"
+  },
+  {
+    "id": "O1",
+    "episode": 2,
+    "event_position": 22,
+    "allowed_types": [
+      "open_question"
+    ],
+    "speaker": "user",
+    "meaning": "회원가입 도입 여부 미결정"
+  },
+  {
+    "id": "O2",
+    "episode": 2,
+    "event_position": 22,
+    "allowed_types": [
+      "open_question"
+    ],
+    "speaker": "user",
+    "meaning": "실제 사용자 테스트 이후 재검토 조건"
+  }
+]

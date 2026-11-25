@@ -1,0 +1,15 @@
+{
+  "created_at": "2026-11-20T20:48:49.574177+00:00",
+  "evaluation_time_code_unchanged": true,
+  "changed_after_evaluation": [
+    "scripts/analyze.mjs"
+  ],
+  "before_hashes": {
+    "scripts/analyze.mjs": "8f9431ed31305be1bcbd14426c3eb10d537fe4491d20d769fd8c357631e6f3ef"
+  },
+  "after_hashes": {
+    "scripts/analyze.mjs": "4af7f62556f4319c6730b337c5266fe9ebe4f06b919d09e1765c19a81da18237"
+  },
+  "reason": "Only worker policy selection was gated: default reasoning-v1, explicit reasoning-v2 opt-in, reject invalid env before claiming work. Evaluated v2 extraction/review code and frozen rubric unchanged. No worker executed or live DB mutated.",
+  "core_extraction_unchanged": true
+}

@@ -1,0 +1,993 @@
+{
+  "test": "PRM E2E TEST 01",
+  "review_method": "현재 코딩 어시스턴트의 비맹검 원문 대조 검토. 별도 LLM 채점 호출과 독립 사람 채점 없음.",
+  "metrics": {
+    "full_pipeline_status": "failed",
+    "fixed_input_episodes": 2,
+    "new_complete_full_result": null,
+    "baseline": {
+      "episodes": 4,
+      "objects": 35,
+      "user_hypothesis_E16_typed_recall": {
+        "matched": 0,
+        "expected": 1,
+        "note": "User hypothesis survives inside a question object; the hypothesis object is assistant-sourced."
+      },
+      "core_storage_decision_recall": {
+        "matched": 1,
+        "expected": 1
+      },
+      "quotes": {
+        "matched": 36,
+        "total": 36
+      },
+      "user_open_questions": {
+        "correct": 1,
+        "total": 3,
+        "confirmed_search_false_positives": 2
+      },
+      "all_open_questions": {
+        "total": 4,
+        "current_unresolved_confirmed": 1,
+        "confirmed_search_false_positives": 2,
+        "historical_assistant_question_ambiguous": 1
+      },
+      "confirmed_misclassified_objects": 2,
+      "redundancy_review": {
+        "extra_objects": 3,
+        "secondary_detail_candidates": 8,
+        "scope": "nonblind reviewer judgement, not a uniquely labelled optimal object count"
+      },
+      "ground_truth": {
+        "full": 13,
+        "partial": 1,
+        "total": 14
+      }
+    },
+    "new_full": {
+      "episodes": 2,
+      "objects": null,
+      "user_hypothesis_recall": null,
+      "core_storage_decision_recall": null,
+      "open_question_precision": null,
+      "confirmed_misclassifications": null,
+      "redundancy": null,
+      "quotes": null,
+      "reason": "EP01 failed validation on all 3 attempts; EP02 was not reached by the full runner"
+    },
+    "rejected_ep01": {
+      "attempts": 3,
+      "last_candidate_objects": 13,
+      "last_candidate_individually_valid": 11,
+      "accepted_objects": 0,
+      "last_candidate_quotes": {
+        "matched": 13,
+        "total": 15
+      },
+      "all_candidate_quotes": {
+        "matched": 36,
+        "total": 40
+      },
+      "user_hypothesis_typed_objects": 0,
+      "caution": "These are diagnostic rejected candidates, not accepted objects or valid pipeline quality scores."
+    },
+    "isolated_ep02": {
+      "objects": 6,
+      "quotes": {
+        "matched": 6,
+        "total": 6
+      },
+      "confirmed_wrong_signup_adoption_or_rejection": 0,
+      "ground_truth": {
+        "full": 5,
+        "total": 5
+      },
+      "user_open_question_objects": 0,
+      "assistant_open_question_objects": 1,
+      "user_deferral_decision_objects": 1,
+      "primary_user_open_question_typed_recall": {
+        "matched": 0,
+        "expected": 1
+      },
+      "semantic_unresolved_state_recall": {
+        "matched": 1,
+        "expected": 1
+      },
+      "confirmed_misclassifications": 0,
+      "ambiguous_classifications": 2,
+      "secondary_out_of_purpose_candidates": 1,
+      "scope": "Independent diagnostic; not evidence that the full pipeline completed."
+    }
+  },
+  "ground_truth": [
+    {
+      "id": "EP01-01",
+      "meaning": "초기 질문: 어떤 데이터 저장 방식을 선택할 것인가?",
+      "event_indices": [
+        9
+      ],
+      "baseline": "full",
+      "baseline_objects": [
+        "B-EP03-O14"
+      ],
+      "diagnostic_objects": [
+        "D-EP01-A03-O01"
+      ],
+      "diagnostic_meaning": "표현됨; 전체 EP01 거부로 정식 회수 판정 제외",
+      "new_full_status": "not_evaluable_full_pipeline_failed",
+      "new_isolated_status": "not_available",
+      "diagnostic_status": "unvalidated_final_ep01_candidate_only"
+    },
+    {
+      "id": "EP01-02",
+      "meaning": "초기 선호: Offline-first 및 서버 없는 로컬 저장 선호",
+      "event_indices": [
+        9
+      ],
+      "baseline": "full",
+      "baseline_objects": [
+        "B-EP03-O14"
+      ],
+      "diagnostic_objects": [
+        "D-EP01-A03-O01"
+      ],
+      "diagnostic_meaning": "초기 선호가 사용자 question 객체의 전문 안에 표현됨",
+      "new_full_status": "not_evaluable_full_pipeline_failed",
+      "new_isolated_status": "not_available",
+      "diagnostic_status": "unvalidated_final_ep01_candidate_only"
+    },
+    {
+      "id": "EP01-03",
+      "meaning": "사용자 가설: IndexedDB 단독 저장으로 MVP 구현 가능",
+      "event_indices": [
+        16
+      ],
+      "baseline": "partial",
+      "baseline_objects": [
+        "B-EP03-O12",
+        "B-EP03-O06"
+      ],
+      "diagnostic_objects": [
+        "D-EP01-A03-O02"
+      ],
+      "diagnostic_meaning": "사용자 발언은 question에 남지만 user/hypothesis 객체 없음. 기존도 assistant/hypothesis가 별도로 있고 사용자 가설은 question에 포함됨",
+      "new_full_status": "not_evaluable_full_pipeline_failed",
+      "new_isolated_status": "not_available",
+      "diagnostic_status": "unvalidated_final_ep01_candidate_only"
+    },
+    {
+      "id": "EP01-04",
+      "meaning": "근거: IndexedDB의 로컬 데이터 저장 기능",
+      "event_indices": [
+        5,
+        7,
+        8,
+        11,
+        12,
+        16
+      ],
+      "baseline": "full",
+      "baseline_objects": [
+        "B-EP02-O04",
+        "B-EP02-O06",
+        "B-EP03-O11"
+      ],
+      "diagnostic_objects": [
+        "D-EP01-A03-O04",
+        "D-EP01-A03-O05"
+      ],
+      "diagnostic_meaning": "로컬 구조화 데이터 저장 기능의 원문 근거 표현됨",
+      "new_full_status": "not_evaluable_full_pipeline_failed",
+      "new_isolated_status": "not_available",
+      "diagnostic_status": "unvalidated_final_ep01_candidate_only"
+    },
+    {
+      "id": "EP01-05",
+      "meaning": "반론: 데이터 보존 위험 및 기기 간 동기화 한계",
+      "event_indices": [
+        9,
+        15,
+        16,
+        17
+      ],
+      "baseline": "full",
+      "baseline_objects": [
+        "B-EP03-O05",
+        "B-EP03-O07",
+        "B-EP03-O10",
+        "B-EP04-O09"
+      ],
+      "diagnostic_objects": [
+        "D-EP01-A03-O06",
+        "D-EP01-A03-O10"
+      ],
+      "diagnostic_meaning": "보존 위험 근거와 동기화 개선 제안은 있지만 사용자의 위험 인식 E17은 개별 객체로 없음",
+      "new_full_status": "not_evaluable_full_pipeline_failed",
+      "new_isolated_status": "not_available",
+      "diagnostic_status": "unvalidated_final_ep01_candidate_only"
+    },
+    {
+      "id": "EP01-06",
+      "meaning": "생각 변화: IndexedDB 단독 방식 재검토",
+      "event_indices": [
+        17
+      ],
+      "baseline": "full",
+      "baseline_objects": [
+        "B-EP04-O09"
+      ],
+      "diagnostic_objects": [
+        "D-EP01-A03-O11"
+      ],
+      "diagnostic_meaning": "사용자 생각 변화가 아닌 AI 권고 변화만 contradiction으로 표현. E17.question 직접 근거 객체 없음",
+      "new_full_status": "not_evaluable_full_pipeline_failed",
+      "new_isolated_status": "not_available",
+      "diagnostic_status": "unvalidated_final_ep01_candidate_only"
+    },
+    {
+      "id": "EP01-07",
+      "meaning": "검토 대안: Cloud-first 및 Supabase",
+      "event_indices": [
+        18
+      ],
+      "baseline": "full",
+      "baseline_objects": [
+        "B-EP04-O10"
+      ],
+      "diagnostic_objects": [
+        "D-EP01-A03-O03"
+      ],
+      "diagnostic_meaning": "사용자의 미확정 Cloud-first/Supabase 검토가 표현됨",
+      "new_full_status": "not_evaluable_full_pipeline_failed",
+      "new_isolated_status": "not_available",
+      "diagnostic_status": "unvalidated_final_ep01_candidate_only"
+    },
+    {
+      "id": "EP01-08",
+      "meaning": "최종 사용자 결정: Supabase 메인 + IndexedDB 보조",
+      "event_indices": [
+        19
+      ],
+      "baseline": "full",
+      "baseline_objects": [
+        "B-EP04-O05"
+      ],
+      "diagnostic_objects": [
+        "D-EP01-A03-O12"
+      ],
+      "diagnostic_meaning": "결정 의미는 표현했으나 E19 인용의 '메인 데이터'를 '메인데이터'로 바꿔 증거 검증 실패",
+      "new_full_status": "not_evaluable_full_pipeline_failed",
+      "new_isolated_status": "not_available",
+      "diagnostic_status": "unvalidated_final_ep01_candidate_only"
+    },
+    {
+      "id": "EP01-09",
+      "meaning": "기각된 대안: IndexedDB 단독 저장",
+      "event_indices": [
+        19
+      ],
+      "baseline": "full",
+      "baseline_objects": [
+        "B-EP04-O05"
+      ],
+      "diagnostic_objects": [
+        "D-EP01-A03-O12"
+      ],
+      "diagnostic_meaning": "IndexedDB 단독 기각의 의미는 같은 결정 객체 안에 있으나 해당 객체의 인용 검증 실패",
+      "new_full_status": "not_evaluable_full_pipeline_failed",
+      "new_isolated_status": "not_available",
+      "diagnostic_status": "unvalidated_final_ep01_candidate_only"
+    },
+    {
+      "id": "EP02-01",
+      "meaning": "새로운 질문: MVP 회원가입 기능 필요 여부",
+      "event_indices": [
+        20
+      ],
+      "baseline": "full",
+      "baseline_objects": [
+        "B-EP04-O01"
+      ],
+      "new_status": "full_isolated_ep02",
+      "new_objects": [
+        "N-EP02-O01"
+      ],
+      "note": "새 질문과 이전 저장 문제 종료를 사용자 원문으로 보존",
+      "new_full_status": "not_evaluable_full_pipeline_failed",
+      "new_isolated_status": "full_isolated_ep02",
+      "diagnostic_status": null
+    },
+    {
+      "id": "EP02-02",
+      "meaning": "평가 기준: 사용자 경험과 개발 복잡도",
+      "event_indices": [
+        20
+      ],
+      "baseline": "full",
+      "baseline_objects": [
+        "B-EP04-O01"
+      ],
+      "new_status": "full_isolated_ep02",
+      "new_objects": [
+        "N-EP02-O01"
+      ],
+      "note": "UX·개발 복잡도가 사용자 질문 전문에 들어 있으므로 별도 객체가 없어도 의미 회수",
+      "new_full_status": "not_evaluable_full_pipeline_failed",
+      "new_isolated_status": "full_isolated_ep02",
+      "diagnostic_status": null
+    },
+    {
+      "id": "EP02-03",
+      "meaning": "사용자 판단: 아직 결정하지 않음",
+      "event_indices": [
+        20,
+        22
+      ],
+      "baseline": "full",
+      "baseline_objects": [
+        "B-EP04-O01",
+        "B-EP04-O07"
+      ],
+      "new_status": "full_isolated_ep02",
+      "new_objects": [
+        "N-EP02-O01",
+        "N-EP02-O06"
+      ],
+      "note": "미결정 유지·판단 보류를 정확히 표현. 도입/배제 확정으로 해석하지 않음",
+      "new_full_status": "not_evaluable_full_pipeline_failed",
+      "new_isolated_status": "full_isolated_ep02",
+      "diagnostic_status": null
+    },
+    {
+      "id": "EP02-04",
+      "meaning": "미해결 질문: 회원가입 도입 여부",
+      "event_indices": [
+        20,
+        22
+      ],
+      "baseline": "full",
+      "baseline_objects": [
+        "B-EP04-O07"
+      ],
+      "new_status": "full_isolated_ep02",
+      "new_objects": [
+        "N-EP02-O05",
+        "N-EP02-O06"
+      ],
+      "note": "미해결 의미는 회수. 다만 open_question은 assistant이고 user/open_question은 0개. 사용자의 보류 발언은 decision으로 표현",
+      "new_full_status": "not_evaluable_full_pipeline_failed",
+      "new_isolated_status": "full_isolated_ep02",
+      "diagnostic_status": null
+    },
+    {
+      "id": "EP02-05",
+      "meaning": "후속 조건: 실제 사용자 테스트 후 재검토",
+      "event_indices": [
+        22
+      ],
+      "baseline": "full",
+      "baseline_objects": [
+        "B-EP04-O07"
+      ],
+      "new_status": "full_isolated_ep02",
+      "new_objects": [
+        "N-EP02-O06"
+      ],
+      "note": "실제 사용자 테스트 후 재판단 조건을 사용자 원문으로 보존",
+      "new_full_status": "not_evaluable_full_pipeline_failed",
+      "new_isolated_status": "full_isolated_ep02",
+      "diagnostic_status": null
+    }
+  ],
+  "error_rows": [
+    {
+      "category": "A",
+      "scope": "기존 정상 결과",
+      "status": "분류 커버리지 누락",
+      "count": "1",
+      "object_ids": "B-EP03-O12; B-EP03-O06",
+      "reason": "사용자의 가설은 question 전문에 남지만 user/hypothesis가 없고 assistant/hypothesis만 별도 존재"
+    },
+    {
+      "category": "A",
+      "scope": "새 전체 실행",
+      "status": "최종 품질 채점 불가",
+      "count": "",
+      "object_ids": "",
+      "reason": "EP01 검증 실패로 정상 완료 결과 없음"
+    },
+    {
+      "category": "A",
+      "scope": "EP01 거부된 마지막 후보",
+      "status": "동일 누락 징후",
+      "count": "1",
+      "object_ids": "D-EP01-A03-O02",
+      "reason": "사용자 가설을 question으로만 표현; 받아들여진 객체가 아님"
+    },
+    {
+      "category": "B",
+      "scope": "기존 정상 결과",
+      "status": "확정 오분류",
+      "count": "2",
+      "object_ids": "B-EP03-O04; B-EP03-O13",
+      "reason": "같은 검색 문자열을 각각 user/open_question으로 분류"
+    },
+    {
+      "category": "B",
+      "scope": "EP01 거부된 마지막 후보",
+      "status": "검색 오분류 미관찰",
+      "count": "0",
+      "object_ids": "D-EP01-A03-O13",
+      "reason": "검색 문자열 객체는 없지만 E18의 과거 미결정 상태를 open_question으로 남김; 이후 E19에서 결정됨"
+    },
+    {
+      "category": "B",
+      "scope": "기존 정상 결과",
+      "status": "시점 해석 유보",
+      "count": "1",
+      "object_ids": "B-EP03-O09",
+      "reason": "E09 AI 질문은 E17에서 답변됨. 역사적 질문 기록과 최종 미해결 상태를 구분해야 함"
+    },
+    {
+      "category": "C",
+      "scope": "기존 정상 결과",
+      "status": "통과",
+      "count": "0",
+      "object_ids": "B-EP04-O05",
+      "reason": "저장소 채택 결정은 E19.question에 연결됨"
+    },
+    {
+      "category": "C",
+      "scope": "EP01 거부된 마지막 후보",
+      "status": "조기 확정 미관찰",
+      "count": "0",
+      "object_ids": "D-EP01-A03-O12",
+      "reason": "결정 의미와 시점은 E19지만 정확한 인용에는 실패. 정상 회수 점수에 넣지 않음"
+    },
+    {
+      "category": "C",
+      "scope": "EP02 독립 진단",
+      "status": "통과",
+      "count": "0",
+      "object_ids": "N-EP02-O06",
+      "reason": "회원가입 도입/배제가 아니라 판단 보류를 결정한 발언임"
+    },
+    {
+      "category": "D",
+      "scope": "기존 정상 결과",
+      "status": "의미 회수",
+      "count": "1",
+      "object_ids": "B-EP04-O09",
+      "reason": "E17 사용자 질문 전문에 초기 판단에서 재검토로 변화한 내용이 직접 남음"
+    },
+    {
+      "category": "D",
+      "scope": "EP01 거부된 마지막 후보",
+      "status": "사용자 변화 누락 징후",
+      "count": "1",
+      "object_ids": "D-EP01-A03-O11",
+      "reason": "AI 권고 간 차이만 contradiction으로 생성; E17.question 근거의 사용자 변화 객체 없음. 그래프 부재를 실패로 센 것이 아님"
+    },
+    {
+      "category": "E",
+      "scope": "기존 정상 결과",
+      "status": "통과",
+      "count": "1",
+      "object_ids": "B-EP04-O07",
+      "reason": "사용자 미해결 상태와 사용자 테스트 후 재검토 조건 회수"
+    },
+    {
+      "category": "E",
+      "scope": "EP02 독립 진단",
+      "status": "의미 통과·유형 커버리지 빈틈",
+      "count": "1",
+      "object_ids": "N-EP02-O01; N-EP02-O05; N-EP02-O06",
+      "reason": "5개 의미 기준 회수. 사용자 보류 발언은 decision, open_question은 assistant여서 user/open_question은 없음"
+    },
+    {
+      "category": "F",
+      "scope": "기존 정상 결과",
+      "status": "중복 검토 후보",
+      "count": "3",
+      "object_ids": "B-EP03-O01; B-EP04-O06; B-EP04-O12",
+      "reason": "동일 자료 반복·제목형 혼합 구조·AI 미해결 재확인의 추가 핵심 정보가 적음. 주관적 유용성 검토"
+    },
+    {
+      "category": "F",
+      "scope": "기존 정상 결과",
+      "status": "부차적 세부 설명 후보",
+      "count": "8",
+      "object_ids": "B-EP03-O02; B-EP03-O03; B-EP03-O08; B-EP03-O15; B-EP03-O16; B-EP04-O02; B-EP04-O03; B-EP04-O08",
+      "reason": "백업·추상화·Service Worker·동기화 등. 모두 거짓 또는 불필요하다고 확정하지 않음"
+    },
+    {
+      "category": "F",
+      "scope": "EP02 독립 진단",
+      "status": "목적 외 세부 객체 후보",
+      "count": "1",
+      "object_ids": "N-EP02-O04",
+      "reason": "회원가입 구간에서 이전 저장소 결정을 AI 요약으로 재추출"
+    },
+    {
+      "category": "인용/구조",
+      "scope": "EP01 1차 응답",
+      "status": "객체 근거 배열 누락",
+      "count": "2",
+      "object_ids": "D-EP01-A01-O01; D-EP01-A01-O02",
+      "reason": "사용자 질문 두 객체의 evidence 배열이 비어 전체 구간 거부"
+    },
+    {
+      "category": "인용/구조",
+      "scope": "EP01 전체 후보 3개",
+      "status": "원문 불일치 참조",
+      "count": "4",
+      "object_ids": "D-EP01-A01-O09; D-EP01-A02-O10; D-EP01-A03-O09; D-EP01-A03-O12",
+      "reason": "전체 참조 40개 중 36개 일치. 이 수치는 거부된 응답의 진단치이며 정상 결과 인용 정밀도와 혼합하지 않음"
+    },
+    {
+      "category": "인용/구조",
+      "scope": "EP02 독립 진단",
+      "status": "통과",
+      "count": "6",
+      "object_ids": "N-EP02-O01 ~ N-EP02-O06",
+      "reason": "6개 객체·6개 참조 원문 일치, 현재 검증기 통과"
+    }
+  ],
+  "manual_annotations": {
+    "reviewer": "현재 코딩 어시스턴트의 비맹검 원문 대조 검토. 별도 LLM 채점 호출과 독립 사람 채점 없음.",
+    "ground_truth_reviews": [
+      {
+        "id": "EP01-01",
+        "baseline": "full",
+        "baseline_objects": [
+          "B-EP03-O14"
+        ],
+        "diagnostic_objects": [
+          "D-EP01-A03-O01"
+        ],
+        "diagnostic_meaning": "표현됨; 전체 EP01 거부로 정식 회수 판정 제외"
+      },
+      {
+        "id": "EP01-02",
+        "baseline": "full",
+        "baseline_objects": [
+          "B-EP03-O14"
+        ],
+        "diagnostic_objects": [
+          "D-EP01-A03-O01"
+        ],
+        "diagnostic_meaning": "초기 선호가 사용자 question 객체의 전문 안에 표현됨"
+      },
+      {
+        "id": "EP01-03",
+        "baseline": "partial",
+        "baseline_objects": [
+          "B-EP03-O12",
+          "B-EP03-O06"
+        ],
+        "diagnostic_objects": [
+          "D-EP01-A03-O02"
+        ],
+        "diagnostic_meaning": "사용자 발언은 question에 남지만 user/hypothesis 객체 없음. 기존도 assistant/hypothesis가 별도로 있고 사용자 가설은 question에 포함됨"
+      },
+      {
+        "id": "EP01-04",
+        "baseline": "full",
+        "baseline_objects": [
+          "B-EP02-O04",
+          "B-EP02-O06",
+          "B-EP03-O11"
+        ],
+        "diagnostic_objects": [
+          "D-EP01-A03-O04",
+          "D-EP01-A03-O05"
+        ],
+        "diagnostic_meaning": "로컬 구조화 데이터 저장 기능의 원문 근거 표현됨"
+      },
+      {
+        "id": "EP01-05",
+        "baseline": "full",
+        "baseline_objects": [
+          "B-EP03-O05",
+          "B-EP03-O07",
+          "B-EP03-O10",
+          "B-EP04-O09"
+        ],
+        "diagnostic_objects": [
+          "D-EP01-A03-O06",
+          "D-EP01-A03-O10"
+        ],
+        "diagnostic_meaning": "보존 위험 근거와 동기화 개선 제안은 있지만 사용자의 위험 인식 E17은 개별 객체로 없음"
+      },
+      {
+        "id": "EP01-06",
+        "baseline": "full",
+        "baseline_objects": [
+          "B-EP04-O09"
+        ],
+        "diagnostic_objects": [
+          "D-EP01-A03-O11"
+        ],
+        "diagnostic_meaning": "사용자 생각 변화가 아닌 AI 권고 변화만 contradiction으로 표현. E17.question 직접 근거 객체 없음"
+      },
+      {
+        "id": "EP01-07",
+        "baseline": "full",
+        "baseline_objects": [
+          "B-EP04-O10"
+        ],
+        "diagnostic_objects": [
+          "D-EP01-A03-O03"
+        ],
+        "diagnostic_meaning": "사용자의 미확정 Cloud-first/Supabase 검토가 표현됨"
+      },
+      {
+        "id": "EP01-08",
+        "baseline": "full",
+        "baseline_objects": [
+          "B-EP04-O05"
+        ],
+        "diagnostic_objects": [
+          "D-EP01-A03-O12"
+        ],
+        "diagnostic_meaning": "결정 의미는 표현했으나 E19 인용의 '메인 데이터'를 '메인데이터'로 바꿔 증거 검증 실패"
+      },
+      {
+        "id": "EP01-09",
+        "baseline": "full",
+        "baseline_objects": [
+          "B-EP04-O05"
+        ],
+        "diagnostic_objects": [
+          "D-EP01-A03-O12"
+        ],
+        "diagnostic_meaning": "IndexedDB 단독 기각의 의미는 같은 결정 객체 안에 있으나 해당 객체의 인용 검증 실패"
+      },
+      {
+        "id": "EP02-01",
+        "baseline": "full",
+        "baseline_objects": [
+          "B-EP04-O01"
+        ],
+        "new_status": "full_isolated_ep02",
+        "new_objects": [
+          "N-EP02-O01"
+        ],
+        "note": "새 질문과 이전 저장 문제 종료를 사용자 원문으로 보존"
+      },
+      {
+        "id": "EP02-02",
+        "baseline": "full",
+        "baseline_objects": [
+          "B-EP04-O01"
+        ],
+        "new_status": "full_isolated_ep02",
+        "new_objects": [
+          "N-EP02-O01"
+        ],
+        "note": "UX·개발 복잡도가 사용자 질문 전문에 들어 있으므로 별도 객체가 없어도 의미 회수"
+      },
+      {
+        "id": "EP02-03",
+        "baseline": "full",
+        "baseline_objects": [
+          "B-EP04-O01",
+          "B-EP04-O07"
+        ],
+        "new_status": "full_isolated_ep02",
+        "new_objects": [
+          "N-EP02-O01",
+          "N-EP02-O06"
+        ],
+        "note": "미결정 유지·판단 보류를 정확히 표현. 도입/배제 확정으로 해석하지 않음"
+      },
+      {
+        "id": "EP02-04",
+        "baseline": "full",
+        "baseline_objects": [
+          "B-EP04-O07"
+        ],
+        "new_status": "full_isolated_ep02",
+        "new_objects": [
+          "N-EP02-O05",
+          "N-EP02-O06"
+        ],
+        "note": "미해결 의미는 회수. 다만 open_question은 assistant이고 user/open_question은 0개. 사용자의 보류 발언은 decision으로 표현"
+      },
+      {
+        "id": "EP02-05",
+        "baseline": "full",
+        "baseline_objects": [
+          "B-EP04-O07"
+        ],
+        "new_status": "full_isolated_ep02",
+        "new_objects": [
+          "N-EP02-O06"
+        ],
+        "note": "실제 사용자 테스트 후 재판단 조건을 사용자 원문으로 보존"
+      }
+    ],
+    "baseline_confirmed_misclassifications": [
+      {
+        "id": "B-EP03-O04",
+        "reason": "E14의 검색 문자열만으로 user/open_question을 생성. 질문의 미해결 상태에 대한 직접 사용자 발언이 아님"
+      },
+      {
+        "id": "B-EP03-O13",
+        "reason": "E13의 같은 검색 문자열만으로 user/open_question을 생성. 검색 행위와 미해결 의사결정의 구분 실패"
+      }
+    ],
+    "baseline_temporally_ambiguous_open_question": {
+      "id": "B-EP03-O09",
+      "reason": "E09에서 AI가 스마트폰 사용 여부를 질문한 것은 실제 발화이나 E17에서 사용자가 다중 기기 필요성을 답함. 역사적 질문으로는 유효하므로 관계/상태 추적 미구현만으로 확정 오분류에 넣지 않음"
+    },
+    "baseline_redundancy_clusters": [
+      {
+        "retained": "B-EP02-O06",
+        "extras": [
+          "B-EP03-O01"
+        ],
+        "reason": "동일 web.dev 설명을 E07과 재방문 E12에서 같은 의미로 반복. 출처 참조는 보존하되 핵심 객체 중복으로 검토"
+      },
+      {
+        "retained": "B-EP04-O11",
+        "extras": [
+          "B-EP04-O06"
+        ],
+        "reason": "같은 E17 AI 제안에서 'Offline-first + Cloud Sync 구조'라는 제목형 객체가 더 구체적인 혼합 구조 가설과 겹침"
+      },
+      {
+        "retained": "B-EP04-O07",
+        "extras": [
+          "B-EP04-O12"
+        ],
+        "reason": "사용자가 남긴 회원가입 미해결 상태를 AI가 다시 확인한 echo. 별도 핵심 사고 요소로서 추가 정보가 적음. 화자·인용 자체는 정확함"
+      }
+    ],
+    "baseline_secondary_detail_candidates": [
+      {
+        "id": "B-EP03-O02",
+        "reason": "저장소 추상화 구현 조언"
+      },
+      {
+        "id": "B-EP03-O03",
+        "reason": "JSON 백업·복원 기능 구현 조언"
+      },
+      {
+        "id": "B-EP03-O08",
+        "reason": "Service Worker·캐시 구현 설명"
+      },
+      {
+        "id": "B-EP03-O15",
+        "reason": "persist() 승인·삭제 방지의 기술 세부 설명"
+      },
+      {
+        "id": "B-EP03-O16",
+        "reason": "복구 테스트 절차 조언"
+      },
+      {
+        "id": "B-EP04-O02",
+        "reason": "동기화 대기·전송 처리 설명"
+      },
+      {
+        "id": "B-EP04-O03",
+        "reason": "동기화 충돌 구현 문제"
+      },
+      {
+        "id": "B-EP04-O08",
+        "reason": "Supabase 인증·백엔드 구현 이점"
+      }
+    ],
+    "new_isolated_secondary_detail_candidates": [
+      {
+        "id": "N-EP02-O04",
+        "reason": "회원가입 검토 구간에서 E22 AI 요약의 이전 저장소 결정을 다시 독립 evidence로 생성. 원문에는 있지만 이번 목적의 핵심 사고 요소로서 낮은 우선순위"
+      }
+    ],
+    "new_isolated_ambiguous_classifications": [
+      {
+        "id": "N-EP02-O02",
+        "reason": "AI의 '본인 계정만 로그인' 추천을 evidence로 분류. speaker와 원문은 맞지만 검증된 사실/권고의 역할 구분은 추가 기준이 필요하므로 확정 오분류에 넣지 않음"
+      },
+      {
+        "id": "N-EP02-O06",
+        "reason": "'보류하기로 한 결정'으로는 decision이 타당할 수 있음. 회원가입 도입 또는 배제의 결정이라고 읽으면 안 되며, 별도 user/open_question 미생성은 분류 커버리지의 빈틈으로 기록"
+      }
+    ]
+  },
+  "attempt_diagnostics": [
+    {
+      "attempt": 1,
+      "candidate_objects": 11,
+      "individually_valid_objects": 8,
+      "accepted_objects": 0,
+      "empty_evidence_objects": [
+        "D-EP01-A01-O01",
+        "D-EP01-A01-O02"
+      ],
+      "quotes": {
+        "matched": 8,
+        "total": 9
+      },
+      "invalid_objects": [
+        {
+          "id": "D-EP01-A01-O01",
+          "error": "사고 요소 유형·내용·근거가 누락됐습니다.",
+          "mismatches": []
+        },
+        {
+          "id": "D-EP01-A01-O02",
+          "error": "사고 요소 유형·내용·근거가 누락됐습니다.",
+          "mismatches": []
+        },
+        {
+          "id": "D-EP01-A01-O09",
+          "error": "근거 인용문이 해당 Episode 원문에 존재하지 않습니다.",
+          "mismatches": [
+            {
+              "event_id": "3d95ae56-0184-4ec8-9c79-edcd4bfb91ce",
+              "field": "response",
+              "quote": "초기에는 IndexedDB만으로 시작하되, 실제 사용을 통해 데이터 보존의 중요성과 여러 기기에서 사용할 필요성을 검증한 뒤 클라우드 동기화 도입 여부를 결정하는 것이 합리적이다.",
+              "event_index": 16,
+              "event_label": "E16",
+              "verification_status": "quote_mismatch"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "attempt": 2,
+      "candidate_objects": 15,
+      "individually_valid_objects": 14,
+      "accepted_objects": 0,
+      "empty_evidence_objects": [],
+      "quotes": {
+        "matched": 15,
+        "total": 16
+      },
+      "invalid_objects": [
+        {
+          "id": "D-EP01-A02-O10",
+          "error": "근거 인용문이 해당 Episode 원문에 존재하지 않습니다.",
+          "mismatches": [
+            {
+              "event_id": "3d95ae56-0184-4ec8-9c79-edcd4bfb91ce",
+              "field": "response",
+              "quote": "초기에는 IndexedDB만으로 시작하되, 실제 사용을 통해 데이터 보존의 중요성과 여러 기기에서 사용할 필요성을 검증한 뒤 클라우드 동기화 도입 여부를 결정하는 것이 합리적이다.",
+              "event_index": 16,
+              "event_label": "E16",
+              "verification_status": "quote_mismatch"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "attempt": 3,
+      "candidate_objects": 13,
+      "individually_valid_objects": 11,
+      "accepted_objects": 0,
+      "empty_evidence_objects": [],
+      "quotes": {
+        "matched": 13,
+        "total": 15
+      },
+      "invalid_objects": [
+        {
+          "id": "D-EP01-A03-O09",
+          "error": "근거 인용문이 해당 Episode 원문에 존재하지 않습니다.",
+          "mismatches": [
+            {
+              "event_id": "3d95ae56-0184-4ec8-9c79-edcd4bfb91ce",
+              "field": "response",
+              "quote": "초기에는 IndexedDB만으로 시작하되, 실제 사용을 통해 데이터 보존의 중요성과 여러 기기에서 사용할 필요성을 검증한 뒤 클라우드 동기화 도입 여부를 결정하는 것이 합리적이다.",
+              "event_index": 16,
+              "event_label": "E16",
+              "verification_status": "quote_mismatch"
+            }
+          ]
+        },
+        {
+          "id": "D-EP01-A03-O12",
+          "error": "근거 인용문이 해당 Episode 원문에 존재하지 않습니다.",
+          "mismatches": [
+            {
+              "event_id": "263cc105-3ef9-4d46-9792-bb2c82b20511",
+              "field": "question",
+              "quote": "최종적으로 결정했어. MVP에서는 Supabase를 메인데이터 저장소로 사용하고, IndexedDB는 오프라인 임시 저장과 캐시에 활용할게. 처음 생각했던 IndexedDB 단독 방식은 기기 간 동기화와 데이터 보존 요구사항 때문에 채택하지 않겠어",
+              "event_index": 19,
+              "event_label": "E19",
+              "verification_status": "quote_mismatch"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "deterministic_diagnostics": {
+    "baseline": {
+      "objects": 35,
+      "episodes": 4,
+      "decisions": {
+        "matched": 1,
+        "expected": 1,
+        "predicted": 1,
+        "unmatched_targets": []
+      },
+      "open_questions": {
+        "matched": 1,
+        "expected": 1,
+        "predicted": 3,
+        "unmatched_targets": []
+      },
+      "boundaries": {
+        "expected": [
+          19
+        ],
+        "predicted": [
+          3,
+          8,
+          16
+        ],
+        "true_positive": 0
+      },
+      "quotes": {
+        "matched": 36,
+        "total": 36
+      },
+      "required_evidence": [],
+      "no_objects_check": null
+    },
+    "new_full": null,
+    "isolated_ep02": {
+      "objects": 6,
+      "episodes": 1,
+      "decisions": {
+        "matched": 0,
+        "expected": 0,
+        "predicted": 1,
+        "unmatched_targets": []
+      },
+      "open_questions": {
+        "matched": 0,
+        "expected": 1,
+        "predicted": 0,
+        "unmatched_targets": [
+          {
+            "event": 22,
+            "field": "question",
+            "anchor": "미해결 상태로 남겨두자"
+          }
+        ]
+      },
+      "boundaries": {
+        "expected": [],
+        "predicted": [],
+        "true_positive": 0
+      },
+      "quotes": {
+        "matched": 6,
+        "total": 6
+      },
+      "required_evidence": [],
+      "no_objects_check": null
+    }
+  },
+  "provenance": {
+    "source_run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+    "full_local_run_id": "8a628d31-01de-4ec8-a733-d3c6708ba997",
+    "isolated_ep02_run_id": "f6423cee-1ce4-4be4-9b08-c7e9fdea7a40",
+    "source_state_unchanged": true,
+    "production_code_hashes_unchanged": true,
+    "code_hashes": {
+      "lib/analysis.js": "9be0d5392ad053ebcdc2bb538e3bceefbde88403749800dcdefee5ae2ae46566",
+      "lib/segmentation.js": "6865c31fa4a460e8d57728d5afb75c3efc999fd77a6a4314382690a06e80dee7",
+      "scripts/analyze.mjs": "cebfb01b65c6956ca57d05a6811ef6b5e042a2ec020d69900d682c47667bdd01",
+      "db/analysis.sql": "135f5bb7f72a656213796e8853c18b0f9de8a882992429086e77fada7c1300e4",
+      "evals/score.mjs": "0d8078207f494e9ef30a36cca52dc7824207b6ba87483cc11b3c74620696257a"
+    },
+    "timing_note": "Full runner verified DB source state before/after. Isolated EP02 reads only the frozen local snapshot and performs no DB calls.",
+    "causal_limitation": "Single observed session; no blinded review, no repeatability estimate and no causal attribution to segmentation alone. Historical baseline request payload was not archived."
+  }
+}

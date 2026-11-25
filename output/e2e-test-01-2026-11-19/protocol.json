@@ -1,0 +1,157 @@
+{
+  "test": "PRM E2E TEST 01",
+  "created_at": "2026-11-19T04:51:41.906Z",
+  "source_run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+  "model": "gpt-5-mini",
+  "extraction_policy": "extraction-v1",
+  "segmentation_policy": "purpose-v2",
+  "segmentation_mode": "reuse validated fixed checkpoint; no segmentation model rerun",
+  "checkpoint_source": "output/segmentation/purpose-v2-comparison-2026-11-19-4.json",
+  "source_state_hash": "b0d6a8918b42ed23194e61963653bcb5c60eb48a469c7a88bc50cc4d53ff3e23",
+  "source_input_hash": "a005a03b9694f3199435676f52f972729e6e6ce6e53be54478dfe3bbc150fdab",
+  "local_input_hash": "f6ffcb8f9bbacca65240b6becb8a79fac8299ab407a962c59220ddf2de860434",
+  "code_hashes": {
+    "lib/analysis.js": "9be0d5392ad053ebcdc2bb538e3bceefbde88403749800dcdefee5ae2ae46566",
+    "lib/segmentation.js": "6865c31fa4a460e8d57728d5afb75c3efc999fd77a6a4314382690a06e80dee7",
+    "scripts/analyze.mjs": "cebfb01b65c6956ca57d05a6811ef6b5e042a2ec020d69900d682c47667bdd01",
+    "db/analysis.sql": "135f5bb7f72a656213796e8853c18b0f9de8a882992429086e77fada7c1300e4",
+    "evals/score.mjs": "0d8078207f494e9ef30a36cca52dc7824207b6ba87483cc11b3c74620696257a"
+  },
+  "ground_truth": [
+    {
+      "id": "EP01-01",
+      "meaning": "초기 질문: 어떤 데이터 저장 방식을 선택할 것인가?",
+      "event_indices": [
+        9
+      ]
+    },
+    {
+      "id": "EP01-02",
+      "meaning": "초기 선호: Offline-first 및 서버 없는 로컬 저장 선호",
+      "event_indices": [
+        9
+      ]
+    },
+    {
+      "id": "EP01-03",
+      "meaning": "사용자 가설: IndexedDB 단독 저장으로 MVP 구현 가능",
+      "event_indices": [
+        16
+      ]
+    },
+    {
+      "id": "EP01-04",
+      "meaning": "근거: IndexedDB의 로컬 데이터 저장 기능",
+      "event_indices": [
+        5,
+        7,
+        8,
+        11,
+        12,
+        16
+      ]
+    },
+    {
+      "id": "EP01-05",
+      "meaning": "반론: 데이터 보존 위험 및 기기 간 동기화 한계",
+      "event_indices": [
+        9,
+        15,
+        16,
+        17
+      ]
+    },
+    {
+      "id": "EP01-06",
+      "meaning": "생각 변화: IndexedDB 단독 방식 재검토",
+      "event_indices": [
+        17
+      ]
+    },
+    {
+      "id": "EP01-07",
+      "meaning": "검토 대안: Cloud-first 및 Supabase",
+      "event_indices": [
+        18
+      ]
+    },
+    {
+      "id": "EP01-08",
+      "meaning": "최종 사용자 결정: Supabase 메인 + IndexedDB 보조",
+      "event_indices": [
+        19
+      ]
+    },
+    {
+      "id": "EP01-09",
+      "meaning": "기각된 대안: IndexedDB 단독 저장",
+      "event_indices": [
+        19
+      ]
+    },
+    {
+      "id": "EP02-01",
+      "meaning": "새로운 질문: MVP 회원가입 기능 필요 여부",
+      "event_indices": [
+        20
+      ]
+    },
+    {
+      "id": "EP02-02",
+      "meaning": "평가 기준: 사용자 경험과 개발 복잡도",
+      "event_indices": [
+        20
+      ]
+    },
+    {
+      "id": "EP02-03",
+      "meaning": "사용자 판단: 아직 결정하지 않음",
+      "event_indices": [
+        20,
+        22
+      ]
+    },
+    {
+      "id": "EP02-04",
+      "meaning": "미해결 질문: 회원가입 도입 여부",
+      "event_indices": [
+        20,
+        22
+      ]
+    },
+    {
+      "id": "EP02-05",
+      "meaning": "후속 조건: 실제 사용자 테스트 후 재검토",
+      "event_indices": [
+        22
+      ]
+    }
+  ],
+  "method": {
+    "structural": "existing validateSegments/validateObjects and scoreCase quote/boundary diagnostics",
+    "semantic": "manual evidence-based review by the assistant after execution; no extra LLM judge call; not blinded and not an independent human annotation",
+    "ground_truth_matching": "semantic many-to-many; one object may cover several facts; user hypothesis additionally requires user/hypothesis with direct E16.question evidence",
+    "open_question": "separate final unresolved user questions, mere search actions, and assistant questions later answered; temporal ambiguity is reported rather than forced into a correct/incorrect label",
+    "duplicates": "document object-level redundant clusters and secondary technical detail separately; no fixed ideal object count",
+    "attribution": "one source session and one new execution; no causal claim that segmentation alone produced differences; extraction instructions/schema/retries are unchanged"
+  },
+  "deterministic_definition": {
+    "boundaries": [
+      19
+    ],
+    "decisions": [
+      {
+        "event": 19,
+        "field": "question",
+        "anchor": "Supabase를 메인 데이터 저장소로 사용하고"
+      }
+    ],
+    "openQuestions": [
+      {
+        "event": 22,
+        "field": "question",
+        "anchor": "미해결 상태로 남겨두자"
+      }
+    ]
+  }
+}

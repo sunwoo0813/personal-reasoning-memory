@@ -1,0 +1,3175 @@
+# 분석에 사용한 22개 원본 이벤트
+
+분석 당시 고정 스냅샷을 그대로 사용한다. 빈 본문은 복원하지 않았다.
+
+## E01 · page_view
+
+- Event ID: db739f59-c6d9-4588-a246-7e5f05d405d4
+- client_seq: 1
+- started_at: 2026-11-18T09:36:02.444+00:00
+- ended_at: 2026-11-18T09:37:02.325+00:00
+- 수집 상태: metadata_only
+
+저장된 질문·답변·본문·검색어 없음.
+
+## E02 · page_view
+
+- Event ID: fe5b0b42-0676-48f5-8347-d823a5ea2d6e
+- client_seq: 2
+- started_at: 2026-11-18T09:37:02.325+00:00
+- ended_at: 2026-11-18T09:37:03.555+00:00
+- 수집 상태: metadata_only
+
+저장된 질문·답변·본문·검색어 없음.
+
+## E03 · page_view
+
+- Event ID: f5fdf5da-bbe0-4f7e-bef2-730b4142b649
+- client_seq: 3
+- started_at: 2026-11-18T09:37:03.555+00:00
+- ended_at: 2026-11-18T09:38:03.583+00:00
+- 수집 상태: metadata_only
+
+저장된 질문·답변·본문·검색어 없음.
+
+## E04 · search
+
+- Event ID: 12e37d5d-488b-4ca1-8a31-913efdf5889f
+- client_seq: 4
+- started_at: 2026-11-18T09:38:16.342+00:00
+- ended_at: 2026-11-18T09:38:16.342+00:00
+- 수집 상태: partial
+
+<a id="e04-query"></a>
+
+### query
+
+```text
+mdn indexDB API
+```
+
+## E05 · page_view
+
+- Event ID: 091bb788-33da-4e99-acca-07b96bae5064
+- client_seq: 5
+- started_at: 2026-11-18T09:38:27.013+00:00
+- ended_at: 2026-11-18T09:38:42.789+00:00
+- 수집 상태: complete
+
+<a id="e05-text"></a>
+
+### text
+
+```text
+This page was translated from English by the community.
+Learn more and join the MDN Web Docs community.
+View in English
+Always switch to English
+IndexedDB API
+IndexedDB는 파일이나 블롭 등 많은 양의 구조화된 데이터를 클라이언트에 저장하기 위한 로우 레벨 API입니다. IndexedDB API는 인덱스를 사용해 데이터를 고성능으로 탐색할 수 있습니다.
+Web Storage
+는 적은 양의 데이터를 저장하는데 유용하지만 많은 양의 구조화된 데이터에는 적합하지 않은데, 이런 상황에서 IndexedDB를 사용할 수 있습니다. 이 페이지는 MDN에서 IndexedDB에 대한 내용을 다루는 시작 문서로 전체 API 참고서, 사용 안내서, 세부적인 브라우저 지원 상황, 그리고 핵심 개념에 대한 설명을 제공하는 링크를 찾을 수 있습니다.
+참고 :
+이 기능은
+Web Worker
+에서 사용할 수 있습니다.
+참고 :
+IndexedDB API는 강력하지만, 간단하게 사용하기엔 좀 복잡해 보일 수 있습니다. 보다 단순한 API를 선호한다면,
+See also
+섹션의 라이브러리를 알아보세요. IndexedDB를 좀 더 프로그래머 친화적으로 만들어줍니다.
+핵심 개념과 사용
+IndexedDB는 SQL을 사용하는 관계형 데이터베이스(RDBMS)와 같이 트랜잭션을 사용하는 데이터베이스 시스템입니다. 그러나 IndexedDB는 RDBMS의 고정컬럼 테이블 대신 JavaScript 기반의 객체지향 데이터베이스입니다. IndexedDB의 데이터는 인덱스
+키
+를 사용해 저장하고 검색할 수 있으며,
+구조화된 복사 알고리즘
+을 지원하는 객체라면 모두 저장할 수 있습니다. 사용하려면 데이터베이스 스키마를 지정하고, 데이터베이스와 통신을 연 후에, 일련의
+트랜잭션
+을 통해 데이터를 가져오거나 업데이트해야 합니다.
+IndexedDB 주요 특성 및 기본 용어 (en-US)
+에 대해 더 알아보세요.
+IndexedDB 사용하기
+안내서를 통해 IndexedDB의 기초적인 비동기 사용법을 배워보세요.
+서비스 워커를 사용해 PWA가 오프라인에서 동작하게 만들기
+문서에서 IndexedDB를 사용해 오프라인 데이터를 저장하고, 서비스 워커를 사용해 오프라인 자산을 저장하는 방법을 살펴보세요.
+참고 :
+대부분의 웹 저장 솔루션처럼, IndexedDB도
+동일 출처 정책
+을 따릅니다. 그렇기 때문에, 저장한 데이터는 같은 도메인에서만 접근할 수 있으며 다른 도메인에서는 접근할 수 없습니다.
+동기와 비동기
+IndexedDB 작업은 애플리케이션 블록을 방지하기 위해 모두 비동기로 이뤄집니다.
+저장 용량 한도와 제거 기준
+하나의 종류 또는 다른 종류의 데이터를 클라이언트 측(즉, 로컬 디스크 상)에 저장하는 웹 기술은 많습니다. IndexedDB는 가장 일반적으로 언급되는 것입니다. 브라우저가 얼마만큼의 공간을 web data storage에 할당할지 그리고 용량이 한계에 도달했을 때 무엇을 지울지의 프로세스는 간단하지 않고, 브라우저마다 다릅니다.
+브라우저 저장 공간 제한과 축출 기준 (en-US)
+을 Firefox의 경우에 이것이 어떻게 작동하는지 설명하려고 시도합니다.
+인터페이스
+데이터베이스에 접속하기 위해서는
+window
+객체의
+indexedDB
+(en-US)
+속성에서
+open()
+(en-US)
+을 호출해야 합니다. 이 메소드는
+IDBRequest
+객체를 반환합니다. 비동기 작업은
+IDBRequest
+객체에서 이벤트를 발생시켜 호출한 애플리케이션과 통신합니다.
+데이터베이스에 연결하기
+IDBFactory
+데이터베이스 접속을 제공합니다. 이것은 전역 개체
+indexedDB
+에 의해 구현된 인터페이스이므로 API의 진입점입니다.
+IDBOpenDBRequest
+데이터베이스 열기 요청을 나타냅니다.
+IDBDatabase
+데이터베이스에 대한 연결을 나타냅니다. 이것은 데이터베이스에서 트랜잭션을 얻는 유일한 방법입니다.
+데이터 검색 및 수정
+IDBTransaction
+트랜잭션을 나타냅니다. 데이터베이스에서 트랜잭션을 만들고, 범위(예: 액세스하려는 개체 저장소)를 지정하고 원하는 액세스 유형(읽기 전용 또는 읽기 쓰기)을 결정합니다.
+IDBRequest
+데이터베이스 요청을 처리하고 결과에 대한 액세스를 제공하는 일반 인터페이스입니다.
+IDBObjectStore
+기본 키를 통해 조회된 IndexedDB 데이터베이스의 데이터 집합에 대한 액세스를 허용하는 객체 저장소를 나타냅니다.
+IDBIndex
+또한 IndexedDB 데이터베이스의 데이터 하위 집합에 대한 액세스를 허용하지만 기본 키가 아닌 인덱스를 사용하여 레코드를 검색합니다. 이는 때때로
+IDBObjectStore
+를 사용하는 것보다 빠릅니다.
+IDBCursor
+객체 저장소 및 인덱스를 반복합니다.
+IDBCursorWithValue
+객체 저장소 및 인덱스를 반복하고 커서의 현재 값을 반환합니다.
+IDBKeyRange
+특정 범위의 데이터베이스에서 데이터를 검색할 때 사용할 수 있는 키 범위를 정의합니다.
+IDBLocaleAwareKeyRange
+특정 인덱스에 대해 지정된 로케일 규칙에 따라 정렬된 특정 범위의 데이터베이스에서 데이터를 검색하는 데 사용할 수 있는 키 범위를 정의합니다. (
+createIndex()
+'의 선택적 파라미터 (en-US)
+를 보세요) 이 인터페이스는 2.0 사양의 일부가 아닙니다.
+사용자 정의 이벤트 인터페이스
+이 사양은 다음 사용자 정의 인터페이스로 이벤트를 발생시킵니다.
+IDBVersionChangeEvent
+IDBVersionChangeEvent
+인터페이스는
+IDBOpenDBRequest.onupgradeneeded
+이벤트 핸들러 함수의 결과로 데이터베이스 버전이 변경되었음을 나타냅니다.
+예시
+To-do Notifications
+(
+view example live
+): 참조 문서의 예제에 대한 참조 응용 프로그램입니다.
+명세
+Specification
+Indexed Database API 3.0
+See also
+localForage
+: Polyfill은 백그라운드에서 IndexedDB를 사용하는 클라이언트 측 데이터 저장을 위한 간단한 이름:값 구문을 제공합니다. 그러나 IndexedDB를 지원하지 않는 브라우저에서는 WebSQL로 폴백한 다음 localStorage로 폴백합니다.
+Dexie.js
+: 멋지고 간단한 구문을 통해 훨씬 더 빠른 코드 개발을 허용하는 IndexedDB용 래퍼입니다
+ZangoDB
+: MongoDB의 익숙한 필터링, 프로젝션, 정렬, 업데이트 및 집계 기능을 대부분 지원하는 MongoDB와 유사한 IndexedDB용 인터페이스입니다.
+JsStore
+: SQL과 같은 구문을 사용하는 IndexedDB 래퍼입니다.
+MiniMongo
+: http를 통한 서버 동기화와 함께 localstorage에서 지원하는 클라이언트 측 in-memory mongodb입니다. MiniMongo는 MeteorJS에서 사용됩니다.
+PouchDB
+: IndexedDB를 사용하여 브라우저에서 CouchDB의 클라이언트 측을 구현한 라이브러리입니다.
+idb
+: IndexedDB API를 대부분 미러링하는 작은(~1.15k) 라이브러리이지만 사용성에 큰 차이를 만드는 작은 개선 사항이 있습니다.
+idb-keyval
+: IndexedDB로 구현된 매우 간단하고 작은(~600B) promise 기반 keyval 저장소입니다.
+sifrr-storage:
+클라이언트 측 키-값 저장을 위한 작은(~2kB) promise 기반 라이브러리입니다. IndexedDB, localStorage, WebSQL, 쿠키와 함께 작동합니다. 우선 순위에 따라 사용 가능한 지원 스토리지를 자동으로 사용할 수 있습니다.
+lovefield
+: Lovefield는 웹 앱을 위한 관계형 데이터베이스입니다. JavaScript로 작성되었으며 크로스 브라우저에서 작동합니다. 빠르고 안전하며 사용하기 쉬운 SQL과 유사한 API를 제공합니다.
+$mol_db
+: 작고 (~1.3kB) 정적 타입 유형의 promise 기반 API와 자동 마이그레이션의 기능이 있는 라이브러리입니다.
+Help improve MDN
+Learn how to contribute
+This page was last modified on
+2024년 12월 17일
+by
+MDN contributors
+.
+View this page on GitHub
+•
+Report a problem with this content
+```
+
+## E06 · search
+
+- Event ID: 9aa24f4e-55a8-4945-8728-ac306261aba1
+- client_seq: 6
+- started_at: 2026-11-18T09:38:54.094+00:00
+- ended_at: 2026-11-18T09:38:54.094+00:00
+- 수집 상태: partial
+
+<a id="e06-query"></a>
+
+### query
+
+```text
+web.dev offline data storage
+```
+
+## E07 · page_view
+
+- Event ID: 7e04dbd8-6f36-44dd-8187-1247ebd9478a
+- client_seq: 7
+- started_at: 2026-11-18T09:38:58.185+00:00
+- ended_at: 2026-11-18T09:39:33.866+00:00
+- 수집 상태: complete
+
+<a id="e07-text"></a>
+
+### text
+
+```text
+이 페이지의 내용
+스토리지
+IndexedDB
+데이터베이스 만들기 및 열기
+데이터 추가
+데이터 가져오는 중
+스토리지 관리자
+데이터 지속성
+API 브라우저 지원
+웹 스토리지
+파일 시스템 액세스
+스토리지 관리자
+리소스
+이제 Modern Web Guidance가 안정화되었습니다.
+전문가가 검증한 웹 개발 권장사항으로 코딩 에이전트를 업그레이드하세요.
+공지 확인하기
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+web.dev
+리소스
+PWA
+도움이 되었나요?
+오프라인 데이터
+컬렉션을 사용해 정리하기
+내 환경설정을 기준으로 콘텐츠를 저장하고 분류하세요
+.
+오프라인 환경을 제대로 구축하려면 PWA에 저장소 관리가 필요합니다.
+캐싱 챕터
+에서는 캐시 스토리지가 기기에 데이터를 저장하는 한 가지 옵션이라고 설명했습니다. 이 장에서는 데이터 지속성, 한도, 사용 가능한 도구 등 오프라인 데이터를 관리하는 방법을 알아봅니다.
+스토리지
+스토리지는 파일과 애셋뿐만 아니라 다른 유형의 데이터를 포함할 수 있습니다. PWA를 지원하는 모든 브라우저에서 다음 API를 온디바이스 저장소에 사용할 수 있습니다.
+IndexedDB
+: 구조화된 데이터 및 blob (바이너리 데이터)을 위한 NoSQL 객체 스토리지 옵션입니다.
+WebStorage: 로컬 스토리지 또는 세션 스토리지를 사용하여 키/값 문자열 쌍을 저장하는 방법입니다. 서비스 워커 컨텍스트에서는 사용할 수 없습니다. 이 API는 동기식이므로 복잡한 데이터 스토리지에는 권장되지 않습니다.
+캐시 저장소:
+캐싱 모듈
+에서 다룬 내용과 같습니다.
+지원되는 플랫폼에서
+저장소 관리자 API
+를 사용하여 모든 기기 저장소를 관리할 수 있습니다. Cache Storage API와 IndexedDB는 PWA의 영구 저장소에 대한 비동기 액세스를 제공하며 기본 스레드, 웹 작업자, 서비스 작업자에서 액세스할 수 있습니다. 두 가지 모두 네트워크가 불안정하거나 존재하지 않을 때 PWA가 안정적으로 작동하도록 하는 데 필수적인 역할을 합니다. 그렇다면 언제 어떤 플랫폼을 사용해야 할까요?
+네트워크 리소스, 즉 HTML, CSS, JavaScript, 이미지, 동영상, 오디오와 같이 URL을 통해 요청하여 액세스하는 항목에는
+Cache Storage API
+를 사용합니다.
+IndexedDB
+를 사용하여 구조화된 데이터를 저장합니다. 여기에는 NoSQL과 유사한 방식으로 검색하거나 결합해야 하는 데이터 또는 URL 요청과 반드시 일치하지 않는 사용자별 데이터와 같은 기타 데이터가 포함됩니다. IndexedDB는 전체 텍스트 검색을 위해 설계되지 않았습니다.
+Indexed
+DB
+IndexedDB
+를 사용하려면 먼저 데이터베이스를 엽니다. 데이터베이스가 없으면 새 데이터베이스가 생성됩니다. IndexedDB는 비동기 API이지만 Promise를 반환하는 대신 콜백을 사용합니다. 다음 예에서는 IndexedDB용 소형 Promise 래퍼인 제이크 아치볼드의
+idb 라이브러리
+를 사용합니다. IndexedDB를 사용하는 데 헬퍼 라이브러리가 필요한 것은 아니지만 Promise 구문을 사용하려면
+idb
+라이브러리를 사용하면 됩니다.
+다음 예에서는 요리 레시피를 저장할 데이터베이스를 만듭니다.
+데이터베이스 만들기 및 열기
+데이터베이스를 열려면 다음 단계를 따르세요.
+openDB
+함수를 사용하여
+cookbook
+이라는 새 IndexedDB 데이터베이스를 만듭니다. IndexedDB 데이터베이스는 버전이 지정되므로 데이터베이스 구조를 변경할 때마다 버전 번호를 늘려야 합니다. 두 번째 매개변수는 데이터베이스 버전입니다. 예시에서는 1로 설정됩니다.
+upgrade()
+콜백이 포함된 초기화 객체가
+openDB()
+에 전달됩니다. 콜백 함수는 데이터베이스가 처음 설치되거나 새 버전으로 업그레이드될 때 호출됩니다. 이 함수는 작업이 발생할 수 있는 유일한 위치입니다. 작업에는 새 객체 스토어 (IndexedDB가 데이터를 정리하는 데 사용하는 구조) 또는 색인 (검색하려는 색인)을 만드는 것이 포함될 수 있습니다. 데이터 이전도 여기에서 이루어져야 합니다. 일반적으로
+upgrade()
+함수에는
+break
+문장 없이
+switch
+문장이 포함되어 이전 버전의 데이터베이스를 기반으로 각 단계가 순서대로 진행되도록 합니다.
+import
+{
+openDB
+}
+from
+'idb'
+;
+async
+function
+createDB
+()
+{
+// Using https://github.com/jakearchibald/idb
+const
+db
+=
+await
+openDB
+(
+'cookbook'
+,
+1
+,
+{
+upgrade
+(
+db
+,
+oldVersion
+,
+newVersion
+,
+transaction
+)
+{
+// Switch over the oldVersion, *without breaks*, to allow the database to be incrementally upgraded.
+switch
+(
+oldVersion
+)
+{
+case
+0
+:
+// Placeholder to execute when database is created (oldVersion is 0)
+case
+1
+:
+// Create a store of objects
+const
+store
+=
+db
+.
+createObjectStore
+(
+'recipes'
+,
+{
+// The `id` property of the object will be the key, and be incremented automatically
+autoIncrement
+:
+true
+,
+keyPath
+:
+'id'
+});
+// Create an index called `name` based on the `type` property of objects in the store
+store
+.
+createIndex
+(
+'type'
+,
+'type'
+);
+}
+}
+});
+}
+이 예시에서는
+cookbook
+데이터베이스 내에
+recipes
+이라는 객체 저장소를 만듭니다.
+id
+속성은 저장소의 색인 키로 설정되고
+type
+속성을 기반으로
+type
+이라는 다른 색인이 생성됩니다.
+방금 생성된 객체 저장소를 살펴보겠습니다. 객체 저장소에 레시피를 추가하고 Chromium 기반 브라우저에서 DevTools를 열거나 Safari에서 Web Inspector를 열면 다음과 같은 결과가 표시됩니다.
+데이터 추가
+IndexedDB는 트랜잭션을 사용합니다. 트랜잭션은 작업을 그룹화하여 하나의 단위로 실행되도록 합니다. 이를 통해 데이터베이스가 항상 일관된 상태를 유지할 수 있습니다. 앱의 여러 복사본이 실행 중인 경우 동일한 데이터에 동시에 쓰는 것을 방지하는 데도 중요합니다. 데이터를 추가하려면 다음 안내를 따르세요.
+mode
+이
+readwrite
+로 설정된 트랜잭션을 시작합니다.
+데이터를 추가할 객체 저장소를 가져옵니다.
+저장할 데이터로
+add()
+을 호출합니다. 이 메서드는 사전 형식 (키-값 쌍)으로 데이터를 수신하여 객체 저장소에 추가합니다. 사전은
+구조화된 클론
+을 사용하여 클론할 수 있어야 합니다. 기존 객체를 업데이트하려면 대신
+put()
+메서드를 호출합니다.
+트랜잭션에는 트랜잭션이 성공적으로 완료되면 해결되거나
+트랜잭션 오류
+로 거부되는
+done
+프로미스가 있습니다.
+IDB 라이브러리 문서
+에 설명된 대로 데이터베이스에 쓰는 경우
+tx.done
+는 모든 항목이 데이터베이스에 성공적으로 커밋되었음을 나타내는 신호입니다. 하지만 트랜잭션이 실패하는 원인이 되는 오류를 확인할 수 있도록 개별 작업을 대기하는 것이 좋습니다.
+// Using https://github.com/jakearchibald/idb
+async
+function
+addData
+()
+{
+const
+cookies
+=
+{
+name
+:
+"Chocolate chips cookies"
+,
+type
+:
+"dessert"
+,
+cook_time_minutes
+:
+25
+};
+const
+tx
+=
+await
+db
+.
+transaction
+(
+'recipes'
+,
+'readwrite'
+);
+const
+store
+=
+tx
+.
+objectStore
+(
+'recipes'
+);
+store
+.
+add
+(
+cookies
+);
+await
+tx
+.
+done
+;
+}
+쿠키를 추가하면 레시피가 다른 레시피와 함께 데이터베이스에 저장됩니다. ID는 indexedDB에 의해 자동으로 설정되고 증가합니다. 이 코드를 두 번 실행하면 동일한 쿠키 항목이 두 개가 됩니다.
+데이터 가져오는 중
+IndexedDB에서 데이터를 가져오는 방법은 다음과 같습니다.
+트랜잭션을 시작하고 객체 저장소 또는 저장소를 지정하며, 선택적으로 트랜잭션 유형을 지정합니다.
+해당 거래에서
+objectStore()
+를 호출합니다. 객체 저장소 이름을 지정해야 합니다.
+가져오려는 키로
+get()
+을 호출합니다. 기본적으로 저장소는 키를 색인으로 사용합니다.
+// Using https://github.com/jakearchibald/idb
+async
+function
+getData
+()
+{
+const
+tx
+=
+await
+db
+.
+transaction
+(
+'recipes'
+,
+'readonly'
+)
+const
+store
+=
+tx
+.
+objectStore
+(
+'recipes'
+);
+// Because in our case the `id` is the key, we would
+// have to know in advance the value of the id to
+// retrieve the record
+const
+value
+=
+await
+store
+.
+get
+([
+id
+]);
+}
+스토리지 관리자
+PWA의 저장소를 관리하는 방법을 아는 것은 네트워크 응답을 올바르게 저장하고 스트리밍하는 데 특히 중요합니다.
+스토리지 용량은 캐시 스토리지, IndexedDB, 웹 스토리지, 서비스 워커 파일 및 종속 항목을 비롯한 모든 스토리지 옵션 간에 공유됩니다. 하지만 사용 가능한 저장용량은 브라우저마다 다릅니다. 소진될 가능성은 낮습니다. 일부 브라우저에서는 사이트가 메가바이트에서 기가바이트에 이르는 데이터를 저장할 수 있습니다. 예를 들어 Chrome에서는 브라우저가 전체 디스크 공간의 최대 80% 를 사용할 수 있으며 개별 출처는 전체 디스크 공간의 최대 60% 를 사용할 수 있습니다. Storage API를 지원하는 브라우저의 경우 앱의 사용 가능한 스토리지, 할당량, 사용량을 알 수 있습니다. 다음 예에서는 Storage API를 사용하여 예상 할당량과 사용량을 가져온 다음 사용된 비율과 남은 바이트를 계산합니다.
+navigator.storage
+는
+StorageManager
+의 인스턴스를 반환합니다. 별도의
+Storage
+인터페이스가 있으며 혼동하기 쉽습니다.
+if
+(
+navigator
+.
+storage
+&&
+navigator
+.
+storage
+.
+estimate
+)
+{
+const
+quota
+=
+await
+navigator
+.
+storage
+.
+estimate
+();
+// quota.usage -> Number of bytes used.
+// quota.quota -> Maximum number of bytes available.
+const
+percentageUsed
+=
+(
+quota
+.
+usage
+/
+quota
+.
+quota
+)
+*
+100
+;
+console
+.
+log
+(
+`You've used
+${
+percentageUsed
+}
+% of the available storage.`
+);
+const
+remaining
+=
+quota
+.
+quota
+-
+quota
+.
+usage
+;
+console
+.
+log
+(
+`You can write up to
+${
+remaining
+}
+more bytes.`
+);
+}
+Chromium DevTools에서
+애플리케이션
+탭의
+스토리지
+섹션을 열면 사이트의 할당량과 사용 중인 스토리지가 사용 항목별로 분류되어 표시됩니다.
+Firefox와 Safari는 현재 출처의 모든 스토리지 할당량과 사용량을 확인할 수 있는 요약 화면을 제공하지 않습니다.
+데이터 지속성
+호환되는 플랫폼에서 브라우저에 영구 스토리지를 요청하여 비활성 상태이거나 스토리지 압력이 있을 때 데이터가 자동으로 삭제되지 않도록 할 수 있습니다. 권한이 부여되면 브라우저는 스토리지에서 데이터를 삭제하지 않습니다. 이 보호에는 서비스 워커 등록, IndexedDB 데이터베이스, 캐시 저장소의 파일이 포함됩니다. 사용자는 항상 관리자이며 브라우저에서 영구 스토리지를 부여한 경우에도 언제든지 스토리지를 삭제할 수 있습니다.
+영구 스토리지를 요청하려면
+StorageManager.persist()
+를 호출합니다. 이전과 마찬가지로
+StorageManager
+인터페이스는
+navigator.storage
+속성을 통해 액세스합니다.
+async
+function
+persistData
+()
+{
+if
+(
+navigator
+.
+storage
+&&
+navigator
+.
+storage
+.
+persist
+)
+{
+const
+result
+=
+await
+navigator
+.
+storage
+.
+persist
+();
+console
+.
+log
+(
+`Data persisted:
+${
+result
+}
+`
+);
+}
+StorageManager.persisted()
+를 호출하여 현재 출처에 영구 스토리지가 이미 부여되었는지 확인할 수도 있습니다. Firefox는 영구 스토리지를 사용하기 위해 사용자에게 권한을 요청합니다. Chromium 기반 브라우저는 사용자의 콘텐츠 중요도를 판단하는
+휴리스틱
+에 따라 지속성을 부여하거나 거부합니다. 예를 들어 Google Chrome의 기준 중 하나는 PWA 설치입니다. 사용자가 운영체제에 PWA 아이콘을 설치한 경우 브라우저에서 영구 스토리지를 부여할 수 있습니다.
+API 브라우저 지원
+웹 스토리지
+Browser Support
+Source
+파일 시스템 액세스
+Browser Support
+Source
+스토리지 관리자
+Browser Support
+Source
+리소스
+웹의 스토리지
+FileSystem Access API
+영구 스토리지
+MDN: Storage API
+MDN: 클라이언트 측 저장소
+콘텐츠 색인 생성
+도움이 되었나요?
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는
+Creative Commons Attribution 4.0 라이선스
+에 따라 라이선스가 부여되며, 코드 샘플에는
+Apache 2.0 라이선스
+에 따라 라이선스가 부여됩니다. 자세한 내용은
+Google Developers 사이트 정책
+을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+최종 업데이트: 2022-01-10(UTC)
+```
+
+## E08 · page_view
+
+- Event ID: fa8ea361-d1d5-4cbd-b518-fca030858743
+- client_seq: 8
+- started_at: 2026-11-18T09:39:33.866+00:00
+- ended_at: 2026-11-18T09:42:18.601+00:00
+- 수집 상태: complete
+
+<a id="e08-text"></a>
+
+### text
+
+```text
+This page was translated from English by the community.
+Learn more and join the MDN Web Docs community.
+View in English
+Always switch to English
+IndexedDB API
+IndexedDB는 파일이나 블롭 등 많은 양의 구조화된 데이터를 클라이언트에 저장하기 위한 로우 레벨 API입니다. IndexedDB API는 인덱스를 사용해 데이터를 고성능으로 탐색할 수 있습니다.
+Web Storage
+는 적은 양의 데이터를 저장하는데 유용하지만 많은 양의 구조화된 데이터에는 적합하지 않은데, 이런 상황에서 IndexedDB를 사용할 수 있습니다. 이 페이지는 MDN에서 IndexedDB에 대한 내용을 다루는 시작 문서로 전체 API 참고서, 사용 안내서, 세부적인 브라우저 지원 상황, 그리고 핵심 개념에 대한 설명을 제공하는 링크를 찾을 수 있습니다.
+참고 :
+이 기능은
+Web Worker
+에서 사용할 수 있습니다.
+참고 :
+IndexedDB API는 강력하지만, 간단하게 사용하기엔 좀 복잡해 보일 수 있습니다. 보다 단순한 API를 선호한다면,
+See also
+섹션의 라이브러리를 알아보세요. IndexedDB를 좀 더 프로그래머 친화적으로 만들어줍니다.
+핵심 개념과 사용
+IndexedDB는 SQL을 사용하는 관계형 데이터베이스(RDBMS)와 같이 트랜잭션을 사용하는 데이터베이스 시스템입니다. 그러나 IndexedDB는 RDBMS의 고정컬럼 테이블 대신 JavaScript 기반의 객체지향 데이터베이스입니다. IndexedDB의 데이터는 인덱스
+키
+를 사용해 저장하고 검색할 수 있으며,
+구조화된 복사 알고리즘
+을 지원하는 객체라면 모두 저장할 수 있습니다. 사용하려면 데이터베이스 스키마를 지정하고, 데이터베이스와 통신을 연 후에, 일련의
+트랜잭션
+을 통해 데이터를 가져오거나 업데이트해야 합니다.
+IndexedDB 주요 특성 및 기본 용어 (en-US)
+에 대해 더 알아보세요.
+IndexedDB 사용하기
+안내서를 통해 IndexedDB의 기초적인 비동기 사용법을 배워보세요.
+서비스 워커를 사용해 PWA가 오프라인에서 동작하게 만들기
+문서에서 IndexedDB를 사용해 오프라인 데이터를 저장하고, 서비스 워커를 사용해 오프라인 자산을 저장하는 방법을 살펴보세요.
+참고 :
+대부분의 웹 저장 솔루션처럼, IndexedDB도
+동일 출처 정책
+을 따릅니다. 그렇기 때문에, 저장한 데이터는 같은 도메인에서만 접근할 수 있으며 다른 도메인에서는 접근할 수 없습니다.
+동기와 비동기
+IndexedDB 작업은 애플리케이션 블록을 방지하기 위해 모두 비동기로 이뤄집니다.
+저장 용량 한도와 제거 기준
+하나의 종류 또는 다른 종류의 데이터를 클라이언트 측(즉, 로컬 디스크 상)에 저장하는 웹 기술은 많습니다. IndexedDB는 가장 일반적으로 언급되는 것입니다. 브라우저가 얼마만큼의 공간을 web data storage에 할당할지 그리고 용량이 한계에 도달했을 때 무엇을 지울지의 프로세스는 간단하지 않고, 브라우저마다 다릅니다.
+브라우저 저장 공간 제한과 축출 기준 (en-US)
+을 Firefox의 경우에 이것이 어떻게 작동하는지 설명하려고 시도합니다.
+인터페이스
+데이터베이스에 접속하기 위해서는
+window
+객체의
+indexedDB
+(en-US)
+속성에서
+open()
+(en-US)
+을 호출해야 합니다. 이 메소드는
+IDBRequest
+객체를 반환합니다. 비동기 작업은
+IDBRequest
+객체에서 이벤트를 발생시켜 호출한 애플리케이션과 통신합니다.
+데이터베이스에 연결하기
+IDBFactory
+데이터베이스 접속을 제공합니다. 이것은 전역 개체
+indexedDB
+에 의해 구현된 인터페이스이므로 API의 진입점입니다.
+IDBOpenDBRequest
+데이터베이스 열기 요청을 나타냅니다.
+IDBDatabase
+데이터베이스에 대한 연결을 나타냅니다. 이것은 데이터베이스에서 트랜잭션을 얻는 유일한 방법입니다.
+데이터 검색 및 수정
+IDBTransaction
+트랜잭션을 나타냅니다. 데이터베이스에서 트랜잭션을 만들고, 범위(예: 액세스하려는 개체 저장소)를 지정하고 원하는 액세스 유형(읽기 전용 또는 읽기 쓰기)을 결정합니다.
+IDBRequest
+데이터베이스 요청을 처리하고 결과에 대한 액세스를 제공하는 일반 인터페이스입니다.
+IDBObjectStore
+기본 키를 통해 조회된 IndexedDB 데이터베이스의 데이터 집합에 대한 액세스를 허용하는 객체 저장소를 나타냅니다.
+IDBIndex
+또한 IndexedDB 데이터베이스의 데이터 하위 집합에 대한 액세스를 허용하지만 기본 키가 아닌 인덱스를 사용하여 레코드를 검색합니다. 이는 때때로
+IDBObjectStore
+를 사용하는 것보다 빠릅니다.
+IDBCursor
+객체 저장소 및 인덱스를 반복합니다.
+IDBCursorWithValue
+객체 저장소 및 인덱스를 반복하고 커서의 현재 값을 반환합니다.
+IDBKeyRange
+특정 범위의 데이터베이스에서 데이터를 검색할 때 사용할 수 있는 키 범위를 정의합니다.
+IDBLocaleAwareKeyRange
+특정 인덱스에 대해 지정된 로케일 규칙에 따라 정렬된 특정 범위의 데이터베이스에서 데이터를 검색하는 데 사용할 수 있는 키 범위를 정의합니다. (
+createIndex()
+'의 선택적 파라미터 (en-US)
+를 보세요) 이 인터페이스는 2.0 사양의 일부가 아닙니다.
+사용자 정의 이벤트 인터페이스
+이 사양은 다음 사용자 정의 인터페이스로 이벤트를 발생시킵니다.
+IDBVersionChangeEvent
+IDBVersionChangeEvent
+인터페이스는
+IDBOpenDBRequest.onupgradeneeded
+이벤트 핸들러 함수의 결과로 데이터베이스 버전이 변경되었음을 나타냅니다.
+예시
+To-do Notifications
+(
+view example live
+): 참조 문서의 예제에 대한 참조 응용 프로그램입니다.
+명세
+Specification
+Indexed Database API 3.0
+See also
+localForage
+: Polyfill은 백그라운드에서 IndexedDB를 사용하는 클라이언트 측 데이터 저장을 위한 간단한 이름:값 구문을 제공합니다. 그러나 IndexedDB를 지원하지 않는 브라우저에서는 WebSQL로 폴백한 다음 localStorage로 폴백합니다.
+Dexie.js
+: 멋지고 간단한 구문을 통해 훨씬 더 빠른 코드 개발을 허용하는 IndexedDB용 래퍼입니다
+ZangoDB
+: MongoDB의 익숙한 필터링, 프로젝션, 정렬, 업데이트 및 집계 기능을 대부분 지원하는 MongoDB와 유사한 IndexedDB용 인터페이스입니다.
+JsStore
+: SQL과 같은 구문을 사용하는 IndexedDB 래퍼입니다.
+MiniMongo
+: http를 통한 서버 동기화와 함께 localstorage에서 지원하는 클라이언트 측 in-memory mongodb입니다. MiniMongo는 MeteorJS에서 사용됩니다.
+PouchDB
+: IndexedDB를 사용하여 브라우저에서 CouchDB의 클라이언트 측을 구현한 라이브러리입니다.
+idb
+: IndexedDB API를 대부분 미러링하는 작은(~1.15k) 라이브러리이지만 사용성에 큰 차이를 만드는 작은 개선 사항이 있습니다.
+idb-keyval
+: IndexedDB로 구현된 매우 간단하고 작은(~600B) promise 기반 keyval 저장소입니다.
+sifrr-storage:
+클라이언트 측 키-값 저장을 위한 작은(~2kB) promise 기반 라이브러리입니다. IndexedDB, localStorage, WebSQL, 쿠키와 함께 작동합니다. 우선 순위에 따라 사용 가능한 지원 스토리지를 자동으로 사용할 수 있습니다.
+lovefield
+: Lovefield는 웹 앱을 위한 관계형 데이터베이스입니다. JavaScript로 작성되었으며 크로스 브라우저에서 작동합니다. 빠르고 안전하며 사용하기 쉬운 SQL과 유사한 API를 제공합니다.
+$mol_db
+: 작고 (~1.3kB) 정적 타입 유형의 promise 기반 API와 자동 마이그레이션의 기능이 있는 라이브러리입니다.
+Help improve MDN
+Learn how to contribute
+This page was last modified on
+2024년 12월 17일
+by
+MDN contributors
+.
+View this page on GitHub
+•
+Report a problem with this content
+```
+
+## E09 · llm_exchange
+
+- Event ID: ed3c4e3f-3a74-4ce9-88e9-b3d1535b0e95
+- client_seq: 9
+- started_at: 2026-11-18T09:37:02.21+00:00
+- ended_at: 2026-11-18T09:43:29.5+00:00
+- 수집 상태: complete
+
+<a id="e09-question"></a>
+
+### question
+
+```text
+나는 개인용 메모 웹앱을 만들려고 해. 초기에는 혼자 사용하는 앱이고, 빠른 실행 속도와 간단한 구조가 중요해. 그래서 서버 없이 브라우저에 데이터를 저장하는 Offline-first 방식이 더 좋을 것 같아. 이 방식의 장단점을 설명해줘
+```
+
+<a id="e09-response"></a>
+
+### response
+
+```text
+개인용 메모 웹앱이라면 Offline-first 방식은 충분히 합리적인 선택이야. 특히 초기 사용자가 본인 한 명이고, 빠른 실행 속도와 단순한 구조를 중요하게 생각한다면 서버 기반 아키텍처보다 유리한 부분이 많아.
+
+다만 Offline-first와 서버가 없는 구조(Serverless가 아닌 Local-only)는 구분해야 해. Offline-first는 인터넷 연결 없이도 주요 기능이 작동하도록 설계하는 접근법이고, 반드시 서버를 사용하지 않는다는 의미는 아니야.
+
+1. Offline-first 방식이란?
+
+사용자의 메모를 원격 서버가 아니라 브라우저 내부 저장소에 저장하고, 인터넷 연결 없이도 메모를 작성·수정·조회할 수 있도록 만드는 방식이야.
+
+서버 없는 로컬 저장 구조
+
+앱 코드가 기기에 준비되어 있다면 메모의 읽기·쓰기 과정에 서버 연결이 필요하지 않아.
+
+브라우저에서는 일반적으로 localStorage, IndexedDB, OPFS 같은 저장 기술을 활용할 수 있어.
+
+2. 장점
+
+장점
+
+	
+
+설명
+
+
+
+
+빠른 반응 속도
+
+	
+
+네트워크 왕복 없이 메모를 읽고 저장할 수 있음
+
+
+
+
+단순한 아키텍처
+
+	
+
+백엔드 API, 인증 서버, 데이터베이스 서버 등을 초기에는 생략 가능
+
+
+
+
+낮은 운영 비용
+
+	
+
+메모 저장을 위한 별도 서버나 클라우드 DB 비용이 없음
+
+
+
+
+오프라인 사용
+
+	
+
+인터넷이 끊겨도 메모 작성·수정·조회 가능
+
+
+
+
+개인 데이터 통제
+
+	
+
+메모가 기본적으로 사용자의 기기에 남으며 서버로 전송할 필요가 없음
+
+특히 메모 앱처럼 사용자가 짧은 텍스트를 빈번하게 작성하고 수정하는 서비스에서는 로컬 저장의 이점이 커.
+
+3. 단점
+
+반면 개인용이라도 무시하면 안 되는 문제가 있어.
+
+단점
+
+	
+
+위험 수준
+
+	
+
+설명
+
+
+
+
+데이터 유실
+
+	
+
+높음
+
+	
+
+브라우저 저장 데이터 삭제, 기기 고장, 프로필 손상 등으로 메모가 사라질 수 있음
+
+
+
+
+기기 간 동기화
+
+	
+
+높음
+
+	
+
+노트북에서 작성한 메모를 휴대폰에서 자동으로 볼 수 없음
+
+
+
+
+브라우저 종속성
+
+	
+
+중간
+
+	
+
+동일한 기기에서도 다른 브라우저나 프로필에서는 데이터가 공유되지 않음
+
+
+
+
+저장 용량 및 정책
+
+	
+
+중간
+
+	
+
+브라우저별 저장 한도와 데이터 정리 정책의 영향을 받음
+
+
+
+
+기능 확장
+
+	
+
+중간
+
+	
+
+공유, 협업, 계정 기반 복구, 기기 간 동기화 등을 도입하기 어려워짐
+
+여기서 가장 중요한 건 데이터의 안전성이야.
+
+서버를 운영하지 않으면 구조는 단순해지지만, 메모 데이터를 안전하게 보존할 책임이 로컬 저장소와 백업 설계에 집중돼.
+
+브라우저 데이터는 영구 보관이 보장되지 않기 때문에 IndexedDB를 사용하더라도 별도의 백업 수단은 필요해.
+
+또 하나 주의할 점은 로컬 저장이 자동으로 보안을 보장하는 것은 아니라는 거야. 브라우저 확장 프로그램, XSS 취약점, 기기 접근 등에 대한 위험은 여전히 존재해.
+
+4. 어떤 기술을 사용하는 게 좋을까?
+
+기술
+
+	
+
+특징
+
+	
+
+추천
+
+
+
+
+localStorage
+
+	
+
+구현이 매우 간단하지만 동기식이며 구조화된 대량 데이터 관리에 부적합
+
+	
+
+간단한 설정값
+
+
+
+
+IndexedDB
+
+	
+
+비동기식, 구조화된 데이터 및 인덱스 검색 지원
+
+	
+
+메모 데이터 저장
+
+
+
+
+OPFS
+
+	
+
+파일 기반 저장에 적합하며 고급 저장 구조에 활용 가능
+
+	
+
+파일 중심 기능이 필요할 때
+
+
+
+
+Service Worker
+
+	
+
+앱 리소스를 캐싱하여 오프라인 실행을 지원
+
+	
+
+오프라인 웹앱 구현
+
+내가 추천하는 초기 구성은 다음과 같아.
+
+추천 MVP 기술 구조
+
+프론트엔드: React + Vite + TypeScript
+
+로컬 DB: IndexedDB (Dexie.js 활용)
+
+오프라인 실행: PWA + Service Worker
+
+데이터 백업: JSON 파일 내보내기 및 가져오기
+
+백엔드: 없음
+
+Dexie.js를 사용하면 IndexedDB를 직접 다루는 것보다 메모 저장, 수정, 삭제, 검색 등의 데이터 처리를 간결하게 구현할 수 있어.
+
+PWA는 브라우저에 앱의 실행 리소스를 캐싱하고 설치형 앱처럼 사용할 수 있게 만들어 줘. 다만 최초 실행과 필요한 리소스의 캐싱이 완료되어 있어야 안정적으로 오프라인 실행이 가능해.
+
+5. 내 판단
+
+현재 요구사항이라면 초기에는 서버 없이 IndexedDB를 중심으로 개발하는 것이 적절해.
+
+하지만 다음 두 가지는 처음부터 설계해야 한다고 생각해.
+
+백업 및 복원 기능: JSON 파일로 전체 메모를 내보내고 다시 가져올 수 있도록 구현할 것. 자동 백업까지 되는 것은 아니므로 주기적인 백업이 필요해.
+
+저장소 추상화: UI 컴포넌트가 IndexedDB를 직접 호출하지 않도록 데이터 접근 계층을 분리할 것. 추후 클라우드 동기화를 추가할 때 수정 범위를 줄일 수 있어.
+
+추가로 중요한 판단 기준이 하나 있어.
+
+이 메모 앱을 앞으로도 노트북 한 대에서만 사용할 생각이야, 아니면 스마트폰에서도 같은 메모를 확인하고 싶어?
+
+이 차이에 따라 지금 추천한 Local-only 구조를 그대로 유지하는 게 좋을지, 초기부터 동기화 확장을 고려한 Offline-first 구조를 설계할지가 달라져.
+```
+
+## E10 · page_view
+
+- Event ID: d8948172-ce30-46b2-9a06-4cf6881b4f82
+- client_seq: 10
+- started_at: 2026-11-18T09:42:18.601+00:00
+- ended_at: 2026-11-18T09:44:33.187+00:00
+- 수집 상태: metadata_only
+
+저장된 질문·답변·본문·검색어 없음.
+
+## E11 · page_view
+
+- Event ID: 1315faa1-c193-48d9-b872-33b918c3d7f3
+- client_seq: 11
+- started_at: 2026-11-18T09:44:37.527+00:00
+- ended_at: 2026-11-18T09:44:38.426+00:00
+- 수집 상태: complete
+
+<a id="e11-text"></a>
+
+### text
+
+```text
+This page was translated from English by the community.
+Learn more and join the MDN Web Docs community.
+View in English
+Always switch to English
+IndexedDB API
+IndexedDB는 파일이나 블롭 등 많은 양의 구조화된 데이터를 클라이언트에 저장하기 위한 로우 레벨 API입니다. IndexedDB API는 인덱스를 사용해 데이터를 고성능으로 탐색할 수 있습니다.
+Web Storage
+는 적은 양의 데이터를 저장하는데 유용하지만 많은 양의 구조화된 데이터에는 적합하지 않은데, 이런 상황에서 IndexedDB를 사용할 수 있습니다. 이 페이지는 MDN에서 IndexedDB에 대한 내용을 다루는 시작 문서로 전체 API 참고서, 사용 안내서, 세부적인 브라우저 지원 상황, 그리고 핵심 개념에 대한 설명을 제공하는 링크를 찾을 수 있습니다.
+참고 :
+이 기능은
+Web Worker
+에서 사용할 수 있습니다.
+참고 :
+IndexedDB API는 강력하지만, 간단하게 사용하기엔 좀 복잡해 보일 수 있습니다. 보다 단순한 API를 선호한다면,
+See also
+섹션의 라이브러리를 알아보세요. IndexedDB를 좀 더 프로그래머 친화적으로 만들어줍니다.
+핵심 개념과 사용
+IndexedDB는 SQL을 사용하는 관계형 데이터베이스(RDBMS)와 같이 트랜잭션을 사용하는 데이터베이스 시스템입니다. 그러나 IndexedDB는 RDBMS의 고정컬럼 테이블 대신 JavaScript 기반의 객체지향 데이터베이스입니다. IndexedDB의 데이터는 인덱스
+키
+를 사용해 저장하고 검색할 수 있으며,
+구조화된 복사 알고리즘
+을 지원하는 객체라면 모두 저장할 수 있습니다. 사용하려면 데이터베이스 스키마를 지정하고, 데이터베이스와 통신을 연 후에, 일련의
+트랜잭션
+을 통해 데이터를 가져오거나 업데이트해야 합니다.
+IndexedDB 주요 특성 및 기본 용어 (en-US)
+에 대해 더 알아보세요.
+IndexedDB 사용하기
+안내서를 통해 IndexedDB의 기초적인 비동기 사용법을 배워보세요.
+서비스 워커를 사용해 PWA가 오프라인에서 동작하게 만들기
+문서에서 IndexedDB를 사용해 오프라인 데이터를 저장하고, 서비스 워커를 사용해 오프라인 자산을 저장하는 방법을 살펴보세요.
+참고 :
+대부분의 웹 저장 솔루션처럼, IndexedDB도
+동일 출처 정책
+을 따릅니다. 그렇기 때문에, 저장한 데이터는 같은 도메인에서만 접근할 수 있으며 다른 도메인에서는 접근할 수 없습니다.
+동기와 비동기
+IndexedDB 작업은 애플리케이션 블록을 방지하기 위해 모두 비동기로 이뤄집니다.
+저장 용량 한도와 제거 기준
+하나의 종류 또는 다른 종류의 데이터를 클라이언트 측(즉, 로컬 디스크 상)에 저장하는 웹 기술은 많습니다. IndexedDB는 가장 일반적으로 언급되는 것입니다. 브라우저가 얼마만큼의 공간을 web data storage에 할당할지 그리고 용량이 한계에 도달했을 때 무엇을 지울지의 프로세스는 간단하지 않고, 브라우저마다 다릅니다.
+브라우저 저장 공간 제한과 축출 기준 (en-US)
+을 Firefox의 경우에 이것이 어떻게 작동하는지 설명하려고 시도합니다.
+인터페이스
+데이터베이스에 접속하기 위해서는
+window
+객체의
+indexedDB
+(en-US)
+속성에서
+open()
+(en-US)
+을 호출해야 합니다. 이 메소드는
+IDBRequest
+객체를 반환합니다. 비동기 작업은
+IDBRequest
+객체에서 이벤트를 발생시켜 호출한 애플리케이션과 통신합니다.
+데이터베이스에 연결하기
+IDBFactory
+데이터베이스 접속을 제공합니다. 이것은 전역 개체
+indexedDB
+에 의해 구현된 인터페이스이므로 API의 진입점입니다.
+IDBOpenDBRequest
+데이터베이스 열기 요청을 나타냅니다.
+IDBDatabase
+데이터베이스에 대한 연결을 나타냅니다. 이것은 데이터베이스에서 트랜잭션을 얻는 유일한 방법입니다.
+데이터 검색 및 수정
+IDBTransaction
+트랜잭션을 나타냅니다. 데이터베이스에서 트랜잭션을 만들고, 범위(예: 액세스하려는 개체 저장소)를 지정하고 원하는 액세스 유형(읽기 전용 또는 읽기 쓰기)을 결정합니다.
+IDBRequest
+데이터베이스 요청을 처리하고 결과에 대한 액세스를 제공하는 일반 인터페이스입니다.
+IDBObjectStore
+기본 키를 통해 조회된 IndexedDB 데이터베이스의 데이터 집합에 대한 액세스를 허용하는 객체 저장소를 나타냅니다.
+IDBIndex
+또한 IndexedDB 데이터베이스의 데이터 하위 집합에 대한 액세스를 허용하지만 기본 키가 아닌 인덱스를 사용하여 레코드를 검색합니다. 이는 때때로
+IDBObjectStore
+를 사용하는 것보다 빠릅니다.
+IDBCursor
+객체 저장소 및 인덱스를 반복합니다.
+IDBCursorWithValue
+객체 저장소 및 인덱스를 반복하고 커서의 현재 값을 반환합니다.
+IDBKeyRange
+특정 범위의 데이터베이스에서 데이터를 검색할 때 사용할 수 있는 키 범위를 정의합니다.
+IDBLocaleAwareKeyRange
+특정 인덱스에 대해 지정된 로케일 규칙에 따라 정렬된 특정 범위의 데이터베이스에서 데이터를 검색하는 데 사용할 수 있는 키 범위를 정의합니다. (
+createIndex()
+'의 선택적 파라미터 (en-US)
+를 보세요) 이 인터페이스는 2.0 사양의 일부가 아닙니다.
+사용자 정의 이벤트 인터페이스
+이 사양은 다음 사용자 정의 인터페이스로 이벤트를 발생시킵니다.
+IDBVersionChangeEvent
+IDBVersionChangeEvent
+인터페이스는
+IDBOpenDBRequest.onupgradeneeded
+이벤트 핸들러 함수의 결과로 데이터베이스 버전이 변경되었음을 나타냅니다.
+예시
+To-do Notifications
+(
+view example live
+): 참조 문서의 예제에 대한 참조 응용 프로그램입니다.
+명세
+Specification
+Indexed Database API 3.0
+See also
+localForage
+: Polyfill은 백그라운드에서 IndexedDB를 사용하는 클라이언트 측 데이터 저장을 위한 간단한 이름:값 구문을 제공합니다. 그러나 IndexedDB를 지원하지 않는 브라우저에서는 WebSQL로 폴백한 다음 localStorage로 폴백합니다.
+Dexie.js
+: 멋지고 간단한 구문을 통해 훨씬 더 빠른 코드 개발을 허용하는 IndexedDB용 래퍼입니다
+ZangoDB
+: MongoDB의 익숙한 필터링, 프로젝션, 정렬, 업데이트 및 집계 기능을 대부분 지원하는 MongoDB와 유사한 IndexedDB용 인터페이스입니다.
+JsStore
+: SQL과 같은 구문을 사용하는 IndexedDB 래퍼입니다.
+MiniMongo
+: http를 통한 서버 동기화와 함께 localstorage에서 지원하는 클라이언트 측 in-memory mongodb입니다. MiniMongo는 MeteorJS에서 사용됩니다.
+PouchDB
+: IndexedDB를 사용하여 브라우저에서 CouchDB의 클라이언트 측을 구현한 라이브러리입니다.
+idb
+: IndexedDB API를 대부분 미러링하는 작은(~1.15k) 라이브러리이지만 사용성에 큰 차이를 만드는 작은 개선 사항이 있습니다.
+idb-keyval
+: IndexedDB로 구현된 매우 간단하고 작은(~600B) promise 기반 keyval 저장소입니다.
+sifrr-storage:
+클라이언트 측 키-값 저장을 위한 작은(~2kB) promise 기반 라이브러리입니다. IndexedDB, localStorage, WebSQL, 쿠키와 함께 작동합니다. 우선 순위에 따라 사용 가능한 지원 스토리지를 자동으로 사용할 수 있습니다.
+lovefield
+: Lovefield는 웹 앱을 위한 관계형 데이터베이스입니다. JavaScript로 작성되었으며 크로스 브라우저에서 작동합니다. 빠르고 안전하며 사용하기 쉬운 SQL과 유사한 API를 제공합니다.
+$mol_db
+: 작고 (~1.3kB) 정적 타입 유형의 promise 기반 API와 자동 마이그레이션의 기능이 있는 라이브러리입니다.
+Help improve MDN
+Learn how to contribute
+This page was last modified on
+2024년 12월 17일
+by
+MDN contributors
+.
+View this page on GitHub
+•
+Report a problem with this content
+```
+
+## E12 · page_view
+
+- Event ID: 76ea89d0-0140-44e6-ba5f-9ca59459c07a
+- client_seq: 12
+- started_at: 2026-11-18T09:44:38.443+00:00
+- ended_at: 2026-11-18T09:44:39.143+00:00
+- 수집 상태: complete
+
+<a id="e12-text"></a>
+
+### text
+
+```text
+이 페이지의 내용
+스토리지
+IndexedDB
+데이터베이스 만들기 및 열기
+데이터 추가
+데이터 가져오는 중
+스토리지 관리자
+데이터 지속성
+API 브라우저 지원
+웹 스토리지
+파일 시스템 액세스
+스토리지 관리자
+리소스
+이제 Modern Web Guidance가 안정화되었습니다.
+전문가가 검증한 웹 개발 권장사항으로 코딩 에이전트를 업그레이드하세요.
+공지 확인하기
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+web.dev
+리소스
+PWA
+도움이 되었나요?
+오프라인 데이터
+컬렉션을 사용해 정리하기
+내 환경설정을 기준으로 콘텐츠를 저장하고 분류하세요
+.
+오프라인 환경을 제대로 구축하려면 PWA에 저장소 관리가 필요합니다.
+캐싱 챕터
+에서는 캐시 스토리지가 기기에 데이터를 저장하는 한 가지 옵션이라고 설명했습니다. 이 장에서는 데이터 지속성, 한도, 사용 가능한 도구 등 오프라인 데이터를 관리하는 방법을 알아봅니다.
+스토리지
+스토리지는 파일과 애셋뿐만 아니라 다른 유형의 데이터를 포함할 수 있습니다. PWA를 지원하는 모든 브라우저에서 다음 API를 온디바이스 저장소에 사용할 수 있습니다.
+IndexedDB
+: 구조화된 데이터 및 blob (바이너리 데이터)을 위한 NoSQL 객체 스토리지 옵션입니다.
+WebStorage: 로컬 스토리지 또는 세션 스토리지를 사용하여 키/값 문자열 쌍을 저장하는 방법입니다. 서비스 워커 컨텍스트에서는 사용할 수 없습니다. 이 API는 동기식이므로 복잡한 데이터 스토리지에는 권장되지 않습니다.
+캐시 저장소:
+캐싱 모듈
+에서 다룬 내용과 같습니다.
+지원되는 플랫폼에서
+저장소 관리자 API
+를 사용하여 모든 기기 저장소를 관리할 수 있습니다. Cache Storage API와 IndexedDB는 PWA의 영구 저장소에 대한 비동기 액세스를 제공하며 기본 스레드, 웹 작업자, 서비스 작업자에서 액세스할 수 있습니다. 두 가지 모두 네트워크가 불안정하거나 존재하지 않을 때 PWA가 안정적으로 작동하도록 하는 데 필수적인 역할을 합니다. 그렇다면 언제 어떤 플랫폼을 사용해야 할까요?
+네트워크 리소스, 즉 HTML, CSS, JavaScript, 이미지, 동영상, 오디오와 같이 URL을 통해 요청하여 액세스하는 항목에는
+Cache Storage API
+를 사용합니다.
+IndexedDB
+를 사용하여 구조화된 데이터를 저장합니다. 여기에는 NoSQL과 유사한 방식으로 검색하거나 결합해야 하는 데이터 또는 URL 요청과 반드시 일치하지 않는 사용자별 데이터와 같은 기타 데이터가 포함됩니다. IndexedDB는 전체 텍스트 검색을 위해 설계되지 않았습니다.
+Indexed
+DB
+IndexedDB
+를 사용하려면 먼저 데이터베이스를 엽니다. 데이터베이스가 없으면 새 데이터베이스가 생성됩니다. IndexedDB는 비동기 API이지만 Promise를 반환하는 대신 콜백을 사용합니다. 다음 예에서는 IndexedDB용 소형 Promise 래퍼인 제이크 아치볼드의
+idb 라이브러리
+를 사용합니다. IndexedDB를 사용하는 데 헬퍼 라이브러리가 필요한 것은 아니지만 Promise 구문을 사용하려면
+idb
+라이브러리를 사용하면 됩니다.
+다음 예에서는 요리 레시피를 저장할 데이터베이스를 만듭니다.
+데이터베이스 만들기 및 열기
+데이터베이스를 열려면 다음 단계를 따르세요.
+openDB
+함수를 사용하여
+cookbook
+이라는 새 IndexedDB 데이터베이스를 만듭니다. IndexedDB 데이터베이스는 버전이 지정되므로 데이터베이스 구조를 변경할 때마다 버전 번호를 늘려야 합니다. 두 번째 매개변수는 데이터베이스 버전입니다. 예시에서는 1로 설정됩니다.
+upgrade()
+콜백이 포함된 초기화 객체가
+openDB()
+에 전달됩니다. 콜백 함수는 데이터베이스가 처음 설치되거나 새 버전으로 업그레이드될 때 호출됩니다. 이 함수는 작업이 발생할 수 있는 유일한 위치입니다. 작업에는 새 객체 스토어 (IndexedDB가 데이터를 정리하는 데 사용하는 구조) 또는 색인 (검색하려는 색인)을 만드는 것이 포함될 수 있습니다. 데이터 이전도 여기에서 이루어져야 합니다. 일반적으로
+upgrade()
+함수에는
+break
+문장 없이
+switch
+문장이 포함되어 이전 버전의 데이터베이스를 기반으로 각 단계가 순서대로 진행되도록 합니다.
+import
+{
+openDB
+}
+from
+'idb'
+;
+async
+function
+createDB
+()
+{
+// Using https://github.com/jakearchibald/idb
+const
+db
+=
+await
+openDB
+(
+'cookbook'
+,
+1
+,
+{
+upgrade
+(
+db
+,
+oldVersion
+,
+newVersion
+,
+transaction
+)
+{
+// Switch over the oldVersion, *without breaks*, to allow the database to be incrementally upgraded.
+switch
+(
+oldVersion
+)
+{
+case
+0
+:
+// Placeholder to execute when database is created (oldVersion is 0)
+case
+1
+:
+// Create a store of objects
+const
+store
+=
+db
+.
+createObjectStore
+(
+'recipes'
+,
+{
+// The `id` property of the object will be the key, and be incremented automatically
+autoIncrement
+:
+true
+,
+keyPath
+:
+'id'
+});
+// Create an index called `name` based on the `type` property of objects in the store
+store
+.
+createIndex
+(
+'type'
+,
+'type'
+);
+}
+}
+});
+}
+이 예시에서는
+cookbook
+데이터베이스 내에
+recipes
+이라는 객체 저장소를 만듭니다.
+id
+속성은 저장소의 색인 키로 설정되고
+type
+속성을 기반으로
+type
+이라는 다른 색인이 생성됩니다.
+방금 생성된 객체 저장소를 살펴보겠습니다. 객체 저장소에 레시피를 추가하고 Chromium 기반 브라우저에서 DevTools를 열거나 Safari에서 Web Inspector를 열면 다음과 같은 결과가 표시됩니다.
+데이터 추가
+IndexedDB는 트랜잭션을 사용합니다. 트랜잭션은 작업을 그룹화하여 하나의 단위로 실행되도록 합니다. 이를 통해 데이터베이스가 항상 일관된 상태를 유지할 수 있습니다. 앱의 여러 복사본이 실행 중인 경우 동일한 데이터에 동시에 쓰는 것을 방지하는 데도 중요합니다. 데이터를 추가하려면 다음 안내를 따르세요.
+mode
+이
+readwrite
+로 설정된 트랜잭션을 시작합니다.
+데이터를 추가할 객체 저장소를 가져옵니다.
+저장할 데이터로
+add()
+을 호출합니다. 이 메서드는 사전 형식 (키-값 쌍)으로 데이터를 수신하여 객체 저장소에 추가합니다. 사전은
+구조화된 클론
+을 사용하여 클론할 수 있어야 합니다. 기존 객체를 업데이트하려면 대신
+put()
+메서드를 호출합니다.
+트랜잭션에는 트랜잭션이 성공적으로 완료되면 해결되거나
+트랜잭션 오류
+로 거부되는
+done
+프로미스가 있습니다.
+IDB 라이브러리 문서
+에 설명된 대로 데이터베이스에 쓰는 경우
+tx.done
+는 모든 항목이 데이터베이스에 성공적으로 커밋되었음을 나타내는 신호입니다. 하지만 트랜잭션이 실패하는 원인이 되는 오류를 확인할 수 있도록 개별 작업을 대기하는 것이 좋습니다.
+// Using https://github.com/jakearchibald/idb
+async
+function
+addData
+()
+{
+const
+cookies
+=
+{
+name
+:
+"Chocolate chips cookies"
+,
+type
+:
+"dessert"
+,
+cook_time_minutes
+:
+25
+};
+const
+tx
+=
+await
+db
+.
+transaction
+(
+'recipes'
+,
+'readwrite'
+);
+const
+store
+=
+tx
+.
+objectStore
+(
+'recipes'
+);
+store
+.
+add
+(
+cookies
+);
+await
+tx
+.
+done
+;
+}
+쿠키를 추가하면 레시피가 다른 레시피와 함께 데이터베이스에 저장됩니다. ID는 indexedDB에 의해 자동으로 설정되고 증가합니다. 이 코드를 두 번 실행하면 동일한 쿠키 항목이 두 개가 됩니다.
+데이터 가져오는 중
+IndexedDB에서 데이터를 가져오는 방법은 다음과 같습니다.
+트랜잭션을 시작하고 객체 저장소 또는 저장소를 지정하며, 선택적으로 트랜잭션 유형을 지정합니다.
+해당 거래에서
+objectStore()
+를 호출합니다. 객체 저장소 이름을 지정해야 합니다.
+가져오려는 키로
+get()
+을 호출합니다. 기본적으로 저장소는 키를 색인으로 사용합니다.
+// Using https://github.com/jakearchibald/idb
+async
+function
+getData
+()
+{
+const
+tx
+=
+await
+db
+.
+transaction
+(
+'recipes'
+,
+'readonly'
+)
+const
+store
+=
+tx
+.
+objectStore
+(
+'recipes'
+);
+// Because in our case the `id` is the key, we would
+// have to know in advance the value of the id to
+// retrieve the record
+const
+value
+=
+await
+store
+.
+get
+([
+id
+]);
+}
+스토리지 관리자
+PWA의 저장소를 관리하는 방법을 아는 것은 네트워크 응답을 올바르게 저장하고 스트리밍하는 데 특히 중요합니다.
+스토리지 용량은 캐시 스토리지, IndexedDB, 웹 스토리지, 서비스 워커 파일 및 종속 항목을 비롯한 모든 스토리지 옵션 간에 공유됩니다. 하지만 사용 가능한 저장용량은 브라우저마다 다릅니다. 소진될 가능성은 낮습니다. 일부 브라우저에서는 사이트가 메가바이트에서 기가바이트에 이르는 데이터를 저장할 수 있습니다. 예를 들어 Chrome에서는 브라우저가 전체 디스크 공간의 최대 80% 를 사용할 수 있으며 개별 출처는 전체 디스크 공간의 최대 60% 를 사용할 수 있습니다. Storage API를 지원하는 브라우저의 경우 앱의 사용 가능한 스토리지, 할당량, 사용량을 알 수 있습니다. 다음 예에서는 Storage API를 사용하여 예상 할당량과 사용량을 가져온 다음 사용된 비율과 남은 바이트를 계산합니다.
+navigator.storage
+는
+StorageManager
+의 인스턴스를 반환합니다. 별도의
+Storage
+인터페이스가 있으며 혼동하기 쉽습니다.
+if
+(
+navigator
+.
+storage
+&&
+navigator
+.
+storage
+.
+estimate
+)
+{
+const
+quota
+=
+await
+navigator
+.
+storage
+.
+estimate
+();
+// quota.usage -> Number of bytes used.
+// quota.quota -> Maximum number of bytes available.
+const
+percentageUsed
+=
+(
+quota
+.
+usage
+/
+quota
+.
+quota
+)
+*
+100
+;
+console
+.
+log
+(
+`You've used
+${
+percentageUsed
+}
+% of the available storage.`
+);
+const
+remaining
+=
+quota
+.
+quota
+-
+quota
+.
+usage
+;
+console
+.
+log
+(
+`You can write up to
+${
+remaining
+}
+more bytes.`
+);
+}
+Chromium DevTools에서
+애플리케이션
+탭의
+스토리지
+섹션을 열면 사이트의 할당량과 사용 중인 스토리지가 사용 항목별로 분류되어 표시됩니다.
+Firefox와 Safari는 현재 출처의 모든 스토리지 할당량과 사용량을 확인할 수 있는 요약 화면을 제공하지 않습니다.
+데이터 지속성
+호환되는 플랫폼에서 브라우저에 영구 스토리지를 요청하여 비활성 상태이거나 스토리지 압력이 있을 때 데이터가 자동으로 삭제되지 않도록 할 수 있습니다. 권한이 부여되면 브라우저는 스토리지에서 데이터를 삭제하지 않습니다. 이 보호에는 서비스 워커 등록, IndexedDB 데이터베이스, 캐시 저장소의 파일이 포함됩니다. 사용자는 항상 관리자이며 브라우저에서 영구 스토리지를 부여한 경우에도 언제든지 스토리지를 삭제할 수 있습니다.
+영구 스토리지를 요청하려면
+StorageManager.persist()
+를 호출합니다. 이전과 마찬가지로
+StorageManager
+인터페이스는
+navigator.storage
+속성을 통해 액세스합니다.
+async
+function
+persistData
+()
+{
+if
+(
+navigator
+.
+storage
+&&
+navigator
+.
+storage
+.
+persist
+)
+{
+const
+result
+=
+await
+navigator
+.
+storage
+.
+persist
+();
+console
+.
+log
+(
+`Data persisted:
+${
+result
+}
+`
+);
+}
+StorageManager.persisted()
+를 호출하여 현재 출처에 영구 스토리지가 이미 부여되었는지 확인할 수도 있습니다. Firefox는 영구 스토리지를 사용하기 위해 사용자에게 권한을 요청합니다. Chromium 기반 브라우저는 사용자의 콘텐츠 중요도를 판단하는
+휴리스틱
+에 따라 지속성을 부여하거나 거부합니다. 예를 들어 Google Chrome의 기준 중 하나는 PWA 설치입니다. 사용자가 운영체제에 PWA 아이콘을 설치한 경우 브라우저에서 영구 스토리지를 부여할 수 있습니다.
+API 브라우저 지원
+웹 스토리지
+Browser Support
+Source
+파일 시스템 액세스
+Browser Support
+Source
+스토리지 관리자
+Browser Support
+Source
+리소스
+웹의 스토리지
+FileSystem Access API
+영구 스토리지
+MDN: Storage API
+MDN: 클라이언트 측 저장소
+콘텐츠 색인 생성
+도움이 되었나요?
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는
+Creative Commons Attribution 4.0 라이선스
+에 따라 라이선스가 부여되며, 코드 샘플에는
+Apache 2.0 라이선스
+에 따라 라이선스가 부여됩니다. 자세한 내용은
+Google Developers 사이트 정책
+을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+최종 업데이트: 2022-01-10(UTC)
+```
+
+## E13 · search
+
+- Event ID: 72bc9476-5242-4815-9bcc-0a80448389f6
+- client_seq: 13
+- started_at: 2026-11-18T09:45:00.888+00:00
+- ended_at: 2026-11-18T09:45:00.888+00:00
+- 수집 상태: partial
+
+<a id="e13-query"></a>
+
+### query
+
+```text
+indexedDB data loss browser storage eviction
+```
+
+## E14 · search
+
+- Event ID: da62f3f2-7ce5-4625-aa5b-615169758338
+- client_seq: 14
+- started_at: 2026-11-18T09:45:25.85+00:00
+- ended_at: 2026-11-18T09:45:25.85+00:00
+- 수집 상태: partial
+
+<a id="e14-query"></a>
+
+### query
+
+```text
+indexedDB data loss browser storage eviction
+```
+
+## E15 · page_view
+
+- Event ID: cea924fc-a959-4e71-8805-3074f62960c3
+- client_seq: 15
+- started_at: 2026-11-18T09:45:13.532+00:00
+- ended_at: 2026-11-18T09:45:25.85+00:00
+- 수집 상태: complete
+
+<a id="e15-text"></a>
+
+### text
+
+```text
+Storage quotas and eviction criteria
+Web developers can use a number of technologies to store data in the user's browser (i.e., on the local disk of the device the user is using to view the website).
+The amount of data browsers allow websites to store and the mechanisms they use to delete data when that limit is reached differs between browsers.
+This article describes the web technologies that can be used to store data, the quotas that browsers have in place to limit websites from storing too much data, and the mechanisms they use to delete data when needed.
+How do browsers separate data from different websites?
+Browsers store the data from websites in different places, also called buckets, to reduce the risk of users being tracked across the web. In most cases, browsers manage stored data
+per origin
+.
+The term
+origin
+is therefore important to understand this article. An origin is defined by a scheme (such as HTTPS), a hostname, and a port. For example,
+https://example.com
+and
+https://example.com/app/index.html
+belong to the same origin because they have the same scheme (
+https
+), hostname (
+example.com
+), and default port.
+The quotas and eviction criteria described in this article apply to an entire origin, even if this origin is used to run several websites, such as
+https://example.com/site1/
+and
+https://example.com/site2/
+.
+In some cases, however, browsers can decide to further separate the data stored by an origin in different partitions, for example in cases where an origin is loaded within an
+<iframe>
+element in multiple different third-party origins. However, for simplicity reasons, this article assumes that data is always stored per origin.
+What technologies store data in the browser?
+Web developers can use the following web technologies to store data in the browser:
+Technology
+Description
+Cookies
+An HTTP cookie is a small piece of data that the web server and browser send each other to remember stateful information across page navigation.
+Web Storage
+The Web Storage API provides mechanisms for webpages to store string-only key/value pairs, including
+localStorage
+and
+sessionStorage
+.
+IndexedDB
+IndexedDB is a Web API for storing large data structures in the browser and indexing them for high-performance searching.
+Cache API
+The Cache API provides a persistent storage mechanism for HTTP request and response object pairs that's used to make webpages load faster.
+Origin Private File System (OPFS)
+OPFS provides a file system that's private to the origin of the page and can be used to read and write directories and files.
+Note that, in addition to the above, browsers will store other types of data in the browser for an origin, such as
+WebAssembly
+code caching.
+Does browser-stored data persist?
+Data for an origin can be stored in two ways in a browser,
+persistent
+and
+best-effort
+:
+Best-effort: this is the way that data is stored by default. Best-effort data persists as long as the origin is below its quota, the device has enough storage space, and the user doesn't choose to delete the data via their browser's settings.
+Persistent: an origin can opt-in to store its data in a persistent way. Data stored this way is only evicted, or deleted, if the user chooses to, by using their browser's settings. To learn more, see
+When is data evicted
+.
+The data stored in the browser by an origin is best-effort by default. When using web technologies such as IndexedDB or Cache, the data is stored transparently without asking for the user's permission. Similarly, when the browser needs to evict best-effort data, it does so without interrupting the user.
+If, for any reason, developers need persistent storage (e.g., when building a web app that relies on critical data that isn't persisted anywhere else), they can do so by using the
+navigator.storage.persist()
+method of the
+Storage API
+.
+In Firefox, when a site chooses to use persistent storage, the user is notified with a UI popup that their permission is requested.
+Safari and most Chromium-based browsers, such as Chrome or Edge, automatically approve or deny the request based on the user's history of interaction with the site and do not show any prompts to the user.
+Note that
+research from the Chrome team
+shows that data is very rarely deleted by the browser. If a user visits a website regularly, there is very little chance that its stored data, even in best-effort mode, will get evicted by the browser.
+Private browsing
+Note that in private browsing mode (also called
+Incognito
+in Chrome, and
+InPrivate
+in Edge), browsers may apply different quotas, and stored data is usually deleted when the private browsing mode ends.
+How much data can be stored?
+Cookies
+Different browsers have different rules around how many cookies are allowed per origin and how much space these cookies can use on the disk. While cookies are useful for preserving some small shared state between the browser and the web server across page navigation, using cookies for storing data in the browser is not advised. Cookies are sent with each and every HTTP request, so storing data in cookies that could be stored by using another web technology unnecessarily increases the size of requests.
+Because cookies should not be used for storing data in the browser, cookie storage browser limits are not covered here.
+Web Storage
+Web Storage, which can be accessed by using the
+localStorage
+and
+sessionStorage
+properties of the
+window
+object, is limited to 10 MiB of data maximum on all browsers.
+Browsers can store up to 5 MiB of local storage, and 5 MiB of session storage per origin.
+Once this limit is reached, browsers throw a
+QuotaExceededError
+exception which should be handled by using a
+try...catch
+block.
+Other web technologies
+The data that's stored by using other web technologies, such as IndexedDB, Cache API, or File System API (which defines the Origin Private File System), is managed by a storage management system that's specific to each browser.
+This system regulates all of the data that an origin stores using these APIs.
+Each browser determines, using whatever mechanism it chooses, the maximum amount of storage a given origin can use.
+Firefox
+In Firefox, the maximum storage space an origin can use in best-effort mode is whichever is the smaller of:
+10% of the total disk size where the profile of the user is stored.
+Or 10 GiB, which is the
+group limit
+that Firefox applies to all origins that are part of the same
+site
+.
+Origins for which persistent storage has been granted can store up to 50% of the total disk size, capped at 8 TiB, and are not subject to the group limit.
+For example, if the device has a 500 GiB hard drive, Firefox will allow an origin to store up to:
+In best-effort mode: 10 GiB of data, which is the group limit.
+In persistent mode: 250 GiB, which is 50% of the total disk size.
+Note that it might not actually be possible for the origin to reach its quota because it is calculated based on the hard drive
+total
+size, not the currently available disk space. This is done for security reasons, to avoid
+fingerprinting
+.
+Chrome and Chromium-based browsers
+In browsers based on the
+Chromium open-source project
+, including Chrome and Edge, an origin can store up to 60% of the total disk size in both persistent and best-effort modes.
+For example, if the device has a 1 TiB hard drive, the browser will allow an origin to use up to 600 GiB.
+Like with Firefox, because this quota is calculated based on the hard drive total size to avoid fingerprinting, an origin might not actually be able to reach its quota.
+Safari
+WebKit imposes different quotas for
+browser apps
+and for other applications which can embed web content (for example, apps that use WKWebView). A browser app is an application that can be set as the system's default browser. This includes Safari and some other WebKit-based third-party browsers.
+Starting with macOS 14 and iOS 17:
+For WebKit-based browser apps, each origin can store up to around 60% of total disk.
+For other WebKit-based apps that embed web content, each origin can store up to around 15% of total disk. If the user has saved the site as a web app on the Home Screen or the Dock, it uses the same origin quota as the browser app (around 60% of disk space).
+For instance, a macOS device with a 1 TiB drive will limit each origin within the Safari web browser to around 600 GiB. Origins running in another app's embedded WebView will be allotted a lesser limit of around 150 GiB.
+For privacy reasons,
+cross-origin
+frames have a separate quota, amounting to roughly 1/10 of their parents.
+Like other browsers, the exact limits enforced by the quota may vary so as to avoid fingerprinting.
+WebKit also enforces an overall quota that stored data across all origins cannot grow beyond 80% of disk size for browser apps, and 20% of disk size for non-browser apps that display web content.
+More information on WebKit's storage policies can be found on the
+WebKit blog
+.
+In earlier versions of Safari, an origin is given an initial 1 GiB quota. Once the origin reaches this limit, Safari asks the user for permission to let the origin store more data. This happens whether the origin stores data in best-effort mode or persistent mode.
+Note:
+On iOS/iPadOS, third-party browsers have historically had to use WebKit, so these WebKit quotas apply to them as well as Safari. In the EU (iOS 17.4+), Apple permits alternative browser engines; in such cases, those browsers' own engine policies apply instead of WebKit's.
+On macOS, non-WebKit browsers (e.g., Chromium/Firefox) use their own storage policies.
+More info on the EU-specific information can be found on
+Apple Developer Support Page
+.
+How to check the available space?
+Web developers can check how much space is available for their origin and how much is being used by the origin with the
+navigator.storage.estimate()
+method of the
+Storage API
+.
+Note that this method only returns the estimated usage value, not the actual value. Some of the resources that are stored by an origin may be coming from other origins and browsers voluntarily pad the size of the cross-origin data when reporting total usage value.
+What happens when an origin fills its quota?
+Attempting to store more than an origin's quota using IndexedDB, Cache, or OPFS, for example, fails with a
+QuotaExceededError
+exception.
+Web developers should wrap JavaScript that writes to browser storage within
+try...catch
+blocks. Freeing up space by deleting data before storing new data is also recommended.
+When is data evicted?
+Data eviction is the process by which a browser deletes an origin's stored data.
+Data eviction can happen in multiple cases:
+When the device is running low on storage space, also known as
+storage pressure
+.
+When all of the data stored in the browser (across all origins) exceeds the total amount of space the browser is willing to use on the device.
+Proactively, for origins that aren't used regularly, which happens only in Safari.
+Storage pressure eviction
+When a device is running low on storage space, also known as
+storage pressure
+, there may come a point when the browser has less available space than it needs to store all of the origin's stored data.
+Browsers use a Least Recently Used (LRU) policy to deal with this scenario. The data from the least recently used origin is deleted. If storage pressure continues, the browser moves on to the second least recently used origin, and so on, until the problem is resolved.
+This eviction mechanism only applies to origins that are not persistent and skips over origins that have been granted data persistence by using
+navigator.storage.persist()
+.
+Browser maximum storage exceeded eviction
+Some browsers define a maximum storage space that they can use on the device's hard disk. For example, Chrome currently uses at most 80% of the total disk size.
+This maximum storage size means that there may come a point at which the data stored by all of the combined origins exceeds the maximum size without any one origin being above its individual quota.
+When this happens, the browser starts evicting best-effort origins as described in
+Storage pressure eviction
+.
+Proactive eviction
+Safari proactively evicts data when cross-site tracking prevention is turned on. If an origin has no user interaction, such as click or tap, in the last seven days of browser use, its data created from script will be deleted. Cookies set by server are exempt from this eviction.
+How is data evicted?
+When an origin's data is evicted by the browser, all of its data, not parts of it, is deleted at the same time. If the origin had stored data by using IndexedDB and the Cache API for example, then both types of data are deleted.
+Only deleting some of the origin's data could cause inconsistency problems.
+See also
+Storage for the web on web.dev
+Persistent storage on web.dev
+Chrome Web Storage and Quota Concepts
+Help improve MDN
+Learn how to contribute
+This page was last modified on
+Jan 5, 2026
+by
+MDN contributors
+.
+View this page on GitHub
+•
+Report a problem with this content
+```
+
+## E16 · llm_exchange
+
+- Event ID: 3d95ae56-0184-4ec8-9c79-edcd4bfb91ce
+- client_seq: 16
+- started_at: 2026-11-18T09:43:29.032+00:00
+- ended_at: 2026-11-18T09:46:38.361+00:00
+- 수집 상태: complete
+
+<a id="e16-question"></a>
+
+### question
+
+```text
+MDN 문서를 보니 IndexedDB로 브라우저에 데이터를 저장할 수 있네. 그렇다면 초기 MVP에서는 별도 클라우드 데이터베이스 없이 IndexedDB만 사용하는게 합리적이라는 가설을 세울 수 있겠어. 이 판단에서 놓치고 있는 위험이 있을까?
+```
+
+<a id="e16-response"></a>
+
+### response
+
+```text
+네 가설은 합리적이야. 다만 IndexedDB가 메모 데이터를 저장할 수 있다는 사실과, IndexedDB만으로 신뢰할 수 있는 메모 서비스를 운영할 수 있다는 판단은 별개야.
+
+현재 가설은 다음과 같이 정리할 수 있어.
+
+개인 사용자 1명을 대상으로 하는 메모 웹앱의 초기 MVP에서는 서버 운영 비용과 개발 복잡도를 줄이기 위해 IndexedDB만으로 데이터를 저장해도 충분할 것이다.
+
+이 가설은 성능과 구현 복잡도 측면에서는 상당히 타당해. 하지만 실제 사용에서 문제가 되는 것은 데이터 저장 성능보다 데이터 지속성, 복구 가능성, 기기 종속성일 가능성이 높아.
+
+1. 놓치기 쉬운 핵심 위험 5가지
+
+위험
+
+	
+
+중요도
+
+	
+
+놓치기 쉬운 이유
+
+
+
+
+데이터 유실
+
+	
+
+매우 높음
+
+	
+
+IndexedDB가 영구 보관을 보장한다고 오해하기 쉬움
+
+
+
+
+백업 및 복구 실패
+
+	
+
+매우 높음
+
+	
+
+파일 내보내기 기능만 있어도 충분하다고 생각하기 쉬움
+
+
+
+
+브라우저·기기 종속성
+
+	
+
+높음
+
+	
+
+개인용 앱이라도 사용 환경은 바뀔 수 있음
+
+
+
+
+오프라인 실행 실패
+
+	
+
+중간
+
+	
+
+IndexedDB 저장과 오프라인 앱 실행은 별개의 문제
+
+
+
+
+데이터 구조 변경
+
+	
+
+중간
+
+	
+
+MVP 이후 스키마 변경과 데이터 이전을 고려하지 않기 쉬움
+
+위험 A. IndexedDB는 영구 보관소가 아니다
+
+IndexedDB는 브라우저가 관리하는 저장소야. 일반적으로 브라우저를 종료해도 데이터가 유지되지만, 사용자가 사이트 데이터를 삭제하거나 브라우저가 저장 공간을 회수하면 사라질 수 있어.
+
+navigator.storage.persist()를 통해 영속 저장을 요청할 수 있지만, 브라우저가 요청을 거부할 수도 있고 사용자의 명시적 삭제까지 막지는 못해.
+
+핵심: 저장에 성공했다는 사실이 장기적인 데이터 보존을 보장하지는 않아.
+
+위험 B. 백업 기능이 있어도 복구가 보장되지는 않는다
+
+JSON 파일 내보내기를 구현했다고 안전한 것은 아니야. 사용자가 백업을 하지 않거나, 복원 과정에서 기존 데이터가 덮어써지거나, 앱 업데이트로 파일 형식이 달라질 수 있어.
+
+최소한 백업 파일의 버전 정보, 복원 시 유효성 검사, 중복 데이터 처리, 복원 실패 시 롤백을 고려해야 해.
+
+위험 C. 개인용이라고 해서 단일 기기 사용이 보장되지는 않는다
+
+현재는 노트북으로만 사용하더라도 휴대폰, 새로운 컴퓨터, 다른 브라우저로 이동할 가능성이 있어.
+
+IndexedDB는 기본적으로 웹사이트의 출처(origin)와 브라우저 저장 환경에 묶여 있기 때문에 메모가 자동으로 공유되지 않아.
+
+특히 개발 중 localhost에서 사용하다가 실제 도메인으로 배포하는 경우에도 기존 데이터가 자동 이전되지 않아.
+
+위험 D. IndexedDB를 사용해도 자동으로 오프라인 앱이 되지는 않는다
+
+IndexedDB는 데이터를 로컬에 저장하지만 웹앱의 HTML, JavaScript, CSS까지 저장해서 실행해 주는 것은 아니야.
+
+따라서 인터넷 없이 앱을 새로 열 수 있으려면 Service Worker와 캐시 전략 등을 별도로 구현해야 해.
+
+또한 메모 작성 직후 브라우저를 닫거나 강제 종료하면 저장 트랜잭션이 완료되지 않을 수 있어. MDN에서도 브라우저 종료 시 IndexedDB 트랜잭션의 완료가 보장되지 않는다고 설명해. 
+MDN
++1
+
+이 때문에 자동 저장은 단순히 일정 간격으로 실행하는 것이 아니라, 저장 완료 여부까지 확인하도록 설계하는 게 좋아.
+
+위험 E. 앱을 업데이트하다가 기존 데이터를 잃을 수도 있다
+
+MVP에서는 메모의 제목과 본문만 저장하더라도 나중에 태그, 폴더, 검색 인덱스 등을 추가할 수 있겠지.
+
+이 과정에서 DB 스키마를 변경해야 하는데, 잘못된 마이그레이션 로직은 기존 데이터를 훼손할 수 있어. 여러 탭에서 서로 다른 앱 버전이 실행 중이면 업데이트가 차단될 수도 있고. 
+MDN
++1
+
+따라서 처음부터 데이터 버전 관리와 마이그레이션 테스트를 고려해야 해.
+
+2. 그렇다면 클라우드 DB를 도입해야 할까?
+
+그건 아니야. 위험이 있다고 해서 곧바로 서버를 도입하는 건 과잉 설계일 수 있어.
+
+핵심은 위험을 제거하는 데 필요한 비용과 MVP의 목적을 비교하는 거야.
+
+요구사항
+
+	
+
+IndexedDB만 사용
+
+	
+
+클라우드 DB 추가
+
+
+
+
+메모 생성·수정·삭제
+
+	
+
+적합
+
+	
+
+적합
+
+
+
+
+빠른 응답
+
+	
+
+적합
+
+	
+
+로컬 캐시가 있으면 적합
+
+
+
+
+오프라인 사용
+
+	
+
+적합
+
+	
+
+별도 로컬 저장 설계 필요
+
+
+
+
+기기 간 동기화
+
+	
+
+불가능
+
+	
+
+구현 가능
+
+
+
+
+기기 고장 시 데이터 복구
+
+	
+
+별도 백업 필요
+
+	
+
+서버 백업 설계 시 가능
+
+
+
+
+초기 구현 복잡도
+
+	
+
+낮음
+
+	
+
+상대적으로 높음
+
+3. 가설을 검증하기 위한 MVP 실험
+
+내가 권하는 방법은 실제로 IndexedDB만 사용해 MVP를 만들고, 다음 테스트를 통과하는지 확인하는 거야.
+
+MVP 검증 체크리스트
+
+0/5 완료
+
+저장 지속성
+
+메모 작성 후 브라우저 종료·재실행 시 데이터 유지
+
+오프라인 실행
+
+인터넷 차단 상태에서 앱 실행 및 메모 작성·수정
+
+복구 가능성
+
+전체 메모 백업 후 브라우저 데이터 삭제, 파일로 복원
+
+업데이트 안정성
+
+기존 메모를 유지한 채 데이터 스키마 변경
+
+저장 실패 대응
+
+저장 실패 시 사용자에게 경고하고 미저장 상태 표시
+
+특히 백업과 복구 테스트가 중요해. 메모 데이터를 내보내기만 하는 것이 아니라, 실제로 삭제한 뒤 정상 복원되는지 확인해야 해.
+
+4. 최종 판단
+
+현재 가설을 조금 더 정확하게 수정한다면 다음과 같아.
+
+초기 MVP에서는 단일 기기·단일 브라우저 사용을 전제로 IndexedDB만으로 충분한 저장 성능과 사용성을 확보할 수 있다. 단, 데이터 유실 위험을 줄이기 위해 백업·복원 기능과 저장 실패 처리를 포함하고, 기기 간 동기화는 MVP 범위에서 제외한다.
+
+나는 이 수정된 가설을 채택하는 게 맞다고 봐.
+
+다만 여기에는 중요한 조건이 있어. 데이터를 잃었을 때 감수할 수 있는 손실 수준이 낮다면, 수동 백업만 제공하는 Local-only 구조는 장기적인 해법이 아니야.
+
+초기에는 IndexedDB만으로 시작하되, 실제 사용을 통해 데이터 보존의 중요성과 여러 기기에서 사용할 필요성을 검증한 뒤 클라우드 동기화 도입 여부를 결정하는 것이 합리적이야.
+```
+
+## E17 · llm_exchange
+
+- Event ID: f225995d-1dbe-48f2-8fae-5e10639ba8c0
+- client_seq: 17
+- started_at: 2026-11-18T09:46:37.61+00:00
+- ended_at: 2026-11-18T09:48:16.775+00:00
+- 수집 상태: complete
+
+<a id="e17-question"></a>
+
+### question
+
+```text
+브라우저 저장소의 데이터가 특정 조건에서 삭제될 수 있다는 정보를 확인했어. 그런데 생각해보니 이 앱은 나중에 노트북과 스마트폰에서도 같은 메모를 사용해야해. 처음에는 로컬 저장만으로 충분하다고 생각했지만, 지금은 데이터 유실과 기기 간 동기화가 걱정돼. 초기 가설을 다시 평가해줘
+```
+
+<a id="e17-response"></a>
+
+### response
+
+```text
+1. 초기 가설 재평가
+
+결론부터 말하면, 초기 가설은 수정해야 해.
+
+IndexedDB를 사용하는 선택 자체가 잘못된 것은 아니야. 하지만 IndexedDB만으로 충분하다는 판단은 새로운 요구사항을 고려하면 더 이상 적절하지 않아.
+
+초기 가설과 현재 상황을 비교해보자.
+
+구분
+
+	
+
+초기 판단
+
+	
+
+현재 판단
+
+
+
+
+사용자
+
+	
+
+개인 1명
+
+	
+
+개인 1명
+
+
+
+
+사용 기기
+
+	
+
+단일 기기 가정
+
+	
+
+노트북 + 스마트폰
+
+
+
+
+가장 중요한 가치
+
+	
+
+빠른 실행, 단순한 구조
+
+	
+
+빠른 실행, 데이터 보존, 동기화
+
+
+
+
+저장 방식
+
+	
+
+IndexedDB 단독
+
+	
+
+로컬 DB + 클라우드 DB
+
+
+
+
+오프라인 사용
+
+	
+
+필요
+
+	
+
+계속 필요
+
+
+
+
+기기 간 동기화
+
+	
+
+고려하지 않음
+
+	
+
+필수 요구사항
+
+
+
+
+데이터 복구
+
+	
+
+부가 기능
+
+	
+
+핵심 요구사항
+
+여기서 중요한 변화는 사용자가 늘어난 것이 아니라 데이터를 사용하는 환경과 데이터에 요구하는 신뢰성이 달라졌다는 점이야.
+
+따라서 기존 가설은 다음과 같이 바꾸는 게 타당해.
+
+개인용 메모 앱의 초기 MVP에서는 IndexedDB를 로컬 저장소로 활용해 빠른 응답과 오프라인 사용을 유지하되, 클라우드 데이터베이스를 추가해 기기 간 동기화와 데이터 복구를 지원하는 것이 적절하다.
+
+2. 추천 아키텍처
+
+Offline-first + Cloud Sync 구조
+
+두 기기는 로컬 데이터를 통해 즉시 동작하고, 온라인 상태에서 변경사항을 클라우드와 동기화하는 구조야.
+
+이 구조에서는 메모를 작성하면 우선 IndexedDB에 저장하고, 동기화 대기 상태로 표시해. 인터넷에 연결되면 변경사항을 클라우드에 전송하지.
+
+다른 기기에서는 서버의 변경사항을 내려받아 로컬 DB를 갱신해.
+
+중요한 건 클라우드가 있어도 여전히 Offline-first 설계를 유지할 수 있다는 점이야.
+
+3. 새 구조에서 놓치면 안 되는 문제
+
+클라우드 DB를 추가한다고 모든 문제가 자동으로 해결되는 건 아니야. 오히려 새로운 기술적 문제가 발생해.
+
+첫째, 동기화 충돌. 노트북과 스마트폰에서 같은 메모를 오프라인으로 수정했다면 어느 버전을 남길지 결정해야 해. 단순히 마지막 수정본으로 덮어쓰면 다른 기기의 수정 내용이 사라질 수 있어.
+
+둘째, 동기화 실패. 로컬에서는 저장됐지만 서버에는 반영되지 않은 상태를 관리해야 해. 앱에는 최소한 '저장됨', '동기화 중', '동기화 실패'를 구분할 수 있는 상태가 필요해.
+
+셋째, 클라우드 백업. 동기화와 백업은 달라. 실수로 메모를 삭제하면 그 삭제도 모든 기기에 전파될 수 있어. 따라서 삭제 복구 또는 별도의 백업 정책이 필요해.
+
+넷째, 인증과 접근 제어. 사용자 한 명뿐이라도 클라우드 DB를 사용한다면 다른 사람이 개인 메모에 접근하지 못하도록 인증과 데이터 접근 권한을 설정해야 해.
+
+4. MVP에서는 어디까지 구현해야 할까?
+
+기능을 한꺼번에 복잡하게 만들 필요는 없어.
+
+기능
+
+	
+
+우선순위
+
+
+
+
+IndexedDB 기반 메모 CRUD
+
+	
+
+필수
+
+
+
+
+클라우드 저장 및 기기 간 동기화
+
+	
+
+필수
+
+
+
+
+기본 로그인 및 접근 제어
+
+	
+
+필수
+
+
+
+
+동기화 실패 감지·재시도
+
+	
+
+필수
+
+
+
+
+삭제 복구 또는 백업
+
+	
+
+필수
+
+
+
+
+복잡한 동시 편집 병합
+
+	
+
+후순위
+
+
+
+
+실시간 공동 편집
+
+	
+
+제외
+
+다만 기술을 선택하기 전에 한 가지를 더 검토해야 해.
+
+Offline-first와 클라우드 DB를 결합하면 단순한 클라우드 기반 CRUD 앱보다 구현 복잡도가 높아질 수 있어. 동기화 계층 자체가 별도의 개발 대상이 되기 때문이야.
+
+따라서 오프라인 편집까지 반드시 필요하지 않다면 초기에는 클라우드를 주 저장소로 사용하고 IndexedDB를 읽기 캐시로 활용하는 단순한 구조도 비교해볼 가치가 있어.
+
+5. 최종 가설과 판단
+
+기각할 초기 가설
+
+IndexedDB만으로 개인용 메모 앱의 저장 요구사항을 충분히 충족할 수 있다.
+
+새롭게 채택할 가설
+
+IndexedDB를 로컬 저장 계층으로 유지하고 클라우드 DB를 결합하면, 빠른 응답성과 오프라인 사용성을 유지하면서 기기 간 동기화와 데이터 보존 문제를 개선할 수 있다.
+
+내 판단은 IndexedDB 단독 저장 가설은 기각하되, IndexedDB 자체는 유지하는 것이야.
+
+이 결정의 핵심 근거는 세 가지야.
+
+기기 간 동기화가 새로운 필수 요구사항으로 등장했어.
+
+브라우저 저장소만으로는 데이터의 장기 보존을 충분히 보장할 수 없어. 
+MDN
++1
+
+빠른 실행과 오프라인 사용이라는 기존 목표는 로컬 DB와 클라우드 DB를 결합해 계속 추구할 수 있어.
+
+다음 단계에서는 클라우드 중심 구조와 로컬 우선 동기화 구조의 개발 복잡도, 데이터 안정성, 오프라인 사용성을 비교한 뒤 MVP 아키텍처를 확정하는 게 맞아.
+
+즉, 이번 판단 변경은 단순히 데이터베이스 하나를 추가하는 결정이 아니라, 실제 요구사항에 맞춰 제품의 저장 전략을 재설계하는 과정이야.
+```
+
+## E18 · llm_exchange
+
+- Event ID: abb7d905-464b-4301-b35c-9559823597cf
+- client_seq: 18
+- started_at: 2026-11-18T09:48:16.452+00:00
+- ended_at: 2026-11-18T09:50:50.107+00:00
+- 수집 상태: complete
+
+<a id="e18-question"></a>
+
+### question
+
+```text
+그렇다면 차라리 처음부터 Cloud-first 방식으로 개발하는 건 어떨까? Supabase를 사용하는 방안도 함께 검토해줘. 단, 아직 어떤 방식을 선택할지는 결정하지 않았어
+```
+
+<a id="e18-response"></a>
+
+### response
+
+```text
+Cloud-first도 충분히 검토할 만해. Supabase의 현재 기능과 제약을 확인한 뒤, IndexedDB 중심 구조와 개발 복잡도·오프라인 사용성·데이터 안전성을 비교할게. 아직 한쪽으로 결론 내리지는 않겠어.
+```
+
+## E19 · llm_exchange
+
+- Event ID: 263cc105-3ef9-4d46-9792-bb2c82b20511
+- client_seq: 19
+- started_at: 2026-11-18T09:50:49.937+00:00
+- ended_at: 2026-11-18T09:52:24.51+00:00
+- 수집 상태: complete
+
+<a id="e19-question"></a>
+
+### question
+
+```text
+최종적으로 결정했어. MVP에서는 Supabase를 메인 데이터 저장소로 사용하고, IndexedDB는 오프라인 임시 저장과 캐시에 활용할게. 처음 생각했던 IndexedDB 단독 방식은 기기 간 동기화와 데이터 보존 요구사항 때문에 채택하지 않겠어. 이 결정을 정리해줘.
+```
+
+<a id="e19-response"></a>
+
+### response
+
+```text
+글쓰기
+개인용 메모 웹앱 MVP 아키텍처 의사결정 기록
+
+결정 상태: 확정
+결정일: 2026년 11월 18일
+주제: 데이터 저장 방식 및 아키텍처 선정
+
+1. 프로젝트 개요
+
+개인용 메모 웹앱의 초기 MVP를 개발한다.
+
+초기에는 사용자 1명을 대상으로 하며, 빠른 실행 속도와 단순한 개발 구조를 중요하게 고려한다. 향후 노트북과 스마트폰에서 동일한 메모에 접근할 수 있어야 하며, 데이터 유실 위험을 최소화하는 것이 주요 요구사항이다.
+
+2. 초기 가설
+
+초기에는 별도의 클라우드 데이터베이스 없이 브라우저의 IndexedDB만 사용하는 Local-only 구조를 고려했다.
+
+주요 근거는 다음과 같았다.
+
+서버 운영 및 개발 복잡도 최소화
+
+네트워크 요청 없이 빠른 데이터 처리
+
+인터넷 연결 없이 메모 작성 및 수정
+
+초기 인프라 운영 비용 절감
+
+그러나 검토 과정에서 브라우저 저장소의 데이터 지속성이 보장되지 않으며, 여러 기기에서 동일한 메모를 자동으로 공유하기 어렵다는 한계를 확인했다.
+
+3. 검토한 대안
+대안	주요 특징	평가
+IndexedDB 단독	로컬 저장, 서버 불필요	기기 간 동기화 및 데이터 보존에 한계
+Supabase 중심 Cloud-first	클라우드 저장, 기기 간 데이터 공유	핵심 요구사항에 적합
+Offline-first + Cloud Sync	로컬 우선 저장 및 양방향 동기화	오프라인 사용성이 우수하지만 구현 복잡도가 높음
+4. 최종 결정
+
+MVP에서는 Supabase를 메인 데이터 저장소로 사용하고, IndexedDB를 오프라인 임시 저장 및 로컬 캐시로 활용한다.
+
+Supabase: 메모 데이터의 중앙 저장소 역할을 담당한다.
+
+IndexedDB: 데이터 캐싱과 오프라인 상태에서의 임시 저장을 담당한다.
+
+동기화 계층: 네트워크 연결이 복구되면 로컬 변경사항을 Supabase에 반영한다.
+
+인증: Supabase Auth를 활용해 사용자 접근을 제어한다.
+
+Supabase에 정상적으로 반영된 데이터를 중앙 기준 데이터로 관리하되, 아직 동기화되지 않은 로컬 변경사항은 별도로 보존한다.
+
+5. 결정 근거
+5.1 기기 간 데이터 동기화
+
+노트북과 스마트폰에서 동일한 메모에 접근해야 하므로 중앙 데이터 저장소가 필요하다.
+
+Supabase를 사용하면 두 기기에서 같은 계정을 통해 데이터를 조회하고 수정할 수 있다.
+
+5.2 데이터 보존과 복구
+
+IndexedDB 단독 방식은 브라우저 데이터 삭제, 저장소 정리, 기기 손상 등에 따른 데이터 유실 위험이 있다.
+
+Supabase에 데이터를 저장하면 특정 기기의 로컬 데이터가 삭제되더라도 서버에 정상 반영된 메모를 다시 가져올 수 있다.
+
+단, 클라우드 동기화 자체가 백업을 의미하지 않으므로 별도의 백업 및 삭제 복구 정책이 필요하다.
+
+5.3 사용성과 성능
+
+IndexedDB를 캐시로 활용하면 자주 사용하는 메모를 빠르게 조회할 수 있다.
+
+네트워크가 불안정한 상황에서는 로컬에 변경사항을 임시 저장하고 연결 복구 후 동기화하는 방식으로 사용성을 개선한다.
+
+5.4 개발 복잡도
+
+Supabase의 데이터베이스와 인증 기능을 활용해 별도의 백엔드 구현 부담을 줄인다.
+
+동시에 완전한 Offline-first 아키텍처에 필요한 복잡한 동기화 기능은 MVP에 필요한 범위부터 단계적으로 구현한다.
+
+6. MVP 구현 시 필수 고려사항
+
+데이터 동기화: 로컬 변경사항의 전송, 재시도 및 중복 처리
+
+충돌 처리: 서로 다른 기기에서 같은 메모를 수정했을 때의 처리 규칙
+
+저장 상태 표시: 로컬 저장 완료와 서버 동기화 완료를 구분
+
+데이터 보안: Supabase Auth 및 Row Level Security 적용
+
+데이터 복구: 주기적인 백업 또는 삭제 복구 기능
+
+캐시 관리: 서버 데이터와 로컬 캐시 사이의 일관성 유지
+
+특히 오프라인 임시 저장과 캐시 기능을 도입하는 만큼, 단순한 Cloud-first CRUD 앱보다 동기화 로직이 추가된다는 점을 인지한다.
+
+구체적인 동기화 정책과 충돌 해결 알고리즘은 구현 단계에서 별도로 정의한다.
+
+7. 채택하지 않은 대안
+
+IndexedDB 단독 Local-only 방식은 채택하지 않는다.
+
+주요 이유는 다음과 같다.
+
+기기 간 자동 동기화를 제공하지 못함
+
+특정 기기나 브라우저에 데이터가 종속됨
+
+브라우저 데이터 삭제 및 기기 손상에 취약함
+
+장기적으로 클라우드 동기화 기능을 추가해야 할 가능성이 높음
+
+이는 IndexedDB 기술 자체를 배제한다는 의미가 아니다. IndexedDB는 보조 저장소로 계속 활용한다.
+
+8. 최종 결론
+
+개인용 메모 웹앱 MVP의 아키텍처는 Supabase 중심 Cloud-first + IndexedDB 로컬 캐시 및 오프라인 임시 저장 구조로 확정한다.
+
+이번 결정은 초기 개발의 단순성만을 최우선으로 고려했던 가설을, 기기 간 동기화와 데이터 보존이라는 추가 요구사항을 반영해 수정한 결과다.
+
+다만 기술적 구현 범위를 최소화하기 위해 복잡한 실시간 협업 및 고급 동기화 기능은 초기 MVP에서 제외하고, 개인 사용자에게 필요한 기본적인 오프라인 임시 저장과 동기화 기능부터 구현한다.
+
+결정에 대한 기술적 보완 의견
+
+한 가지는 명확하게 짚고 넘어가야 해.
+
+이번 결정은 순수한 Cloud-first보다는 로컬 저장 기능을 결합한 하이브리드 구조에 가까워. 특히 오프라인에서 메모 수정까지 허용하면 변경 큐, 재전송, 충돌 해결이 필요하기 때문에 생각보다 구현 비용이 커질 수 있어.
+
+따라서 실제 개발에 들어갈 때는 다음 원칙을 권장해.
+
+서버 동기화가 완료된 데이터: Supabase를 기준으로 관리
+
+동기화 전 로컬 변경사항: IndexedDB에 안전하게 보관하고 서버 응답 전 삭제하지 않기
+
+동시 수정 충돌: MVP 단계에서 명시적인 처리 규칙 마련
+
+캐시와 오프라인 편집: 각각 독립된 기능으로 설계하고 테스트
+
+이렇게 하면 결정한 아키텍처를 유지하면서도 MVP가 불필요하게 복잡해지는 것을 줄일 수 있어.
+```
+
+## E20 · llm_exchange
+
+- Event ID: 3c505d9a-ead4-41ee-9eb0-135567bd6144
+- client_seq: 20
+- started_at: 2026-11-18T09:52:23.758+00:00
+- ended_at: 2026-11-18T09:54:01.47+00:00
+- 수집 상태: complete
+
+<a id="e20-question"></a>
+
+### question
+
+```text
+저장 방식에 대한 결정은 끝났어. 이제 다른 문제를 고민할게. 이 개인 메모 앱의 MVP에 회원가입 기능을 넣어야 할까? 사용자 경험과 개발 복잡도를 기준으로 비교해줘. 아직 결정하지는 않을거야
+```
+
+<a id="e20-response"></a>
+
+### response
+
+```text
+현재 메모 앱의 조건을 고려하면, 회원가입 기능을 MVP에 반드시 넣어야 하는 것은 아니야. 하지만 사용자 인증 수단은 필요해.
+
+이 둘은 구분해야 해.
+
+회원가입(Sign-up): 새로운 사용자가 계정을 생성하는 과정
+
+로그인(Authentication): 사용자가 본인임을 확인하는 과정
+
+현재 앱은 개인용이고 초기 사용자가 한 명이기 때문에 누구나 계정을 생성할 수 있는 회원가입 페이지는 불필요할 가능성이 높아. 반면 Supabase에 개인 메모를 저장하고 여러 기기에서 접근하려면, 본인임을 확인할 수 있는 수단은 필요해.
+
+1. 검토할 수 있는 세 가지 방식
+
+A. 일반 회원가입 + 로그인
+
+이메일과 비밀번호로 계정을 생성하고 로그인하는 일반적인 방식이야. 나중에 다중 사용자 서비스로 확장하기 좋지만, 지금 단계에서는 필요 이상의 기능이 될 수 있어.
+
+B. 회원가입 없이 본인 계정만 로그인
+
+Supabase Auth에 본인 계정을 미리 생성하고, 앱에는 로그인 화면만 제공하는 방식이야. 일반 사용자에게 계정 생성 기능을 공개할 필요가 없어.
+
+C. 회원가입·로그인 모두 생략
+
+앱을 열면 바로 메모를 사용할 수 있는 방식이야. 초기 UX는 가장 단순하지만, Supabase의 데이터에 안전하게 접근하기 위한 별도 인증·접근 제어 설계가 필요해.
+
+2. 사용자 경험 비교
+
+기준
+
+	
+
+A. 일반 회원가입
+
+	
+
+B. 본인 계정 로그인
+
+	
+
+C. 인증 화면 없음
+
+
+
+
+최초 사용 편의성
+
+	
+
+낮음
+
+	
+
+보통
+
+	
+
+매우 높음
+
+
+
+
+재방문 편의성
+
+	
+
+높음
+
+	
+
+높음
+
+	
+
+매우 높음
+
+
+
+
+기기 변경
+
+	
+
+로그인 필요
+
+	
+
+로그인 필요
+
+	
+
+별도 식별 방식 필요
+
+
+
+
+계정 복구
+
+	
+
+구현 방식에 따라 가능
+
+	
+
+구현 방식에 따라 가능
+
+	
+
+별도 설계 필요
+
+
+
+
+불필요한 화면
+
+	
+
+많음
+
+	
+
+적음
+
+	
+
+없음
+
+UX 관점에서 중요한 것은 앱을 열 때마다 로그인하게 만들 필요는 없다는 점이야.
+
+Supabase Auth는 세션을 유지할 수 있기 때문에 최초 인증 이후에는 세션이 유효한 동안 바로 메모 화면으로 진입하도록 만들 수 있어.
+
+따라서 B 방식도 실제 일상 사용에서는 C와 큰 차이가 없을 수 있어.
+
+3. 개발 복잡도 비교
+
+개발 항목
+
+	
+
+A. 일반 회원가입
+
+	
+
+B. 본인 계정 로그인
+
+	
+
+C. 인증 화면 없음
+
+
+
+
+회원가입 화면
+
+	
+
+필요
+
+	
+
+불필요
+
+	
+
+불필요
+
+
+
+
+로그인 화면
+
+	
+
+필요
+
+	
+
+필요
+
+	
+
+불필요
+
+
+
+
+계정 생성 처리
+
+	
+
+필요
+
+	
+
+최초 1회 수동 생성
+
+	
+
+불필요
+
+
+
+
+세션 관리
+
+	
+
+필요
+
+	
+
+필요
+
+	
+
+방식에 따라 필요
+
+
+
+
+비밀번호 복구
+
+	
+
+필요할 수 있음
+
+	
+
+필요할 수 있음
+
+	
+
+불필요
+
+
+
+
+데이터 접근 제어
+
+	
+
+필요
+
+	
+
+필요
+
+	
+
+별도 보안 설계 필요
+
+
+
+
+전체 구현 복잡도
+
+	
+
+중간
+
+	
+
+낮음
+
+	
+
+겉보기보다 높을 수 있음
+
+Supabase를 사용할 때 중요한 점
+
+Supabase Auth는 이메일·비밀번호, Magic Link, OTP, 소셜 로그인 등을 지원해. 
+Supabase Docs
++1
+
+특히 B 방식은 다음과 같이 구현할 수 있어.
+
+개발자가 Supabase에 본인 계정을 미리 생성한다.
+
+앱에는 로그인 화면만 구현한다.
+
+외부 사용자의 신규 가입을 비활성화한다.
+
+로그인 상태를 유지해 재방문 시 인증 과정을 생략한다.
+
+데이터베이스에는 RLS 정책을 적용해 해당 계정만 메모에 접근하도록 제한한다.
+
+Supabase는 신규 이메일 가입을 제한하는 설정을 지원하고, JavaScript 클라이언트의 세션 유지 기능도 기본적으로 제공해. 
+Supabase Docs
++1
+
+주의할 점은 회원가입 버튼만 숨기는 것으로는 충분하지 않다는 거야. 서버 측 신규 계정 생성도 제한해야 해.
+
+또한 C 방식으로 진행하면서 프론트엔드 코드에 비밀 API 키를 넣거나 모든 메모에 대한 공개 접근을 허용해서는 안 돼.
+
+4. 현재 조건에 따른 잠정 평가
+
+A. 일반 회원가입 + 로그인
+
+확장성 중심
+향후 여러 사용자에게 공개할 계획이 구체적이라면 유리해. 하지만 현재는 회원가입 UX와 계정 관리에 불필요한 개발 시간을 사용할 가능성이 높아.
+
+B. 본인 계정만 로그인
+
+현재 가장 유력
+개인용이라는 조건과 데이터 보안을 동시에 만족시키면서 구현 범위를 줄일 수 있어. 인증 기능을 완전히 없애지 않아 기기 변경에도 대응하기 쉬워.
+
+C. 회원가입·로그인 모두 생략
+
+추가 검토 필요
+가장 간단한 진입 경험을 제공하지만, 여러 기기에서 동일한 개인 데이터에 안전하게 접근하기 위한 별도 설계가 필요해. 현재 조건에서는 UX 이점에 비해 위험과 구현 부담이 커질 수 있어.
+5. 아직 결정하지 말고 확인할 사항
+
+회원가입 기능은 나중에 추가할 수 있어. 반면 처음부터 인증 없이 데이터를 저장하도록 설계하면 추후 사용자별 데이터 분리와 접근 제어를 도입할 때 수정 범위가 커질 수 있어.
+
+따라서 회원가입 UI는 선택 사항으로 두되, 데이터 모델에는 사용자 식별 체계를 처음부터 포함하는 방향이 합리적이야.
+
+여기서 다음 판단에 가장 중요한 질문은 하나야.
+
+이 앱을 앞으로도 본인만 사용하는 개인 도구로 유지할 생각이야, 아니면 나중에 다른 사람들도 사용할 수 있는 서비스로 공개할 가능성이 있어?
+
+이 답에 따라 회원가입 기능을 단순히 MVP에서 제외할지, 향후 확장을 전제로 인증 구조만 미리 설계할지 판단할 수 있어.
+```
+
+## E21 · page_view
+
+- Event ID: d9e0ad01-f84c-4ef3-97d9-3911b65ff87c
+- client_seq: 21
+- started_at: 2026-11-18T09:45:30.864+00:00
+- ended_at: 2026-11-18T09:54:46.254+00:00
+- 수집 상태: metadata_only
+
+저장된 질문·답변·본문·검색어 없음.
+
+## E22 · llm_exchange
+
+- Event ID: 04969e86-0ad9-4f67-a124-7979c035ef58
+- client_seq: 22
+- started_at: 2026-11-18T09:54:01.108+00:00
+- ended_at: 2026-11-18T09:54:47.799+00:00
+- 수집 상태: complete
+
+<a id="e22-question"></a>
+
+### question
+
+```text
+회원가입은 아직 결정하지 않을게. 다음에 실제 사용자 테스트를 한 뒤 다시 판단하겠어. 지금은 이 질문을 미해결 상태로 남겨두자.
+```
+
+<a id="e22-response"></a>
+
+### response
+
+```text
+개인용 메모 웹앱 MVP의 회원가입 기능 도입 여부는 미해결(Open Question) 상태로 유지할게.
+
+현재까지의 의사결정은 다음과 같아.
+
+항목
+
+	
+
+상태
+
+	
+
+내용
+
+
+
+
+메인 데이터 저장소
+
+	
+
+확정
+
+	
+
+Supabase
+
+
+
+
+로컬 저장소
+
+	
+
+확정
+
+	
+
+IndexedDB (오프라인 임시 저장 및 캐시)
+
+
+
+
+IndexedDB 단독 방식
+
+	
+
+기각
+
+	
+
+기기 간 동기화 및 데이터 보존 요구사항
+
+
+
+
+회원가입 기능
+
+	
+
+미해결
+
+	
+
+실제 사용자 테스트 이후 재검토
+
+미해결 질문: 회원가입 기능이 필요한가?
+
+현재 판단: 결론 보류
+
+검토한 대안: 일반 회원가입, 본인 계정만 로그인, 인증 화면 생략
+
+보류 이유: 실제 사용자 경험에 대한 검증이 부족하며, 현재 단계에서 회원가입의 필요성을 확정하기 어려움.
+
+재검토 시점: 실제 사용자 테스트 이후
+
+향후 판단 기준: 최초 진입 과정의 불편함, 로그인 필요성, 개발 복잡도, 보안 요구사항
+
+한 가지 구분할 점은 회원가입 기능의 도입 여부가 미해결이라는 것이 사용자 인증과 데이터 접근 제어까지 보류한다는 의미는 아니라는 것이야.
+
+Supabase에 저장된 개인 메모의 접근 권한은 회원가입 UI와 별개로 안전하게 설계해야 해.
+
+이 질문은 확정된 아키텍처 결정과 분리해서 관리하고, 사용자 테스트 결과가 확보되면 다시 평가하는 것으로 정리하자.
+```
+

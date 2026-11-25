@@ -1,9 +1,8 @@
-import { database, requireLocal } from '../../../lib/db';
+import { database, requireLocal, checkDatabaseError as check } from '../../../lib/db';
 import { NextResponse } from 'next/server';
 import { normalizeEvent } from '../../../lib/events';
 export const dynamic = 'force-dynamic';
 const result = data => NextResponse.json(data, { headers: { 'Cache-Control': 'no-store' } });
-function check(error) { if (error) throw new Error(error.message); }
 async function handler(request, { params }) {
  try {
   requireLocal(request);
@@ -68,6 +67,6 @@ async function handler(request, { params }) {
 
   }
   return NextResponse.json({error:'찾을 수 없습니다.'},{status:404});
- } catch(error) { return NextResponse.json({error:error.message},{status:400,headers:{'Cache-Control':'no-store'}}); }
+ } catch(error) { return NextResponse.json({error:error.message},{status:error.status===503?503:400,headers:{'Cache-Control':'no-store'}}); }
 }
 export { handler as GET, handler as POST, handler as DELETE };

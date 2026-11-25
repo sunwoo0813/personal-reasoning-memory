@@ -1,0 +1,29 @@
+{
+  "created_at": "2026-11-20T02:09:15.619Z",
+  "source_run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+  "model": "gpt-5-mini",
+  "repeats": 3,
+  "grounding_version": "evidence-v2",
+  "segmentation_policy": "purpose-v2",
+  "segmentation_mode": "fixed previously validated E01-E19 / E20-E22",
+  "classification_policy": "unchanged extraction-v1 types, authorship, decisions and open-question rules",
+  "source_state_hash": "b0d6a8918b42ed23194e61963653bcb5c60eb48a469c7a88bc50cc4d53ff3e23",
+  "input_hash": "f6ffcb8f9bbacca65240b6becb8a79fac8299ab407a962c59220ddf2de860434",
+  "code_hashes": {
+    "lib/analysis.js": "2e216e9d56c340dc12e0c856a439f5f901a0af7c964b114adc6287ac5e1ab372",
+    "lib/evidence-grounding.js": "ec58fa4875c3f6b8b874be37b0920e383bed62f4044e0993ef8fce30aa961980",
+    "lib/segmentation.js": "6865c31fa4a460e8d57728d5afb75c3efc999fd77a6a4314382690a06e80dee7",
+    "scripts/analyze.mjs": "8f9431ed31305be1bcbd14426c3eb10d537fe4491d20d769fd8c357631e6f3ef",
+    "db/analysis.sql": "135f5bb7f72a656213796e8853c18b0f9de8a882992429086e77fada7c1300e4"
+  },
+  "comparator": {
+    "kind": "historical single full-run test",
+    "path": "output/e2e-test-01-2026-11-19/new-analysis.json",
+    "full_status": "failed",
+    "full_complete": 0,
+    "full_total": 1,
+    "extra_ep02_diagnostic": "separate scope, not a completed full run"
+  },
+  "design": "Three sequential independent extractions by default, no checkpoint reuse between repeats. No DB writes. No change to thresholds after observing results. Same source session is not a general reliability benchmark.",
+  "metrics": "candidate_count is the first parsed object-slot count. validated_count requires literal/author checks and model support review. failed_count is unresolved final slots. Error counts count occurrences, not unique objects. Whole-run accepted count is zero when the run fails. model_supported is not semantic truth verification."
+}

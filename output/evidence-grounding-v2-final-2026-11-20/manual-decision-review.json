@@ -1,0 +1,75 @@
+{
+  "reviewer": "현재 어시스턴트의 비맹검 text·E19 원문 대조. 전체 의미 검증 또는 독립 사람 평가 아님.",
+  "scope": "Supabase 메인 + IndexedDB 보조 채택 및 IndexedDB 단독 기각이라는 사전 명시 결정 한 건",
+  "runs": [
+    {
+      "repeat": 1,
+      "status": "complete",
+      "decision_returned_as_accepted_result": true,
+      "assessment": "반환된 user/decision text가 Supabase 메인·IndexedDB 보조 채택과 단독 기각을 명시하고 E19.question 원문과 대응함",
+      "objects": [
+        {
+          "text": "MVP에서는 Supabase를 메인 데이터 저장소로 사용하고, IndexedDB는 오프라인 임시 저장과 로컬 캐시로 활용한다. 처음 생각했던 IndexedDB 단독 방식은 채택하지 않겠다.",
+          "evidence": [
+            {
+              "evidence_id": "G000345",
+              "event_id": "263cc105-3ef9-4d46-9792-bb2c82b20511",
+              "field": "question",
+              "start": 0,
+              "end": 152,
+              "offset_unit": "utf16_code_units",
+              "source_speaker": "user",
+              "quote": "최종적으로 결정했어. MVP에서는 Supabase를 메인 데이터 저장소로 사용하고, IndexedDB는 오프라인 임시 저장과 캐시에 활용할게. 처음 생각했던 IndexedDB 단독 방식은 기기 간 동기화와 데이터 보존 요구사항 때문에 채택하지 않겠어. 이 결정을 정리해줘.",
+              "verification_status": "quote_matched",
+              "semantic_verification": "not_verified"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "repeat": 2,
+      "status": "failed",
+      "decision_returned_as_accepted_result": false,
+      "assessment": "전체 실행이 실패해 정상 결정 반환은 없음. 모델 의미 인식 능력을 0점으로 단정하지 않음",
+      "objects": []
+    },
+    {
+      "repeat": 3,
+      "status": "complete",
+      "decision_returned_as_accepted_result": true,
+      "assessment": "반환된 user/decision text가 Supabase 메인·IndexedDB 보조 채택과 단독 기각을 명시하고 E19.question 원문과 대응함",
+      "objects": [
+        {
+          "text": "MVP에서는 Supabase를 메인 데이터 저장소로 사용하고, IndexedDB는 오프라인 임시 저장과 로컬 캐시로 활용한다. IndexedDB 단독 방식은 기기 간 동기화와 데이터 보존 요구사항 때문에 채택하지 않겠다.",
+          "evidence": [
+            {
+              "evidence_id": "G000343",
+              "event_id": "abb7d905-464b-4301-b35c-9559823597cf",
+              "field": "question",
+              "start": 0,
+              "end": 98,
+              "offset_unit": "utf16_code_units",
+              "source_speaker": "user",
+              "quote": "그렇다면 차라리 처음부터 Cloud-first 방식으로 개발하는 건 어떨까? Supabase를 사용하는 방안도 함께 검토해줘. 단, 아직 어떤 방식을 선택할지는 결정하지 않았어",
+              "verification_status": "quote_matched",
+              "semantic_verification": "not_verified"
+            },
+            {
+              "evidence_id": "G000345",
+              "event_id": "263cc105-3ef9-4d46-9792-bb2c82b20511",
+              "field": "question",
+              "start": 0,
+              "end": 152,
+              "offset_unit": "utf16_code_units",
+              "source_speaker": "user",
+              "quote": "최종적으로 결정했어. MVP에서는 Supabase를 메인 데이터 저장소로 사용하고, IndexedDB는 오프라인 임시 저장과 캐시에 활용할게. 처음 생각했던 IndexedDB 단독 방식은 기기 간 동기화와 데이터 보존 요구사항 때문에 채택하지 않겠어. 이 결정을 정리해줘.",
+              "verification_status": "quote_matched",
+              "semantic_verification": "not_verified"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

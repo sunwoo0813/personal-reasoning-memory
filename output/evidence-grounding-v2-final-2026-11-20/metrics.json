@@ -1,0 +1,199 @@
+{
+  "complete": 2,
+  "total": 3,
+  "episodes": [
+    {
+      "repeat": 1,
+      "episode": 1,
+      "status": "complete",
+      "candidates": 14,
+      "validated": 14,
+      "unresolved": 0,
+      "accepted_in_full_run": 14,
+      "repair_rounds": 1,
+      "schema_regenerations": 0,
+      "model_calls": 4,
+      "error_counts": {
+        "duplicate_evidence": 1
+      }
+    },
+    {
+      "repeat": 1,
+      "episode": 2,
+      "status": "complete",
+      "candidates": 10,
+      "validated": 10,
+      "unresolved": 0,
+      "accepted_in_full_run": 10,
+      "repair_rounds": 0,
+      "schema_regenerations": 0,
+      "model_calls": 2,
+      "error_counts": {}
+    },
+    {
+      "repeat": 2,
+      "episode": 1,
+      "status": "failed",
+      "candidates": 15,
+      "validated": 14,
+      "unresolved": 1,
+      "accepted_in_full_run": 0,
+      "repair_rounds": 2,
+      "schema_regenerations": 0,
+      "model_calls": 6,
+      "error_counts": {
+        "duplicate_evidence": 2,
+        "alignment_uncertain": 3,
+        "unresolved_objects": 1
+      }
+    },
+    {
+      "repeat": 2,
+      "episode": 2,
+      "status": "not_reached",
+      "candidates": null,
+      "validated": 0,
+      "unresolved": null,
+      "accepted_in_full_run": 0,
+      "repair_rounds": 0,
+      "schema_regenerations": 0,
+      "model_calls": 0,
+      "error_counts": {}
+    },
+    {
+      "repeat": 3,
+      "episode": 1,
+      "status": "complete",
+      "candidates": 13,
+      "validated": 13,
+      "unresolved": 0,
+      "accepted_in_full_run": 13,
+      "repair_rounds": 2,
+      "schema_regenerations": 0,
+      "model_calls": 6,
+      "error_counts": {
+        "duplicate_evidence": 1,
+        "alignment_uncertain": 2
+      }
+    },
+    {
+      "repeat": 3,
+      "episode": 2,
+      "status": "complete",
+      "candidates": 12,
+      "validated": 12,
+      "unresolved": 0,
+      "accepted_in_full_run": 12,
+      "repair_rounds": 1,
+      "schema_regenerations": 0,
+      "model_calls": 4,
+      "error_counts": {
+        "duplicate_evidence": 1
+      }
+    }
+  ],
+  "accepted_objects": 49,
+  "accepted_references": {
+    "matched": 101,
+    "total": 101
+  },
+  "error_occurrences": {
+    "duplicate_evidence": 5,
+    "alignment_uncertain": 5,
+    "unresolved_objects": 1
+  },
+  "usage": {
+    "input_tokens": 505636,
+    "output_tokens": 25408,
+    "total_tokens": 531044
+  },
+  "explicit_decision_runs": [
+    1,
+    3
+  ],
+  "decision_objects": [
+    {
+      "repeat": 1,
+      "object_index": 12,
+      "text": "MVP에서는 Supabase를 메인 데이터 저장소로 사용하고, IndexedDB는 오프라인 임시 저장과 로컬 캐시로 활용한다. 처음 생각했던 IndexedDB 단독 방식은 채택하지 않겠다.",
+      "evidence": [
+        {
+          "evidence_id": "G000345",
+          "event_id": "263cc105-3ef9-4d46-9792-bb2c82b20511",
+          "field": "question",
+          "start": 0,
+          "end": 152,
+          "offset_unit": "utf16_code_units",
+          "source_speaker": "user",
+          "quote": "최종적으로 결정했어. MVP에서는 Supabase를 메인 데이터 저장소로 사용하고, IndexedDB는 오프라인 임시 저장과 캐시에 활용할게. 처음 생각했던 IndexedDB 단독 방식은 기기 간 동기화와 데이터 보존 요구사항 때문에 채택하지 않겠어. 이 결정을 정리해줘.",
+          "verification_status": "quote_matched",
+          "semantic_verification": "not_verified",
+          "event_index": 19
+        }
+      ],
+      "manual_interpretation_review": "필요: text와 원문을 함께 확인. 아래 보고서의 명시적 결정 목록 참조"
+    },
+    {
+      "repeat": 3,
+      "object_index": 10,
+      "text": "MVP에서는 Supabase를 메인 데이터 저장소로 사용하고, IndexedDB는 오프라인 임시 저장과 로컬 캐시로 활용한다. IndexedDB 단독 방식은 기기 간 동기화와 데이터 보존 요구사항 때문에 채택하지 않겠다.",
+      "evidence": [
+        {
+          "evidence_id": "G000343",
+          "event_id": "abb7d905-464b-4301-b35c-9559823597cf",
+          "field": "question",
+          "start": 0,
+          "end": 98,
+          "offset_unit": "utf16_code_units",
+          "source_speaker": "user",
+          "quote": "그렇다면 차라리 처음부터 Cloud-first 방식으로 개발하는 건 어떨까? Supabase를 사용하는 방안도 함께 검토해줘. 단, 아직 어떤 방식을 선택할지는 결정하지 않았어",
+          "verification_status": "quote_matched",
+          "semantic_verification": "not_verified",
+          "event_index": 18
+        },
+        {
+          "evidence_id": "G000345",
+          "event_id": "263cc105-3ef9-4d46-9792-bb2c82b20511",
+          "field": "question",
+          "start": 0,
+          "end": 152,
+          "offset_unit": "utf16_code_units",
+          "source_speaker": "user",
+          "quote": "최종적으로 결정했어. MVP에서는 Supabase를 메인 데이터 저장소로 사용하고, IndexedDB는 오프라인 임시 저장과 캐시에 활용할게. 처음 생각했던 IndexedDB 단독 방식은 기기 간 동기화와 데이터 보존 요구사항 때문에 채택하지 않겠어. 이 결정을 정리해줘.",
+          "verification_status": "quote_matched",
+          "semantic_verification": "not_verified",
+          "event_index": 19
+        }
+      ],
+      "manual_interpretation_review": "필요: text와 원문을 함께 확인. 아래 보고서의 명시적 결정 목록 참조"
+    }
+  ],
+  "historical_legacy": {
+    "full_complete": 0,
+    "full_total": 1,
+    "recorded_usage": {
+      "input_tokens": 80232,
+      "output_tokens": 7632,
+      "total_tokens": 87864
+    },
+    "wall_ms": 118434,
+    "candidate_reference_matches": 36,
+    "candidate_reference_total": 40,
+    "accepted_objects": 0
+  },
+  "preliminary": {
+    "complete": 1,
+    "total": 3,
+    "reason_for_revision": "화자 제약을 스키마에도 반영하고, 질문·가설의 기록과 그 내용의 진실성 검증을 구분하도록 모델 검토 지침 보완",
+    "output": "output/evidence-grounding-v2-2026-11-20"
+  },
+  "source_unchanged": true,
+  "code_unchanged": true,
+  "limitations": [
+    "같은 실제 세션의 소수 반복; 일반적인 안정성 추정 아님",
+    "구 방식 비교는 과거 1회이며 동시 반복 대조군 아님",
+    "관련성 검토도 모델 판단. model_supported는 semantic_verified가 아님",
+    "인용 구간이 문구보다 넓을 수 있고 추가 검토·교정 비용과 지연이 있음",
+    "사용자 가설·Open Question 분류 정책은 변경하지 않음"
+  ]
+}

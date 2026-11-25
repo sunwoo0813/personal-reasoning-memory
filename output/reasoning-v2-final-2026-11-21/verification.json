@@ -1,0 +1,18 @@
+{
+  "tests": {
+    "passed": 95,
+    "failed": 0
+  },
+  "build": "passed",
+  "diff_check": "passed",
+  "invalid_worker_policy": "rejected before database client/claim",
+  "new_objects": 164,
+  "exact_references": {
+    "matched": 339,
+    "total": 339
+  },
+  "all_objects_have_explicit_agent_assessment": true,
+  "core_evaluated_code_unchanged": true,
+  "source_unchanged_during_evaluation": true,
+  "semantic_assessment_is_fallible_agent_judgement": true
+}

@@ -1,0 +1,53 @@
+{
+  "created_at": "2026-11-20T20:28:04.596Z",
+  "source_run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+  "model": "gpt-5-mini",
+  "repeats": 3,
+  "grounding_version": "evidence-v2",
+  "segmentation_policy": "purpose-v2",
+  "segmentation_mode": "fixed previously validated E01-E19 / E20-E22",
+  "classification_policy": "reasoning-v2",
+  "evaluation_protocol": {
+    "version": "reasoning-v2-evaluation-01",
+    "fixed_before_execution": true,
+    "scope": "22 unchanged captured events, fixed purpose-v2 EP01 E01-E19 / EP02 E20-E22, gpt-5-mini, 3 independent full runs; additional independent synthetic domains once each",
+    "comparators": [
+      "original extraction-v1: 35 objects in 4 episodes",
+      "evidence-grounding-v2-final-2026-11-20: 2/3 full runs complete"
+    ],
+    "adjudication": "Human-readable manual semantic assessment of text, type, speaker, selected source quotes and full user context. Store per-target and per-object labels with reasons; do not call keyword checks semantic accuracy. This is developer assessment, not blinded external review.",
+    "recall": "A target requires correct type/speaker, semantically present text and direct evidence from the specified user turn. Partial or embedded in a generic question is reported separately, not full typed recall. One compound object may express multiple distinct facts; it is not multiple independent objects.",
+    "precision": "For decisions and open_question, all emitted objects of that type are the denominator (including assistant/source objects). Decision must explicitly adopt/reject, not defer; open_question must remain unresolved and be user-owned. Duplicate true paraphrases count as supported but are separately counted redundant.",
+    "speaker_accuracy": "Evaluate ownership claimed in the text against direct selected speech, in addition to deterministic field/speaker consistency. Unknown is not scored correct ownership.",
+    "semantic_support": "Check all material claims, type, relevant selected spans, negation, temporal status and adoption. Report developer-supported fraction and uncertain separately. Existing model_supported is not ground truth or objective verification.",
+    "unnecessary_duplicates": "Object repeats another without a distinct speech act/information contribution, repeats AI recommendations, or contains off-purpose technical detail. Record object IDs and reasons; do not use object count alone.",
+    "completion": "Full run completes only when every episode validates. Failed run contributes zero accepted objects and zero operational target recall; report completed-only quality separately so failures cannot disappear from results.",
+    "literal_match": "All selected refs must pass exact UTF-16 source slice and substring checks; report matched refs / emitted refs.",
+    "cost": "Sum all recorded input/output/total usage including repairs and support review, report per-run elapsed milliseconds and API calls; unknown API usage remains unknown.",
+    "no_tuning": "Do not change classification or evaluation thresholds after these runs start. Preserve all failed candidates and raw calls. A new implementation requires a separate output directory/protocol.",
+    "limits": "Historical different-size samples and one session cannot establish general improvement or isolate policy causality; synthetic independent cases are smoke tests, not a population benchmark. No relationship graph scoring."
+  },
+  "source_state_hash": "b0d6a8918b42ed23194e61963653bcb5c60eb48a469c7a88bc50cc4d53ff3e23",
+  "input_hash": "f6ffcb8f9bbacca65240b6becb8a79fac8299ab407a962c59220ddf2de860434",
+  "code_hashes": {
+    "lib/analysis.js": "e862c9e967e5d2bd804fa94e2677dc1b66dc55798fe756e253b893240da7316f",
+    "lib/reasoning-policy.js": "f7402490d985ac734651f16866e253703c70d0a3e1dc43570952ef7aaf287039",
+    "lib/evidence-grounding.js": "82c8b732d6b1fed0c46fefa00baba911f32868c8fda22b8c51dd319e09aea524",
+    "evals/reasoning-v2/protocol.json": "bb2543bdbd1b9ac469fa58176291104bccc9884bbaa47419d4add49a6c4ad10c",
+    "evals/reasoning-v2/ground-truth.json": "7d161f67e5d9e4d31524a390301ca7754c6812b543a3fb9756fcb4fc7e665a6f",
+    "evals/reasoning-v2/independent-cases.json": "4396056e0a6b963d573454786ecd47c7b4b0f32db3fb234042ce4fae7ff1468f",
+    "lib/segmentation.js": "6865c31fa4a460e8d57728d5afb75c3efc999fd77a6a4314382690a06e80dee7",
+    "scripts/analyze.mjs": "8f9431ed31305be1bcbd14426c3eb10d537fe4491d20d769fd8c357631e6f3ef",
+    "db/analysis.sql": "135f5bb7f72a656213796e8853c18b0f9de8a882992429086e77fada7c1300e4"
+  },
+  "comparator": {
+    "kind": "historical grounding-v2 3 repeats plus original extraction-v1; see frozen evaluation protocol",
+    "path": "output/e2e-test-01-2026-11-19/new-analysis.json",
+    "full_status": "failed",
+    "full_complete": 0,
+    "full_total": 1,
+    "extra_ep02_diagnostic": "separate scope, not a completed full run"
+  },
+  "design": "Three sequential independent extractions by default, no checkpoint reuse between repeats. No DB writes. No change to thresholds after observing results. Same source session is not a general reliability benchmark.",
+  "metrics": "candidate_count is the first parsed object-slot count. validated_count requires literal/author checks and model support review. failed_count is unresolved final slots. Error counts count occurrences, not unique objects. Whole-run accepted count is zero when the run fails. model_supported is not semantic truth verification."
+}

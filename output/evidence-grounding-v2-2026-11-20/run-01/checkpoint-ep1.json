@@ -1,0 +1,758 @@
+{
+  "stage": "extraction",
+  "sequence": 0,
+  "result": {
+    "objects": [
+      {
+        "type": "question",
+        "speaker": "user",
+        "text": "초기에는 혼자 사용하는 개인용 메모 웹앱이라 Offline-first(브라우저 저장) 방식이 더 적합할지 고민하고 있었음 — Offline-first 방식의 장단점을 설명해줘",
+        "evidence": [
+          {
+            "evidence_id": "G000039",
+            "event_id": "ed3c4e3f-3a74-4ce9-88e9-b3d1535b0e95",
+            "field": "question",
+            "start": 0,
+            "end": 133,
+            "offset_unit": "utf16_code_units",
+            "quote": "나는 개인용 메모 웹앱을 만들려고 해. 초기에는 혼자 사용하는 앱이고, 빠른 실행 속도와 간단한 구조가 중요해. 그래서 서버 없이 브라우저에 데이터를 저장하는 Offline-first 방식이 더 좋을 것 같아. 이 방식의 장단점을 설명해줘",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          }
+        ],
+        "grounding_review": {
+          "status": "model_supported",
+          "method": "independent_model_review",
+          "reason": "선택된 근거 G000039은 사용자가 직접 남긴 질문 문장으로, 객체(질문)의 내용을 그대로 포함하고 있어 관련성과 증거성이 있다."
+        },
+        "semantic_verification": "not_verified"
+      },
+      {
+        "type": "evidence",
+        "speaker": "assistant",
+        "text": "개인용 메모 웹앱이라면 Offline-first 방식은 충분히 합리적인 선택이다. 초기 사용자가 한 명이고, 빠른 실행 속도와 단순한 구조를 중요하게 생각하면 서버 기반 아키텍처보다 유리한 부분이 많다.",
+        "evidence": [
+          {
+            "evidence_id": "G000040",
+            "event_id": "ed3c4e3f-3a74-4ce9-88e9-b3d1535b0e95",
+            "field": "response",
+            "start": 0,
+            "end": 122,
+            "offset_unit": "utf16_code_units",
+            "quote": "개인용 메모 웹앱이라면 Offline-first 방식은 충분히 합리적인 선택이야. 특히 초기 사용자가 본인 한 명이고, 빠른 실행 속도와 단순한 구조를 중요하게 생각한다면 서버 기반 아키텍처보다 유리한 부분이 많아.\n\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          }
+        ],
+        "grounding_review": {
+          "status": "model_supported",
+          "method": "independent_model_review",
+          "reason": "선택된 근거 G000040은 어시스턴트의 응답 텍스트로 '개인용 메모 웹앱에 Offline-first가 합리적'이라고 명시하고 있어 객체의 진술을 직접 뒷받침한다."
+        },
+        "semantic_verification": "not_verified"
+      },
+      {
+        "type": "insight",
+        "speaker": "source",
+        "text": "IndexedDB는 브라우저에 많은 양의 구조화된 데이터를 저장하기 위한 비동기 로우 레벨 API이며, Blob/파일도 저장할 수 있고 인덱스를 통한 고성능 탐색을 지원한다.",
+        "evidence": [
+          {
+            "evidence_id": "G000002",
+            "event_id": "091bb788-33da-4e99-acca-07b96bae5064",
+            "field": "text",
+            "start": 0,
+            "end": 367,
+            "offset_unit": "utf16_code_units",
+            "quote": "This page was translated from English by the community.\nLearn more and join the MDN Web Docs community.\nView in English\nAlways switch to English\nIndexedDB API\nIndexedDB는 파일이나 블롭 등 많은 양의 구조화된 데이터를 클라이언트에 저장하기 위한 로우 레벨 API입니다. IndexedDB API는 인덱스를 사용해 데이터를 고성능으로 탐색할 수 있습니다.\nWeb Storage\n는 적은 양의 데이터를 저장하는데 유용하지만 많은 양의 구조화된 데이터에는 적합하지 않은데, 이런 상황에서 IndexedDB를 사용할 수 있습니다. ",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          },
+          {
+            "evidence_id": "G000029",
+            "event_id": "fa8ea361-d1d5-4cbd-b518-fca030858743",
+            "field": "text",
+            "start": 0,
+            "end": 367,
+            "offset_unit": "utf16_code_units",
+            "quote": "This page was translated from English by the community.\nLearn more and join the MDN Web Docs community.\nView in English\nAlways switch to English\nIndexedDB API\nIndexedDB는 파일이나 블롭 등 많은 양의 구조화된 데이터를 클라이언트에 저장하기 위한 로우 레벨 API입니다. IndexedDB API는 인덱스를 사용해 데이터를 고성능으로 탐색할 수 있습니다.\nWeb Storage\n는 적은 양의 데이터를 저장하는데 유용하지만 많은 양의 구조화된 데이터에는 적합하지 않은데, 이런 상황에서 IndexedDB를 사용할 수 있습니다. ",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          }
+        ],
+        "grounding_review": {
+          "status": "model_supported",
+          "method": "independent_model_review",
+          "reason": "선택된 증거 G000002와 G000029는 MDN 문서의 동일한 문장들을 포함하고 있으며, IndexedDB가 비동기 로우 레벨 API이고 파일/Blob을 저장할 수 있으며 인덱스를 통해 고성능 탐색을 지원한다는 주장을 직접적으로 기술하고 있다. 따라서 선택된 근거는 해당 주장과 관련 있고 이를 뒷받침한다."
+        },
+        "semantic_verification": "not_verified"
+      },
+      {
+        "type": "hypothesis",
+        "speaker": "user",
+        "text": "초기 MVP에서는 별도 클라우드 데이터베이스 없이 IndexedDB만 사용하는 것이 합리적이다.",
+        "evidence": [
+          {
+            "evidence_id": "G000177",
+            "event_id": "3d95ae56-0184-4ec8-9c79-edcd4bfb91ce",
+            "field": "question",
+            "start": 0,
+            "end": 136,
+            "offset_unit": "utf16_code_units",
+            "quote": "MDN 문서를 보니 IndexedDB로 브라우저에 데이터를 저장할 수 있네. 그렇다면 초기 MVP에서는 별도 클라우드 데이터베이스 없이 IndexedDB만 사용하는게 합리적이라는 가설을 세울 수 있겠어. 이 판단에서 놓치고 있는 위험이 있을까?",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          }
+        ],
+        "grounding_review": {
+          "status": "model_supported",
+          "method": "independent_model_review",
+          "reason": "선택된 근거 G000177은 사용자가 'IndexedDB만 사용하는 것이 합리적일 것'이라는 가설을 제시한 원문으로, 객체의 주장과 일치한다."
+        },
+        "semantic_verification": "not_verified"
+      },
+      {
+        "type": "insight",
+        "speaker": "assistant",
+        "text": "IndexedDB만으로도 성능과 구현 복잡도 측면에서는 타당하지만, 실제 문제는 데이터 지속성(유실), 복구 가능성, 기기 종속성 등일 가능성이 높다.",
+        "evidence": [
+          {
+            "evidence_id": "G000181",
+            "event_id": "3d95ae56-0184-4ec8-9c79-edcd4bfb91ce",
+            "field": "response",
+            "start": 219,
+            "end": 320,
+            "offset_unit": "utf16_code_units",
+            "quote": "이 가설은 성능과 구현 복잡도 측면에서는 상당히 타당해. 하지만 실제 사용에서 문제가 되는 것은 데이터 저장 성능보다 데이터 지속성, 복구 가능성, 기기 종속성일 가능성이 높아.\n\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          },
+          {
+            "evidence_id": "G000182",
+            "event_id": "3d95ae56-0184-4ec8-9c79-edcd4bfb91ce",
+            "field": "response",
+            "start": 320,
+            "end": 341,
+            "offset_unit": "utf16_code_units",
+            "quote": "1. 놓치기 쉬운 핵심 위험 5가지\n\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          }
+        ],
+        "grounding_review": {
+          "status": "model_supported",
+          "method": "independent_model_review",
+          "reason": "선택된 근거 G000181/G000182는 어시스턴트가 '성능·구현 측면에서는 타당하나 실제 문제는 데이터 지속성·복구·기기종속성'이라고 언급한 부분으로, 객체의 인사이트를 직접 지원한다."
+        },
+        "semantic_verification": "not_verified"
+      },
+      {
+        "type": "evidence",
+        "speaker": "source",
+        "text": "브라우저 저장 데이터는 기본적으로 'best-effort'로 저장되며, 필요 시 브라우저가 데이터를 삭제(축출)할 수 있다. 영구 저장을 요청하려면 navigator.storage.persist()를 사용할 수 있지만 브라우저가 이를 거부할 수도 있다.",
+        "evidence": [
+          {
+            "evidence_id": "G000153",
+            "event_id": "cea924fc-a959-4e71-8805-3074f62960c3",
+            "field": "text",
+            "start": 2894,
+            "end": 3370,
+            "offset_unit": "utf16_code_units",
+            "quote": "Best-effort data persists as long as the origin is below its quota, the device has enough storage space, and the user doesn't choose to delete the data via their browser's settings.\nPersistent: an origin can opt-in to store its data in a persistent way. Data stored this way is only evicted, or deleted, if the user chooses to, by using their browser's settings. To learn more, see\nWhen is data evicted\n.\nThe data stored in the browser by an origin is best-effort by default. ",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          },
+          {
+            "evidence_id": "G000154",
+            "event_id": "cea924fc-a959-4e71-8805-3074f62960c3",
+            "field": "text",
+            "start": 3370,
+            "end": 3840,
+            "offset_unit": "utf16_code_units",
+            "quote": "When using web technologies such as IndexedDB or Cache, the data is stored transparently without asking for the user's permission. Similarly, when the browser needs to evict best-effort data, it does so without interrupting the user.\nIf, for any reason, developers need persistent storage (e.g., when building a web app that relies on critical data that isn't persisted anywhere else), they can do so by using the\nnavigator.storage.persist()\nmethod of the\nStorage API\n.\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          }
+        ],
+        "grounding_review": {
+          "status": "model_supported",
+          "method": "independent_model_review",
+          "reason": "선택된 근거 G000153/G000154는 브라우저 저장이 기본적으로 'best-effort'이며 필요시 navigator.storage.persist()를 사용할 수 있으나 브라우저가 거부할 수 있음을 명시해 객체의 주장과 일치한다."
+        },
+        "semantic_verification": "not_verified"
+      },
+      {
+        "type": "insight",
+        "speaker": "source",
+        "text": "브라우저별로 스토리지 할당량과 축출 정책이 다르며, 저장소 회수(예: LRU 기반 축출)나 브라우저별 휴리스틱(예: Chromium에서의 PWA 설치 관련 처리) 때문에 브라우저가 저장한 데이터를 삭제할 수 있다.",
+        "evidence": [
+          {
+            "evidence_id": "G000171",
+            "event_id": "cea924fc-a959-4e71-8805-3074f62960c3",
+            "field": "text",
+            "start": 10711,
+            "end": 11164,
+            "offset_unit": "utf16_code_units",
+            "quote": "When all of the data stored in the browser (across all origins) exceeds the total amount of space the browser is willing to use on the device.\nProactively, for origins that aren't used regularly, which happens only in Safari.\nStorage pressure eviction\nWhen a device is running low on storage space, also known as\nstorage pressure\n, there may come a point when the browser has less available space than it needs to store all of the origin's stored data.\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          },
+          {
+            "evidence_id": "G000172",
+            "event_id": "cea924fc-a959-4e71-8805-3074f62960c3",
+            "field": "text",
+            "start": 11164,
+            "end": 11607,
+            "offset_unit": "utf16_code_units",
+            "quote": "Browsers use a Least Recently Used (LRU) policy to deal with this scenario. The data from the least recently used origin is deleted. If storage pressure continues, the browser moves on to the second least recently used origin, and so on, until the problem is resolved.\nThis eviction mechanism only applies to origins that are not persistent and skips over origins that have been granted data persistence by using\nnavigator.storage.persist()\n.\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          },
+          {
+            "evidence_id": "G000142",
+            "event_id": "76ea89d0-0140-44e6-ba5f-9ca59459c07a",
+            "field": "text",
+            "start": 6473,
+            "end": 6944,
+            "offset_unit": "utf16_code_units",
+            "quote": "StorageManager.persisted()\n를 호출하여 현재 출처에 영구 스토리지가 이미 부여되었는지 확인할 수도 있습니다. Firefox는 영구 스토리지를 사용하기 위해 사용자에게 권한을 요청합니다. Chromium 기반 브라우저는 사용자의 콘텐츠 중요도를 판단하는\n휴리스틱\n에 따라 지속성을 부여하거나 거부합니다. 예를 들어 Google Chrome의 기준 중 하나는 PWA 설치입니다. 사용자가 운영체제에 PWA 아이콘을 설치한 경우 브라우저에서 영구 스토리지를 부여할 수 있습니다.\nAPI 브라우저 지원\n웹 스토리지\nBrowser Support\nSource\n파일 시스템 액세스\nBrowser Support\nSource\n스토리지 관리자\nBrowser Support\nSource\n리소스\n웹의 스토리지\nFileSystem Access API\n영구 스토리지\nMDN: Storage API\nMDN: 클라이언트 측 저장소\n콘텐츠 색인 생성\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          }
+        ],
+        "grounding_review": {
+          "status": "model_supported",
+          "method": "independent_model_review",
+          "reason": "선택된 증거 G000171, G000172, G000142는 브라우저의 데이터 축출(데이터 삭제) 사례와 메커니즘을 설명하고 있다. G000171·G000172는 저장공간 부족 시 LRU 기반 축출과 비영구(origin) 우선 적용을 명시하고 있으며, G000142는 Chromium 계열의 휴리스틱(예: PWA 설치 여부)에 따라 영구성 부여 여부가 달라짐을 서술한다. 이들 스팬은 주장과 직접적으로 관련되어 있으므로 뒷받침한다."
+        },
+        "semantic_verification": "not_verified"
+      },
+      {
+        "type": "open_question",
+        "speaker": "user",
+        "text": "IndexedDB만 사용한다는 판단에서 놓치고 있는 위험이 있을까?",
+        "evidence": [
+          {
+            "evidence_id": "G000177",
+            "event_id": "3d95ae56-0184-4ec8-9c79-edcd4bfb91ce",
+            "field": "question",
+            "start": 0,
+            "end": 136,
+            "offset_unit": "utf16_code_units",
+            "quote": "MDN 문서를 보니 IndexedDB로 브라우저에 데이터를 저장할 수 있네. 그렇다면 초기 MVP에서는 별도 클라우드 데이터베이스 없이 IndexedDB만 사용하는게 합리적이라는 가설을 세울 수 있겠어. 이 판단에서 놓치고 있는 위험이 있을까?",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          }
+        ],
+        "grounding_review": {
+          "status": "model_supported",
+          "method": "independent_model_review",
+          "reason": "선택된 근거 G000177은 사용자가 'IndexedDB만 사용 시 놓치는 위험이 있는지' 묻는 원문 질문으로, 객체(열린 질문)의 존재를 직접 증명한다."
+        },
+        "semantic_verification": "not_verified"
+      },
+      {
+        "type": "insight",
+        "speaker": "assistant",
+        "text": "IndexedDB가 영구 보관을 보장하지 않으며, 브라우저 데이터 삭제·기기 고장·프로필 손상 등으로 데이터가 사라질 위험이 매우 높다. navigator.storage.persist()로도 완전한 보호는 어렵다.",
+        "evidence": [
+          {
+            "evidence_id": "G000201",
+            "event_id": "3d95ae56-0184-4ec8-9c79-edcd4bfb91ce",
+            "field": "response",
+            "start": 651,
+            "end": 681,
+            "offset_unit": "utf16_code_units",
+            "quote": "위험 A. IndexedDB는 영구 보관소가 아니다\n\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          },
+          {
+            "evidence_id": "G000202",
+            "event_id": "3d95ae56-0184-4ec8-9c79-edcd4bfb91ce",
+            "field": "response",
+            "start": 681,
+            "end": 787,
+            "offset_unit": "utf16_code_units",
+            "quote": "IndexedDB는 브라우저가 관리하는 저장소야. 일반적으로 브라우저를 종료해도 데이터가 유지되지만, 사용자가 사이트 데이터를 삭제하거나 브라우저가 저장 공간을 회수하면 사라질 수 있어.\n\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          },
+          {
+            "evidence_id": "G000203",
+            "event_id": "3d95ae56-0184-4ec8-9c79-edcd4bfb91ce",
+            "field": "response",
+            "start": 787,
+            "end": 880,
+            "offset_unit": "utf16_code_units",
+            "quote": "navigator.storage.persist()를 통해 영속 저장을 요청할 수 있지만, 브라우저가 요청을 거부할 수도 있고 사용자의 명시적 삭제까지 막지는 못해.\n\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          }
+        ],
+        "grounding_review": {
+          "status": "model_supported",
+          "method": "independent_model_review",
+          "reason": "선택된 근거 G000201/G000202/G000203은 어시스턴트가 'IndexedDB가 영구 보관을 보장하지 않음, 브라우저 삭제·저장 회수 가능, navigator.storage.persist()도 완전 보호 아님'이라고 진술한 부분으로 객체 내용을 지지한다."
+        },
+        "semantic_verification": "not_verified"
+      },
+      {
+        "type": "insight",
+        "speaker": "assistant",
+        "text": "단순한 내보내기(백업) 기능만으로는 복구 보장이 어렵다 — 사용자가 백업을 하지 않거나 복원 중 포맷/버전 문제·덮어쓰기 위험 등이 있다.",
+        "evidence": [
+          {
+            "evidence_id": "G000206",
+            "event_id": "3d95ae56-0184-4ec8-9c79-edcd4bfb91ce",
+            "field": "response",
+            "start": 954,
+            "end": 1053,
+            "offset_unit": "utf16_code_units",
+            "quote": "JSON 파일 내보내기를 구현했다고 안전한 것은 아니야. 사용자가 백업을 하지 않거나, 복원 과정에서 기존 데이터가 덮어써지거나, 앱 업데이트로 파일 형식이 달라질 수 있어.\n\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          },
+          {
+            "evidence_id": "G000207",
+            "event_id": "3d95ae56-0184-4ec8-9c79-edcd4bfb91ce",
+            "field": "response",
+            "start": 1053,
+            "end": 1116,
+            "offset_unit": "utf16_code_units",
+            "quote": "최소한 백업 파일의 버전 정보, 복원 시 유효성 검사, 중복 데이터 처리, 복원 실패 시 롤백을 고려해야 해.\n\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          }
+        ],
+        "grounding_review": {
+          "status": "model_supported",
+          "method": "independent_model_review",
+          "reason": "선택된 근거 G000206/G000207은 JSON 내보내기만으로는 안전하지 않으며 복원 시 버전·유효성·중복 처리·롤백을 고려해야 한다고 적혀 있어 객체의 인사이트를 뒷받침한다."
+        },
+        "semantic_verification": "not_verified"
+      },
+      {
+        "type": "decision",
+        "speaker": "user",
+        "text": "MVP에서는 Supabase를 메인 데이터 저장소로 사용하고, IndexedDB는 오프라인 임시 저장·로컬 캐시로 활용하겠다. IndexedDB 단독 방식은 기기 간 동기화와 데이터 보존 요구 때문에 채택하지 않겠다.",
+        "evidence": [
+          {
+            "evidence_id": "G000345",
+            "event_id": "263cc105-3ef9-4d46-9792-bb2c82b20511",
+            "field": "question",
+            "start": 0,
+            "end": 152,
+            "offset_unit": "utf16_code_units",
+            "quote": "최종적으로 결정했어. MVP에서는 Supabase를 메인 데이터 저장소로 사용하고, IndexedDB는 오프라인 임시 저장과 캐시에 활용할게. 처음 생각했던 IndexedDB 단독 방식은 기기 간 동기화와 데이터 보존 요구사항 때문에 채택하지 않겠어. 이 결정을 정리해줘.",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          }
+        ],
+        "grounding_review": {
+          "status": "model_supported",
+          "method": "independent_model_review",
+          "reason": "선택된 증거(G000345)에는 사용자가 명확히 \"MVP에서는 Supabase를 메인 데이터 저장소로 사용하고, IndexedDB는 오프라인 임시 저장과 캐시에 활용\"하며 \"IndexedDB 단독 방식은 기기 간 동기화와 데이터 보존 요구사항 때문에 채택하지 않겠다\"고 직접 진술하고 있다. 증거 문구가 객체의 주장과 직접적으로 일치하므로 지원된다."
+        },
+        "semantic_verification": "not_verified"
+      },
+      {
+        "type": "evidence",
+        "speaker": "assistant",
+        "text": "Supabase 중심의 아키텍처(클라우드 저장)와 IndexedDB를 로컬 캐시/오프라인 임시 저장으로 결합하는 결정을 문서화한 의사결정 기록이 있다. 핵심 근거는 기기 간 동기화 필요성, 데이터 보존·복구, 그리고 IndexedDB를 캐시로 활용해 성능을 유지하는 점이다.",
+        "evidence": [
+          {
+            "evidence_id": "G000346",
+            "event_id": "263cc105-3ef9-4d46-9792-bb2c82b20511",
+            "field": "response",
+            "start": 0,
+            "end": 32,
+            "offset_unit": "utf16_code_units",
+            "quote": "글쓰기\n개인용 메모 웹앱 MVP 아키텍처 의사결정 기록\n\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          },
+          {
+            "evidence_id": "G000367",
+            "event_id": "263cc105-3ef9-4d46-9792-bb2c82b20511",
+            "field": "response",
+            "start": 1057,
+            "end": 1105,
+            "offset_unit": "utf16_code_units",
+            "quote": "노트북과 스마트폰에서 동일한 메모에 접근해야 하므로 중앙 데이터 저장소가 필요하다.\n\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          },
+          {
+            "evidence_id": "G000370",
+            "event_id": "263cc105-3ef9-4d46-9792-bb2c82b20511",
+            "field": "response",
+            "start": 1174,
+            "end": 1240,
+            "offset_unit": "utf16_code_units",
+            "quote": "IndexedDB 단독 방식은 브라우저 데이터 삭제, 저장소 정리, 기기 손상 등에 따른 데이터 유실 위험이 있다.\n\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          },
+          {
+            "evidence_id": "G000374",
+            "event_id": "263cc105-3ef9-4d46-9792-bb2c82b20511",
+            "field": "response",
+            "start": 1380,
+            "end": 1427,
+            "offset_unit": "utf16_code_units",
+            "quote": "IndexedDB를 캐시로 활용하면 자주 사용하는 메모를 빠르게 조회할 수 있다.\n\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          }
+        ],
+        "grounding_review": {
+          "status": "model_supported",
+          "method": "independent_model_review",
+          "reason": "선택된 근거 G000346/G000367/G000370/G000374는 의사결정 기록 제목 및 '기기 간 동기화 필요성, IndexedDB 단독의 유실 위험, IndexedDB를 캐시로 활용'을 각각 명시하고 있어 객체의 근거 설명과 부합한다."
+        },
+        "semantic_verification": "not_verified"
+      },
+      {
+        "type": "insight",
+        "speaker": "assistant",
+        "text": "하이브리드(로컬 우선 + 중앙 서버) 구조를 선택하면 오프라인 사용성과 데이터 보존을 균형있게 맞출 수 있으나, 동기화 계층(충돌 해결·재전송·상태 표시 등) 구현 복잡도가 추가된다.",
+        "evidence": [
+          {
+            "evidence_id": "G000300",
+            "event_id": "f225995d-1dbe-48f2-8fae-5e10639ba8c0",
+            "field": "response",
+            "start": 702,
+            "end": 761,
+            "offset_unit": "utf16_code_units",
+            "quote": "두 기기는 로컬 데이터를 통해 즉시 동작하고, 온라인 상태에서 변경사항을 클라우드와 동기화하는 구조야.\n\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          },
+          {
+            "evidence_id": "G000305",
+            "event_id": "f225995d-1dbe-48f2-8fae-5e10639ba8c0",
+            "field": "response",
+            "start": 957,
+            "end": 1018,
+            "offset_unit": "utf16_code_units",
+            "quote": "클라우드 DB를 추가한다고 모든 문제가 자동으로 해결되는 건 아니야. 오히려 새로운 기술적 문제가 발생해.\n\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          },
+          {
+            "evidence_id": "G000329",
+            "event_id": "f225995d-1dbe-48f2-8fae-5e10639ba8c0",
+            "field": "response",
+            "start": 1687,
+            "end": 1787,
+            "offset_unit": "utf16_code_units",
+            "quote": "Offline-first와 클라우드 DB를 결합하면 단순한 클라우드 기반 CRUD 앱보다 구현 복잡도가 높아질 수 있어. 동기화 계층 자체가 별도의 개발 대상이 되기 때문이야.\n\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          }
+        ],
+        "grounding_review": {
+          "status": "model_supported",
+          "method": "independent_model_review",
+          "reason": "선택된 근거 G000300/G000305/G000329은 'Offline-first + Cloud Sync 구조 설명'과 '클라우드 추가시 새로운 기술적 문제(동기화 계층·복잡도)'를 언급해 객체의 인사이트를 직접 지원한다."
+        },
+        "semantic_verification": "not_verified"
+      },
+      {
+        "type": "open_question",
+        "speaker": "user",
+        "text": "차라리 처음부터 Cloud-first 방식(예: Supabase)을 사용하면 어때? Supabase의 기능과 제약을 IndexedDB 중심 구조와 비교 검토해줘.",
+        "evidence": [
+          {
+            "evidence_id": "G000343",
+            "event_id": "abb7d905-464b-4301-b35c-9559823597cf",
+            "field": "question",
+            "start": 0,
+            "end": 98,
+            "offset_unit": "utf16_code_units",
+            "quote": "그렇다면 차라리 처음부터 Cloud-first 방식으로 개발하는 건 어떨까? Supabase를 사용하는 방안도 함께 검토해줘. 단, 아직 어떤 방식을 선택할지는 결정하지 않았어",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          }
+        ],
+        "grounding_review": {
+          "status": "model_supported",
+          "method": "independent_model_review",
+          "reason": "선택된 근거 G000343은 사용자가 'Cloud-first(Supabase)로 처음부터 개발하는 건 어떠냐'고 묻는 원문으로, 객체(열린 질문)를 그대로 뒷받침한다."
+        },
+        "semantic_verification": "not_verified"
+      },
+      {
+        "type": "evidence",
+        "speaker": "assistant",
+        "text": "Cloud-first(예: Supabase)를 검토할 만하다고 응답했으며, Supabase 기능·제약을 확인한 뒤 IndexedDB 중심 구조와 개발 복잡도·오프라인 사용성·데이터 안전성을 비교하겠다고 제안했다.",
+        "evidence": [
+          {
+            "evidence_id": "G000344",
+            "event_id": "abb7d905-464b-4301-b35c-9559823597cf",
+            "field": "response",
+            "start": 0,
+            "end": 121,
+            "offset_unit": "utf16_code_units",
+            "quote": "Cloud-first도 충분히 검토할 만해. Supabase의 현재 기능과 제약을 확인한 뒤, IndexedDB 중심 구조와 개발 복잡도·오프라인 사용성·데이터 안전성을 비교할게. 아직 한쪽으로 결론 내리지는 않겠어.",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          }
+        ],
+        "grounding_review": {
+          "status": "model_supported",
+          "method": "independent_model_review",
+          "reason": "선택된 근거 G000344은 어시스턴트가 'Cloud-first도 검토할 만하며 Supabase 기능·제약을 확인한 뒤 비교하겠다'고 응답한 텍스트로 객체의 진술을 지지한다."
+        },
+        "semantic_verification": "not_verified"
+      },
+      {
+        "type": "insight",
+        "speaker": "assistant",
+        "text": "MVP에서 필수적으로 고려해야 할 항목으로 데이터 동기화(전송·재시도·중복 처리), 충돌 처리 정책, 저장 상태 표시(로컬 저장 vs 서버 동기화), 보안(인증·RLS), 그리고 백업/삭제 복구를 명시하고 있다.",
+        "evidence": [
+          {
+            "evidence_id": "G000380",
+            "event_id": "263cc105-3ef9-4d46-9792-bb2c82b20511",
+            "field": "response",
+            "start": 1647,
+            "end": 1682,
+            "offset_unit": "utf16_code_units",
+            "quote": "데이터 동기화: 로컬 변경사항의 전송, 재시도 및 중복 처리\n\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          },
+          {
+            "evidence_id": "G000381",
+            "event_id": "263cc105-3ef9-4d46-9792-bb2c82b20511",
+            "field": "response",
+            "start": 1682,
+            "end": 1722,
+            "offset_unit": "utf16_code_units",
+            "quote": "충돌 처리: 서로 다른 기기에서 같은 메모를 수정했을 때의 처리 규칙\n\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          },
+          {
+            "evidence_id": "G000382",
+            "event_id": "263cc105-3ef9-4d46-9792-bb2c82b20511",
+            "field": "response",
+            "start": 1722,
+            "end": 1757,
+            "offset_unit": "utf16_code_units",
+            "quote": "저장 상태 표시: 로컬 저장 완료와 서버 동기화 완료를 구분\n\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          },
+          {
+            "evidence_id": "G000383",
+            "event_id": "263cc105-3ef9-4d46-9792-bb2c82b20511",
+            "field": "response",
+            "start": 1757,
+            "end": 1804,
+            "offset_unit": "utf16_code_units",
+            "quote": "데이터 보안: Supabase Auth 및 Row Level Security 적용\n\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          },
+          {
+            "evidence_id": "G000384",
+            "event_id": "263cc105-3ef9-4d46-9792-bb2c82b20511",
+            "field": "response",
+            "start": 1804,
+            "end": 1833,
+            "offset_unit": "utf16_code_units",
+            "quote": "데이터 복구: 주기적인 백업 또는 삭제 복구 기능\n\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          }
+        ],
+        "grounding_review": {
+          "status": "model_supported",
+          "method": "independent_model_review",
+          "reason": "선택된 근거 G000380/G000381/G000382/G000383/G000384는 데이터 동기화, 충돌 처리, 저장 상태 표시, 보안(RLS), 백업/복구 등 MVP에서 고려할 필수 항목을 명시하고 있어 객체의 인사이트를 직접 뒷받침한다."
+        },
+        "semantic_verification": "not_verified"
+      },
+      {
+        "type": "insight",
+        "speaker": "assistant",
+        "text": "권고사항(개발 원칙): 서버 동기화가 완료된 데이터는 Supabase를 기준으로 관리하고, 동기화 전 로컬 변경사항은 IndexedDB에 안전하게 보관하며 삭제하지 않는다. 동시 수정 충돌은 MVP 단계에서 명시적 처리 규칙을 마련하라.",
+        "evidence": [
+          {
+            "evidence_id": "G000404",
+            "event_id": "263cc105-3ef9-4d46-9792-bb2c82b20511",
+            "field": "response",
+            "start": 2713,
+            "end": 2749,
+            "offset_unit": "utf16_code_units",
+            "quote": "서버 동기화가 완료된 데이터: Supabase를 기준으로 관리\n\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          },
+          {
+            "evidence_id": "G000405",
+            "event_id": "263cc105-3ef9-4d46-9792-bb2c82b20511",
+            "field": "response",
+            "start": 2749,
+            "end": 2802,
+            "offset_unit": "utf16_code_units",
+            "quote": "동기화 전 로컬 변경사항: IndexedDB에 안전하게 보관하고 서버 응답 전 삭제하지 않기\n\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          },
+          {
+            "evidence_id": "G000406",
+            "event_id": "263cc105-3ef9-4d46-9792-bb2c82b20511",
+            "field": "response",
+            "start": 2802,
+            "end": 2836,
+            "offset_unit": "utf16_code_units",
+            "quote": "동시 수정 충돌: MVP 단계에서 명시적인 처리 규칙 마련\n\n",
+            "verification_status": "quote_matched",
+            "semantic_verification": "not_verified"
+          }
+        ],
+        "grounding_review": {
+          "status": "model_supported",
+          "method": "independent_model_review",
+          "reason": "선택된 증거 G000404, G000405, G000406는 해당 권고사항 문장들(서버 동기화 완료 데이터는 Supabase 기준 관리; 동기화 전 로컬 변경사항은 IndexedDB에 보관하고 서버 응답 전 삭제하지 않음; 동시 수정 충돌은 MVP에서 명시적 처리 규칙 마련)을 그대로 포함하고 있다. 증거가 주장된 권고사항과 문구상 일치하므로 선택된 스팬은 해당 주장들을 지지한다."
+        },
+        "semantic_verification": "not_verified"
+      }
+    ],
+    "grounding": {
+      "version": "evidence-v2",
+      "status": "complete",
+      "input_hash": "247130e8256db8e187036d43cffdae730b4b9757c273c483050c2765a0c02e47",
+      "catalog_hash": "da785b573cb1d7a1a7f45bed257b3a14d7e541f718df94f8835459b552c49000",
+      "offset_unit": "utf16_code_units",
+      "candidate_count": 17,
+      "repair_rounds": 2,
+      "reviewed_objects_hash": "6d6e58032dfe7e8cfe4529ff098d2a8f8c7cf4962b0be28c7e99537a673cbea1",
+      "semantic_verification": "not_verified",
+      "support_review": "independent_model_review"
+    }
+  },
+  "usage": {
+    "input_tokens": 158793,
+    "output_tokens": 6923,
+    "total_tokens": 165716,
+    "grounding_attempts": [
+      {
+        "stage": "extract_episode",
+        "usage": {
+          "input_tokens": 49200,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            },
+            "cached_tokens": 0
+          },
+          "output_tokens": 2580,
+          "output_tokens_details": {
+            "reasoning_tokens": 1024
+          },
+          "total_tokens": 51780
+        }
+      },
+      {
+        "stage": "review_evidence_grounding",
+        "usage": {
+          "input_tokens": 6417,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            },
+            "cached_tokens": 0
+          },
+          "output_tokens": 1522,
+          "output_tokens_details": {
+            "reasoning_tokens": 576
+          },
+          "total_tokens": 7939
+        }
+      },
+      {
+        "stage": "repair_evidence_objects",
+        "usage": {
+          "input_tokens": 49856,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            },
+            "cached_tokens": 0
+          },
+          "output_tokens": 1229,
+          "output_tokens_details": {
+            "reasoning_tokens": 768
+          },
+          "total_tokens": 51085
+        }
+      },
+      {
+        "stage": "review_evidence_grounding",
+        "usage": {
+          "input_tokens": 3319,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            },
+            "cached_tokens": 0
+          },
+          "output_tokens": 714,
+          "output_tokens_details": {
+            "reasoning_tokens": 320
+          },
+          "total_tokens": 4033
+        }
+      },
+      {
+        "stage": "repair_evidence_objects",
+        "usage": {
+          "input_tokens": 49441,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            },
+            "cached_tokens": 0
+          },
+          "output_tokens": 664,
+          "output_tokens_details": {
+            "reasoning_tokens": 512
+          },
+          "total_tokens": 50105
+        }
+      },
+      {
+        "stage": "review_evidence_grounding",
+        "usage": {
+          "input_tokens": 560,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            },
+            "cached_tokens": 0
+          },
+          "output_tokens": 214,
+          "output_tokens_details": {
+            "reasoning_tokens": 64
+          },
+          "total_tokens": 774
+        }
+      }
+    ]
+  }
+}

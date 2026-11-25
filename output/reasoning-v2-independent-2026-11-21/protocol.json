@@ -1,0 +1,107 @@
+{
+  "created_at": "2026-11-20T20:28:03.602Z",
+  "model": "gpt-5-mini",
+  "reasoning_version": "reasoning-v2",
+  "protocol": {
+    "version": "reasoning-v2-evaluation-01",
+    "fixed_before_execution": true,
+    "scope": "22 unchanged captured events, fixed purpose-v2 EP01 E01-E19 / EP02 E20-E22, gpt-5-mini, 3 independent full runs; additional independent synthetic domains once each",
+    "comparators": [
+      "original extraction-v1: 35 objects in 4 episodes",
+      "evidence-grounding-v2-final-2026-11-20: 2/3 full runs complete"
+    ],
+    "adjudication": "Human-readable manual semantic assessment of text, type, speaker, selected source quotes and full user context. Store per-target and per-object labels with reasons; do not call keyword checks semantic accuracy. This is developer assessment, not blinded external review.",
+    "recall": "A target requires correct type/speaker, semantically present text and direct evidence from the specified user turn. Partial or embedded in a generic question is reported separately, not full typed recall. One compound object may express multiple distinct facts; it is not multiple independent objects.",
+    "precision": "For decisions and open_question, all emitted objects of that type are the denominator (including assistant/source objects). Decision must explicitly adopt/reject, not defer; open_question must remain unresolved and be user-owned. Duplicate true paraphrases count as supported but are separately counted redundant.",
+    "speaker_accuracy": "Evaluate ownership claimed in the text against direct selected speech, in addition to deterministic field/speaker consistency. Unknown is not scored correct ownership.",
+    "semantic_support": "Check all material claims, type, relevant selected spans, negation, temporal status and adoption. Report developer-supported fraction and uncertain separately. Existing model_supported is not ground truth or objective verification.",
+    "unnecessary_duplicates": "Object repeats another without a distinct speech act/information contribution, repeats AI recommendations, or contains off-purpose technical detail. Record object IDs and reasons; do not use object count alone.",
+    "completion": "Full run completes only when every episode validates. Failed run contributes zero accepted objects and zero operational target recall; report completed-only quality separately so failures cannot disappear from results.",
+    "literal_match": "All selected refs must pass exact UTF-16 source slice and substring checks; report matched refs / emitted refs.",
+    "cost": "Sum all recorded input/output/total usage including repairs and support review, report per-run elapsed milliseconds and API calls; unknown API usage remains unknown.",
+    "no_tuning": "Do not change classification or evaluation thresholds after these runs start. Preserve all failed candidates and raw calls. A new implementation requires a separate output directory/protocol.",
+    "limits": "Historical different-size samples and one session cannot establish general improvement or isolate policy causality; synthetic independent cases are smoke tests, not a population benchmark. No relationship graph scoring."
+  },
+  "cases": [
+    {
+      "id": "commute",
+      "turns": [
+        {
+          "question": "출퇴근은 자전거만으로 충분할 것 같아. 비용이 적다는 가설이야.",
+          "response": "택시를 정기적으로 이용하는 것을 권합니다."
+        },
+        {
+          "question": "비 오는 날 안전 문제를 보니 자전거만으로는 어렵겠네. 평일에는 전철을 이용하고 자전거 단독 출퇴근은 기각할게.",
+          "response": "전철 선택을 기록합니다."
+        }
+      ],
+      "search": "bicycle rain safety",
+      "expected": [
+        "user hypothesis bicycle only",
+        "user insight revision",
+        "user decision transit adoption and bicycle-only rejection",
+        "no search open_question",
+        "no user taxi adoption"
+      ]
+    },
+    {
+      "id": "course",
+      "turns": [
+        {
+          "question": "다음 학기 통계 수업을 들을까? 시간과 선수 지식으로 비교해줘.",
+          "response": "지금 바로 등록하는 것을 추천해요."
+        },
+        {
+          "question": "아직 등록은 결정하지 않을게. 샘플 강의를 본 뒤 다시 생각하자. 미해결로 두겠어.",
+          "response": "등록을 확정했다는 뜻은 아닙니다."
+        }
+      ],
+      "expected": [
+        "user question course",
+        "user open_question deferral and sample-lecture condition",
+        "zero decision"
+      ]
+    },
+    {
+      "id": "resolved",
+      "turns": [
+        {
+          "question": "행사를 실내로 할까 실외로 할까? 일단 실외가 나을 것 같아.",
+          "response": "실내가 좋아요."
+        },
+        {
+          "question": "실외는 비 예보 때문에 제외할게. 실내로 확정했어. 좌석 수는 아직 몰라, 답사를 하고 판단하자.",
+          "response": "실내 행사입니다."
+        }
+      ],
+      "expected": [
+        "user hypothesis outdoors",
+        "user decision reject outdoors and adopt indoors",
+        "user open_question seats only",
+        "initial venue question no longer open"
+      ]
+    },
+    {
+      "id": "source-ownership",
+      "turns": [
+        {
+          "question": "팀 도구를 고르려는데 A와 B의 차이가 뭐야? 아직 선호는 없어.",
+          "response": "A가 더 적합할 수 있지만 실제 팀 평가가 필요합니다."
+        }
+      ],
+      "source": "A는 100명의 사용자에게 적합하다. B는 50명의 사용자에게 적합하다. 사용자는 A를 선택했다는 의미가 아니다.",
+      "expected": [
+        "user question comparison",
+        "zero user decision",
+        "no invented user hypothesis or insight",
+        "source availability not user adoption"
+      ]
+    }
+  ],
+  "code_hashes": {
+    "lib/analysis.js": "e862c9e967e5d2bd804fa94e2677dc1b66dc55798fe756e253b893240da7316f",
+    "lib/evidence-grounding.js": "82c8b732d6b1fed0c46fefa00baba911f32868c8fda22b8c51dd319e09aea524",
+    "lib/reasoning-policy.js": "f7402490d985ac734651f16866e253703c70d0a3e1dc43570952ef7aaf287039",
+    "evals/reasoning-v2/independent-cases.json": "4396056e0a6b963d573454786ecd47c7b4b0f32db3fb234042ce4fae7ff1468f"
+  }
+}

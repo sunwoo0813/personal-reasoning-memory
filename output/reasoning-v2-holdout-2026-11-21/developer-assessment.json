@@ -1,0 +1,39 @@
+{
+  "method": "최종 코드 고정 후 첫 실행 결과의 개발자 원문 대조. 블라인드/외부 검토가 아니며 2개 합성 사례로 일반화하지 않는다.",
+  "cases": {
+    "garden": {
+      "status": "partial",
+      "hypothesis_recovered": true,
+      "explicit_change_recovered": true,
+      "adoption_and_rejection_recovered": true,
+      "budget_open_question_recovered": true,
+      "search_not_question": true,
+      "assistant_proposal_not_user_adoption": true,
+      "errors": [
+        {
+          "object": 4,
+          "type": "unsupported_extension",
+          "detail": "원문은 점적 급수 선택 후 예산 판단만 보류했는데 객체가 설치 여부까지 다시 미정이라고 확장함. 자동 모델 검토가 이를 놓침."
+        }
+      ],
+      "unnecessary_objects": [
+        6
+      ]
+    },
+    "baking": {
+      "status": "pass",
+      "hypothesis_recovered": true,
+      "question_recovered": true,
+      "explicit_change_recovered": true,
+      "rejection_only_decision": true,
+      "no_invented_adoption": true,
+      "open_ratio_and_tasting_condition": true,
+      "ai_proposal_not_user_adoption": true,
+      "errors": [],
+      "unnecessary_objects": [
+        7
+      ]
+    }
+  },
+  "assessor": "Codex coding agent, not human or independent verification"
+}

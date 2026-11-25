@@ -1,0 +1,19 @@
+[
+  {
+    "id":"garden",
+    "turns":[
+      {"question":"베란다 화분은 주말에만 손으로 물을 줘도 괜찮을 것 같아. 비용을 줄일 수 있다는 잠정 방안이야.","response":"자동 분무기도 한 가지 대안입니다."},
+      {"question":"주중에 흙이 바짝 마르는 걸 직접 봤어. 주말 급수만으로 충분하다는 생각을 바꿨어. 손으로 주말에만 주는 방식은 기각하고 점적 급수를 선택할게. 설치 예산은 아직 모르니 매장 견적을 받은 뒤 판단하자.","response":"점적 급수를 선택했고 설치 예산은 아직 미정입니다."}
+    ],
+    "search":"balcony watering equipment price",
+    "expected":["user tentative weekend-only hypothesis","user explicitly changed understanding","user decision adopt drip and reject weekend-only","user open_question budget and shop-estimate condition","no search open_question","no user adoption of assistant misting proposal"]
+  },
+  {
+    "id":"baking",
+    "turns":[
+      {"question":"쿠키의 설탕을 절반으로 줄여도 식감은 같을 거라는 가설이 있어. 비교해볼까?","response":"밀가루를 먼저 바꾸는 방법도 있습니다."},
+      {"question":"직접 두 판을 구워보니 설탕을 줄인 쪽은 더 퍽퍽했어. 식감이 같을 거라는 예상은 틀렸네. 설탕 절반 레시피는 쓰지 않겠어. 대신 어떤 비율이 좋은지는 아직 답을 못 찾았고 다음 시식 후 다시 판단하자.","response":"다음에는 설탕 비율을 달리한 소량 테스트를 제안합니다."}
+    ],
+    "expected":["user hypothesis same texture","user explicit insight revising expectation","user rejection decision only, no invented chosen replacement","user unresolved ratio with tasting condition","AI flour proposal not user adoption"]
+  }
+]
