@@ -2,6 +2,7 @@ import {randomUUID} from 'node:crypto';
 import {database} from '../lib/db.js';
 import {analyzeEvents} from '../lib/analysis.js';
 import {REASONING_VERSION} from '../lib/reasoning-policy.js';
+import {processSummaryJob,isSummaryUnavailable} from '../lib/summary-worker.js';
 
 try{process.loadEnvFile('.env.local')}catch(error){if(error.code!=='ENOENT')throw error}
 // Keep the evaluated v2 policy opt-in until semantic false positives improve.
@@ -40,10 +41,18 @@ async function processRun(run){
   console.error(`Analysis ${run.id}: ${message}`);
  }
 }
+let summaryWarning=false;
 console.log('PRM analysis worker ready.');
 while(!stopped){
  const rows=check(await db.rpc('prm_claim_analysis_run',{p_worker:worker}));
  if(rows.length)await processRun(rows[0]);
+ const claimed=await db.rpc('prm_claim_summary',{p_worker:worker});
+ if(isSummaryUnavailable(claimed.error)){
+  if(!summaryWarning){console.warn('요약 DB 설정이 필요합니다. db/summary.sql을 적용하세요.');summaryWarning=true;}
+ }else{
+  const jobs=check(claimed);
+  if(jobs.length){const result=await processSummaryJob(db,jobs[0],worker);console.log(`Summary ${jobs[0].run_id}: ${result.status}${result.error?' — '+result.error:''}`);}
+ }
  if(once)break;
- if(!rows.length)await new Promise(resolve=>setTimeout(resolve,2000));
+ if(!rows.length&&!claimed.data?.length)await new Promise(resolve=>setTimeout(resolve,2000));
 }

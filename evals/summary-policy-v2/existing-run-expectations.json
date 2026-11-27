@@ -1,0 +1,10 @@
+{
+  "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+  "description": "저장 방식은 사용자 발언으로 확정됐으며 회원가입은 사용자 테스트 이후로 보류했다. 검색어 두 건은 현재 미해결 질문의 직접 근거가 아니다. 이 사례 전용 평가 라벨이며 제품 로직이 아니다.",
+  "expected": {
+    "open": ["b14017df-309c-44d6-8ee0-63bcfc09d7d3"],
+    "not_open": ["59b106bc-4700-4090-8607-299d8903991a", "d090e7ab-e4a3-42fa-a51f-13233ae4713a"],
+    "first_suggestion": "b14017df-309c-44d6-8ee0-63bcfc09d7d3",
+    "overview_reference": "a531a407-6431-4a29-b8bd-ed358d695291"
+  }
+}

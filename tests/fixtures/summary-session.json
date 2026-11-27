@@ -1,0 +1,79 @@
+{
+  "id": "synthetic-summary-session",
+  "model": "gpt-5-mini",
+  "episodes": [
+    {
+      "sequence": 1,
+      "title": "활동 기록 보존 범위 결정",
+      "goal": "원본 수집과 후속 요약의 범위를 정하기",
+      "reasoning_objects": [
+        {
+          "id": "10000000-0000-4000-8000-000000000001",
+          "type": "question",
+          "speaker": "user",
+          "text": "페이지 방문 주소 외에 본문도 저장해야 하는지 질문했다.",
+          "object_evidence_links": [
+            {
+              "id": "e1",
+              "event_id": "event1",
+              "field": "question",
+              "quote": "방문한 주소만 저장할까, 페이지 본문도 같이 저장할까?"
+            }
+          ]
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000002",
+          "type": "hypothesis",
+          "speaker": "assistant",
+          "text": "AI가 전체 화면 캡처도 함께 저장하는 방안을 제안했다.",
+          "object_evidence_links": [
+            {
+              "id": "e2",
+              "event_id": "event1",
+              "field": "response",
+              "quote": "전체 화면 캡처까지 함께 저장하는 방안도 고려할 수 있어요."
+            }
+          ]
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000003",
+          "type": "decision",
+          "speaker": "user",
+          "text": "주소와 주요 본문부터 저장하고 화면 캡처는 이번에 하지 않기로 결정했다.",
+          "object_evidence_links": [
+            {
+              "id": "e3",
+              "event_id": "event2",
+              "field": "question",
+              "quote": "주소와 주요 본문부터 저장할게. 화면 캡처는 이번에는 하지 말자."
+            }
+          ]
+        },
+        {
+          "id": "10000000-0000-4000-8000-000000000004",
+          "type": "open_question",
+          "speaker": "user",
+          "text": "본문이 없는 방문 기록을 분석에서 어떻게 표시할지 보류했다.",
+          "object_evidence_links": [
+            {
+              "id": "e4",
+              "event_id": "event2",
+              "field": "question",
+              "quote": "본문이 없는 방문 기록을 분석 화면에서 어떻게 보여줄지는 아직 정하지 않았어. 나중에 확인하자."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event_order": [
+    {
+      "event_id": "event1",
+      "position": 1
+    },
+    {
+      "event_id": "event2",
+      "position": 2
+    }
+  ]
+}

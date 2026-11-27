@@ -1,6 +1,8 @@
 import { database, requireLocal, checkDatabaseError as check } from '../../../lib/db';
 import { NextResponse } from 'next/server';
 import { normalizeEvent } from '../../../lib/events';
+import {sortAnalysisRuns} from '../../../lib/analysis-view';
+import {isSummaryUnavailable,publicSummary} from '../../../lib/summary-worker';
 export const dynamic = 'force-dynamic';
 const result = data => NextResponse.json(data, { headers: { 'Cache-Control': 'no-store' } });
 async function handler(request, { params }) {
@@ -10,6 +12,12 @@ async function handler(request, { params }) {
   const body = ['POST','DELETE'].includes(method) ? await request.json() : {};
   if(path[0]==='analysis'&&path.length===4&&path[2]==='source'&&method==='GET'){
    const {data,error}=await db.from('analysis_inputs').select('snapshot').eq('run_id',path[1]).eq('event_id',path[3]).single();check(error);return result(data.snapshot);
+  }
+  if(path[0]==='analysis'&&path.length===3&&path[2]==='summary'&&method==='POST'){
+   if(!process.env.OPENAI_API_KEY)throw Error('AI 분석 연결 설정이 필요합니다.');
+   const {data,error}=await db.rpc('prm_request_summary',{p_run:path[1]});
+   if(isSummaryUnavailable(error))throw Error('요약 DB 설정이 필요합니다. db/summary.sql을 적용하세요.');
+   check(error);return result(publicSummary(data[0]));
   }
   if (path[0] === 'projects' && path.length === 1 && method === 'GET') {
    const { data, error } = await db.from('projects').select('*,sessions(*)').order('created_at', { ascending: false }); check(error); return result(data);
@@ -27,7 +35,13 @@ async function handler(request, { params }) {
   if(path[0]==='sessions'&&path.length===3&&path[2]==='analysis'&&method==='GET'){
    const {data,error}=await db.from('analysis_runs').select('*,episodes(*,reasoning_objects(*,object_evidence_links(*)))').eq('session_id',path[1]).order('created_at',{ascending:false}).limit(10);
    if(error&&['PGRST205','PGRST200','42P01'].includes(error.code))return result({available:false,runs:[],message:'분석 DB 설정이 필요합니다.'});
-   check(error);return result({available:true,runs:data,configured:!!process.env.OPENAI_API_KEY});
+   check(error);
+   const runs=sortAnalysisRuns(data);let summaryAvailable=true,summaries=[];
+   if(runs.length){
+    const response=await db.from('analysis_summary_jobs').select('run_id,version,status,result,error,created_at,completed_at,progress:checkpoint->progress').in('run_id',runs.map(run=>run.id));
+    if(isSummaryUnavailable(response.error))summaryAvailable=false;else{check(response.error);summaries=response.data;}
+   }
+   return result({available:true,summary_available:summaryAvailable,runs:runs.map(run=>({...run,summary:publicSummary(summaries.find(job=>job.run_id===run.id))})),configured:!!process.env.OPENAI_API_KEY});
   }
   if(path[0]==='sessions'&&path.length===3&&path[2]==='analysis'&&method==='POST'){
    if(!process.env.OPENAI_API_KEY)throw Error('AI 분석을 사용하려면 OPENAI_API_KEY를 설정하세요.');

@@ -1,0 +1,54 @@
+[
+  {
+    "name": "search-is-not-open",
+    "status": "passed",
+    "duration_ms": 38609,
+    "checks": {
+      "reference_and_authorship": true,
+      "required_open": true,
+      "not_open": true,
+      "first_suggestion": true,
+      "question_states": true
+    },
+    "usage": {
+      "input_tokens": 6695,
+      "output_tokens": 3352,
+      "total_tokens": 10047
+    }
+  },
+  {
+    "name": "resolved-then-deferred",
+    "status": "passed",
+    "duration_ms": 40297,
+    "checks": {
+      "reference_and_authorship": true,
+      "required_open": true,
+      "not_open": true,
+      "first_suggestion": true,
+      "question_states": true
+    },
+    "usage": {
+      "input_tokens": 7880,
+      "output_tokens": 3143,
+      "total_tokens": 11023
+    }
+  },
+  {
+    "name": "existing-run-comparison",
+    "status": "passed",
+    "duration_ms": 33743,
+    "checks": {
+      "reference_and_authorship": true,
+      "required_open": true,
+      "not_open": true,
+      "first_suggestion": true,
+      "question_states": true,
+      "overview_reference": true
+    },
+    "usage": {
+      "input_tokens": 15252,
+      "output_tokens": 2737,
+      "total_tokens": 17989
+    }
+  }
+]

@@ -1,0 +1,518 @@
+{
+  "name": "existing-run-comparison",
+  "synthetic": false,
+  "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+  "policy": "summary-policy-v2",
+  "status": "passed",
+  "duration_ms": 33743,
+  "checks": {
+    "reference_and_authorship": true,
+    "required_open": true,
+    "not_open": true,
+    "first_suggestion": true,
+    "question_states": true,
+    "overview_reference": true
+  },
+  "result": {
+    "overview": [
+      {
+        "text": "사용자는 MVP에서 Supabase를 메인 데이터 저장소로 사용하고 IndexedDB는 오프라인 임시 저장과 캐시로 활용하기로 최종 결정했어.",
+        "object_ids": [
+          "a531a407-6431-4a29-b8bd-ed358d695291"
+        ]
+      }
+    ],
+    "topics": [
+      {
+        "text": "브라우저 로컬 저장(IndexedDB)과 PWA/오프라인 동작 관련 기술 조사 및 한계(데이터 보존, 영속성 요청, 백업 필요성).",
+        "object_ids": [
+          "25ec2894-9599-499f-ad9e-ab0b3dac86c9",
+          "291e4d15-fcf0-4742-a97b-2c0eb3f2dfb9",
+          "665c44e9-d6f0-4b0b-8df6-57948079b362",
+          "99c90cb7-a481-4597-99e8-4044e7aedca4",
+          "b1e3f0b6-9266-4da2-814c-f8858c8f770a",
+          "c2b637a4-f3c2-46c5-ada6-78c03751d95d"
+        ]
+      },
+      {
+        "text": "IndexedDB 단독 저장 가설 검증과 위험 분석(데이터 유실, 백업·복구 테스트, 동기화 한계).",
+        "object_ids": [
+          "4dd2c8ba-56ce-4db1-8cc7-fd01349a0dda",
+          "54ae8169-8ce0-4128-a835-5bf70ac772a3",
+          "6fa38e41-8791-4107-b253-80fe232cb170",
+          "89db6184-cf61-47cc-bcf0-95446494e358",
+          "98eb6514-0365-49ef-95d2-27ea35c6f767",
+          "fbef0370-314d-468f-8d89-1f71d6fe9414"
+        ]
+      },
+      {
+        "text": "아키텍처 재검토: Supabase를 메인 저장소로 도입하고 IndexedDB는 로컬 캐시/오프라인 계층으로 사용하는 Offline-first + Cloud Sync 구조.",
+        "object_ids": [
+          "42dd4102-6652-427f-b078-82bed1c08594",
+          "83840374-5133-44bb-b59e-f36b7712a7de",
+          "a888b96f-5364-4279-b97d-1409a7629e82",
+          "be4b41a8-087d-4567-8c38-33865d1c962b",
+          "f09f489c-0d5d-4590-9274-f5d4a8144940"
+        ]
+      },
+      {
+        "text": "회원가입(인증) 도입 여부에 따른 UX·개발 복잡도 비교 및 미결정 상태 유지.",
+        "object_ids": [
+          "2b296c9a-70f9-4fc8-89b0-0e743dc8219d",
+          "b14017df-309c-44d6-8ee0-63bcfc09d7d3"
+        ]
+      }
+    ],
+    "decisions": [
+      {
+        "text": "MVP에서는 Supabase를 메인 데이터 저장소로 사용하고, IndexedDB는 오프라인 임시 저장과 캐시로 활용하기로 결정함. 기존의 IndexedDB 단독 방식은 기기 간 동기화와 데이터 보존 요구로 채택하지 않음.",
+        "object_ids": [
+          "a531a407-6431-4a29-b8bd-ed358d695291"
+        ]
+      }
+    ],
+    "open_questions": [
+      {
+        "text": "MVP에 회원가입(인증) 기능을 포함할지 여부 — 사용자는 \"아직 결정하지 않을거야\"라며 실제 사용자 테스트 후 판단하겠다고 명시함.",
+        "object_ids": [
+          "2b296c9a-70f9-4fc8-89b0-0e743dc8219d",
+          "b14017df-309c-44d6-8ee0-63bcfc09d7d3"
+        ]
+      }
+    ],
+    "suggestions": [
+      {
+        "text": "회원가입 도입 여부 결정을 위해 실제 사용자 테스트를 설계해봐: (1) 가입/비가입 두 그룹으로 프로토타입 제공, (2) 각 그룹에서 메모 동기화 흐름·초기 설정 소요시간·심리적 진입장벽(예: 계정 필요성)을 측정하고, (3) 수집된 사용성·전환 데이터를 기반으로 회원가입 도입 여부를 판단하라. 이 제안은 사용자가 남긴 미해결 질문(\"회원가입은 아직 결정하지 않을게...\" )을 진전시키기 위한 구체적 검증 과제야.",
+        "object_ids": [
+          "b14017df-309c-44d6-8ee0-63bcfc09d7d3",
+          "2b296c9a-70f9-4fc8-89b0-0e743dc8219d"
+        ]
+      }
+    ]
+  },
+  "usage": {
+    "input_tokens": 15252,
+    "output_tokens": 2737,
+    "total_tokens": 17989
+  },
+  "checkpoint": {
+    "version": "summary-v1",
+    "policy_version": "summary-policy-v2",
+    "input_hash": "adab1bff3465a26d77d3db749e8ac3558052741e6adbe381e91eff3f3553d760",
+    "started_at": "2026-11-25T12:27:22.169Z",
+    "queue_ms": 0,
+    "usage": {
+      "input_tokens": 15252,
+      "output_tokens": 2737,
+      "total_tokens": 17989
+    },
+    "calls": [
+      {
+        "stage": "review_summary_question_states",
+        "started_at": "2026-11-25T12:27:22.171Z",
+        "completed_at": "2026-11-25T12:27:37.769Z",
+        "duration_ms": 15598,
+        "usage": {
+          "input_tokens": 2859,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            },
+            "cached_tokens": 0
+          },
+          "output_tokens": 879,
+          "output_tokens_details": {
+            "reasoning_tokens": 448
+          },
+          "total_tokens": 3738
+        }
+      },
+      {
+        "stage": "summarize_session",
+        "started_at": "2026-11-25T12:27:37.770Z",
+        "completed_at": "2026-11-25T12:27:46.551Z",
+        "duration_ms": 8782,
+        "usage": {
+          "input_tokens": 6083,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            },
+            "cached_tokens": 0
+          },
+          "output_tokens": 904,
+          "output_tokens_details": {
+            "reasoning_tokens": 128
+          },
+          "total_tokens": 6987
+        }
+      },
+      {
+        "stage": "review_session_summary_items",
+        "started_at": "2026-11-25T12:27:46.552Z",
+        "completed_at": "2026-11-25T12:27:55.911Z",
+        "duration_ms": 9358,
+        "usage": {
+          "input_tokens": 6310,
+          "input_tokens_details": {
+            "cache_write_tokens": 0,
+            "cache_write_tokens_details": {
+              "ttl_12h_tokens": 0,
+              "ttl_30m_tokens": 0
+            },
+            "cached_tokens": 0
+          },
+          "output_tokens": 954,
+          "output_tokens_details": {
+            "reasoning_tokens": 448
+          },
+          "total_tokens": 7264
+        }
+      }
+    ],
+    "attempts": [
+      {
+        "candidate": {
+          "overview": [
+            {
+              "text": "사용자는 MVP에서 Supabase를 메인 데이터 저장소로 사용하고 IndexedDB는 오프라인 임시 저장과 캐시로 활용하기로 최종 결정했어.",
+              "object_ids": [
+                "a531a407-6431-4a29-b8bd-ed358d695291"
+              ]
+            }
+          ],
+          "topics": [
+            {
+              "text": "브라우저 로컬 저장(IndexedDB)과 PWA/오프라인 동작 관련 기술 조사 및 한계(데이터 보존, 영속성 요청, 백업 필요성).",
+              "object_ids": [
+                "25ec2894-9599-499f-ad9e-ab0b3dac86c9",
+                "291e4d15-fcf0-4742-a97b-2c0eb3f2dfb9",
+                "665c44e9-d6f0-4b0b-8df6-57948079b362",
+                "99c90cb7-a481-4597-99e8-4044e7aedca4",
+                "b1e3f0b6-9266-4da2-814c-f8858c8f770a",
+                "c2b637a4-f3c2-46c5-ada6-78c03751d95d"
+              ]
+            },
+            {
+              "text": "IndexedDB 단독 저장 가설 검증과 위험 분석(데이터 유실, 백업·복구 테스트, 동기화 한계).",
+              "object_ids": [
+                "4dd2c8ba-56ce-4db1-8cc7-fd01349a0dda",
+                "54ae8169-8ce0-4128-a835-5bf70ac772a3",
+                "6fa38e41-8791-4107-b253-80fe232cb170",
+                "89db6184-cf61-47cc-bcf0-95446494e358",
+                "98eb6514-0365-49ef-95d2-27ea35c6f767",
+                "fbef0370-314d-468f-8d89-1f71d6fe9414"
+              ]
+            },
+            {
+              "text": "아키텍처 재검토: Supabase를 메인 저장소로 도입하고 IndexedDB는 로컬 캐시/오프라인 계층으로 사용하는 Offline-first + Cloud Sync 구조.",
+              "object_ids": [
+                "42dd4102-6652-427f-b078-82bed1c08594",
+                "83840374-5133-44bb-b59e-f36b7712a7de",
+                "a888b96f-5364-4279-b97d-1409a7629e82",
+                "be4b41a8-087d-4567-8c38-33865d1c962b",
+                "f09f489c-0d5d-4590-9274-f5d4a8144940"
+              ]
+            },
+            {
+              "text": "회원가입(인증) 도입 여부에 따른 UX·개발 복잡도 비교 및 미결정 상태 유지.",
+              "object_ids": [
+                "2b296c9a-70f9-4fc8-89b0-0e743dc8219d",
+                "b14017df-309c-44d6-8ee0-63bcfc09d7d3"
+              ]
+            }
+          ],
+          "decisions": [
+            {
+              "text": "MVP에서는 Supabase를 메인 데이터 저장소로 사용하고, IndexedDB는 오프라인 임시 저장과 캐시로 활용하기로 결정함. 기존의 IndexedDB 단독 방식은 기기 간 동기화와 데이터 보존 요구로 채택하지 않음.",
+              "object_ids": [
+                "a531a407-6431-4a29-b8bd-ed358d695291"
+              ]
+            }
+          ],
+          "open_questions": [
+            {
+              "text": "MVP에 회원가입(인증) 기능을 포함할지 여부 — 사용자는 \"아직 결정하지 않을거야\"라며 실제 사용자 테스트 후 판단하겠다고 명시함.",
+              "object_ids": [
+                "2b296c9a-70f9-4fc8-89b0-0e743dc8219d",
+                "b14017df-309c-44d6-8ee0-63bcfc09d7d3"
+              ]
+            }
+          ],
+          "suggestions": [
+            {
+              "text": "회원가입 도입 여부 결정을 위해 실제 사용자 테스트를 설계해봐: (1) 가입/비가입 두 그룹으로 프로토타입 제공, (2) 각 그룹에서 메모 동기화 흐름·초기 설정 소요시간·심리적 진입장벽(예: 계정 필요성)을 측정하고, (3) 수집된 사용성·전환 데이터를 기반으로 회원가입 도입 여부를 판단하라. 이 제안은 사용자가 남긴 미해결 질문(\"회원가입은 아직 결정하지 않을게...\" )을 진전시키기 위한 구체적 검증 과제야.",
+              "object_ids": [
+                "b14017df-309c-44d6-8ee0-63bcfc09d7d3",
+                "2b296c9a-70f9-4fc8-89b0-0e743dc8219d"
+              ]
+            }
+          ]
+        },
+        "review": {
+          "candidate_hash": "de9ea68de27257b910937d39689c1f7221255b6621102a0ecfca7fac6bf2aabb",
+          "result": {
+            "items": [
+              {
+                "slot": "overview:0",
+                "verdict": "supported",
+                "reason": "사용자 결정 진술 O28이 해당 내용을 직접 표현함(예: 'MVP에서는 Supabase를 메인 데이터 저장소로 사용하고, IndexedDB는 오프라인 임시 저장과 캐시에 활용할게')."
+              },
+              {
+                "slot": "topics:0",
+                "verdict": "supported",
+                "reason": "여러 출처 문서/증거(O2,O3,O4,O7,O17,O18)가 브라우저 로컬 저장 및 IndexedDB의 특성(비동기, 구조화 데이터 저장, 영구성 요청 등)을 설명함."
+              },
+              {
+                "slot": "topics:1",
+                "verdict": "supported",
+                "reason": "어시스턴트의 검토·권고 및 위험 지적(O9,O10,O12,O13,O14,O23)이 IndexedDB 단독 저장 가설의 한계(데이터 유실, 백업 필요, 동기화 한계)를 다룸."
+              },
+              {
+                "slot": "topics:2",
+                "verdict": "supported",
+                "reason": "아키텍처 재검토와 Offline-first+Cloud Sync 제안은 어시스턴트의 인사이트 O25,O27,O29,O31,O34에 근거함(IndexedDB를 로컬 캐시로, Supabase를 메인 저장소로 결합)."
+              },
+              {
+                "slot": "topics:3",
+                "verdict": "supported",
+                "reason": "회원가입 도입 여부에 관한 사용자의 미결정 선언과 비교 요청은 사용자 질문 O24와 후속 명시 O30에 의해 명확히 남아 있음."
+              },
+              {
+                "slot": "decisions:0",
+                "verdict": "supported",
+                "reason": "사용자 스스로의 최종 결정 O28이 'Supabase를 메인, IndexedDB는 오프라인 캐시'로 명시함."
+              },
+              {
+                "slot": "open_questions:0",
+                "verdict": "supported",
+                "reason": "회원가입 포함 여부는 사용자가 '아직 결정하지 않을게'라 명시한 O24 및 O30으로 미해결 상태임."
+              },
+              {
+                "slot": "suggestions:0",
+                "verdict": "supported",
+                "reason": "회원가입 여부 결정을 위한 실제 사용자 테스트 설계 제안은 사용자가 남긴 미해결 질문(O24,O30)을 진전시키기 위한 구체적 검증 과제로 연결되어 있음."
+              }
+            ]
+          }
+        },
+        "issues": []
+      }
+    ],
+    "state_attempts": [
+      {
+        "items": [
+          {
+            "object_id": "c602efc5-f6c8-444b-819c-0836d270902a",
+            "status": "resolved",
+            "reason": "초기 IndexedDB 단독 사용 가설에 대해 사용자가 최종적으로 Supabase를 메인 저장소로 하고 IndexedDB는 오프라인 캐시로만 사용하기로 결정함(사용자 결정).",
+            "supporting_object_ids": [
+              "c602efc5-f6c8-444b-819c-0836d270902a",
+              "a531a407-6431-4a29-b8bd-ed358d695291"
+            ]
+          },
+          {
+            "object_id": "d4adfca8-6c71-4194-8d2d-1e0ac3cba35c",
+            "status": "resolved",
+            "reason": "초기 Offline-first(브라우저 저장만) 선호는 최종적으로 채택되지 않았고, 사용자가 Supabase를 메인으로 하기로 결정함(사용자 결정).",
+            "supporting_object_ids": [
+              "d4adfca8-6c71-4194-8d2d-1e0ac3cba35c",
+              "a531a407-6431-4a29-b8bd-ed358d695291"
+            ]
+          },
+          {
+            "object_id": "2b296c9a-70f9-4fc8-89b0-0e743dc8219d",
+            "status": "open",
+            "reason": "회원가입 기능을 MVP에 포함할지 여부는 사용자 본인이 \"아직 결정하지 않을거야\"라고 밝혔고, 이후 실제 사용자 테스트 후 판단하겠다고 명시함(미해결 상태 유지 요청).",
+            "supporting_object_ids": [
+              "2b296c9a-70f9-4fc8-89b0-0e743dc8219d",
+              "b14017df-309c-44d6-8ee0-63bcfc09d7d3"
+            ]
+          },
+          {
+            "object_id": "b14017df-309c-44d6-8ee0-63bcfc09d7d3",
+            "status": "open",
+            "reason": "사용자가 회원가입 여부를 \"지금은 이 질문을 미해결 상태로 남겨두자\"라고 명확히 표현함.",
+            "supporting_object_ids": [
+              "b14017df-309c-44d6-8ee0-63bcfc09d7d3"
+            ]
+          },
+          {
+            "object_id": "c65cf2ef-8b42-45bb-9eca-c527b4971d1f",
+            "status": "resolved",
+            "reason": "브라우저 저장소의 삭제 위험과 기기 간 동기화 우려를 제기한 후, 사용자가 Supabase를 메인 데이터 저장소로 사용하기로 최종 결정함(사용자 결정).",
+            "supporting_object_ids": [
+              "c65cf2ef-8b42-45bb-9eca-c527b4971d1f",
+              "a531a407-6431-4a29-b8bd-ed358d695291"
+            ]
+          },
+          {
+            "object_id": "ec0bc63a-18ec-40e8-8a0f-e1a5803be4b3",
+            "status": "resolved",
+            "reason": "Cloud-first 방식 및 Supabase 도입 검토 요청 이후, 사용자가 MVP에서 Supabase를 메인 저장소로 사용하기로 최종 결정함(사용자 결정).",
+            "supporting_object_ids": [
+              "ec0bc63a-18ec-40e8-8a0f-e1a5803be4b3",
+              "a531a407-6431-4a29-b8bd-ed358d695291"
+            ]
+          }
+        ]
+      }
+    ],
+    "progress": {
+      "stage": "complete"
+    },
+    "question_states": {
+      "items": [
+        {
+          "object_id": "c602efc5-f6c8-444b-819c-0836d270902a",
+          "status": "resolved",
+          "reason": "초기 IndexedDB 단독 사용 가설에 대해 사용자가 최종적으로 Supabase를 메인 저장소로 하고 IndexedDB는 오프라인 캐시로만 사용하기로 결정함(사용자 결정).",
+          "supporting_object_ids": [
+            "c602efc5-f6c8-444b-819c-0836d270902a",
+            "a531a407-6431-4a29-b8bd-ed358d695291"
+          ]
+        },
+        {
+          "object_id": "d4adfca8-6c71-4194-8d2d-1e0ac3cba35c",
+          "status": "resolved",
+          "reason": "초기 Offline-first(브라우저 저장만) 선호는 최종적으로 채택되지 않았고, 사용자가 Supabase를 메인으로 하기로 결정함(사용자 결정).",
+          "supporting_object_ids": [
+            "d4adfca8-6c71-4194-8d2d-1e0ac3cba35c",
+            "a531a407-6431-4a29-b8bd-ed358d695291"
+          ]
+        },
+        {
+          "object_id": "2b296c9a-70f9-4fc8-89b0-0e743dc8219d",
+          "status": "open",
+          "reason": "회원가입 기능을 MVP에 포함할지 여부는 사용자 본인이 \"아직 결정하지 않을거야\"라고 밝혔고, 이후 실제 사용자 테스트 후 판단하겠다고 명시함(미해결 상태 유지 요청).",
+          "supporting_object_ids": [
+            "2b296c9a-70f9-4fc8-89b0-0e743dc8219d",
+            "b14017df-309c-44d6-8ee0-63bcfc09d7d3"
+          ]
+        },
+        {
+          "object_id": "b14017df-309c-44d6-8ee0-63bcfc09d7d3",
+          "status": "open",
+          "reason": "사용자가 회원가입 여부를 \"지금은 이 질문을 미해결 상태로 남겨두자\"라고 명확히 표현함.",
+          "supporting_object_ids": [
+            "b14017df-309c-44d6-8ee0-63bcfc09d7d3"
+          ]
+        },
+        {
+          "object_id": "c65cf2ef-8b42-45bb-9eca-c527b4971d1f",
+          "status": "resolved",
+          "reason": "브라우저 저장소의 삭제 위험과 기기 간 동기화 우려를 제기한 후, 사용자가 Supabase를 메인 데이터 저장소로 사용하기로 최종 결정함(사용자 결정).",
+          "supporting_object_ids": [
+            "c65cf2ef-8b42-45bb-9eca-c527b4971d1f",
+            "a531a407-6431-4a29-b8bd-ed358d695291"
+          ]
+        },
+        {
+          "object_id": "ec0bc63a-18ec-40e8-8a0f-e1a5803be4b3",
+          "status": "resolved",
+          "reason": "Cloud-first 방식 및 Supabase 도입 검토 요청 이후, 사용자가 MVP에서 Supabase를 메인 저장소로 사용하기로 최종 결정함(사용자 결정).",
+          "supporting_object_ids": [
+            "ec0bc63a-18ec-40e8-8a0f-e1a5803be4b3",
+            "a531a407-6431-4a29-b8bd-ed358d695291"
+          ]
+        }
+      ]
+    },
+    "generation_attempts": [
+      {
+        "overview": [
+          {
+            "text": "사용자는 MVP에서 Supabase를 메인 데이터 저장소로 사용하고 IndexedDB는 오프라인 임시 저장과 캐시로 활용하기로 최종 결정했어.",
+            "object_ids": [
+              "a531a407-6431-4a29-b8bd-ed358d695291"
+            ]
+          }
+        ],
+        "topics": [
+          {
+            "text": "브라우저 로컬 저장(IndexedDB)과 PWA/오프라인 동작 관련 기술 조사 및 한계(데이터 보존, 영속성 요청, 백업 필요성).",
+            "object_ids": [
+              "25ec2894-9599-499f-ad9e-ab0b3dac86c9",
+              "291e4d15-fcf0-4742-a97b-2c0eb3f2dfb9",
+              "665c44e9-d6f0-4b0b-8df6-57948079b362",
+              "99c90cb7-a481-4597-99e8-4044e7aedca4",
+              "b1e3f0b6-9266-4da2-814c-f8858c8f770a",
+              "c2b637a4-f3c2-46c5-ada6-78c03751d95d"
+            ]
+          },
+          {
+            "text": "IndexedDB 단독 저장 가설 검증과 위험 분석(데이터 유실, 백업·복구 테스트, 동기화 한계).",
+            "object_ids": [
+              "4dd2c8ba-56ce-4db1-8cc7-fd01349a0dda",
+              "54ae8169-8ce0-4128-a835-5bf70ac772a3",
+              "6fa38e41-8791-4107-b253-80fe232cb170",
+              "89db6184-cf61-47cc-bcf0-95446494e358",
+              "98eb6514-0365-49ef-95d2-27ea35c6f767",
+              "fbef0370-314d-468f-8d89-1f71d6fe9414"
+            ]
+          },
+          {
+            "text": "아키텍처 재검토: Supabase를 메인 저장소로 도입하고 IndexedDB는 로컬 캐시/오프라인 계층으로 사용하는 Offline-first + Cloud Sync 구조.",
+            "object_ids": [
+              "42dd4102-6652-427f-b078-82bed1c08594",
+              "83840374-5133-44bb-b59e-f36b7712a7de",
+              "a888b96f-5364-4279-b97d-1409a7629e82",
+              "be4b41a8-087d-4567-8c38-33865d1c962b",
+              "f09f489c-0d5d-4590-9274-f5d4a8144940"
+            ]
+          },
+          {
+            "text": "회원가입(인증) 도입 여부에 따른 UX·개발 복잡도 비교 및 미결정 상태 유지.",
+            "object_ids": [
+              "2b296c9a-70f9-4fc8-89b0-0e743dc8219d",
+              "b14017df-309c-44d6-8ee0-63bcfc09d7d3"
+            ]
+          }
+        ],
+        "decisions": [
+          {
+            "text": "MVP에서는 Supabase를 메인 데이터 저장소로 사용하고, IndexedDB는 오프라인 임시 저장과 캐시로 활용하기로 결정함. 기존의 IndexedDB 단독 방식은 기기 간 동기화와 데이터 보존 요구로 채택하지 않음.",
+            "object_ids": [
+              "a531a407-6431-4a29-b8bd-ed358d695291"
+            ]
+          }
+        ],
+        "open_questions": [
+          {
+            "text": "MVP에 회원가입(인증) 기능을 포함할지 여부 — 사용자는 \"아직 결정하지 않을거야\"라며 실제 사용자 테스트 후 판단하겠다고 명시함.",
+            "object_ids": [
+              "2b296c9a-70f9-4fc8-89b0-0e743dc8219d",
+              "b14017df-309c-44d6-8ee0-63bcfc09d7d3"
+            ]
+          }
+        ],
+        "suggestions": [
+          {
+            "text": "회원가입 도입 여부 결정을 위해 실제 사용자 테스트를 설계해봐: (1) 가입/비가입 두 그룹으로 프로토타입 제공, (2) 각 그룹에서 메모 동기화 흐름·초기 설정 소요시간·심리적 진입장벽(예: 계정 필요성)을 측정하고, (3) 수집된 사용성·전환 데이터를 기반으로 회원가입 도입 여부를 판단하라. 이 제안은 사용자가 남긴 미해결 질문(\"회원가입은 아직 결정하지 않을게...\" )을 진전시키기 위한 구체적 검증 과제야.",
+            "object_ids": [
+              "b14017df-309c-44d6-8ee0-63bcfc09d7d3",
+              "2b296c9a-70f9-4fc8-89b0-0e743dc8219d"
+            ]
+          }
+        ]
+      }
+    ],
+    "completed_at": "2026-11-25T12:27:55.911Z"
+  },
+  "semantic_truth": "not_verified",
+  "expected": {
+    "open": [
+      "b14017df-309c-44d6-8ee0-63bcfc09d7d3"
+    ],
+    "not_open": [
+      "59b106bc-4700-4090-8607-299d8903991a",
+      "d090e7ab-e4a3-42fa-a51f-13233ae4713a"
+    ],
+    "first_suggestion": "b14017df-309c-44d6-8ee0-63bcfc09d7d3",
+    "overview_reference": "a531a407-6431-4a29-b8bd-ed358d695291"
+  }
+}

@@ -1,0 +1,291 @@
+{
+  "date": "2026-11-25",
+  "scope": "현재 완료된 요약 한 건과 데스크톱 Chrome의 요약→결정→원문→활동 흐름. 기존 Run의 재요약이며 최신 정책으로 재분석한 결과가 아님.",
+  "metrics": {
+    "project": "개인 메모 앱의 데이터 저장 방식을 어떻게 결정할 것인가?",
+    "run_id": "c4bbd6f5-77d4-4a55-a5b3-7d3f1c410061",
+    "session_id": "f964b780-2b59-4499-9901-fd2de9ccb967",
+    "model": "gpt-5-mini",
+    "status": "complete",
+    "elapsed_including_queue_seconds": 34.606,
+    "created_at": "2026-11-25T10:04:13.012247+00:00",
+    "completed_at": "2026-11-25T10:04:47.618+00:00",
+    "usage": {
+      "input_tokens": 13804,
+      "total_tokens": 16552,
+      "output_tokens": 2748
+    },
+    "attempts": 1,
+    "reviews": 1,
+    "events": 22,
+    "episodes": 4,
+    "objects": 35,
+    "objects_by_episode": [
+      {
+        "sequence": 1,
+        "title": "초기 질문: 오프라인 우선(Offline-first) 도입 고려",
+        "objects": 0
+      },
+      {
+        "sequence": 2,
+        "title": "브라우저 로컬 저장 옵션 조사",
+        "objects": 7
+      },
+      {
+        "sequence": 4,
+        "title": "아키텍처 재검토: 클라우드( Supabase ) 도입 및 인증(회원가입) 검토",
+        "objects": 12
+      },
+      {
+        "sequence": 3,
+        "title": "가설 검증과 위험 분석 — IndexedDB 단독 사용 평가",
+        "objects": 16
+      }
+    ],
+    "summary_counts": {
+      "topics": 4,
+      "overview": 1,
+      "decisions": 1,
+      "suggestions": 3,
+      "open_questions": 2
+    },
+    "reference_buttons": 44,
+    "summary_chars": 1174,
+    "original_quote_checks": {
+      "total": 36,
+      "missing": 0
+    },
+    "review": {
+      "reason": "모든 요약 항목이 제공된 객체들(object_ids)만을 근거로 작성되었고, 사용자 결정(decision)은 type=decision·speaker=user 객체(a531a407-6431-4a29-b8bd-ed358d695291)를 참조합니다. 미해결 질문들은 user가 제기한 open_question 객체들(59b106bc-4700-4090-8607-299d8903991a, d090e7ab-e4a3-42fa-a51f-13233ae4713a, b14017df-309c-44d6-8ee0-63bcfc09d7d3)만을 근거로 표시되어 있으며, 제안(suggestions)과 토픽·결론들은 각기 대응하는 출처/어시스턴트 인사이트 객체들을 참조합니다. 요약은 외부 지식이나 가정 없이 제공된 캡처된 발화와 문서 인용만을 사용해 구성되었습니다.",
+      "supported": true
+    }
+  },
+  "http": {
+    "analysis": {
+      "samples": [
+        {
+          "ms": 134.1,
+          "status": 200
+        },
+        {
+          "ms": 97.8,
+          "status": 200
+        },
+        {
+          "ms": 149.9,
+          "status": 200
+        },
+        {
+          "ms": 79.6,
+          "status": 200
+        },
+        {
+          "ms": 68.5,
+          "status": 200
+        }
+      ],
+      "median_ms": 97.8,
+      "min_ms": 68.5,
+      "max_ms": 149.9,
+      "response_bytes": 42186,
+      "runs_returned": 7
+    },
+    "source": {
+      "ms": 29.1,
+      "status": 200,
+      "bytes": 7950
+    },
+    "limits": "Five sequential local development-server HTTP reads; not browser rendering, load testing, or a production latency percentile."
+  },
+  "steps": [
+    {
+      "number": 1,
+      "title": "작업 회고 읽기",
+      "health": "개선 필요",
+      "screenshot": "01-summary-current.png",
+      "notes": [
+        "개요 326자와 20개 링크가 핵심 결정보다 먼저 보인다.",
+        "결정과 미해결 질문이 분리된 점은 좋다.",
+        "반복된 링크 이름은 접근성 명확성을 떨어뜨린다."
+      ]
+    },
+    {
+      "number": 2,
+      "title": "결정의 관련 기록으로 이동",
+      "health": "정상, 복귀 경로 개선 필요",
+      "screenshot": "02-decision-linked.png",
+      "notes": [
+        "실제 사용자 결정이 있는 주제와 근거가 자동으로 펼쳐졌다.",
+        "출발점인 요약으로 돌아가는 전용 동작은 없다."
+      ]
+    },
+    {
+      "number": 3,
+      "title": "저장된 원문 확인",
+      "health": "정상",
+      "screenshot": "03-source-panel.png",
+      "notes": [
+        "원문 패널에서 정확한 사용자 발언이 강조됐다.",
+        "Escape로 닫은 뒤 실행 버튼으로 포커스가 돌아왔다.",
+        "이 사례에서는 질문 필드 전체가 인용 범위이므로 주변 다른 대화까지 검증한 것은 아니다."
+      ]
+    },
+    {
+      "number": 4,
+      "title": "관련 활동 기록으로 이동",
+      "health": "정상, 현재 위치 표현 개선 필요",
+      "screenshot": "04-activity-linked.png",
+      "notes": [
+        "대상 대화가 펼쳐지고 포커스가 이동했다.",
+        "현재 탭·세션 헤더는 스크롤 위쪽에 가려진다.",
+        "긴 AI 답변이 화면을 차지해 원래 요약 맥락과 멀어진다."
+      ]
+    }
+  ],
+  "findings": [
+    {
+      "id": "Q1",
+      "priority": "high",
+      "kind": "summary_quality",
+      "finding": "검색어 두 건이 현재 남은 질문으로 제시됨",
+      "evidence": {
+        "summary_text": "IndexedDB의 데이터 유실/브라우저 저장소 삭제(스케일·eviction) 관련 리스크를 검증할 필요가 있음. (사용자 질문)",
+        "refs": [
+          {
+            "id": "59b106bc-4700-4090-8607-299d8903991a",
+            "type": "open_question",
+            "speaker": "user",
+            "text": "indexedDB data loss browser storage eviction",
+            "episode_sequence": 3,
+            "evidence": [
+              {
+                "event_id": "da62f3f2-7ce5-4625-aa5b-615169758338",
+                "field": "query",
+                "quote": "indexedDB data loss browser storage eviction"
+              }
+            ]
+          },
+          {
+            "id": "d090e7ab-e4a3-42fa-a51f-13233ae4713a",
+            "type": "open_question",
+            "speaker": "user",
+            "text": "indexedDB data loss browser storage eviction",
+            "episode_sequence": 3,
+            "evidence": [
+              {
+                "event_id": "72bc9476-5242-4815-9bcc-0a80448389f6",
+                "field": "query",
+                "quote": "indexedDB data loss browser storage eviction"
+              }
+            ]
+          }
+        ]
+      },
+      "impact": "조사했던 위험과 사용자가 명시적으로 보류한 결정을 구분하지 못한다.",
+      "recommendation": "검색어만으로 현재 미해결 상태를 단정하지 않는다. 사용자 명시 발언과 후속 결정의 해결 상태를 검토하고 조사 주제와 미해결 질문을 분리한다."
+    },
+    {
+      "id": "Q2",
+      "priority": "high",
+      "kind": "provenance",
+      "finding": "개요의 최종 결정·회원가입 보류 주장에 해당 사용자 객체가 직접 연결되지 않음",
+      "evidence": {
+        "overview_refs": [
+          "2594bc8f-2316-4891-9512-8f80b12c9bff",
+          "25ec2894-9599-499f-ad9e-ab0b3dac86c9",
+          "291e4d15-fcf0-4742-a97b-2c0eb3f2dfb9",
+          "665c44e9-d6f0-4b0b-8df6-57948079b362",
+          "8fe60ee1-65aa-41d6-9cd5-1c657547ff8e",
+          "49562933-1957-4b60-8924-31bf02814682",
+          "4dd2c8ba-56ce-4db1-8cc7-fd01349a0dda",
+          "54ae8169-8ce0-4128-a835-5bf70ac772a3",
+          "59b106bc-4700-4090-8607-299d8903991a",
+          "6fa38e41-8791-4107-b253-80fe232cb170",
+          "89db6184-cf61-47cc-bcf0-95446494e358",
+          "98eb6514-0365-49ef-95d2-27ea35c6f767",
+          "a59793ad-ea97-4976-b92e-e994a3c9b26a",
+          "ad73a4cf-cd38-414a-afc1-77cea836a4f7",
+          "ebbb9a64-05d1-4878-896c-080e6d7d3ff7",
+          "fbef0370-314d-468f-8d89-1f71d6fe9414",
+          "2b296c9a-70f9-4fc8-89b0-0e743dc8219d",
+          "42dd4102-6652-427f-b078-82bed1c08594",
+          "6cb765ce-0d9f-411d-b119-030fb139aeda",
+          "83840374-5133-44bb-b59e-f36b7712a7de"
+        ],
+        "decision_ids": [
+          "a531a407-6431-4a29-b8bd-ed358d695291"
+        ],
+        "deferred_question_id": "b14017df-309c-44d6-8ee0-63bcfc09d7d3"
+      },
+      "impact": "내용 자체는 원문과 맞지만, 근거 버튼을 통해 해당 사용자 발언으로 바로 검증할 수 없다. 전역 모델 검토가 이 누락을 통과시켰다.",
+      "recommendation": "요약 항목별 주장과 선택 근거의 연결을 검토하고 사용자 결정·보류 주장은 해당 사용자 객체를 직접 참조하게 한다."
+    },
+    {
+      "id": "Q3",
+      "priority": "medium",
+      "kind": "next_steps",
+      "finding": "다음 작업이 과거 AI의 일반 구현 권고를 주로 반복함",
+      "evidence": [
+        {
+          "text": "저장소 추상화 계층을 도입해 UI와 IndexedDB 접근을 분리하면, 이후 클라우드 동기화나 백엔드 변경 시 수정 범위를 줄일 수 있음. (제안된 권고사항)",
+          "object_ids": [
+            "4dd2c8ba-56ce-4db1-8cc7-fd01349a0dda"
+          ]
+        },
+        {
+          "text": "백업·복원 기능을 구현하고 복구 테스트(데이터 삭제 후 정상 복원 확인)를 포함한 검증 절차를 마련할 것. 또한 전체 메모 내보내기/가져오기(JSON) 기능을 우선 추가할 것.",
+          "object_ids": [
+            "54ae8169-8ce0-4128-a835-5bf70ac772a3",
+            "fbef0370-314d-468f-8d89-1f71d6fe9414"
+          ]
+        },
+        {
+          "text": "오프라인 실행을 보장하려면 Service Worker와 애셋 캐시 전략을 별도로 구현하고, IndexedDB는 데이터 캐시/임시 저장 목적으로 사용하라.",
+          "object_ids": [
+            "a59793ad-ea97-4976-b92e-e994a3c9b26a",
+            "83840374-5133-44bb-b59e-f36b7712a7de"
+          ]
+        }
+      ],
+      "impact": "명시적으로 남긴 회원가입 사용자 테스트가 제안 우선순위에 반영되지 않았다.",
+      "recommendation": "최근 명시적 미해결 질문을 우선하고 그 판단을 진전시키는 확인 작업을 제안한다. 기존 AI 권고와 새 다음 작업을 구분한다."
+    },
+    {
+      "id": "U1",
+      "priority": "high",
+      "kind": "ux_accessibility",
+      "step": 1,
+      "screenshot": "01-summary-current.png",
+      "finding": "요약에 관련 기록 버튼 44개, 개요에만 20개가 기본 노출됨",
+      "impact": "핵심 결정을 훑기 어렵고 반복된 접근성 이름이 목적지 예측을 방해한다.",
+      "recommendation": "항목마다 근거 N개 버튼 하나로 접고 펼친 목록에서 유형·제목·시각으로 목적지를 구분한다."
+    },
+    {
+      "id": "U2",
+      "priority": "high",
+      "kind": "ux",
+      "step": 1,
+      "screenshot": "01-summary-current.png",
+      "finding": "긴 개요가 결정과 미해결 질문보다 앞에 놓임",
+      "impact": "다시 작업을 시작하려는 사용자가 핵심 결과를 찾기 위해 더 많이 읽고 스크롤해야 한다.",
+      "recommendation": "최종 결정·남은 질문·다음 확인 작업을 먼저 보여주고 과정 회고와 자료는 접는다."
+    },
+    {
+      "id": "U3",
+      "priority": "medium",
+      "kind": "navigation",
+      "step": 4,
+      "screenshot": "04-activity-linked.png",
+      "finding": "근거와 활동으로 이동하면 탭·세션 제목이 화면 밖으로 사라짐",
+      "impact": "현재 위치를 파악하고 요약으로 돌아가기 어렵다.",
+      "recommendation": "세션 헤더와 탭을 고정하고 요약으로 돌아가기 동작 및 이전 스크롤 위치를 보존한다."
+    }
+  ],
+  "limits": [
+    "완료 결과 한 건이므로 일반 정확도·성공률·지연 백분위로 일반화할 수 없다.",
+    "생성 소요 34.606초는 대기 시간을 포함한다. 모델·대기·DB 단계별 시간은 기록되지 않았다.",
+    "HTTP 측정은 로컬 개발 서버 순차 요청 5회이며 브라우저 렌더링·상호작용 지표가 아니다.",
+    "모바일·스크린리더·대규모 데이터·부하·실패 상태를 이번 실제 화면 감사에서 시험하지 않았다.",
+    "평가 중 재요약이나 재분석을 요청하지 않았고 제품 코드·분석 데이터는 변경하지 않았다."
+  ]
+}
